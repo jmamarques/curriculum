@@ -9,10 +9,13 @@
           <mat-card-title>{{user.first_name}} {{user.last_name}}</mat-card-title>
           <mat-card-subtitle>{{user.current_Function}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src={{user.profile_pic}} alt="Photo of {{user.first_name}}">
-        <mat-card-content class="footer_image">
+        <figure>
+          <img mat-card-image src={{user.profile_pic}} alt="Photo of {{user.first_name}}">
+        </figure>
+        <mat-card-content class="footer">
           <!--Apenas para adicionar uma linha no fim da imagem -->
-          Do you want to learn more about me?
+          <a href = "#" class = "column col-xs-6" id = "caption"><span class = "text"><h1>Thunder</h1></span></a>
+          <!--Do you want to learn more about me?-->
        </mat-card-content>
       </mat-card>
 
