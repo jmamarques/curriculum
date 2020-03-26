@@ -4,5 +4,6 @@ export interface User {
   last_name: String,
   data_nascimento:String,
   phone_number:number,
-  description: String
+  description: String,
+  current_Function: String
 }

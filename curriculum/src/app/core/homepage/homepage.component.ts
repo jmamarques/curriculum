@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from '../../user';
+import {UserService} from '../../user.service'
 
 @Component({
   selector: 'cod-homepage',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-
-  constructor() { }
+  users: User [];
+  constructor(private serviceUsers:UserService) { }
 
   ngOnInit(): void {
+    this.users =this.serviceUsers.getUsers();
   }
 
 }
