@@ -7,6 +7,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomepageComponent } from './core/homepage/homepage.component';
 import {MatCardModule} from '@angular/material/card';
 import {MaterialSharedModule} from './shared/modules/material-shared.module';
+import {NgxBootstrapSharedModule} from './shared/modules/ngx-bootstrap-shared.module';
+import {PrimeNgSharedModule} from './shared/modules/prime-ng-shared.module';
+import {MenuComponent} from './core/menu/menu.component';
 
 const appRoutes: Routes = [
     { path: '',
@@ -18,7 +21,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent
+    HomepageComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -26,8 +30,9 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatCardModule,
     MaterialSharedModule,
-    RouterModule.forRoot(appRoutes,{enableTracing:true}) //teoricamente isto eh para debbuggin but idk
-
+    RouterModule.forRoot(appRoutes,{enableTracing:true}), //teoricamente isto eh para debbuggin but idk
+    NgxBootstrapSharedModule,
+    PrimeNgSharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
