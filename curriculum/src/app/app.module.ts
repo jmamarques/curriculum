@@ -6,6 +6,7 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomepageComponent } from './core/homepage/homepage.component';
 import {MatCardModule} from '@angular/material/card';
+import {MaterialSharedModule} from './shared/modules/material-shared.module';
 
 const appRoutes: Routes = [
     { path: '',
@@ -24,7 +25,9 @@ const appRoutes: Routes = [
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
+    MaterialSharedModule,
     RouterModule.forRoot(appRoutes,{enableTracing:true}) //teoricamente isto eh para debbuggin but idk
+
   ],
   providers: [],
   bootstrap: [AppComponent]
