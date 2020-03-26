@@ -5,5 +5,7 @@ export interface User {
   data_nascimento:String,
   phone_number:number,
   description: String,
-  current_Function: String
+  current_Function: String,
+  icon_profile: String,
+  profile_pic:String
 }
