@@ -21,6 +21,13 @@
         >
           <i class="pi pi-home"></i>
           Home
+          <i
+            [class.pi-sort-down]="menuItems.isCollapsed('home')"
+            [class.pi-sort-up]="!menuItems.isCollapsed('home')"
+            [hidden]="isActiveSidebar"
+            class="pi"
+            style="float: right"
+          ></i>
         </a>
         <ul
           [collapse]="menuItems.isCollapsed('home')"
@@ -52,6 +59,13 @@
         >
           <i class="pi pi-copy"></i>
           Pages
+          <i
+            [class.pi-sort-down]="menuItems.isCollapsed('pages')"
+            [class.pi-sort-up]="!menuItems.isCollapsed('pages')"
+            [hidden]="isActiveSidebar"
+            class="pi"
+            style="float: right"
+          ></i>
         </a>
         <ul
           [collapse]="menuItems.isCollapsed('pages')"
