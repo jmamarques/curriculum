@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Menu} from './menu';
 
 @Component({
   selector: 'cod-menu',
@@ -7,10 +8,19 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+  isActiveSidebar = true;
+  menuItems: Menu = new Menu();
+
   constructor() {
   }
 
   ngOnInit(): void {
+    this.menuItems.addMenuItem('home', {isCollapsed: true, isAnimated: true});
+    // this.menuItems.addMenuItem('about', {isCollapsed: true, isAnimated: true});
+    this.menuItems.addMenuItem('pages', {isCollapsed: true, isAnimated: true});
   }
 
+  click() {
+    this.isActiveSidebar = !this.isActiveSidebar;
+  }
 }
