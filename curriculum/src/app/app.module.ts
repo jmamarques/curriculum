@@ -11,6 +11,7 @@ import {NgxBootstrapSharedModule} from './shared/modules/ngx-bootstrap-shared.mo
 import {PrimeNgSharedModule} from './shared/modules/prime-ng-shared.module';
 import {MenuComponent} from './core/menu/menu.component';
 import {CollapseModule} from 'ngx-bootstrap';
+import {HeaderComponent} from './core/header/header.component';
 
 const appRoutes: Routes = [
     { path: '',
@@ -23,7 +24,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomepageComponent,
-    MenuComponent
+    MenuComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

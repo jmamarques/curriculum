@@ -20,6 +20,10 @@ export class MenuComponent implements OnInit {
     this.menuItems.addMenuItem('pages', {isCollapsed: true, isAnimated: true});
   }
 
+  changeValue(value: boolean) {
+    this.isActiveSidebar = value;
+  }
+
   click() {
     this.isActiveSidebar = !this.isActiveSidebar;
   }

@@ -47,7 +47,7 @@
         </ul>
       </li>
       <li>
-        <a href="#">
+        <a routerLink="homepage">
           <i class="pi pi-briefcase"></i>
           About
         </a>
@@ -90,17 +90,10 @@
 
   <!-- Page Content  -->
   <div id="content">
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <button (click)="click()" class="btn btn-info" id="sidebarCollapse" type="button">
-          <i
-            [class.pi-align-left]="!isActiveSidebar"
-            [class.pi-bars]="isActiveSidebar"
-            class="pi"
-          ></i>
-        </button>
-      </div>
-    </nav>
+    <cod-header
+      (sideBar)="changeValue($event)"
+      [isActiveSidebar]="isActiveSidebar"
+    ></cod-header>
+    <router-outlet></router-outlet>
   </div>
 </div>

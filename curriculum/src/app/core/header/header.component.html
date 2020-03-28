@@ -1,0 +1,11 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button (click)="click()" class="btn btn-info" id="sidebarCollapse" type="button">
+      <i
+        [class.pi-align-left]="!isActiveSidebar"
+        [class.pi-bars]="isActiveSidebar"
+        class="pi"
+      ></i>
+    </button>
+  </div>
+</nav>

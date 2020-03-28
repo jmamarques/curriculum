@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../user';
-import {UserService} from '../../user.service'
+import {UserService} from '../../user.service';
 
 @Component({
   selector: 'cod-homepage',
@@ -9,10 +9,12 @@ import {UserService} from '../../user.service'
 })
 export class HomepageComponent implements OnInit {
   users: User [];
-  constructor(private serviceUsers:UserService) { }
+
+  constructor(private serviceUsers: UserService) {
+  }
 
   ngOnInit(): void {
-    this.users =this.serviceUsers.getUsers();
+    this.users = this.serviceUsers.getUsers();
   }
 
 }
