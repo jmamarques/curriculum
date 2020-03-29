@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {Menu} from './menu';
 
 @Component({
@@ -8,8 +8,10 @@ import {Menu} from './menu';
 })
 export class MenuComponent implements OnInit {
 
-  @Input() isActiveSidebar = true;
+  isActiveSidebar = true;
   menuItems: Menu = new Menu();
+  @ViewChild('navElement') navElement: ElementRef;
+  hideSideBar = false;
 
   constructor() {
   }
@@ -26,5 +28,12 @@ export class MenuComponent implements OnInit {
 
   click() {
     this.isActiveSidebar = !this.isActiveSidebar;
+  }
+
+
+  @HostListener('window:scroll', ['$event'])
+  handleScroll(): void {
+    const windowScroll = window.pageYOffset;
+    this.hideSideBar = windowScroll > 300;
   }
 }

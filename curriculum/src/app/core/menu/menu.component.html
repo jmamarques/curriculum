@@ -1,6 +1,8 @@
 <div class="wrapper">
   <!-- Sidebar  -->
   <nav
+    #navElement
+    [class.hide-sidebar] = "hideSideBar"
     [class.active]="isActiveSidebar"
     id="sidebar"
   >
@@ -98,9 +100,9 @@
       </li>
       <li>
         <a routerLink="#">
-          <span class="material-icons">
+          <i class="material-icons">
             contacts
-          </span>
+          </i>
           Contact
         </a>
       </li>
@@ -114,6 +116,8 @@
       (sideBar)="changeValue($event)"
       [isActiveSidebar]="isActiveSidebar"
     ></cod-header>
-    <router-outlet></router-outlet>
+    <div style="padding: 20px">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
