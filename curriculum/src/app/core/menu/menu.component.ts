@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Menu} from './menu';
 
 @Component({
@@ -8,7 +8,7 @@ import {Menu} from './menu';
 })
 export class MenuComponent implements OnInit {
 
-  isActiveSidebar = true;
+  @Input() isActiveSidebar = true;
   menuItems: Menu = new Menu();
 
   constructor() {

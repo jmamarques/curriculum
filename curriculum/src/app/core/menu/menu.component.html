@@ -17,7 +17,6 @@
           (click)="menuItems.toggleCollapse('home')"
           [attr.aria-expanded]="!menuItems.isCollapsed('home')"
           aria-controls="homeSubmenu"
-          class="dropdown-toggle"
         >
           <i class="pi pi-home"></i>
           Home
@@ -36,13 +35,13 @@
           id="homeSubmenu"
         >
           <li>
-            <a href="#">Home 1</a>
+            <a routerLink="#">Home 1</a>
           </li>
           <li>
-            <a href="#">Home 2</a>
+            <a routerLink="#">Home 2</a>
           </li>
           <li>
-            <a href="#">Home 3</a>
+            <a routerLink="#">Home 3</a>
           </li>
         </ul>
       </li>
@@ -57,7 +56,6 @@
           (click)="menuItems.toggleCollapse('pages')"
           [attr.aria-expanded]="!menuItems.isCollapsed('pages')"
           aria-controls="pageSubmenu"
-          class="dropdown-toggle"
         >
           <i class="pi pi-copy"></i>
           Pages
@@ -65,7 +63,7 @@
             [class.pi-sort-down]="menuItems.isCollapsed('pages')"
             [class.pi-sort-up]="!menuItems.isCollapsed('pages')"
             [hidden]="isActiveSidebar"
-            class="pi hide-icon"
+            class="pi"
             style="float: right"
           ></i>
         </a>
@@ -76,15 +74,35 @@
           id="pageSubmenu"
         >
           <li>
-            <a href="#">Page 1</a>
+            <a routerLink="#">Page 1</a>
           </li>
           <li>
-            <a href="#">Page 2</a>
+            <a routerLink="#">Page 2</a>
           </li>
           <li>
-            <a href="#">Page 3</a>
+            <a routerLink="#">Page 3</a>
           </li>
         </ul>
+      </li>
+      <li>
+        <a routerLink="#">
+          <i class="pi pi-image"></i>
+          Portfolio
+        </a>
+      </li>
+      <li>
+        <a routerLink="#">
+          <i class="pi pi-question"></i>
+          FAQ
+        </a>
+      </li>
+      <li>
+        <a routerLink="#">
+          <span class="material-icons">
+            contacts
+          </span>
+          Contact
+        </a>
       </li>
     </ul>
 
