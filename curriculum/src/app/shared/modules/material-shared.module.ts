@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
+import {ButtonModule} from 'primeng/button';
 
-const imports = [MatCardModule];
+const imports = [MatCardModule,ButtonModule];
 
 @NgModule({
   declarations: [],

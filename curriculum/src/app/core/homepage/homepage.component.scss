@@ -14,6 +14,20 @@ html, body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+
+}
+.mat-card {
+  color:black;
+}
+.mat-card-subtitle {
+  color:black;
+  margin-left: 10%;
+}
+.mat-card-title{
+  padding-left: 10%;
+}
+.mat-card-image{
+  margin-left: 0%;
 }
 
 .example-header-image {
@@ -23,6 +37,19 @@ html, body {
 .footer{
   text-align: center;
 }
+
+#lastRow{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-left: 0.5%;
+  padding-bottom: 0.25%;
+}
+
+.myCard {
+  background-color: rgb(224, 222, 222);
+}
+
 //CSS para por a animação do hover
 figure {
   position: relative;
@@ -56,6 +83,7 @@ figure:hover{
 }
 figure:hover::before {
     animation: circle .75s;
+
 }
 @keyframes bloom {
     0% {
@@ -101,13 +129,13 @@ figure:hover::before {
       margin: 0;
       color: white;
 }
-figure:hover ~ #caption.text{
-  opacity: 1;
-}
 .column#caption:hover .text {
   opacity: 1;
-
 }
+
+
+
+
 
 
 

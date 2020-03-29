@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div  *ngFor="let user of users" class="col-xl">
-      <mat-card class="example-card">
-        <mat-card-header>
+    <div *ngFor="let user of users" class="col-xl">
+      <mat-card class="example-card" [ngClass]="{'myCard':true}">
+        <mat-card-header >
           <div mat-card-avatar class="example-header-image">
             <img mat-card-image src={{user.icon_profile}} alt="Icon of {{user.first_name}}">
           </div>
@@ -14,10 +14,16 @@
         </figure>
         <mat-card-content class="footer">
           <!--Apenas para adicionar uma linha no fim da imagem -->
-          <a href = "#" class = "column col-xs-6" id = "caption"><span class = "text"><h1>Thunder</h1></span></a>
+          <a href="#" class="column col-xs-6" id="caption"><span class="text">
+              <h1>Thunder</h1>
+            </span></a>
           <!--Do you want to learn more about me?-->
-       </mat-card-content>
+        </mat-card-content>
       </mat-card>
 
+    </div>
+  </div>
+  <div class="row" id="lastRow">
+    <button type="button" class="btn btn-light btn-lg">Log In</button>
   </div>
 </div>
