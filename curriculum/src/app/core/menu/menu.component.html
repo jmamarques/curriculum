@@ -51,6 +51,8 @@
           <i class="pi pi-briefcase"></i>
           About
         </a>
+      </li>
+      <li [class.active]="!menuItems.isCollapsed('pages')">
         <a
           (click)="menuItems.toggleCollapse('pages')"
           [attr.aria-expanded]="!menuItems.isCollapsed('pages')"
@@ -63,7 +65,7 @@
             [class.pi-sort-down]="menuItems.isCollapsed('pages')"
             [class.pi-sort-up]="!menuItems.isCollapsed('pages')"
             [hidden]="isActiveSidebar"
-            class="pi"
+            class="pi hide-icon"
             style="float: right"
           ></i>
         </a>

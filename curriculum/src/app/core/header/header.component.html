@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <button (click)="click()" class="btn btn-info" id="sidebarCollapse" type="button">
       <i
@@ -8,4 +8,23 @@
       ></i>
     </button>
   </div>
-</nav>
+</nav>-->
+<header>
+  <div class="container-fluid">
+    <div id="divToButton">
+      <button (click)="click()" class="btn btn-info " id="sidebarCollapse" type="button">
+        <i
+          [class.pi-align-left]="!isActiveSidebar"
+          [class.pi-bars]="isActiveSidebar"
+          class="pi"
+        ></i>
+      </button>
+    </div>
+  </div>
+  <h1>Header Content</h1>
+  <svg preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <polygon class="svg--sm" fill="white" points="0,0 30,100 65,21 90,100 100,75 100,100 0,100"/>
+    <polygon class="svg--lg" fill="white"
+             points="0,0 15,100 33,21 45,100 50,75 55,100 72,20 85,100 95,50 100,80 100,100 0,100"/>
+  </svg>
+</header>

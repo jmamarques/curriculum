@@ -12,6 +12,7 @@ import {PrimeNgSharedModule} from './shared/modules/prime-ng-shared.module';
 import {MenuComponent} from './core/menu/menu.component';
 import {CollapseModule} from 'ngx-bootstrap';
 import {HeaderComponent} from './core/header/header.component';
+import {PageNotFoundComponent} from './core/page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
     { path: '',
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     AppComponent,
     HomepageComponent,
     MenuComponent,
-    HeaderComponent
+    HeaderComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
