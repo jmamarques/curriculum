@@ -1,7 +1,9 @@
 import {NgModule} from '@angular/core';
 import {DropdownModule} from 'primeng';
-
-const imports = [DropdownModule];
+import {ButtonModule} from 'primeng/button';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {CheckboxModule} from 'primeng/checkbox';
+const imports = [DropdownModule,ButtonModule,RadioButtonModule,CheckboxModule];
 
 @NgModule({
   declarations: [],

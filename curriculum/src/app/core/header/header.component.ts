@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cod-header',
@@ -10,7 +11,7 @@ export class HeaderComponent implements OnInit {
   @Input() isActiveSidebar: boolean;
   @Output() sideBar: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor() {
+  constructor(private router:Router) {
   }
 
   ngOnInit(): void {
@@ -19,6 +20,15 @@ export class HeaderComponent implements OnInit {
   click() {
     this.isActiveSidebar = !this.isActiveSidebar;
     this.sideBar.emit(this.isActiveSidebar);
+  }
+
+
+  goToRegister():void{
+    this.redirect("create");
+  }
+
+  redirect(goal:string): void{
+    this.router.navigate(['/account/'+goal]);
   }
 
 }

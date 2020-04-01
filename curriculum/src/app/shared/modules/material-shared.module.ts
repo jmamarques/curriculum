@@ -1,8 +1,9 @@
 import {NgModule} from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
-import {ButtonModule} from 'primeng/button';
+import {MatRadioModule} from '@angular/material/radio';
 
-const imports = [MatCardModule,ButtonModule];
+
+const imports = [MatCardModule,MatRadioModule];
 
 @NgModule({
   declarations: [],
