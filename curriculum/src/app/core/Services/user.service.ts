@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import {User} from './user'
+import {User} from '../../user'
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  currrentUsers: User [] =
-  [
+  currrentUsers: User [][] =
+  [[
     {id:1023456,
     first_name:"Francisco",
     last_name:"Grilo",
@@ -23,11 +23,31 @@ export class UserService {
       description:"After my first degree, I discovered this industry and quickly I realized how fascinating and challenging it can be. Writing code, building applications, solving problems/challenges. I'm always learning and I really like doing that. Even at home I still enthusiastically learn new frameworks and other programming languages.",
       current_Function:'Developer',
       icon_profile:"http://getdrawings.com/free-icon/icone-people-66.png",
-      profile_pic:"https://media-exp1.licdn.com/dms/image/C5603AQFTsMspZjkfhA/profile-displayphoto-shrink_800_800/0?e=1590624000&v=beta&t=AluRZ25lh-twHVLTzDbDL1kX_ihFs2iova9j-wF5ENs"}
+      profile_pic:"https://media-exp1.licdn.com/dms/image/C5603AQFTsMspZjkfhA/profile-displayphoto-shrink_800_800/0?e=1590624000&v=beta&t=AluRZ25lh-twHVLTzDbDL1kX_ihFs2iova9j-wF5ENs"},
+
+      {id:1,
+        first_name:"Albino",
+        last_name:"Cristovao",
+        data_nascimento:"1980/01/24",
+        phone_number:90236981,
+        description:"I like cake",
+        current_Function:'Git Master',
+        icon_profile:"http://getdrawings.com/free-icon/icone-people-66.png",
+        profile_pic:"https://cdn.sabado.pt/images/2017-11/img_1200x1200$2017_11_25_16_05_55_268874.jpg"}],
+
+        [{id:0,
+          first_name:"Add New User",
+          last_name:"",
+          data_nascimento:"",
+          phone_number:0,
+          description:"",
+          current_Function:'Join Us!',
+          icon_profile:'../../../assets/add.png',
+          profile_pic:"../../../assets/plus_icon.png"}]
   ];
   constructor() { }
 
-  getUsers() : User[]{
+  getUsers() : User[][]{
     return this.currrentUsers;
   }
 }

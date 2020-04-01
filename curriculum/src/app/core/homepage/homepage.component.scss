@@ -6,15 +6,11 @@ html, body {
 .container{
   height: 100%;
   max-width: 100% ;
-  padding-top: 5%;
-  background-image: linear-gradient(to right,rgb(6, 119, 248),rgb(6, 248, 196));
 }
 .example-card {
-  max-width: 60%;
-  display: block;
+  max-width: 80%;
   margin-left: auto;
   margin-right: auto;
-
 }
 .mat-card {
   color:black;
@@ -24,8 +20,9 @@ html, body {
   margin-left: 10%;
 }
 .mat-card-title{
-  padding-left: 10%;
+  margin-left: 20%;;
 }
+
 .mat-card-image{
   margin-left: 0%;
 }
@@ -34,8 +31,15 @@ html, body {
   background-size: cover;
 }
 
+.addImg{
+  margin-bottom: 0px !important;
+}
 .footer{
   text-align: center;
+  font-size:18px;
+}
+.col-xl{
+  margin-bottom: 3%;
 }
 
 #lastRow{
@@ -48,6 +52,7 @@ html, body {
 
 .myCard {
   background-color: rgb(224, 222, 222);
+  max-width: 500px;
 }
 
 //CSS para por a animação do hover

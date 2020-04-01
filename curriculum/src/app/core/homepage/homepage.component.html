@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div *ngFor="let user of users" class="col-xl">
+  <div *ngFor="let userList of users" class="row">
+    <div *ngFor="let user of userList" class="col-xl">
       <mat-card class="example-card" [ngClass]="{'myCard':true}">
         <mat-card-header >
           <div mat-card-avatar class="example-header-image">
@@ -20,10 +20,5 @@
           <!--Do you want to learn more about me?-->
         </mat-card-content>
       </mat-card>
-
     </div>
-  </div>
-  <div class="row" id="lastRow">
-    <button type="button" class="btn btn-light btn-lg">Log In</button>
-  </div>
 </div>
