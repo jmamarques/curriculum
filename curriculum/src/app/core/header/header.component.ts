@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Router } from '@angular/router';
+import { RouteService } from '../Services/route.service';
 
 @Component({
   selector: 'cod-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
   @Input() isActiveSidebar: boolean;
   @Output() sideBar: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(private router:Router) {
+  constructor(private routeService:RouteService) {
   }
 
   ngOnInit(): void {
@@ -24,7 +25,7 @@ export class HeaderComponent implements OnInit {
 
 
   redirect(goal:string): void{
-    this.router.navigate(['/account/'+goal]);
+    this.routeService.redirect(goal);
   }
 
 }

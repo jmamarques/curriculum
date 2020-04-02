@@ -5,12 +5,14 @@ import {PageNotFoundComponent} from './core/page-not-found/page-not-found.compon
 import { CreateAccountComponent } from './core/create-account/create-account.component';
 import { LogInAccountComponent } from './core/log-in-account/log-in-account.component';
 import { ContactComponent } from './core/contact/contact.component';
+import { ContactDetailsComponent } from './core/contact-details/contact-details.component';
 
 
 const routes: Routes = [
   {path:'account/create',component:CreateAccountComponent},
   {path:'account/log-in',component:LogInAccountComponent},
   {path:'cod/contacts', component:ContactComponent},
+  {path:'cod/contacts/details',component:ContactDetailsComponent},
   {path: 'page-not-found', component: PageNotFoundComponent},
   {path: 'homepage', component: HomepageComponent},
   {path: '**', component: PageNotFoundComponent}

@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {ThemePalette} from '@angular/material/core';
+import { RouteService } from '../Services/route.service';
 
 @Component({
   selector: 'cod-create-account',
@@ -10,12 +11,12 @@ import {ThemePalette} from '@angular/material/core';
 export class CreateAccountComponent implements OnInit {
   selectedValues: string[] = ['val1'];
   checkboxColor: ThemePalette = 'warn';
-  constructor(private router:Router) { }
+  constructor(private routeService:RouteService) { }
 
   ngOnInit(): void {
   }
   redirect(goal:string): void{
-    this.router.navigate(['/account/'+goal]);
+    this.routeService.redirect(goal);
   }
 
 }

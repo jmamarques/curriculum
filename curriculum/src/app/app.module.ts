@@ -16,8 +16,7 @@ import {PageNotFoundComponent} from './core/page-not-found/page-not-found.compon
 import { CreateAccountComponent } from './core/create-account/create-account.component';
 import { LogInAccountComponent } from './core/log-in-account/log-in-account.component';
 import { ContactComponent } from './core/contact/contact.component';
-import { ContactDetailsComponent } from './contact-details/contact-details.component';
-
+import { ContactDetailsComponent } from './core/contact-details/contact-details.component';
 const appRoutes: Routes = [
     { path: '',
     redirectTo: '/homepage',
@@ -35,8 +34,8 @@ const appRoutes: Routes = [
     CreateAccountComponent,
     LogInAccountComponent,
     ContactComponent,
-    ContactDetailsComponent
-  ],
+    ContactDetailsComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
