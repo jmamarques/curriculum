@@ -1,0 +1,97 @@
+.addVerticalLine {
+  border-right: 2px solid rgb(172, 169, 169);
+}
+h1{
+  padding: 0 0;
+  font: 40px "Arial";
+  text-align: center;
+  color:orange;
+}
+
+h3{
+  padding: 0 0;
+  font: 25px "Arial";
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.colButton{
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.labelText{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+h4{
+  padding: 0 0;
+  font: 20px "Arial";
+  text-align: center;
+  margin: 5%;
+  color:orange;
+}
+p{
+  text-align: center;
+  font: 17px "Arial";
+  margin-bottom: 5%;
+}
+.buttonsCol{
+  background-color: orange;
+  border-color: rgba(255, 166, 1, 0.979);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container{
+  margin-bottom: 3%;
+}
+
+.map-container-5{
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+  }
+  .map-container-5 iframe{
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
+  }
+
+  #locationH{
+    margin-top:50px;
+  }
+
+  .card-header{
+    background-image: linear-gradient(to right,#FFD06E,#FC6863);
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -20px;
+    -webkit-box-shadow: 28px 22px 35px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 28px 22px 35px -6px rgba(0,0,0,0.75);
+    box-shadow: 28px 22px 35px -6px rgba(0,0,0,0.75);
+    font: 20px "Arial";
+    text-align: center;
+    color: white;
+
+  }
+  #map-container-google-8{
+    -webkit-box-shadow: 28px 22px 35px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 28px 22px 35px -6px rgba(0,0,0,0.75);
+    box-shadow: 28px 22px 35px -6px rgba(0,0,0,0.75);
+  }
+  .card{
+    padding: 0px;
+  }
+
+
+
+
+

@@ -15,6 +15,8 @@ import {HeaderComponent} from './core/header/header.component';
 import {PageNotFoundComponent} from './core/page-not-found/page-not-found.component';
 import { CreateAccountComponent } from './core/create-account/create-account.component';
 import { LogInAccountComponent } from './core/log-in-account/log-in-account.component';
+import { ContactComponent } from './core/contact/contact.component';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
 
 const appRoutes: Routes = [
     { path: '',
@@ -31,7 +33,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     PageNotFoundComponent,
     CreateAccountComponent,
-    LogInAccountComponent
+    LogInAccountComponent,
+    ContactComponent,
+    ContactDetailsComponent
   ],
   imports: [
     BrowserModule,
