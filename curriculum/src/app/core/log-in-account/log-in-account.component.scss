@@ -1,0 +1,37 @@
+#cardLogin{
+  width: 100%;
+  -webkit-box-shadow: 22px 17px 55px 6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 22px 17px 55px 6px rgba(0,0,0,0.75);
+  box-shadow: 22px 17px 55px 6px rgba(0,0,0,0.75);
+
+}
+h2{
+  text-align: center;
+  margin-bottom: 30px;
+}
+#cardCreate{
+  width: 100%;
+  -webkit-box-shadow: 22px 17px 55px -11px rgba(0,0,0,0.75);
+  -moz-box-shadow: 22px 17px 55px -11px rgba(0,0,0,0.75);
+  box-shadow: 22px 17px 55px -11px rgba(0,0,0,0.75);
+  margin: auto;
+}
+label{
+  display: block;
+  text-align: center;
+}
+.list-group-item{
+  text-align: center;
+}
+.mat-radio-button{
+  margin-bottom: 15px;
+}
+
+#buttonCreate{
+  background-color: orange;
+  border-color: rgb(182, 120, 6);
+}
+.radioPrime{
+  margin-bottom: 22px;
+}
+

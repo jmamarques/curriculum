@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomepageComponent} from './core/homepage/homepage.component';
 import {PageNotFoundComponent} from './core/page-not-found/page-not-found.component';
 import { CreateAccountComponent } from './core/create-account/create-account.component';
-import { LogInAccountComponent } from './log-in-account/log-in-account.component';
+import { LogInAccountComponent } from './core/log-in-account/log-in-account.component';
 
 
 const routes: Routes = [

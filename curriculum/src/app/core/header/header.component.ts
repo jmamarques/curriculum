@@ -23,10 +23,6 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  goToRegister():void{
-    this.redirect("create");
-  }
-
   redirect(goal:string): void{
     this.router.navigate(['/account/'+goal]);
   }

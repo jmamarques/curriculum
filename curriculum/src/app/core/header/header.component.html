@@ -20,13 +20,13 @@
         ></i>
       </button>
 
-      <button class="btn btn-info " type="button" id="logInButton">
+      <button class="btn btn-info " type="button" id="logInButton" (click)="redirect('log-in')">
         <i
           class="pi pi-user"
         ></i>
         Log-In
       </button>
-      <button class="btn btn-info " type="button" id="registerButton" (click)="goToRegister()">
+      <button class="btn btn-info " type="button" id="registerButton" (click)="redirect('create')">
         <i
           class="pi pi-lock"
         ></i>
