@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { Router } from '@angular/router';
 import { RouteService } from '../Services/route.service';
 
 @Component({
@@ -8,7 +7,7 @@ import { RouteService } from '../Services/route.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  @Input() content: string;
   @Input() isActiveSidebar: boolean;
   @Output() sideBar: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -27,5 +26,6 @@ export class HeaderComponent implements OnInit {
   redirect(goal:string): void{
     this.routeService.redirect(goal);
   }
+
 
 }

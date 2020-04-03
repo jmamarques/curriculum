@@ -113,6 +113,7 @@
   <!-- Page Content  -->
   <div id="content">
     <cod-header
+      [content]="headerService.getContent()"
       (sideBar)="changeValue($event)"
       [isActiveSidebar]="isActiveSidebar"
     ></cod-header>

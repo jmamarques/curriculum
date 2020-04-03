@@ -1,5 +1,6 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {Menu} from './menu';
+import { HeaderService } from '../Services/header.service';
 
 @Component({
   selector: 'cod-menu',
@@ -13,7 +14,7 @@ export class MenuComponent implements OnInit {
   @ViewChild('navElement') navElement: ElementRef;
   hideSideBar = false;
 
-  constructor() {
+  constructor(public headerService:HeaderService) {
   }
 
   ngOnInit(): void {
