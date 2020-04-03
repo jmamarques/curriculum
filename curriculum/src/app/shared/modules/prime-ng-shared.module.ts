@@ -3,7 +3,8 @@ import {DropdownModule} from 'primeng';
 import {ButtonModule} from 'primeng/button';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {CheckboxModule} from 'primeng/checkbox';
-const imports = [DropdownModule,ButtonModule,RadioButtonModule,CheckboxModule];
+import {CardModule} from 'primeng/card';
+const imports = [DropdownModule,ButtonModule,RadioButtonModule,CheckboxModule,CardModule];
 
 @NgModule({
   declarations: [],

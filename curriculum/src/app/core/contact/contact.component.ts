@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouteService } from '../Services/route.service';
 
 @Component({
   selector: 'cod-contact',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(private routeService: RouteService) { }
 
   ngOnInit(): void {
+  }
+  redirect(goal: string){
+    this.routeService.redirect(goal);
+
   }
 
 }

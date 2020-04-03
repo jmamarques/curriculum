@@ -1,0 +1,36 @@
+.imageLi{
+  width: 25px;
+  height: 25px;
+  margin-right: 20px;
+}
+span{
+  font: 20px "Arial";
+}
+.addVerticalLine {
+  border-right: 1px solid rgb(201, 197, 197);
+}
+.imageLogo{
+  width: 50px;
+  height: 50px;
+}
+.cardClass{
+  width: 40px;
+}
+.card{
+  width: 400px;
+  -webkit-box-shadow: 10px 10px 15px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 15px -6px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 15px -6px rgba(0,0,0,0.75);
+}
+img.franciscoFoto {
+  width: 300px;
+  margin: auto;
+  margin-top: 5%;
+}
+h1{
+  margin: 0;
+}
+.card-title {
+  margin-bottom: 0;
+}
+

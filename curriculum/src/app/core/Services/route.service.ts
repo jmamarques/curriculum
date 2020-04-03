@@ -9,6 +9,6 @@ export class RouteService {
   constructor(private router:Router) { }
 
   redirect(goal:string): void{
-    this.router.navigate(['/account/'+goal]);
+    this.router.navigate([goal]);
   }
 }
