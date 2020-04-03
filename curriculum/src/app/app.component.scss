@@ -12,9 +12,10 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #404344;
+  background-color:orange;
   pointer-events: none;
-  mix-blend-mode: difference;
+  mix-blend-mode: normal;
+  opacity: 0.7;
   z-index: 999;
 
   transition: transform 0.2s;
@@ -54,7 +55,7 @@
 
 .expand {
   animation: cursorAnim3 .5s forwards;
-  border: 1px solid red;
+  border: 1px solid rgb(243, 198, 100);
 }
 html,
 *{
