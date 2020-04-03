@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 
 @Component({
   selector: 'cod-root',
@@ -7,19 +7,21 @@ import { Component, HostListener } from '@angular/core';
 })
 export class AppComponent {
   title = 'curriculum';
-  top:any;
-  left:any;
-  expand=false;
-  @HostListener('document:click', ['$event'])
-  onClick($event: any) {
-     this.expand=true;
-     setTimeout(() => {
-      this.expand=false;
-     }, 500)
- }
- @HostListener('document:mousemove', ['$event'])
-  onMousemove($event: { pageY: number; pageX: number; }) {
-    this.top=($event.pageY - 10)+ "px";
-    this.left= ($event.pageX - 10)+ "px";
- }
+  top: any;
+  left: any;
+  expand = false;
+
+  @HostListener('window:click', ['$event'])
+  onClick() {
+    this.expand = true;
+    setTimeout(() => {
+      this.expand = false;
+    }, 500);
+  }
+
+  @HostListener('window:mousemove', ['$event'])
+  onMousemove($event: { clientY: number; clientX: number; }) {
+    this.top = ($event.clientY - 10) + 'px';
+    this.left = ($event.clientX - 10) + 'px';
+  }
 }
