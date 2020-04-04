@@ -1,4 +1,5 @@
-import {Component, HostListener} from '@angular/core';
+import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
+import {HeaderService} from './core/Services/header.service';
 
 @Component({
   selector: 'cod-root',
@@ -6,9 +7,23 @@ import {Component, HostListener} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  @ViewChild('masterCursor') masterCursor: ElementRef;
   top: any;
   left: any;
   expand = false;
+  isActiveSidebar = true;
+
+  constructor(public headerService: HeaderService) {
+  }
+
+  changeValue(value: boolean) {
+    this.isActiveSidebar = value;
+  }
+
+  /* ************************************************************************* */
+  /* **************************CURSOR***************************************** */
+
+  /* ************************************************************************* */
 
   @HostListener('window:click', ['$event'])
   onClick() {
@@ -26,25 +41,29 @@ export class AppComponent {
 
   @HostListener('document:mouseover', ['$event'])
   mouseover($event: any) {
-    const cursor = document.getElementById('masterCursor');
-    if (cursor) {
-      if ($event.target.matches('button') || $event.target.matches('i') || $event.target.matches('a')) {
-        cursor.style.width = '30px';
-        cursor.style.height = '30px';
+    if (this.masterCursor) {
+      if ($event.target.matches('button')
+        || $event.target.matches('i')
+        || $event.target.matches('.cod-cursor')
+        || $event.target.matches('a')) {
+        this.masterCursor.nativeElement.style.width = '30px';
+        this.masterCursor.nativeElement.style.height = '30px';
       } else {
-        cursor.style.width = '20px';
-        cursor.style.height = '20px';
+        this.masterCursor.nativeElement.style.width = '20px';
+        this.masterCursor.nativeElement.style.height = '20px';
       }
     }
   }
 
   @HostListener('document:mouseout', ['$event'])
   mouseout($event: any) {
-    if ($event.target.matches('button') || $event.target.matches('i') || $event.target.matches('a')) {
-      const cursor = document.getElementById('masterCursor');
-      if (cursor) {
-        cursor.style.width = '20px';
-        cursor.style.height = '20px';
+    if ($event.target.matches('button')
+      || $event.target.matches('i')
+      || $event.target.matches('.cod-cursor')
+      || $event.target.matches('a')) {
+      if (this.masterCursor) {
+        this.masterCursor.nativeElement.width = '20px';
+        this.masterCursor.nativeElement.height = '20px';
       }
     }
   }

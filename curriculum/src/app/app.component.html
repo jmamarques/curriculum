@@ -1,9 +1,22 @@
-<div
-  [class.expand]="expand"
-  [style.left]="left"
-  [style.top]="top"
-  class="cursor"
-  id="masterCursor"
+<div #masterCursor
+     [class.expand]="expand"
+     [style.left]="left"
+     [style.top]="top"
+     class="cursor"
+     id="masterCursor"
 >
 </div>
-<cod-menu></cod-menu>
+<div class="wrapper">
+  <cod-menu [isActiveSidebar]="isActiveSidebar"></cod-menu>
+  <!-- Page Content  -->
+  <div id="content">
+    <cod-header
+      (sideBar)="changeValue($event)"
+      [content]="headerService.getContent()"
+      [isActiveSidebar]="isActiveSidebar"
+    ></cod-header>
+    <div style="padding: 20px">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -35,12 +35,10 @@ span {
     SIDEBAR STYLE
 ----------------------------------------------------- */
 
-.wrapper {
-  display: flex;
-  align-items: stretch;
-}
+
 
 #sidebar {
+  height: 100%;
   min-width: 250px;
   max-width: 250px;
   background: linear-gradient(to right, #13161F, #13161fc4);
@@ -68,7 +66,6 @@ span {
 
 #sidebar ul li a {
   text-align: left;
-  cursor: pointer;
 }
 
 #sidebar.active ul li a {
@@ -134,30 +131,9 @@ ul ul a {
   background: #494B52;
 }
 
-ul.CTAs {
-  padding: 20px;
-}
-
-ul.CTAs a {
-  text-align: center;
-  font-size: 0.9em !important;
-  display: block;
-  border-radius: 5px;
-  margin-bottom: 5px;
-}
-
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
-
-#content {
-  width: 100%;
-  //padding: 20px;
-  min-height: 100vh;
-  transition: all 0.3s;
-  max-height: 100%;
-  overflow: auto;
-}
 
 .hide-sidebar {
   display: none;
