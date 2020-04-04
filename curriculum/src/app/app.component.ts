@@ -26,11 +26,14 @@ export class AppComponent {
 
   @HostListener('document:mouseover', ['$event'])
   mouseover($event: any) {
-    if ($event.target.matches('button') || $event.target.matches('i') || $event.target.matches('a')) {
-      const cursor = document.getElementById('masterCursor');
-      if (cursor) {
+    const cursor = document.getElementById('masterCursor');
+    if (cursor) {
+      if ($event.target.matches('button') || $event.target.matches('i') || $event.target.matches('a')) {
         cursor.style.width = '30px';
         cursor.style.height = '30px';
+      } else {
+        cursor.style.width = '20px';
+        cursor.style.height = '20px';
       }
     }
   }
