@@ -6,6 +6,7 @@ import { CreateAccountComponent } from './core/create-account/create-account.com
 import { LogInAccountComponent } from './core/log-in-account/log-in-account.component';
 import { ContactComponent } from './core/contact/contact.component';
 import { ContactDetailsComponent } from './core/contact-details/contact-details.component';
+import { ContactSupportComponent } from './core/contact-support/contact-support.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:'account/log-in',component:LogInAccountComponent},
   {path:'cod/contacts', component:ContactComponent},
   {path:'cod/contacts/details',component:ContactDetailsComponent},
+  {path:'cod/contacts/support',component:ContactSupportComponent},
   {path: 'page-not-found', component: PageNotFoundComponent},
   {path: 'homepage', component: HomepageComponent},
   {path: '**', component: PageNotFoundComponent}
