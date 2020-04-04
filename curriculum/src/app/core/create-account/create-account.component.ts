@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {ThemePalette} from '@angular/material/core';
 import { RouteService } from '../Services/route.service';
+import { HeaderService } from '../Services/header.service';
 
 @Component({
   selector: 'cod-create-account',
@@ -11,7 +12,10 @@ import { RouteService } from '../Services/route.service';
 export class CreateAccountComponent implements OnInit {
   selectedValues: string[] = ['val1'];
   checkboxColor: ThemePalette = 'warn';
-  constructor(private routeService:RouteService) { }
+  constructor(private routeService:RouteService,
+              private headerservice:HeaderService) {
+                this.headerservice.setContent('Register to');
+               }
 
   ngOnInit(): void {
   }

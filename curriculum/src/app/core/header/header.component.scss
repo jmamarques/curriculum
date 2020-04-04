@@ -10,14 +10,16 @@
 
 #divToButton {
   padding: 15px 10px;
+
+  button {
+    height: 40px;
+  }
 }
 
 #logInButton{
   background: orange;
   float: right;
   border-color: orange;
-  width: 100px;
-  height: 50px;
 }
 #logInButton:hover {
   background: lighten(orange, 20%);
@@ -32,21 +34,17 @@
   background: orange;
   border-color: orange;
   float: right;
-  width: 125px;
-  height: 50px;
   margin-left: 5%;
   margin-right: 1%;
 }
 
-h1 {
+h2 {
   padding: 0 0;
   font: 55px "Arial";
   text-align: center;
 }
 
-
-
-header h1 {
+header h2 {
   color: white;
 }
 
@@ -98,28 +96,58 @@ span {
   display: inline;
 }
 span:after {
-  width: 0px;
+  width: 0;
   overflow: hidden;
   display: inline-block;
   vertical-align: bottom;
   transition: .2s linear;
   margin-right: 5px;
 }
+
 span:nth-child(1):after {
   content: 'ode    ';
 }
+
 span:nth-child(2):after {
   content: 'wn ';
 }
+
 span:nth-child(3):after {
   content: 'esign ';
 }
-div:hover span:nth-child(1):after {
-  width: 5%;
+
+
+@media (max-width: 575.98px) and (max-width: 991.98px) {
+  div:hover span:nth-child(1):after {
+    //width: 12vh;
+  }
+  div:hover span:nth-child(2):after {
+    //width: 10vh;
+  }
+  div:hover span:nth-child(3):after {
+    //width: 17vh;
+  }
 }
-div:hover span:nth-child(2):after {
-  width: 4%;
+
+// Media Queries
+
+@media (max-width: 575.98px) {
+  h2 {
+    padding: 0 0;
+    margin-top: 10%;
+    font: 40px "Arial";
+    text-align: center;
+  }
 }
-div:hover span:nth-child(3):after {
-  width: 7%;
+
+@media (min-width: 992px) {
+  div:hover span:nth-child(1):after {
+    width: 90px;
+  }
+  div:hover span:nth-child(2):after {
+    width: 70px;
+  }
+  div:hover span:nth-child(3):after {
+    width: 130px;
+  }
 }

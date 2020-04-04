@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, HostListener} from '@angular/core';
 import {User} from '../../user';
 import {UserService} from '../Services/user.service';
 
@@ -12,8 +12,8 @@ export class HomepageComponent implements OnInit {
 
   constructor(private serviceUsers: UserService) {
   }
-
   ngOnInit(): void {
     this.users = this.serviceUsers.getUsers();
  }
+
 }

@@ -11,7 +11,7 @@ export class ContactComponent implements OnInit {
 
   constructor(private routeService: RouteService,
               private headerService:HeaderService) {
-                this.headerService.setContent('Contact');
+                this.headerService.setContent('Contacts');
               }
 
   ngOnInit(): void {
