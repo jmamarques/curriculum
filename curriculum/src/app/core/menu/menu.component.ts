@@ -32,7 +32,7 @@ export class MenuComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  handleResize($event: any): void {
+  handleResize(): void {
     if (outerWidth < 600) {
       this.isActiveSidebar = false;
     }
