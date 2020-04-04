@@ -1,6 +1,6 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {Menu} from './menu';
-import { HeaderService } from '../Services/header.service';
+import {HeaderService} from '../Services/header.service';
 
 @Component({
   selector: 'cod-menu',
@@ -14,7 +14,7 @@ export class MenuComponent implements OnInit {
   @ViewChild('navElement') navElement: ElementRef;
   hideSideBar = false;
 
-  constructor(public headerService:HeaderService) {
+  constructor(public headerService: HeaderService) {
   }
 
   ngOnInit(): void {
@@ -31,10 +31,10 @@ export class MenuComponent implements OnInit {
     this.isActiveSidebar = !this.isActiveSidebar;
   }
 
-
-  @HostListener('window:scroll', ['$event'])
-  handleScroll(): void {
-    const windowScroll = window.pageYOffset;
-    this.hideSideBar = windowScroll > 300;
+  @HostListener('window:resize', ['$event'])
+  handleResize($event: any): void {
+    if (outerWidth < 600) {
+      this.isActiveSidebar = false;
+    }
   }
 }

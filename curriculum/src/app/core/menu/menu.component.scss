@@ -162,6 +162,19 @@ ul.CTAs a {
 .hide-sidebar {
   display: none;
 }
+
+.element::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.element {
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  overflow: -moz-hidden-unscrollable;
+}
+
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
