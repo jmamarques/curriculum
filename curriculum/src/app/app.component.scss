@@ -5,6 +5,7 @@
 .container {
   max-width: 100% !important;
 }
+
 //Cursor
 
 .cursor{
@@ -19,7 +20,6 @@
   z-index: 999;
   transition: transform 0.2s;
 }
-
 
 @keyframes cursorAnim {
   from {
@@ -55,9 +55,5 @@
 .expand {
   animation: cursorAnim3 .5s forwards;
   border: 1px solid rgb(243, 198, 100);
-}
-html,
-*{
-cursor: none;
 }
 

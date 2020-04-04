@@ -7,3 +7,13 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+// Remove standard cursor
+html,
+* {
+  cursor: none;
+}
+
+.btn, button:not(:disabled) {
+  cursor: none !important;
+}
