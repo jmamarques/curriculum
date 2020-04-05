@@ -1,0 +1,39 @@
+<header>
+  <div class="container-fluid">
+    <div id="divToButton">
+      <button (click)="click()" class="btn" id="sidebarCollapse" type="button">
+        <i
+          [class.pi-align-left]="!isActiveSidebar"
+          [class.pi-bars]="isActiveSidebar"
+          class="pi"
+        ></i>
+      </button>
+
+      <button (click)="redirect('/account/log-in')" class="btn" id="logInButton" type="button">
+        <i
+          class="pi pi-user"
+        ></i>
+        Log-In
+      </button>
+      <button (click)="redirect('/account/create')" class="btn" id="registerButton" type="button">
+        <i
+          class="pi pi-lock"
+        ></i>
+        Register
+      </button>
+    </div>
+  </div>
+  <h2>
+    <div>
+      {{content}}
+      <span>C</span>
+      <span>O</span>
+      <span>D</span>
+    </div>
+  </h2>
+  <svg preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <polygon class="svg--sm" fill="white" points="0,0 30,100 65,21 90,100 100,75 100,100 0,100"/>
+    <polygon class="svg--lg" fill="white"
+    points="0,30 5,55 10,45 25,70 35,50 45,55 50,20 55,35 65,29 70,75 75,70 90,100 100,75 100,100 0,100"/>
+  </svg>
+</header>

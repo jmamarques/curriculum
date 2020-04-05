@@ -1,0 +1,117 @@
+
+  <!-- Sidebar  -->
+  <nav
+    #navElement
+    [class.hide-sidebar] = "hideSideBar"
+    [class.active]="isActiveSidebar"
+    id="sidebar"
+  >
+    <div
+      cdkScrollable
+      class="element"
+    >
+      <div class="sidebar-header">
+        <div (click)="click()" id="sidebarCollapse">
+          <h1 class="cod-cursor">Code Own Design</h1>
+          <strong class="cod-cursor">COD</strong>
+        </div>
+      </div>
+
+      <ul class="list-unstyled components">
+        <li [class.active]="!menuItems.isCollapsed('home')">
+          <a
+            (click)="menuItems.toggleCollapse('home')"
+            [attr.aria-expanded]="!menuItems.isCollapsed('home')"
+            aria-controls="homeSubmenu"
+          >
+            <i class="pi pi-home"></i>
+            Home
+            <i
+              [class.pi-sort-down]="menuItems.isCollapsed('home')"
+              [class.pi-sort-up]="!menuItems.isCollapsed('home')"
+              [hidden]="isActiveSidebar"
+              class="pi"
+              style="float: right"
+            ></i>
+          </a>
+          <ul
+            [collapse]="menuItems.isCollapsed('home')"
+            [isAnimated]="menuItems.isAnimated('home')"
+            class="collapse list-unstyled"
+            id="homeSubmenu"
+          >
+            <li>
+              <a routerLink="#">Home 1</a>
+            </li>
+            <li>
+              <a routerLink="#">Home 2</a>
+            </li>
+            <li>
+              <a routerLink="#">Home 3</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a routerLink="homepage">
+            <i class="pi pi-briefcase"></i>
+            About
+          </a>
+        </li>
+        <li [class.active]="!menuItems.isCollapsed('pages')">
+          <a
+            (click)="menuItems.toggleCollapse('pages')"
+            [attr.aria-expanded]="!menuItems.isCollapsed('pages')"
+            aria-controls="pageSubmenu"
+          >
+            <i class="pi pi-copy"></i>
+            Pages
+            <i
+              [class.pi-sort-down]="menuItems.isCollapsed('pages')"
+              [class.pi-sort-up]="!menuItems.isCollapsed('pages')"
+              [hidden]="isActiveSidebar"
+              class="pi"
+              style="float: right"
+            ></i>
+          </a>
+          <ul
+            [collapse]="menuItems.isCollapsed('pages')"
+            [isAnimated]="menuItems.isAnimated('pages')"
+            class="collapse list-unstyled"
+            id="pageSubmenu"
+          >
+            <li>
+              <a routerLink="#">Page 1</a>
+            </li>
+            <li>
+              <a routerLink="#">Page 2</a>
+            </li>
+            <li>
+              <a routerLink="#">Page 3</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a routerLink="#">
+            <i class="pi pi-image"></i>
+            Portfolio
+          </a>
+        </li>
+        <li>
+          <a routerLink="#">
+            <i class="pi pi-question"></i>
+            FAQ
+          </a>
+        </li>
+        <li>
+          <a routerLink="cod/contacts">
+            <i class="material-icons">
+              contacts
+            </i>
+            Contact
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+

@@ -1,0 +1,60 @@
+.addVerticalLine {
+  border-right: 1px solid rgb(201, 197, 197);
+}
+
+.card{
+  width: 500px;
+  -webkit-box-shadow: 20px 22px 39px -18px rgba(0,0,0,0.75);
+  -moz-box-shadow: 20px 22px 39px -18px rgba(0,0,0,0.75);
+  box-shadow: 20px 22px 39px -18px rgba(0,0,0,0.75);
+}
+.groupImage{
+  width: 25px;
+}
+.card{
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.input-group-text{
+  background-color: lighten(orange,20%);
+}
+h1,h4{
+  text-align: center;
+}
+#submitButton{
+  background-color: orange;
+  border-color: rgba(255, 166, 1, 0.979);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-box-shadow: 6px 4px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 6px 4px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 6px 4px 5px 0px rgba(0,0,0,0.75);
+}
+#submitImage{
+  opacity: 70%;
+  margin-right: 10px;
+}
+
+h1{
+  background-image: linear-gradient(to right,#FFD06E,#FC6863);
+  z-index: 100;
+  padding: 0 0;
+  font: 23px "Arial";
+  text-align: center;
+  color:white;
+  margin-top: -8%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+.imgExtra{
+  width: 50px;
+  -webkit-box-shadow: -2px 2px 41px -7px rgba(0,0,0,0.75);
+  -moz-box-shadow: -2px 2px 41px -7px rgba(0,0,0,0.75);
+  box-shadow: -2px 2px 41px -7px rgba(0,0,0,0.75);
+  margin-right: 3%;
+}
+p,a {
+  font: 18px "Arial";
+}

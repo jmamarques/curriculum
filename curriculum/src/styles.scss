@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+/* ****************VARIABLES*********** */
+/* ************************************ */
+/* ************************************ */
+$cod-btn-hover-orange: lighten(orange, 20%);
+
+
+/* ****************CURSOR************** */
+/* ************************************ */
+/* ************************************ */
+// Remove standard cursor
+html,
+* {
+  cursor: none;
+}
+
+.btn, a {
+  cursor: none !important;
+}
+
+// all the objects with cod-cursor we increase the size in 20 px
+.cod-cursor {
+}
+
+/* **************BUTTON**************** */
+/* ************************************ */
+/* ************************************ */
+.btn:hover {
+  background: $cod-btn-hover-orange;
+  border-color: orange;
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 0.1rem $cod-btn-hover-orange;
+}
+
+.btn {
+  background: orange;
+  border-color: orange;
+  color: white;
+}
