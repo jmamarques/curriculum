@@ -7,5 +7,6 @@ export interface User {
   description: String,
   current_Function: String,
   icon_profile: String,
-  profile_pic:String
+  profile_pic:String,
+  catchPhrase: String
 }

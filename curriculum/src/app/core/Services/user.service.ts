@@ -14,7 +14,8 @@ export class UserService {
     description:"O meu percurso tem sido feito de desafios e muita aprendizagem. Já participei em vários projetos académicos e não académicos com o intuito de aumentar o meu conhecimento sobre novas Linguagens e Frameworks. Sou uma pessoa curiosa e sempre disponível para incorporar novas equipas, criar aplicações, resolver problemas e escrever código.",
     current_Function:'Student',
     icon_profile:"http://getdrawings.com/free-icon/icone-people-66.png",
-    profile_pic:"https://media-exp1.licdn.com/dms/image/C4D03AQGX56APJUfdfg/profile-displayphoto-shrink_800_800/0?e=1590624000&v=beta&t=9LmP9Ef_EM94hd0dpTT7vjobUmMh7sDqy_RiZMc6ft8"},
+    profile_pic:"https://media-exp1.licdn.com/dms/image/C4D03AQGX56APJUfdfg/profile-displayphoto-shrink_800_800/0?e=1590624000&v=beta&t=9LmP9Ef_EM94hd0dpTT7vjobUmMh7sDqy_RiZMc6ft8",
+    catchPhrase:"I think you should check my profile. Give it a try"},
     {id:99099009,
       first_name:"João",
       last_name:"Marques",
@@ -23,7 +24,8 @@ export class UserService {
       description:"After my first degree, I discovered this industry and quickly I realized how fascinating and challenging it can be. Writing code, building applications, solving problems/challenges. I'm always learning and I really like doing that. Even at home I still enthusiastically learn new frameworks and other programming languages.",
       current_Function:'Developer',
       icon_profile:"http://getdrawings.com/free-icon/icone-people-66.png",
-      profile_pic:"https://media-exp1.licdn.com/dms/image/C5603AQFTsMspZjkfhA/profile-displayphoto-shrink_800_800/0?e=1590624000&v=beta&t=AluRZ25lh-twHVLTzDbDL1kX_ihFs2iova9j-wF5ENs"},
+      profile_pic:"https://media-exp1.licdn.com/dms/image/C5603AQFTsMspZjkfhA/profile-displayphoto-shrink_800_800/0?e=1590624000&v=beta&t=AluRZ25lh-twHVLTzDbDL1kX_ihFs2iova9j-wF5ENs",
+      catchPhrase:"Hello, I'm João. Learn More about me"},
 
       {id:1,
         first_name:"Albino",
@@ -33,7 +35,8 @@ export class UserService {
         description:"I like cake",
         current_Function:'Git Master',
         icon_profile:"http://getdrawings.com/free-icon/icone-people-66.png",
-        profile_pic:"https://cdn.sabado.pt/images/2017-11/img_1200x1200$2017_11_25_16_05_55_268874.jpg"}],
+        profile_pic:"https://cdn.sabado.pt/images/2017-11/img_1200x1200$2017_11_25_16_05_55_268874.jpg",
+        catchPhrase:"I'm the Ferrero man "}],
 
         [{id:0,
           first_name:"Add New User",
@@ -43,7 +46,8 @@ export class UserService {
           description:"",
           current_Function:'Join Us!',
           icon_profile:'../../../assets/add.png',
-          profile_pic:"../../../assets/plus_icon.png"}]
+          profile_pic:"../../../assets/plus_icon.png",
+          catchPhrase:"Create your profile. It's free"}]
   ];
   constructor() { }
 
