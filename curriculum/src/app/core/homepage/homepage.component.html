@@ -1,20 +1,24 @@
 <div class="container">
   <div *ngFor="let userList of users" class="row">
     <div *ngFor="let user of userList" class="col-xl">
-      <mat-card class="example-card" [ngClass]="{'myCard':true}">
+      <mat-card class="card-container" [ngClass]="{'myCard':true}">
         <mat-card-header >
-          <div mat-card-avatar class="example-header-image">
+          <div mat-card-avatar>
             <img mat-card-image src={{user.icon_profile}} alt="Icon of {{user.first_name}}">
           </div>
-          <mat-card-title>{{user.first_name}} {{user.last_name}}</mat-card-title>
-          <mat-card-subtitle>{{user.current_Function}}</mat-card-subtitle>
+          <h2 class="nameUser">
+            {{user.first_name}} {{user.last_name}}
+          </h2>
         </mat-card-header>
+        <h4 class="userJob card-subtitle mb-2 text-muted">
+          {{user.current_Function}}
+        </h4>
         <figure>
           <img mat-card-image src={{user.profile_pic}} alt="Photo of {{user.first_name}}">
         </figure>
-        <mat-card-content class="footer ">
+        <mat-card-content class="footer">
           <label id="footerText">
-            Learn more about my qualifications!
+            {{user.catchPhrase}}
           </label>
           <!--Do you want to learn more about me?-->
         </mat-card-content>
