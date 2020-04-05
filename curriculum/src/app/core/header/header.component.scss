@@ -1,12 +1,4 @@
-#sidebarCollapse {
-  background: orange;
-  border-color: orange;
-}
-
-#sidebarCollapse:hover {
-  background: lighten(orange, 20%);
-  border-color: orange;
-}
+@import "src/styles";
 
 #divToButton {
   padding: 15px 10px;
@@ -17,22 +9,11 @@
 }
 
 #logInButton{
-  background: orange;
   float: right;
-  border-color: orange;
-}
-#logInButton:hover {
-  background: lighten(orange, 20%);
-  border-color: orange;
-}
-#registerButton:hover{
-  background: lighten(orange, 20%);
-  border-color: orange;
 }
 
+
 #registerButton{
-  background: orange;
-  border-color: orange;
   float: right;
   margin-left: 5%;
   margin-right: 1%;
@@ -46,22 +27,6 @@ h2 {
 
 header h2 {
   color: white;
-}
-
-
-.navbar {
-  padding: 15px 10px;
-  background: #fff;
-  border: none;
-  border-radius: 0;
-  margin-bottom: 40px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-btn {
-  box-shadow: none;
-  outline: none !important;
-  border: none;
 }
 
 header {
@@ -90,7 +55,6 @@ svg {
     display: none;
   }
 }
-
 
 span {
   display: inline;

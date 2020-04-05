@@ -1,7 +1,7 @@
 <header>
   <div class="container-fluid">
     <div id="divToButton">
-      <button (click)="click()" class="btn btn-info " id="sidebarCollapse" type="button">
+      <button (click)="click()" class="btn" id="sidebarCollapse" type="button">
         <i
           [class.pi-align-left]="!isActiveSidebar"
           [class.pi-bars]="isActiveSidebar"
@@ -9,13 +9,13 @@
         ></i>
       </button>
 
-      <button class="btn btn-info " type="button" id="logInButton" (click)="redirect('/account/log-in')">
+      <button (click)="redirect('/account/log-in')" class="btn" id="logInButton" type="button">
         <i
           class="pi pi-user"
         ></i>
         Log-In
       </button>
-      <button class="btn btn-info " type="button" id="registerButton" (click)="redirect('/account/create')">
+      <button (click)="redirect('/account/create')" class="btn" id="registerButton" type="button">
         <i
           class="pi pi-lock"
         ></i>
