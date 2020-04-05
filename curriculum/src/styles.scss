@@ -8,6 +8,13 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+
+/* ****************VARIABLES*********** */
+/* ************************************ */
+/* ************************************ */
+$cod-btn-hover-orange: lighten(orange, 20%);
+
+
 /* ****************CURSOR************** */
 /* ************************************ */
 /* ************************************ */
@@ -25,5 +32,20 @@ html,
 .cod-cursor {
 }
 
+/* **************BUTTON**************** */
 /* ************************************ */
+/* ************************************ */
+.btn:hover {
+  background: $cod-btn-hover-orange;
+  border-color: orange;
+}
 
+.btn:focus {
+  box-shadow: 0 0 0 0.1rem $cod-btn-hover-orange;
+}
+
+.btn {
+  background: orange;
+  border-color: orange;
+  color: white;
+}

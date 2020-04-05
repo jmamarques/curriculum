@@ -37,13 +37,13 @@
   <!--Esta row eh so para por os botoes da minha row de cima-->
   <div class="row">
     <div class="col addVerticalLine">
-      <button type="button" class="btn btn-primary rounded-0 buttonsCol" (click)="redirect('cod/contacts/support')">Get Support</button>
+      <button (click)="redirect('cod/contacts/support')" class="btn buttonsCol" type="button">Get Support</button>
     </div>
     <div class="col addVerticalLine">
-      <button type="button" class="btn btn-primary rounded-0 buttonsCol">Technologies</button>
+      <button class="btn buttonsCol" type="button">Technologies</button>
     </div>
     <div class="col">
-      <button type="button" class="btn btn-primary rounded-0 buttonsCol" (click)="redirect('cod/contacts/details')">Contacts</button>
+      <button (click)="redirect('cod/contacts/details')" class="btn buttonsCol" type="button">Contacts</button>
     </div>
   </div>
 </div>
@@ -64,7 +64,7 @@
     <div class="card-body text-center">
       <div id="map-container-google-8" class="z-depth-1-half map-container-5" style="height: 300px">
         <iframe src="https://maps.google.com/maps?q=Lisbon&t=&z=13&ie=UTF8&iwloc=&output=embed"
-          frameborder="0" style="border:0" allowfullscreen></iframe>
+                allowfullscreen style="border:0"></iframe>
       </div>
 
     </div>
