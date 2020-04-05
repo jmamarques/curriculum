@@ -25,6 +25,7 @@ html, body {
 
 .mat-card-image{
   margin-left: 0%;
+  margin-bottom: 2%;
 }
 
 .example-header-image {
@@ -37,6 +38,7 @@ html, body {
 .footer{
   text-align: center;
   font-size:18px;
+  opacity: 1;
 }
 .col-xl{
   margin-bottom: 3%;
@@ -121,22 +123,15 @@ figure:hover::before {
 .column#caption {
   position: relative;
 }
-.column#caption .text {
-      position: absolute;
-  top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 10;
+.footer {
+z-index: 10;
   opacity: 0;
   transition: all 0.8s ease;
 }
-.column#caption .text h1 {
-      margin: 0;
-      color: white;
-}
-.column#caption:hover .text {
+figure:hover + .footer{
   opacity: 1;
 }
+
 
 
 
