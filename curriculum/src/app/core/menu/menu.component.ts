@@ -1,6 +1,5 @@
-import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
 import {Menu} from './menu';
-import {HeaderService} from '../Services/header.service';
 
 @Component({
   selector: 'cod-menu',
@@ -9,22 +8,18 @@ import {HeaderService} from '../Services/header.service';
 })
 export class MenuComponent implements OnInit {
 
-  isActiveSidebar = true;
+  @Input() isActiveSidebar = true;
   menuItems: Menu = new Menu();
   @ViewChild('navElement') navElement: ElementRef;
   hideSideBar = false;
 
-  constructor(public headerService: HeaderService) {
+  constructor() {
   }
 
   ngOnInit(): void {
     this.menuItems.addMenuItem('home', {isCollapsed: true, isAnimated: true});
     // this.menuItems.addMenuItem('about', {isCollapsed: true, isAnimated: true});
     this.menuItems.addMenuItem('pages', {isCollapsed: true, isAnimated: true});
-  }
-
-  changeValue(value: boolean) {
-    this.isActiveSidebar = value;
   }
 
   click() {

@@ -1,4 +1,4 @@
-<div class="wrapper">
+
   <!-- Sidebar  -->
   <nav
     #navElement
@@ -12,8 +12,8 @@
     >
       <div class="sidebar-header">
         <div (click)="click()" id="sidebarCollapse">
-          <h1 style="cursor:pointer">Code Own Design</h1>
-          <strong style="cursor:pointer">COD</strong>
+          <h1 class="cod-cursor">Code Own Design</h1>
+          <strong class="cod-cursor">COD</strong>
         </div>
       </div>
 
@@ -114,15 +114,4 @@
     </div>
   </nav>
 
-  <!-- Page Content  -->
-  <div id="content">
-    <cod-header
-      [content]="headerService.getContent()"
-      (sideBar)="changeValue($event)"
-      [isActiveSidebar]="isActiveSidebar"
-    ></cod-header>
-    <div style="padding: 20px">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-</div>
+
