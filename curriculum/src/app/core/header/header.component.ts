@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { RouteService } from '../Services/route.service';
+import {RouteService} from '../services/route.service';
 
 @Component({
   selector: 'cod-header',
@@ -8,10 +8,11 @@ import { RouteService } from '../Services/route.service';
 })
 export class HeaderComponent implements OnInit {
   @Input() content: string;
+  @Input() backgroundColor = 'white';
   @Input() isActiveSidebar: boolean;
   @Output() sideBar: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(private routeService:RouteService) {
+  constructor(private routeService: RouteService) {
   }
 
   ngOnInit(): void {
@@ -22,10 +23,7 @@ export class HeaderComponent implements OnInit {
     this.sideBar.emit(this.isActiveSidebar);
   }
 
-
-  redirect(goal:string): void{
+  redirect(goal: string): void {
     this.routeService.redirect(goal);
   }
-
-
 }

@@ -13,6 +13,7 @@
     <cod-header
       (sideBar)="changeValue($event)"
       [content]="headerService.getContent()"
+      [backgroundColor]="headerService.getColor()"
       [isActiveSidebar]="isActiveSidebar"
     ></cod-header>
     <div style="padding: 20px">

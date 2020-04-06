@@ -1,5 +1,5 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { HeaderService } from './core/Services/header.service';
+import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
+import {HeaderService} from './core/services/header.service';
 
 @Component({
   selector: 'cod-root',
