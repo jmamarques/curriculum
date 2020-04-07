@@ -19,6 +19,7 @@ import {ContactComponent} from './core/contact/contact.component';
 import {ContactDetailsComponent} from './core/contact-details/contact-details.component';
 import {ContactSupportComponent} from './core/contact-support/contact-support.component';
 import {AgGridModule} from 'ag-grid-angular';
+import {ContactTechnologiesComponent} from './core/contact-tecnologies/contact-technologies.component';
 
 const appRoutes: Routes = [
   {
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     ContactComponent,
     ContactDetailsComponent,
     ContactSupportComponent,
-    ],
+    ContactTechnologiesComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
