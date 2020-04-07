@@ -22,6 +22,8 @@
     "@angular/platform-browser-dynamic": "~9.0.6",
     "@angular/router": "~9.0.6",
     "@fullcalendar/core": "^4.4.0",
+    "ag-grid-angular": "^23.0.3",
+    "ag-grid-community": "^23.0.2",
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "font-awesome": "^4.7.0",

@@ -13,18 +13,22 @@ import {MenuComponent} from './core/menu/menu.component';
 import {CollapseModule} from 'ngx-bootstrap';
 import {HeaderComponent} from './core/header/header.component';
 import {PageNotFoundComponent} from './core/page-not-found/page-not-found.component';
-import { CreateAccountComponent } from './core/create-account/create-account.component';
-import { LogInAccountComponent } from './core/log-in-account/log-in-account.component';
-import { ContactComponent } from './core/contact/contact.component';
-import { ContactDetailsComponent } from './core/contact-details/contact-details.component';
-import { ContactSupportComponent } from './core/contact-support/contact-support.component';
+import {CreateAccountComponent} from './core/create-account/create-account.component';
+import {LogInAccountComponent} from './core/log-in-account/log-in-account.component';
+import {ContactComponent} from './core/contact/contact.component';
+import {ContactDetailsComponent} from './core/contact-details/contact-details.component';
+import {ContactSupportComponent} from './core/contact-support/contact-support.component';
+import {AgGridModule} from 'ag-grid-angular';
+
 const appRoutes: Routes = [
-    { path: '',
+  {
+    path: '',
     redirectTo: '/homepage',
     pathMatch: 'full'
   }
 
 ];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +51,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, {enableTracing: true}), // teoricamente isto eh para debbuggin but idk
     NgxBootstrapSharedModule,
     PrimeNgSharedModule,
-    CollapseModule
+    CollapseModule,
+    AgGridModule.withComponents([])
   ],
   providers: [],
   bootstrap: [AppComponent]
