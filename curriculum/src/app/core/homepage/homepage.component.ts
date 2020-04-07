@@ -10,10 +10,27 @@ import { HeaderService } from '../services/header.service';
 })
 export class HomepageComponent implements OnInit {
   users: User [];
-
+  responsiveOptions: any;
   constructor(private serviceUsers: UserService,
               private headerService: HeaderService) {
-                this.headerService.setColor("rgb(228, 225, 225)");
+                this.headerService.setColor("#efefef");
+                this.responsiveOptions = [
+                  {
+                      breakpoint: '1024px',
+                      numVisible: 3,
+                      numScroll: 3
+                  },
+                  {
+                      breakpoint: '768px',
+                      numVisible: 2,
+                      numScroll: 2
+                  },
+                  {
+                      breakpoint: '560px',
+                      numVisible: 1,
+                      numScroll: 1
+                  }
+              ];
   }
 
   ngOnInit(): void {

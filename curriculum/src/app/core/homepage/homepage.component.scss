@@ -1,12 +1,45 @@
 .headerHomepage{
-  background: rgb(228, 225, 225);
+  background: #efefef;
   text-align: center;
-  padding-bottom: 1%;
+  //padding-bottom: 1%;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+.codProfiles{
+  margin-bottom: 2%;
+
+}
 .text-divider{margin: 2em 0; line-height: 0; text-align: center;}
-.text-divider span{background-color: rgb(228, 225, 225); padding: 1em;}
+.text-divider span{background-color: #efefef; padding: 1em;}
 .text-divider:before{ content: " "; display: block; border-top: 1px solid #7e7d7d; border-bottom: 1px solid #f7f7f7;}
 
+.cardsDiv{
+  margin-bottom: auto;
+}
+
+.footerHeader{
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  min-width: 100%;
+}
+.card{
+  width: 20rem;
+  background-color: #f1f1f1;
+
+}
+.card-img-top{
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+.card-title ,.subtitle{
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+ui-carousel-dots-container{
+  background: black;
+}

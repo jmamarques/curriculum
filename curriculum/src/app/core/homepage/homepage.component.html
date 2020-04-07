@@ -1,4 +1,4 @@
-<div class="headerHomepage">
+<div class="headerHomepage codProfiles">
   <div class="container">
     <br>
     <div class="well">
@@ -8,7 +8,30 @@
       </p>
     </div>
   </div>
+</div>
+<div class="container cardsDiv">
+  <p-carousel styleClass="custom-carousel" [value]="users" [numVisible]="3" [numScroll]="1" [circular]="true" [responsiveOptions]="responsiveOptions">
+    <ng-template let-user pTemplate="item">
+      <div class="card">
+        <img class="card-img-top rounded" src={{user.profile_pic}} alt="profile pic">
+        <div class="card-body">
+          <h2 class="card-title">{{user.first_name}} {{user.last_name}}</h2>
+          <p class="subtitle mb-2 text-muted">
+            {{user.current_Function}}
+          </p>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>
+<div class="headerHomepage footerHeader">
   <div class="container">
-
+    <br>
+    <div class="well">
+      <h2 class="text-divider"><span>Support</span></h2>
+      <p>
+        Are you lost and don't know what to do? Check out our FAQ page.
+      </p>
+    </div>
   </div>
 </div>
