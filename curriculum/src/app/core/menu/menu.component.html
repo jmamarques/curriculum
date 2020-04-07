@@ -19,44 +19,17 @@
 
       <ul class="list-unstyled components">
         <li [class.active]="!menuItems.isCollapsed('home')">
-          <a
-            (click)="menuItems.toggleCollapse('home')"
-            [attr.aria-expanded]="!menuItems.isCollapsed('home')"
-            aria-controls="homeSubmenu"
-          >
+          <a routerLink="homepage">
             <i class="pi pi-home"></i>
             Home
-            <i
-              [class.pi-sort-down]="menuItems.isCollapsed('home')"
-              [class.pi-sort-up]="!menuItems.isCollapsed('home')"
-              [hidden]="isActiveSidebar"
-              class="pi"
-              style="float: right"
-            ></i>
           </a>
-          <ul
-            [collapse]="menuItems.isCollapsed('home')"
-            [isAnimated]="menuItems.isAnimated('home')"
-            class="collapse list-unstyled"
-            id="homeSubmenu"
-          >
-            <li>
-              <a routerLink="#">Home 1</a>
-            </li>
-            <li>
-              <a routerLink="#">Home 2</a>
-            </li>
-            <li>
-              <a routerLink="#">Home 3</a>
-            </li>
-          </ul>
         </li>
-        <li>
+        <!--<li>
           <a routerLink="homepage">
             <i class="pi pi-briefcase"></i>
             About
           </a>
-        </li>
+        </li>-->
         <li [class.active]="!menuItems.isCollapsed('pages')">
           <a
             (click)="menuItems.toggleCollapse('pages')"
@@ -96,12 +69,12 @@
             Portfolio
           </a>
         </li>
-        <li>
-          <a routerLink="#">
+        <!--<li>
+          <a routerLink="cod/contacts/support">
             <i class="pi pi-question"></i>
             FAQ
           </a>
-        </li>
+        </li>-->
         <li>
           <a routerLink="cod/contacts">
             <i class="material-icons">
