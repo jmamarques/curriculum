@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../user';
 import {UserService} from '../services/user.service';
+import { HeaderService } from '../services/header.service';
 
 @Component({
   selector: 'cod-homepage',
@@ -10,7 +11,9 @@ import {UserService} from '../services/user.service';
 export class HomepageComponent implements OnInit {
   users: User [];
 
-  constructor(private serviceUsers: UserService) {
+  constructor(private serviceUsers: UserService,
+              private headerService: HeaderService) {
+                this.headerService.setColor("rgb(228, 225, 225)");
   }
 
   ngOnInit(): void {
