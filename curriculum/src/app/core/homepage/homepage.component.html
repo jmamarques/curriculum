@@ -1,28 +1,37 @@
-<div class="container">
-  <div *ngFor="let userList of users" class="row">
-    <div *ngFor="let user of userList" class="col-xl">
-      <mat-card class="card-container" [ngClass]="{'myCard':true}">
-        <mat-card-header >
-          <div mat-card-avatar>
-            <img mat-card-image src={{user.icon_profile}} alt="Icon of {{user.first_name}}">
-          </div>
-          <h2 class="nameUser">
-            {{user.first_name}} {{user.last_name}}
-          </h2>
-        </mat-card-header>
-        <h4 class="userJob card-subtitle mb-2 text-muted">
-          {{user.current_Function}}
-        </h4>
-        <figure>
-          <img mat-card-image src={{user.profile_pic}} alt="Photo of {{user.first_name}}">
-        </figure>
-        <mat-card-content class="footer">
-          <label id="footerText">
-            {{user.catchPhrase}}
-          </label>
-          <!--Do you want to learn more about me?-->
-        </mat-card-content>
-      </mat-card>
+<div class="headerHomepage codProfiles">
+  <div class="container">
+    <br>
+    <div class="well">
+      <h2 class="text-divider"><span>COD Profiles</span></h2>
+      <p>
+        Check out our profiles. You can even create yours. Try it
+      </p>
     </div>
+  </div>
 </div>
-
+<div class="container cardsDiv">
+  <p-carousel styleClass="custom-carousel" [value]="users" [numVisible]="3" [numScroll]="1" [circular]="true" [responsiveOptions]="responsiveOptions">
+    <ng-template let-user pTemplate="item">
+      <div class="card">
+        <img class="card-img-top rounded" src={{user.profile_pic}} alt="profile pic">
+        <div class="card-body">
+          <h2 class="card-title">{{user.first_name}} {{user.last_name}}</h2>
+          <p class="subtitle mb-2 text-muted">
+            {{user.current_Function}}
+          </p>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>
+<div class="headerHomepage footerHeader">
+  <div class="container">
+    <br>
+    <div class="well">
+      <h2 class="text-divider"><span>Support</span></h2>
+      <p>
+        Are you lost and don't know what to do? Check out our FAQ page.
+      </p>
+    </div>
+  </div>
+</div>
