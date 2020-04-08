@@ -20,6 +20,8 @@ import {ContactDetailsComponent} from './core/contact-details/contact-details.co
 import {ContactSupportComponent} from './core/contact-support/contact-support.component';
 import {AgGridModule} from 'ag-grid-angular';
 import {ContactTechnologiesComponent} from './core/contact-tecnologies/contact-technologies.component';
+import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
+import {NgxPageScrollModule} from 'ngx-page-scroll';
 
 const appRoutes: Routes = [
   {
@@ -54,7 +56,9 @@ const appRoutes: Routes = [
     NgxBootstrapSharedModule,
     PrimeNgSharedModule,
     CollapseModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
+    NgxPageScrollCoreModule,
+    NgxPageScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

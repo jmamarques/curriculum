@@ -1,16 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'cod-tecnologies',
+  selector: 'cod-technologies',
   templateUrl: './contact-technologies.component.html',
   styleUrls: ['./contact-technologies.component.scss']
 })
 export class ContactTechnologiesComponent implements OnInit {
   /* configurations to ag-grid */
   columnDefs = [
-    {headerName: 'Make', field: 'make'},
-    {headerName: 'Model', field: 'model'},
-    {headerName: 'Price', field: 'price'}
+    {headerName: 'Make', field: 'make', sortable: true, filter: true},
+    {headerName: 'Model', field: 'model', sortable: true, filter: true},
+    {headerName: 'Price', field: 'price', sortable: true, filter: true}
   ];
 
   rowData = [
