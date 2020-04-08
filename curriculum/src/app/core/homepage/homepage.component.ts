@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {User} from '../../user';
 import {UserService} from '../services/user.service';
 import { HeaderService } from '../services/header.service';
@@ -8,7 +8,7 @@ import { HeaderService } from '../services/header.service';
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
-export class HomepageComponent implements OnInit {
+export class HomepageComponent implements OnInit,OnDestroy {
   users: User [];
   responsiveOptions: any;
   constructor(private serviceUsers: UserService,
@@ -31,6 +31,9 @@ export class HomepageComponent implements OnInit {
                       numScroll: 1
                   }
               ];
+  }
+  ngOnDestroy(): void {
+    this.headerService.setDefaultColor();
   }
 
   ngOnInit(): void {
