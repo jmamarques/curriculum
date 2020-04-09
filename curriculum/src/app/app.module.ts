@@ -13,18 +13,22 @@ import {MenuComponent} from './core/menu/menu.component';
 import {CollapseModule} from 'ngx-bootstrap';
 import {HeaderComponent} from './core/header/header.component';
 import {PageNotFoundComponent} from './core/page-not-found/page-not-found.component';
-import { CreateAccountComponent } from './core/create-account/create-account.component';
-import { LogInAccountComponent } from './core/log-in-account/log-in-account.component';
-import { ContactComponent } from './core/contact/contact.component';
-import { ContactDetailsComponent } from './core/contact-details/contact-details.component';
-import { ContactSupportComponent } from './core/contact-support/contact-support.component';
+import {CreateAccountComponent} from './core/create-account/create-account.component';
+import {LogInAccountComponent} from './core/log-in-account/log-in-account.component';
+import {ContactComponent} from './core/contact/contact.component';
+import {ContactDetailsComponent} from './core/contact-details/contact-details.component';
+import {ContactSupportComponent} from './core/contact-support/contact-support.component';
+import {FooterComponent} from './core/footer/footer.component';
+
 const appRoutes: Routes = [
-    { path: '',
+  {
+    path: '',
     redirectTo: '/homepage',
     pathMatch: 'full'
   }
 
 ];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +41,8 @@ const appRoutes: Routes = [
     ContactComponent,
     ContactDetailsComponent,
     ContactSupportComponent,
-    ],
+    FooterComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
