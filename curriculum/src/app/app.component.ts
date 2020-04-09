@@ -76,4 +76,10 @@ export class AppComponent {
     }
   }
 
+  @HostListener('window:resize', ['$event'])
+  handleResize(): void {
+    if (outerWidth < 600) {
+      this.isActiveSidebar = false;
+    }
+  }
 }
