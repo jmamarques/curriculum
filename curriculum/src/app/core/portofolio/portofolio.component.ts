@@ -5,10 +5,10 @@ import { HeaderService } from '../services/header.service';
 
 @Component({
   selector: 'cod-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.scss']
+  templateUrl: './portofolio.component.html',
+  styleUrls: ['./portofolio.component.scss']
 })
-export class HomepageComponent implements OnInit,OnDestroy {
+export class PortofolioComponent implements OnInit,OnDestroy {
   users: User [];
   responsiveOptions: any;
   constructor(private serviceUsers: UserService,

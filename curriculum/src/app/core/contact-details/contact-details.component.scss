@@ -1,53 +1,60 @@
-.imageLi{
-  width: 25px;
-  height: 25px;
-  margin-right: 20px;
+//Header of the page
+h3 {
+  font: 30px "Arial";
+  text-align: center;
+  color: orange;
+  margin-bottom: 30px;
 }
-span{
-  font: 17px "Arial";
-}
-.addVerticalLine {
-  border-right: 1px solid rgb(201, 197, 197);
-}
-.imageLogo{
-  width: 50px;
-  height: 50px;
-}
-.card{
-  width: 400px;
-  -webkit-box-shadow: 20px 22px 39px -18px rgba(0,0,0,0.75);
-  -moz-box-shadow: 20px 22px 39px -18px rgba(0,0,0,0.75);
-  box-shadow: 20px 22px 39px -18px rgba(0,0,0,0.75);
-}
-.card:hover{
-  -webkit-box-shadow: 20px 22px 39px -9px rgba(0,0,0,0.75);
-  -moz-box-shadow: 20px 22px 39px -9px rgba(0,0,0,0.75);
-  box-shadow: 20px 22px 39px -9px rgba(0,0,0,0.75);
 
+/* **************Card Content**************** */
+/* ***************************************** */
+/* **************************************** */
+
+.card {
+  width: 400px;
+  -webkit-box-shadow: 20px 22px 39px -18px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 20px 22px 39px -18px rgba(0, 0, 0, 0.75);
+  box-shadow: 20px 22px 39px -18px rgba(0, 0, 0, 0.75);
 }
-img.franciscoFoto {
-  width: 225px;
-  margin: auto;
-  margin-top: 5%;
-}
-h1{
-  margin: 0;
+.card:hover {
+  -webkit-box-shadow: 20px 22px 39px -9px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 20px 22px 39px -9px rgba(0, 0, 0, 0.75);
+  box-shadow: 20px 22px 39px -9px rgba(0, 0, 0, 0.75);
 }
 .card-title {
   margin-bottom: 0;
 }
-.card-body{
+.card-body {
   padding-bottom: 0px;
 }
-h3{
-  font: 30px "Arial";
-  text-align: center;
-  color:orange;
-  margin-bottom: 30px;
-}
-.cardsCol{
+.cardsCol {
   margin-left: auto;
   margin-right: auto;
   flex-grow: 0;
 }
+//profile foto
+img.profileFotoCard {
+  width: 225px;
+  margin: auto;
+  margin-top: 5%;
+}
+//Lines Images
+.imageLi {
+  width: 25px;
+  height: 25px;
+  margin-right: 20px;
+}
+//Size of the content in the cards
+span {
+  font: 17px "Arial";
+}
 
+//Social Network images
+.imageLogo {
+  width: 50px;
+  height: 50px;
+}
+
+.addVerticalLine {
+  border-right: 1px solid rgb(201, 197, 197);
+}
