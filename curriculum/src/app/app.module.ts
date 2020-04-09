@@ -19,6 +19,7 @@ import {ContactComponent} from './core/contact/contact.component';
 import {ContactDetailsComponent} from './core/contact-details/contact-details.component';
 import {ContactSupportComponent} from './core/contact-support/contact-support.component';
 import {FooterComponent} from './core/footer/footer.component';
+import { FaqPageComponent } from './core/faq-page/faq-page.component';
 
 const appRoutes: Routes = [
   {
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
     ContactDetailsComponent,
     ContactSupportComponent,
     FooterComponent,
+    FaqPageComponent
   ],
   imports: [
     BrowserModule,
