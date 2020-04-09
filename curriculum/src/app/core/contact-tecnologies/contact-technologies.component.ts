@@ -1,4 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {UserService} from '../services/user.service';
+import {AgGridAngular} from 'ag-grid-angular';
 
 @Component({
   selector: 'cod-technologies',
@@ -6,6 +8,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./contact-technologies.component.scss']
 })
 export class ContactTechnologiesComponent implements OnInit {
+  @ViewChild('agGrid') agGrid: AgGridAngular;
+
   /* configurations to ag-grid */
   columnDefs = [
     {headerName: 'Make', field: 'make', sortable: true, filter: true},
@@ -13,16 +17,21 @@ export class ContactTechnologiesComponent implements OnInit {
     {headerName: 'Price', field: 'price', sortable: true, filter: true}
   ];
 
-  rowData = [
-    {make: 'Toyota', model: 'Celica', price: 35000},
-    {make: 'Ford', model: 'Mondeo', price: 32000},
-    {make: 'Porsche', model: 'Boxter', price: 72000}
-  ];
+  rowData: any;
 
-  constructor() {
+  constructor(private userService: UserService) {
   }
 
   ngOnInit(): void {
+    this.rowData = this.userService.getUserStatics();
   }
 
+  // how I get rows selected
+  getSelectedRows() {
+    const selectedNodes = this.agGrid.api.getSelectedNodes();
+    const selectedData = selectedNodes.map(node => node.data);
+    const selectedDataStringPresentation = selectedData.map(node => node.make + ' ' + node.model).join(', ');
+    console.log(`Selected nodes: ${selectedDataStringPresentation}`);
+    alert(`Selected nodes: ${selectedDataStringPresentation}`);
+  }
 }

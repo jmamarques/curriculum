@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {User} from '../../user';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -64,5 +65,13 @@ export class UserService {
 
   getUsers(): User[] {
     return this.users;
+  }
+
+  // TODO DUMMY - complete with real data
+  getUserStatics(): Observable<any> {
+    return of(
+      [{make: 'Toyota', model: 'Celica', price: 35000},
+        {make: 'Ford', model: 'Mondeo', price: 32000},
+        {make: 'Porsche', model: 'Boxter', price: 72000}]);
   }
 }

@@ -8,19 +8,22 @@
       <span>Top Technologies</span>
     </div>
     <div class="start">
-      <ag-grid-angular
-        [columnDefs]="columnDefs"
-        [rowData]="rowData"
-        class="ag-theme-alpine"
-        style="width: 500px; height: 500px;"
-      >
-      </ag-grid-angular>
+
     </div>
     <div class="title" id="section-2">
       <span>Static Users</span>
     </div>
     <div class="start">
-      Content 2
+      <button (click)="getSelectedRows()" class="btn">Get Rows</button>
+      <ag-grid-angular
+        #agGrid
+        [columnDefs]="columnDefs"
+        [rowData]="rowData | async"
+        class="ag-theme-alpine"
+        rowSelection="multiple"
+        style="width: 500px; height: 500px; max-width: 100%;"
+      >
+      </ag-grid-angular>
     </div>
   </div>
 
@@ -155,6 +158,7 @@
           href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT license</a></div>
         <div class="row footer-support">
           <a [routerLink]="'/cod/contacts/support'">Send feedback</a>
+          <!--TODO #ORGULHO-->
           <button [routerLink]="'/cod/contacts/support'" class="glow-on-hover">Get support</button>
           <!--<a href="/en/alerts" class="statusmenu">Network Status</a>-->
           <!--<div id="footer-langselect" class="footer-langselect langselect">
