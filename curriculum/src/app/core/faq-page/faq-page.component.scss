@@ -23,6 +23,23 @@ mat-list-item{
 .col-7{
   margin-right: 0%;
 }
+.mat-list-base {
+  padding-top: 0%;
+}
+.mat-expansion-panel-spacing {
+   margin: 0 !important;
+}
+/* **************EXPANSION PANEL**************** */
+/* ********************************************* */
+/* ********************************************* */
+mat-panel-description{
+  position: relative;
+}
+.iconPlus{
+  position: absolute;
+  right: 5px;
+}
+
 
 /* **************EFFECT UNDERLINE**************** */
 /* ********************************************** */

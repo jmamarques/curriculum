@@ -22,6 +22,21 @@
     </mat-list>
   </div>
   <div class="col-7">
-
+    <mat-accordion>
+      <mat-expansion-panel hideToggle *ngFor="let question of subjectQuestionsAnswer">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{question.title}}
+          </mat-panel-title>
+          <mat-panel-description>
+            <i class="pi pi-plus iconPlus"></i>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <!--Content to display when I expand the previous one-->
+        <p>
+          {{question.answer}}
+        </p>
+      </mat-expansion-panel>
+    </mat-accordion>
   </div>
 </div>
