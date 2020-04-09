@@ -18,6 +18,8 @@ import { LogInAccountComponent } from './core/log-in-account/log-in-account.comp
 import { ContactComponent } from './core/contact/contact.component';
 import { ContactDetailsComponent } from './core/contact-details/contact-details.component';
 import { ContactSupportComponent } from './core/contact-support/contact-support.component';
+import { FaqPageComponent } from './core/faq-page/faq-page.component';
+
 const appRoutes: Routes = [
     { path: '',
     redirectTo: '/homepage',
@@ -37,6 +39,7 @@ const appRoutes: Routes = [
     ContactComponent,
     ContactDetailsComponent,
     ContactSupportComponent,
+    FaqPageComponent,
     ],
   imports: [
     BrowserModule,

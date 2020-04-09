@@ -1,0 +1,27 @@
+<div class="headerFaq">
+  <h1 class="font-weight-bold">
+    FAQ
+  </h1>
+  <p>
+    Can't find the answer you are looking for?
+  </p>
+  <p>
+    We've shared some of our most frequently asked questions to help out!
+  </p>
+</div>
+<div class="row">
+  <div class="col-3">
+    <mat-list>
+      <mat-list-item *ngFor="let sub of mainSubjects" class="font-weight-bold ">
+        <div class="wrapper">
+          <a href="#" class="effect-underline">
+            {{sub}}
+          </a>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div class="col-7">
+
+  </div>
+</div>

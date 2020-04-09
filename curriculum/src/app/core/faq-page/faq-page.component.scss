@@ -1,0 +1,58 @@
+/* **************FAQ HEADER**************** */
+/* **************************************** */
+/* **************************************** */
+.headerFaq {
+  background: #e0e0e0;
+  text-align: left;
+  display: block;
+  padding-left: 9%;
+  padding-bottom: 1%;
+  margin-bottom: 2%;
+}
+
+/* **************LIST/TABLE STYLE**************** */
+/* ********************************************** */
+/* ********************************************** */
+mat-list-item{
+  background:#272626;
+  height: 80px !important;
+}
+.col-3{
+  margin-left: 9%;
+}
+.col-7{
+  margin-right: 0%;
+}
+
+/* **************EFFECT UNDERLINE**************** */
+/* ********************************************** */
+/* ********************************************** */
+
+.wrapper a {
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  font-family: 'Dosis', sans-serif;
+}
+a.effect-underline:after {
+	content: '';
+  position: absolute;
+  left: 0;
+  display: inline-block;
+  height: 1em;
+  width: 100%;
+  border-bottom: 1px solid white;
+  margin-top: 10px;
+  opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale(0,1);
+	transform: scale(0,1);
+}
+a.effect-underline:hover:after {
+  opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
