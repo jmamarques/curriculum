@@ -150,18 +150,21 @@
   <div class="footer-bottom">
     <div class="container">
       <div class="row footer-bottom-row">
-        <div class="footerlicense">© COD Project 2020 Released under the <a
+        <!--TODO Replace 2020 for Current Year - variable-->
+        <div class="footer-license">© COD Project 2020-2020 Released under the <a
           href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT license</a></div>
-        <!--<div class="row footer-status-block">
-          <a href="/en/alerts" class="statusmenu">Network Status</a>
-          <div id="footer-langselect" class="footer-langselect langselect">
+        <div class="row footer-support">
+          <a [routerLink]="'/cod/contacts/support'">Send feedback</a>
+          <button [routerLink]="'/cod/contacts/support'" class="glow-on-hover">Get support</button>
+          <!--<a href="/en/alerts" class="statusmenu">Network Status</a>-->
+          <!--<div id="footer-langselect" class="footer-langselect langselect">
             <label for="select-input-footer" class="center-select">
               <select class="center-select__input" onchange="window.location=this.value; ">
               </select>
               <span class="center-select__text">en</span>
             </label>
-          </div>
-        </div>-->
+          </div>-->
+        </div>
       </div>
     </div>
   </div>
