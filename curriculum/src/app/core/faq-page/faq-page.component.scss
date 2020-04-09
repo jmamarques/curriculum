@@ -26,8 +26,9 @@ mat-list-item{
 .mat-list-base {
   padding-top: 0%;
 }
-.mat-expansion-panel-spacing {
-   margin: 0 !important;
+
+.row{
+  margin-right: 0px;
 }
 /* **************EXPANSION PANEL**************** */
 /* ********************************************* */
@@ -38,7 +39,31 @@ mat-panel-description{
 .iconPlus{
   position: absolute;
   right: 5px;
+  width: 20px;
 }
+.mat-expansion-panel-spacing {
+  margin: 0 !important;
+}
+mat-expansion-panel-header {
+ background-color: #e0e0e0 !important;
+ }
+ .mat-expansion-panel-header-title {
+   color: black !important;
+   font-size: 17px;
+ }
+
+.mat-expansion-panel {
+   background: #e0e0e0 !important;
+   color: black;
+}
+.mat-expansion-panel-header{
+  background-color: #d4d4d4 !important;
+}
+.contentAccord{
+  padding-top: 2%;
+}
+
+
 
 
 /* **************EFFECT UNDERLINE**************** */
