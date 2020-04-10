@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {Menu} from './menu';
 
 @Component({
@@ -24,12 +24,5 @@ export class MenuComponent implements OnInit {
 
   click() {
     this.isActiveSidebar = !this.isActiveSidebar;
-  }
-
-  @HostListener('window:resize', ['$event'])
-  handleResize(): void {
-    if (outerWidth < 600) {
-      this.isActiveSidebar = false;
-    }
   }
 }

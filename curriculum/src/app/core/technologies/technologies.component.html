@@ -1,0 +1,179 @@
+<div class="container">
+  <div class="row title-bar">
+    <a class="title-bar-item" href="#section-1" pageScroll>Top Technologies</a>
+    <a class="title-bar-item" href="#section-2" pageScroll>User statics</a>
+  </div>
+  <div class="container">
+    <div class="title" id="section-1">
+      <span>Top Technologies</span>
+    </div>
+    <div class="start">
+      <ag-charts-angular
+        [options]="options"
+        style="max-width: 400px"
+      >
+      </ag-charts-angular>
+    </div>
+    <div class="title" id="section-2">
+      <span>Static Users</span>
+    </div>
+    <div class="start">
+      <button (click)="getSelectedRows()" class="btn">Get Rows</button>
+      <ag-grid-angular
+        #agGrid
+        [columnDefs]="columnDefs"
+        [rowData]="rowData | async"
+        class="ag-theme-alpine"
+        rowSelection="multiple"
+        style="width: 500px; height: 500px; max-width: 100%;"
+      >
+      </ag-grid-angular>
+    </div>
+  </div>
+
+</div>
+<div class="footer">
+  <!--<div class="container">
+
+
+    <a class="logo-footer" href="/en/">
+      <img src="/img/icons/logo-footer.svg?1585857964" alt="Bitcoin">
+    </a>
+
+
+    <div class="row footer-row">
+      <div class="donate">
+        <div class="row donate-row">
+          <div>
+            <span class="footer-title">Support Bitcoin.org:</span>
+            <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+            <p class="donate-text">
+              <a class="donate-link" href="bitcoin:3FkenCiXpSLqD8L79intRNXUgjRoH9sjXa" target="_blank">3FkenCiXpSLqD8L79intRNXUgjRoH9sjXa</a>
+            </p>
+          </div>
+          <div class="donate-qrcode">
+            <img src="/img/footer/qr.png?1585857964" alt="QR code">
+          </div>
+        </div>
+      </div>
+
+      <div class="row footermenu">
+        <div class="footermenu-item footermenu-introduction">
+          <p class="footer-title">Introduction:</p>
+          <ul class="footermenu-list">
+            <li>
+              <a href="/en/bitcoin-for-individuals">Individuals</a>
+            </li>
+            <li>
+              <a href="/en/bitcoin-for-businesses">Businesses</a>
+            </li>
+            <li>
+              <a href="/en/bitcoin-for-developers">Developers</a>
+            </li>
+            <li class="active">
+              <a href="/en/getting-started">Getting started</a>
+            </li>
+            <li>
+              <a href="/en/how-it-works">How it works</a>
+            </li>
+            <li>
+              <a href="/en/you-need-to-know">You need to know</a>
+            </li>
+            <li>
+              <a href="/en/bitcoin-paper">White paper</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footermenu-item footermenu-resources">
+          <p class="footer-title">Resources:</p>
+          <ul class="footermenu-list">
+            <li>
+              <a href="/en/resources">Resources</a>
+            </li><li>
+            <a href="/en/exchanges">Exchanges</a>
+          </li>
+            <li>
+              <a href="/en/community">Community</a>
+            </li>
+            <li>
+              <a href="/en/vocabulary">Vocabulary
+              </a>
+            </li>
+            <li>
+              <a href="/en/events">Events</a>
+            </li>
+
+            <li>
+              <a href="/en/bitcoin-core/">Bitcoin Core</a>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="footermenu-item footermenu-participate">
+          <p class="footer-title">Participate:</p>
+          <ul class="footermenu-list">
+            <li>
+              <a href="/en/support-bitcoin">Support Bitcoin</a>
+
+            </li><li>
+            <a href="/en/buy">Buy Bitcoin</a>
+          </li>
+
+
+            <li>
+              <a href="/en/full-node">Running a full node</a>
+            </li>
+
+            <li>
+              <a href="/en/development">Development</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footermenu-item footermenu-other">
+          <p class="footer-title">Other:</p>
+
+          <a href="/en/scams">Avoid Scams</a>
+
+          <a href="/en/legal">Legal</a>
+
+          <a href="/en/privacy">Privacy Policy</a>
+
+          <a href="/en/press">Press</a>
+          <a href="/en/about-us">About bitcoin.org</a>
+          <a href="/en/blog">Blog</a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="footersponsor">
+      &lt;!&ndash;<div><span>A community website sponsored by</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1585857964" alt="Bitcoin Foundation"></a></div>&ndash;&gt;
+    </div>
+
+  </div>-->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row footer-bottom-row">
+        <!--TODO Replace 2020 for Current Year - variable-->
+        <div class="footer-license">© COD Project 2020-2020 Released under the <a
+          href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT license</a></div>
+        <div class="row footer-support">
+          <a [routerLink]="'/cod/contacts/support'">Send feedback</a>
+          <!--TODO #ORGULHO-->
+          <button [routerLink]="'/cod/contacts/support'" class="glow-on-hover">Get support</button>
+          <!--<a href="/en/alerts" class="statusmenu">Network Status</a>-->
+          <!--<div id="footer-langselect" class="footer-langselect langselect">
+            <label for="select-input-footer" class="center-select">
+              <select class="center-select__input" onchange="window.location=this.value; ">
+              </select>
+              <span class="center-select__text">en</span>
+            </label>
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

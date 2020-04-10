@@ -18,8 +18,13 @@ import {LogInAccountComponent} from './core/log-in-account/log-in-account.compon
 import {ContactComponent} from './core/contact/contact.component';
 import {ContactDetailsComponent} from './core/contact-details/contact-details.component';
 import {ContactSupportComponent} from './core/contact-support/contact-support.component';
+import {AgGridModule} from 'ag-grid-angular';
+import {AgChartsAngularModule} from 'ag-charts-angular';
+import {TechnologiesComponent} from './core/technologies/technologies.component';
+import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
+import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {FooterComponent} from './core/footer/footer.component';
-import { FaqPageComponent } from './core/faq-page/faq-page.component';
+import {FaqPageComponent} from './core/faq-page/faq-page.component';
 
 const appRoutes: Routes = [
   {
@@ -43,6 +48,7 @@ const appRoutes: Routes = [
     ContactDetailsComponent,
     ContactSupportComponent,
     FooterComponent,
+    TechnologiesComponent,
     FaqPageComponent
   ],
   imports: [
@@ -54,7 +60,11 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, {enableTracing: true}), // teoricamente isto eh para debbuggin but idk
     NgxBootstrapSharedModule,
     PrimeNgSharedModule,
-    CollapseModule
+    CollapseModule,
+    AgGridModule.withComponents([]),
+    AgChartsAngularModule,
+    NgxPageScrollCoreModule,
+    NgxPageScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]
