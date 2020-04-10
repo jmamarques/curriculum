@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HeaderService } from '../services/header.service';
 import { FaqService } from '../services/faq.service';
 import { FaqContent } from '../interfaces/faq-content';
@@ -8,13 +8,16 @@ import { FaqContent } from '../interfaces/faq-content';
   templateUrl: './faq-page.component.html',
   styleUrls: ['./faq-page.component.scss']
 })
-export class FaqPageComponent implements OnInit {
+export class FaqPageComponent implements OnInit,OnDestroy {
   mainSubjects: string[];
   selectedSub: boolean[] = [];
   subjectQuestionsAnswer: FaqContent[];
   constructor(private headerService: HeaderService,
     private faqService: FaqService) {
     this.headerService.setColor('#e0e0e0');
+  }
+  ngOnDestroy(): void {
+    this.headerService.setDefaultColor();
   }
 
   ngOnInit(): void {
