@@ -26,6 +26,14 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
+## Ag-Grid
+* [Grid options Ag-Grid](https://www.ag-grid.com/javascript-grid-reference-overview/)
+* [Properties Ag-Grid](https://www.ag-grid.com/javascript-grid-properties/)
+* [Grid Ag-Grid](https://www.ag-grid.com/javascript-grid-api/)
+* [Charts](https://www.ag-grid.com/javascript-charts-api-explorer/)
+
 ## Dependencies Installed
 * ```npm install --save ag-grid-community ag-grid-angular```
 * ```npm install --save ag-grid-enterprise```
+* ```npm install --save ag-charts-community ag-charts-angular```
+

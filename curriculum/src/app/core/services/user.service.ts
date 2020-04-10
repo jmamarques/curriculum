@@ -74,4 +74,38 @@ export class UserService {
         {make: 'Ford', model: 'Mondeo', price: 32000},
         {make: 'Porsche', model: 'Boxter', price: 72000}]);
   }
+
+  /* TODO https://towardsdatascience.com/top-10-in-demand-programming-languages-to-learn-in-2020-4462eb7d8d3e
+   complete with real data
+   */
+  getUserTechnologies(): Observable<any> {
+    return of(
+      [
+        {name: 'João Marques', main: 'java', side: 'typescript'},
+        {name: 'Francisco Grilo', main: 'java', side: 'javascript'},
+        {name: 'Albino Cristovão', main: 'python', side: 'sql'}
+      ]
+    );
+  }
+
+  getTechnologiesStatus(): Observable<any> {
+    return of(
+      [
+        {type: 'JavaScript', main: 33.3, side: 33.3, real: 67.8},
+        {type: 'HTML/CSS', main: 0, side: 33.3, real: 63.5},
+        {type: 'SQL', main: 0, side: 0, real: 54.4},
+        {type: 'Java', main: 66.7, side: 0, real: 41.7},
+        {type: 'Bash/Shell/PowerShell', main: 0, side: 0, real: 41.1},
+        {type: 'C#', main: 0, side: 0, real: 36.6},
+        {type: 'PHP', main: 0, side: 0, real: 26.4},
+        {type: 'C++', main: 0, side: 0, real: 23.5},
+        {type: 'TypeScript', main: 0, side: 33.3, real: 21.2},
+        {type: 'C', main: 0, side: 0, real: 20.6},
+        {type: 'Ruby', main: 0, side: 0, real: 8.4},
+        {type: 'Go', main: 0, side: 0, real: 8.2},
+        {type: 'Assembly', main: 0, side: 0, real: 6.7},
+        {type: 'Swift', main: 0, side: 0, real: 6.6}
+      ]
+    );
+  }
 }
