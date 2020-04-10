@@ -4,7 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HomepageComponent} from './core/homepage/homepage.component';
+import {PortofolioComponent} from './core/portofolio/portofolio.component';
 import {MatCardModule} from '@angular/material/card';
 import {MaterialSharedModule} from './shared/modules/material-shared.module';
 import {NgxBootstrapSharedModule} from './shared/modules/ngx-bootstrap-shared.module';
@@ -23,6 +23,7 @@ import {AgChartsAngularModule} from 'ag-charts-angular';
 import {TechnologiesComponent} from './core/technologies/technologies.component';
 import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
+import {FooterComponent} from './core/footer/footer.component';
 
 const appRoutes: Routes = [
   {
@@ -36,7 +37,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent,
+    PortofolioComponent,
     MenuComponent,
     HeaderComponent,
     PageNotFoundComponent,
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     ContactComponent,
     ContactDetailsComponent,
     ContactSupportComponent,
-    TechnologiesComponent,
+    FooterComponent,
+    TechnologiesComponent
   ],
   imports: [
     BrowserModule,

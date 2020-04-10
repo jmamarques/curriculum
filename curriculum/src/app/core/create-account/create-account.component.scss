@@ -1,36 +1,43 @@
-#cardLogin{
+/* **************LOGIN CARD**************** */
+/* *************************************** */
+/* ************************************** */
+
+#cardLogin {
   width: 100%;
-  -webkit-box-shadow: 22px 17px 55px -11px rgba(0,0,0,0.75);
-  -moz-box-shadow: 22px 17px 55px -11px rgba(0,0,0,0.75);
-  box-shadow: 22px 17px 55px -11px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 22px 17px 55px -11px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 22px 17px 55px -11px rgba(0, 0, 0, 0.75);
+  box-shadow: 22px 17px 55px -11px rgba(0, 0, 0, 0.75);
   margin: auto;
 }
-h2{
-  text-align: center;
-  margin-bottom: 30px;
-}
-#cardCreate{
-  width: 100%;
-  -webkit-box-shadow: 22px 17px 55px 6px rgba(0,0,0,0.75);
-  -moz-box-shadow: 22px 17px 55px 6px rgba(0,0,0,0.75);
-  box-shadow: 22px 17px 55px 6px rgba(0,0,0,0.75);
-}
-label{
-  display: block;
-  text-align: center;
-}
-.list-group-item{
-  text-align: center;
-}
-.mat-radio-button{
-  margin-bottom: 15px;
-}
-
-#buttonCreate{
-  background-color: orange;
-  border-color: rgb(182, 120, 6);
-}
-.radioPrime{
+//RADIO BUTTON ON LOG IN
+.radioPrime {
   margin-bottom: 25px;
 }
 
+/* **************REGISTER CARD**************** */
+/* ****************************************** */
+/* ***************************************** */
+
+#cardCreate {
+  width: 100%;
+  -webkit-box-shadow: 22px 17px 55px 6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 22px 17px 55px 6px rgba(0, 0, 0, 0.75);
+  box-shadow: 22px 17px 55px 6px rgba(0, 0, 0, 0.75);
+}
+.list-group-item {
+  text-align: center;
+}
+//RADIO BUTTON ON REGISTER (CREATE NEW ACCOUNT)
+.mat-radio-button {
+  margin-bottom: 15px;
+}
+
+//COMMON ELEMENTS OF BOTH CARDS
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+label {
+  display: block;
+  text-align: center;
+}

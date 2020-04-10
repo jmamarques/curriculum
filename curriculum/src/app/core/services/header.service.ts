@@ -5,7 +5,8 @@ import {Injectable} from '@angular/core';
 })
 export class HeaderService {
   content = 'Welcome to';
-  private color = 'white';
+  private default_color = 'white';
+  private color = this.default_color;
 
   getContent(): string {
     return this.content;
@@ -24,5 +25,9 @@ export class HeaderService {
 
   setColor(value: string) {
     this.color = value;
+  }
+
+  setDefaultColor(): void{
+    this.color = this.default_color;
   }
 }
