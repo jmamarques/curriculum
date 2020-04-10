@@ -1,0 +1,99 @@
+<!--
+<div class="headerHomepage codProfiles">
+  <div class="container">
+    <br>
+    <div class="well">
+      <h2 class="text-divider"><span>COD Profiles</span></h2>
+      <p>
+        <br>
+      </p>
+    </div>
+  </div>
+</div>-->
+<div class="headerHomepage">
+  <h1>
+    PORTFOLIO
+  </h1>
+  <p>
+    Hello. Here you will find our Users Profile. You can check their CV, find their favourite hobbies, most used
+    technologies, the Languages/Frameworks that they work more with, etc
+  </p>
+  <p>
+    If you would like to join our members and be part of the COD community we would totally recommend, because later on
+    you can share your profile with your friends, team-workers or even future companies.
+  </p>
+
+</div>
+<div class="row">
+  <div class="col-9">
+    <div id="myBtnContainer">
+      <form>
+        <div class="row">
+          <div class="col">
+            <button class="btn active"> Show all</button>
+            <button class="btn"> Developers</button>
+            <button class="btn"> CEOs</button>
+            <button class="btn"> Students</button>
+          </div>
+          <div class="col">
+            <div class="container-fluid align-items-center">
+              <button class="btn float-left" id="searchButton">
+                <img src='../../../assets/search.png' class="cod-cursor" alt="search icon" id="searchIcon">
+              </button>
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="container cardsDiv">
+      <p-carousel styleClass="custom-carousel" [value]="users" [numVisible]="3" [numScroll]="1" [circular]="true"
+        [responsiveOptions]="responsiveOptions">
+        <ng-template let-user pTemplate="item">
+          <div class="card">
+            <img class="card-img-top rounded cod-cursor" src={{user.profile_pic}} alt="profile pic">
+            <div class="card-body">
+              <h2 class="card-title">{{user.first_name}} {{user.last_name}}</h2>
+              <p class="subtitle mb-2 text-muted">
+                {{user.current_Function}}
+              </p>
+            </div>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </div>
+  <div class="col-3">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item ">
+        <h1>
+          Would you be part of our Community?
+        </h1>
+
+      </li>
+      <li class="list-group-item">
+        <h3>
+          Give it a try
+        </h3>
+        <h3>
+          It's totally free
+        </h3>
+
+        <div class="text-box">
+          <a href="#" class="btn btn-white btn-animate" id="joinButton">Join Us</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row footer-bottom-row">
+        <div class="footerlicense">© COD Project 2020 Released under the <a
+            href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT license</a></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -49,3 +49,18 @@ html,
   border-color: orange;
   color: white;
 }
+
+/* **************AG-Grid*************** */
+/* ************************************ */
+/* ************************************ */
+
+@import "../node_modules/ag-grid-community/src/styles/ag-grid";
+/*@import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine-dark/sass/ag-theme-alpine-dark-mixin";*/
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/ag-theme-balham-mixin";
+
+.ag-theme-alpine {
+  @include ag-theme-balham((
+    // odd-row-background-color: #CFD8DC
+  ));
+}

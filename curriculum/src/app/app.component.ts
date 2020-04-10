@@ -1,5 +1,5 @@
 import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
-import {HeaderService} from './core/Services/header.service';
+import {HeaderService} from './core/services/header.service';
 
 @Component({
   selector: 'cod-root',
@@ -42,21 +42,29 @@ export class AppComponent {
   @HostListener('document:mouseover', ['$event'])
   mouseover($event: any) {
     if (this.masterCursor) {
-      if ($event.target.matches('button')
-        || $event.target.matches('i')
-        || $event.target.matches('.cod-cursor')
-        || $event.target.matches('a')) {
-        this.masterCursor.nativeElement.style.width = '30px';
-        this.masterCursor.nativeElement.style.height = '30px';
+      if ($event.target.matches('iframe')) {
+        console.log('i m above map');
+        this.masterCursor.nativeElement.style.opacity = 0;
       } else {
-        this.masterCursor.nativeElement.style.width = '20px';
-        this.masterCursor.nativeElement.style.height = '20px';
+        if ($event.target.matches('button')
+          || $event.target.matches('i')
+          || $event.target.matches('.cod-cursor')
+          || $event.target.matches('a')) {
+          this.masterCursor.nativeElement.style.width = '30px';
+          this.masterCursor.nativeElement.style.height = '30px';
+        } else {
+          this.masterCursor.nativeElement.style.width = '20px';
+          this.masterCursor.nativeElement.style.height = '20px';
+        }
       }
     }
   }
 
   @HostListener('document:mouseout', ['$event'])
   mouseout($event: any) {
+    if ($event.target.matches('iframe')) {
+      this.masterCursor.nativeElement.style.opacity = 1;
+    }
     if ($event.target.matches('button')
       || $event.target.matches('i')
       || $event.target.matches('.cod-cursor')
@@ -68,4 +76,10 @@ export class AppComponent {
     }
   }
 
+  @HostListener('window:resize', ['$event'])
+  handleResize(): void {
+    if (outerWidth < 600) {
+      this.isActiveSidebar = false;
+    }
+  }
 }

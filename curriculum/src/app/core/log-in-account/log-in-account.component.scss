@@ -1,18 +1,19 @@
 @import "src/styles";
-
+/* **************CARD LOGIN**************** */
+/* *************************************** */
+/* ************************************** */
 #cardLogin {
   width: 100%;
   -webkit-box-shadow: 22px 17px 55px 6px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 22px 17px 55px 6px rgba(0, 0, 0, 0.75);
   box-shadow: 22px 17px 55px 6px rgba(0, 0, 0, 0.75);
-
 }
-
-h2 {
-  text-align: center;
-  margin-bottom: 30px;
+.mat-radio-button {
+  margin-bottom: 15px;
 }
-
+/* **************CARD REGISTER**************** */
+/* ****************************************** */
+/* ***************************************** */
 #cardCreate {
   width: 100%;
   -webkit-box-shadow: 22px 17px 55px -11px rgba(0, 0, 0, 0.75);
@@ -20,22 +21,18 @@ h2 {
   box-shadow: 22px 17px 55px -11px rgba(0, 0, 0, 0.75);
   margin: auto;
 }
-label{
+.radioPrime {
+  margin-bottom: 22px;
+}
+//CONTENT SHARED ON BOTH CARDS
+label {
   display: block;
   text-align: center;
 }
-.list-group-item{
+.list-group-item {
   text-align: center;
 }
-.mat-radio-button{
-  margin-bottom: 15px;
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
 }
-
-#buttonCreate{
-  background-color: orange;
-  border-color: rgb(182, 120, 6);
-}
-.radioPrime{
-  margin-bottom: 22px;
-}
-

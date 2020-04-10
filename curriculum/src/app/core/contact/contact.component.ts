@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { RouteService } from '../Services/route.service';
-import { HeaderService } from '../Services/header.service';
+import {Component, OnInit} from '@angular/core';
+import {RouteService} from '../services/route.service';
+import {HeaderService} from '../services/header.service';
 
 @Component({
   selector: 'cod-contact',
@@ -10,15 +10,15 @@ import { HeaderService } from '../Services/header.service';
 export class ContactComponent implements OnInit {
 
   constructor(private routeService: RouteService,
-              private headerService:HeaderService) {
-                this.headerService.setContent('Contacts');
-              }
+              private headerService: HeaderService) {
+    this.headerService.setContent('Contacts');
+  }
 
   ngOnInit(): void {
   }
-  redirect(goal: string){
-    this.routeService.redirect(goal);
 
+  redirect(goal: string): void {
+    this.routeService.redirect(goal);
   }
 
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { HeaderService } from '../Services/header.service';
+import {Component, OnInit} from '@angular/core';
+import {HeaderService} from '../services/header.service';
 
 @Component({
   selector: 'cod-contact-details',
@@ -8,7 +8,7 @@ import { HeaderService } from '../Services/header.service';
 })
 export class ContactDetailsComponent implements OnInit {
 
-  constructor(private headerService:HeaderService) {
+  constructor(private headerService: HeaderService) {
     this.headerService.setContent('Contact');
   }
 
