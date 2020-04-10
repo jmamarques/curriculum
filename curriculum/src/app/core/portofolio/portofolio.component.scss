@@ -152,29 +152,6 @@ li {
     transform: translateY(0px);
   }
 }
-/* ******** */
-/*  Footer */
-/* ******** */
-.footer {
-  position: relative;
-  padding-top: 40px;
-  text-align: left;
-  color: #9d9d9d;
-  z-index: 10;
-}
-
-.footer-bottom {
-  padding: 25px 0;
-  background: #090c14;
-}
-
-.footer-bottom-row {
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .form-control {
   width: 58%;
   border-top: 0px;
