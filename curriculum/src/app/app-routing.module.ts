@@ -9,6 +9,7 @@ import {ContactDetailsComponent} from './core/contact-details/contact-details.co
 import {ContactSupportComponent} from './core/contact-support/contact-support.component';
 import {FaqPageComponent} from './core/faq-page/faq-page.component';
 import {TechnologiesComponent} from './core/technologies/technologies.component';
+import {ContactTechnologiesComponent} from './core/contact-technologies/contact-technologies.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'cod/contacts', component: ContactComponent},
   {path: 'cod/contacts/details', component: ContactDetailsComponent},
   {path: 'cod/contacts/support', component: ContactSupportComponent},
+  {path: 'cod/contacts/technologies', component: ContactTechnologiesComponent},
   {path: 'cod/faq', component: FaqPageComponent},
   {path: 'technologies/users', component: TechnologiesComponent},
   {path: 'page-not-found', component: PageNotFoundComponent},
