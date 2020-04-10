@@ -74,6 +74,11 @@
   max-height: 100%;
   overflow: auto;
 }
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
 /*
 #content:not(cod-header){
   background: green !important;
