@@ -30,6 +30,17 @@ mat-list-item{
 .row{
   margin-right: 0px;
 }
+@media (max-width:600px ){
+  .currentSelectedSub, .effect-underline {
+    font-size: 11px;
+  }
+  .mat-expansion-panel-header-title{
+    font-size: 13px !important;
+  }
+  .contentAccord{
+    font-size: 13px;
+  }
+}
 /* **************EXPANSION PANEL**************** */
 /* ********************************************* */
 /* ********************************************* */
