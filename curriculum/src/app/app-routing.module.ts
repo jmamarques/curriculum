@@ -8,6 +8,7 @@ import {ContactComponent} from './core/contact/contact.component';
 import {ContactDetailsComponent} from './core/contact-details/contact-details.component';
 import {ContactSupportComponent} from './core/contact-support/contact-support.component';
 import {TechnologiesComponent} from './core/technologies/technologies.component';
+import {ContactTechnologiesComponent} from './core/contact-technologies/contact-technologies.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'cod/contacts', component: ContactComponent},
   {path: 'cod/contacts/details', component: ContactDetailsComponent},
   {path: 'cod/contacts/support', component: ContactSupportComponent},
+  {path: 'cod/contacts/technologies', component: ContactTechnologiesComponent},
   {path: 'technologies/users', component: TechnologiesComponent},
   {path: 'page-not-found', component: PageNotFoundComponent},
   {path: 'portofolio', component: PortofolioComponent},
@@ -26,4 +28,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+}
