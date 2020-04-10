@@ -1,0 +1,61 @@
+.container {
+  width: 100%;
+  max-width: 980px;
+  padding: 0 20px;
+  margin: 0 auto;
+  position: relative;
+
+  .technologies {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  i {
+    width: 50px;
+    height: auto;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  ul.float-left li {
+    text-align: right;
+    display: block;
+
+    i {
+      float: right;
+    }
+
+    .text {
+      display: block;
+      padding-left: 0;
+      padding-right: 80px;
+      font-size: 16px;
+    }
+  }
+
+  ul.float-right li {
+    text-align: left;
+    display: block;
+
+    i {
+      float: left;
+    }
+
+    .text {
+      display: block;
+      padding-right: 0;
+      padding-left: 80px;
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  ul.col-6 {
+    flex: none;
+    max-width: none;
+  }
+}

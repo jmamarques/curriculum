@@ -1,19 +1,20 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {createGitgraph} from '@gitgraph/js';
+import {HeaderService} from '../services/header.service';
 
 @Component({
   selector: 'cod-contact-technologies',
   templateUrl: './contact-technologies.component.html',
   styleUrls: ['./contact-technologies.component.scss']
 })
-export class ContactTechnologiesComponent implements OnInit, AfterViewInit {
+export class ContactTechnologiesComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('graphContainer') graphContainer: ElementRef;
 
-  constructor() {
+  constructor(private headerService: HeaderService) {
   }
 
   ngOnInit(): void {
-
+    this.headerService.setContent('Contacts');
   }
 
   ngAfterViewInit(): void {
@@ -36,6 +37,9 @@ export class ContactTechnologiesComponent implements OnInit, AfterViewInit {
     develop.commit('Prepare v1');
 
     master.merge(develop).tag('v1.0.0');
+  }
+
+  ngOnDestroy(): void {
   }
 
 }
