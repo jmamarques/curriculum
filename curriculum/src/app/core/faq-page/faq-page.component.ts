@@ -9,18 +9,32 @@ import { FaqContent } from '../interfaces/faq-content';
   styleUrls: ['./faq-page.component.scss']
 })
 export class FaqPageComponent implements OnInit {
-  mainSubjects : string [];
-  subjectQuestionsAnswer: FaqContent [];
+  mainSubjects: string[];
+  selectedSub: boolean[] = [];
+  subjectQuestionsAnswer: FaqContent[];
   constructor(private headerService: HeaderService,
-              private faqService : FaqService) {
+    private faqService: FaqService) {
     this.headerService.setColor('#e0e0e0');
-   }
+  }
 
   ngOnInit(): void {
     this.mainSubjects = this.faqService.getMainSubjects();
-    this.subjectQuestionsAnswer=this.faqService.getContent();
-    console.warn(this.subjectQuestionsAnswer);
+    this.subjectQuestionsAnswer = this.faqService.getInitialContent();
+    this.mainSubjects.forEach(sub => {
+      if (this.mainSubjects[0] === sub) {
+        this.selectedSub.push(true);
+      } else {
+        this.selectedSub.push(false);
+      }
+    });
+  }
+  selectedMainSub(i: number) {
+    for (let index = 0; index < this.selectedSub.length; index++) {
+      this.selectedSub[index] = false;
+    }
+    this.selectedSub[i] = true;
+    this.subjectQuestionsAnswer = this.faqService.getContentOfSub(this.mainSubjects[i]);
 
   }
-
 }
+

@@ -30,6 +30,23 @@ export class FaqService {
     }
   ];
 
+  delivery : FaqContent [] =
+  [
+    {
+      title:'What payment methods do you accept?',
+      answer:"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+    }
+    ,
+    {
+      title:'Do you sell gift cards?',
+      answer:"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+    },
+    {
+      title:'How do I purchase a gift card?',
+      answer: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+    }
+  ];
+
 
 
   constructor() { }
@@ -37,8 +54,16 @@ export class FaqService {
     return this.mainSubjects;
   }
 
-  getContent(): FaqContent[]{
+  getInitialContent(): FaqContent[]{
     return this.paymentFAQ;
-
+  }
+  getContentOfSub(sub:string) : FaqContent[]{
+    if (sub === this.mainSubjects[0]) {
+      return this.delivery
+    }
+    if (sub === this.mainSubjects[1]) {
+      return this.paymentFAQ;
+    }
+    return [];
   }
 }
