@@ -24,6 +24,7 @@ import {TechnologiesComponent} from './core/technologies/technologies.component'
 import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {FooterComponent} from './core/footer/footer.component';
+import {ContactTechnologiesComponent} from './core/contact-technologies/contact-technologies.component';
 
 const appRoutes: Routes = [
   {
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     ContactDetailsComponent,
     ContactSupportComponent,
     FooterComponent,
-    TechnologiesComponent
+    TechnologiesComponent,
+    ContactTechnologiesComponent
   ],
   imports: [
     BrowserModule,
