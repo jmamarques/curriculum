@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {createGitgraph} from '@gitgraph/js';
 import {HeaderService} from '../services/header.service';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'cod-contact-technologies',
@@ -15,6 +16,12 @@ export class ContactTechnologiesComponent implements OnInit, AfterViewInit, OnDe
 
   ngOnInit(): void {
     this.headerService.setContent('Contacts');
+    AOS.init({
+      offset: 200,
+      duration: 600,
+      easing: 'ease-in-sine',
+      delay: 100,
+    });
   }
 
   ngAfterViewInit(): void {
