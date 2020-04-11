@@ -1,24 +1,96 @@
 <div class="container">
-  <div class="row title-bar">
+  <div class="row title-bar" data-aos="fade-up">
     <a [pageScrollDuration]="200" class="title-bar-item" href="#section-1" pageScroll>Top Technologies</a>
     <a [pageScrollDuration]="250" class="title-bar-item" href="#section-2" pageScroll>User statics</a>
   </div>
-  <div class="title" id="section-1">
+  <div class="title" data-aos="fade-up" id="section-1">
     <span>Top Technologies</span>
   </div>
   <div class="row">
+    <!-- LEFT-->
     <ul class="col-6 float-left technologies pr-2 pr-md-5">
-      <li>
-        <i class="fab fa-angular fa-4x"></i>
+      <li data-aos="fade-up">
+        <i class="fab fa-html5 fa-4x" style="color: orange"></i>
+        <div class="text">
+          <h3><strong>Title 2</strong></h3>
+          <p>content 2</p>
+        </div>
+      </li>
+      <li data-aos="fade-up">
+        <i class="fab fa-js fa-4x" style="color: yellow"></i>
+        <div class="text">
+          <h3><strong>Title 2</strong></h3>
+          <p>content 2</p>
+        </div>
+      </li>
+      <li data-aos="fade-up">
+        <i class="fab fa-java fa-4x" style="blue"></i>
+        <div class="text">
+          <h3><strong>Title 2</strong></h3>
+          <p>content 2</p>
+        </div>
+      </li>
+      <li data-aos="fade-up">
+        <i class="fab fa-angular fa-4x" style="color: red"></i>
+        <div class="text">
+          <h3><strong>Title 2</strong></h3>
+          <p>content 2</p>
+        </div>
+      </li>
+      <li data-aos="fade-up">
+        <i class="fab fa-bootstrap fa-4x" style="color: blue"></i>
+        <div class="text">
+          <h3><strong>Title 2</strong></h3>
+          <p>content 2</p>
+        </div>
+      </li>
+      <li data-aos="fade-up">
+        <img src="../../../assets/ngbootstrap.png">
         <div class="text">
           <h3><strong>Title 2</strong></h3>
           <p>content 2</p>
         </div>
       </li>
     </ul>
+    <!--RIGHT-->
     <ul class="col-6 float-right technologies pl-2 pl-md-5">
-      <li>
-        <i class="fab fa-angular fa-4x"></i>
+      <li data-aos="fade-up">
+        <i class="fab fa-css3-alt fa-4x" style="color: lightskyblue"></i>
+        <div class="text">
+          <h3><strong>Title 1</strong></h3>
+          <p>content 1</p>
+        </div>
+      </li>
+      <li data-aos="fade-up">
+        <img src="../../../assets/typescript.png">
+        <div class="text">
+          <h3><strong>Title 1</strong></h3>
+          <p>content 1</p>
+        </div>
+      </li>
+      <li data-aos="fade-up">
+        <img src="../../../assets/springboot.png">
+        <div class="text">
+          <h3><strong>Title 1</strong></h3>
+          <p>content 1</p>
+        </div>
+      </li>
+      <li data-aos="fade-up">
+        <i class="fab fa-angular fa-4x" style="color: blue"></i>
+        <div class="text">
+          <h3><strong>Title 1</strong></h3>
+          <p>content 1</p>
+        </div>
+      </li>
+      <li data-aos="fade-up">
+        <img src="../../../assets/aggrid.png">
+        <div class="text">
+          <h3><strong>Title 1</strong></h3>
+          <p>content 1</p>
+        </div>
+      </li>
+      <li data-aos="fade-up">
+        <img src="../../../assets/primeng.png">
         <div class="text">
           <h3><strong>Title 1</strong></h3>
           <p>content 1</p>
@@ -28,7 +100,7 @@
   </div>
 </div>
 
-<div class="title" id="section-2">
+<div class="title" data-aos="fade-up" id="section-2">
   <span>Top Technologies</span>
 </div>
 <div #graphContainer data-aos="fade-up"></div>

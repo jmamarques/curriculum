@@ -21,6 +21,7 @@ export class ContactTechnologiesComponent implements OnInit, AfterViewInit, OnDe
       duration: 600,
       easing: 'ease-in-sine',
       delay: 100,
+      once: true
     });
   }
 
