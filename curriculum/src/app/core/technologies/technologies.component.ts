@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../services/user.service';
 import {AgGridAngular} from 'ag-grid-angular';
+import { Tecnhologies } from '../Interfaces/tecnhologies';
+import { TechnologiesService } from '../services/technologies.service';
 
 @Component({
   selector: 'cod-technologies',
@@ -9,6 +11,8 @@ import {AgGridAngular} from 'ag-grid-angular';
 })
 export class TechnologiesComponent implements OnInit {
   @ViewChild('agGrid') agGrid: AgGridAngular;
+  techonlogies: Tecnhologies;
+  temp :number;
 
   /* configurations to ag-grid */
   columnDefs = [
@@ -23,13 +27,23 @@ export class TechnologiesComponent implements OnInit {
   options: any;
   dataChart: any;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private technologiesService:TechnologiesService) {
   }
 
   ngOnInit(): void {
     this.rowData = this.userService.getUserStatics();
     this.populateChart();
+    this.getProjectTecnhologies();
   }
+
+  getProjectTecnhologies(): void{
+    this.technologiesService.getTechonlogies()
+    .subscribe( tecno =>{this.techonlogies = tecno});
+
+  }
+
+
 
   populateChart(): void {
     this.dataChart = this.userService.getTechnologiesStatus().subscribe(data => {
