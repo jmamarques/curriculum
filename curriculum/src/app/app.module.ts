@@ -23,6 +23,8 @@ import {AgChartsAngularModule} from 'ag-charts-angular';
 import {TechnologiesComponent} from './core/technologies/technologies.component';
 import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
+import { HttpClientModule } from '@angular/common/http';
+import { NumberCommaPipe } from './core/Pipes/number-comma.pipe';
 
 const appRoutes: Routes = [
   {
@@ -46,6 +48,7 @@ const appRoutes: Routes = [
     ContactDetailsComponent,
     ContactSupportComponent,
     TechnologiesComponent,
+    NumberCommaPipe,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,8 @@ const appRoutes: Routes = [
     AgGridModule.withComponents([]),
     AgChartsAngularModule,
     NgxPageScrollCoreModule,
-    NgxPageScrollModule
+    NgxPageScrollModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
