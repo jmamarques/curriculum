@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row title-bar">
+    <a [pageScrollDuration]="200" class="title-bar-item" href="#section-1" pageScroll>Top Technologies</a>
+    <a [pageScrollDuration]="250" class="title-bar-item" href="#section-2" pageScroll>User statics</a>
+  </div>
+  <div class="title" id="section-1">
+    <span>Top Technologies</span>
+  </div>
+  <div class="row">
+    <ul class="col-6 float-left technologies pr-2 pr-md-5">
+      <li>
+        <i class="fab fa-angular fa-4x"></i>
+        <div class="text">
+          <h3><strong>Title 2</strong></h3>
+          <p>content 2</p>
+        </div>
+      </li>
+    </ul>
+    <ul class="col-6 float-right technologies pl-2 pl-md-5">
+      <li>
+        <i class="fab fa-angular fa-4x"></i>
+        <div class="text">
+          <h3><strong>Title 1</strong></h3>
+          <p>content 1</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="title" id="section-2">
+  <span>Top Technologies</span>
+</div>
+<div #graphContainer data-aos="fade-up"></div>
+

@@ -37,7 +37,18 @@
               </div>
               <input type="text" class="form-control" id="sub" required placeholder="Subject">
             </div>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="subjectSpan">
+                  <img src="../../../assets/country.png" class="groupImage">
+                </span>
+              </div>
+              <select id="inputState" class="form-control">
+                <option value="" selected disabled>Chose your Country...</option>
+                <option *ngFor="let country of countryList" >{{country}}</option>
 
+              </select>
+            </div>
             <div class="form-group input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="contentSpan">
@@ -75,21 +86,27 @@
             We'll be here waiting for you, and attending all of your needs!
           </p>
         </li>
-        <li class="list-group-item">
-            <img src="../../../assets/phoneRound.png" class="imgExtra rounded-circle border-dark">
-          <a href='cod/contacts/details'>
-            Contacts
-          </a>
+        <li class="list-group-item ">
+          <div class="icon-container ">
+            <div class="icon icon-collapse ">
+              <i class="pi pi-mobile"></i>
+            </div>
+            <a href='cod/contacts/details'>
+              Contacts
+            </a>
+          </div>
         </li>
-        <li class="list-group-item">
-          <img src="../../../assets/share.png" class="imgExtra rounded-circle">
-        <a href=''>
-          Social Networks
-        </a>
-      </li>
-
+        <li class="list-group-item ">
+          <div class="icon-container ">
+            <div class="icon icon-fill ">
+              <i class="pi pi-share-alt"></i>
+            </div>
+            <a href='cod/contacts/details'>
+              Social Networks
+            </a>
+          </div>
+        </li>
       </ul>
-
     </div>
   </div>
 </div>

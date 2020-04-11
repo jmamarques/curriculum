@@ -1,8 +1,7 @@
 @import "src/styles";
-
-.addVerticalLine {
-  border-right: 2px solid rgb(172, 169, 169);
-}
+/* **************HEADERS**************** */
+/* ************************************ */
+/* ************************************ */
 
 h1 {
   padding: 0 0;
@@ -17,83 +16,82 @@ h3 {
   text-align: center;
   margin-bottom: 5%;
 }
+/* **************CONTENT OF THE TABLE**************** */
+/* ************************************************** */
+/* ************************************************** */
 
-.colButton{
+.colButton {
   width: 150px;
   height: 150px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-.labelText{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+
+.addVerticalLine {
+  border-right: 2px solid rgb(172, 169, 169);
 }
-h4{
+//HEADER OF EACH ROW OF THE TABLE
+h4 {
   padding: 0 0;
   font: 20px "Arial";
   text-align: center;
   margin: 5%;
-  color:orange;
+  color: orange;
 }
-p{
+//DESCRIPTION ON THE TABLE
+p {
   text-align: center;
   font: 17px "Arial";
   margin-bottom: 5%;
 }
-.buttonsCol{
-  //border-color: rgba(255, 166, 1, 0.979);
+.buttonsCol {
   display: block;
   margin-left: auto;
   margin-right: auto;
-
 }
-
-.container{
+//MARGIN FOR BOTTOM OF TABLE
+.container {
   margin-bottom: 3%;
 }
 
-.map-container-5{
-  overflow:hidden;
-  padding-bottom:56.25%;
-  position:relative;
-  height:0;
-  }
-  .map-container-5 iframe{
-  left:0;
-  top:0;
-  height:100%;
-  width:100%;
-  position:absolute;
-  }
+/* **************MAP CONTENT**************** */
+/* ************************************ */
+/* ************************************ */
 
-  #locationH{
-    margin-top:50px;
-  }
+.map-container-5 {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+.map-container-5 iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
 
-  .card-header{
-    background-image: linear-gradient(to right,#FFD06E,#FC6863);
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: -20px;
-    -webkit-box-shadow: 28px 22px 35px -6px rgba(0,0,0,0.75);
-    -moz-box-shadow: 28px 22px 35px -6px rgba(0,0,0,0.75);
-    box-shadow: 28px 22px 35px -6px rgba(0,0,0,0.75);
-    font: 20px "Arial";
-    text-align: center;
-    color: white;
+#locationH {
+  margin-top: 50px;
+}
 
-  }
-  #map-container-google-8{
-    -webkit-box-shadow: 28px 22px 35px -6px rgba(0,0,0,0.75);
-    -moz-box-shadow: 28px 22px 35px -6px rgba(0,0,0,0.75);
-    box-shadow: 28px 22px 35px -6px rgba(0,0,0,0.75);
-  }
-  .card {
-    padding: 0;
-  }
-
-
-
+.card-header {
+  background-image: linear-gradient(to right, #ffd06e, #fc6863);
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -20px;
+  -webkit-box-shadow: 28px 22px 35px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 28px 22px 35px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 28px 22px 35px -6px rgba(0, 0, 0, 0.75);
+  font: 20px "Arial";
+  text-align: center;
+  color: white;
+}
+#map-container-google-8 {
+  -webkit-box-shadow: 28px 22px 35px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 28px 22px 35px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 28px 22px 35px -6px rgba(0, 0, 0, 0.75);
+}
