@@ -72,7 +72,7 @@ const appRoutes: Routes = [
     NgxPageScrollModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [NumberCommaPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

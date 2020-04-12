@@ -8,10 +8,7 @@
       <span>Top Technologies</span>
     </div>
     <div class="start">
-      <ag-charts-angular
-        [options]="options"
-        style="max-width: 400px"
-      >
+      <ag-charts-angular [options]="options" style="max-width: 400px">
       </ag-charts-angular>
     </div>
     <div class="title" id="section-2">
@@ -19,23 +16,13 @@
     </div>
     <div class="start">
       <button (click)="getSelectedRows()" class="btn">Get Rows</button>
-      <ag-grid-angular
-        #agGrid
-        [columnDefs]="columnDefs"
-        [rowData]="rowData | async"
-        class="ag-theme-alpine"
-        rowSelection="multiple"
-        style="width: 500px; height: 500px; max-width: 100%;"
-      >
+      <ag-grid-angular #agGrid [columnDefs]="columnDefs" [rowData]="rowData | async" class="ag-theme-alpine"
+        rowSelection="multiple" style="width: 500px; height: 500px; max-width: 100%;">
       </ag-grid-angular>
     </div>
   </div>
-  {{techonlogies?.HTML | numberComma}}
-  {{techonlogies?.CSS| numberComma}}
-  {{techonlogies?.JavaScript| numberComma}}
-  {{techonlogies?.TypeScript| numberComma}}
-
-
-
-
+  <div *ngIf="pieOptions">
+  <ag-charts-angular style="height: 100%" [options]="pieOptions">
+  </ag-charts-angular>
+</div>
 </div>
