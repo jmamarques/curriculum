@@ -58,9 +58,13 @@ a:active, a:hover {
     padding: 0;
   }
 
-  i {
+  li {
+    min-height: 118px;
+  }
+
+  i, img {
     width: 50px;
-    height: auto;
+    height: 50px;
   }
 
   h3 {
@@ -71,7 +75,7 @@ a:active, a:hover {
     text-align: right;
     display: block;
 
-    i {
+    i, img {
       float: right;
     }
 
@@ -87,7 +91,7 @@ a:active, a:hover {
     text-align: left;
     display: block;
 
-    i {
+    i, img {
       float: left;
     }
 
