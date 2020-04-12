@@ -4,6 +4,7 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { Tecnhologies } from '../Interfaces/tecnhologies';
 import { TechnologiesService } from '../services/technologies.service';
 import { NumberCommaPipe } from '../Pipes/number-comma.pipe';
+import { ContributorsGit } from '../Interfaces/contributors-git';
 
 @Component({
   selector: 'cod-technologies',
@@ -26,16 +27,23 @@ export class TechnologiesComponent implements OnInit {
   // charts
   options: any;
   dataChart: any;
+
+/* **************OPTIONS FOR BOTH CHARTS**************** */
+/* **************************************************** */
+/* *************************************************** */
+
   //pie chart
   pieOptions: any;
+  //bar chart
+  barChartOptions: any;
+
+/* **************CHARTS INITIALIZATION**************** */
+/* ************************************************** */
+/* ************************************************* */
 
   constructor(private userService: UserService,
     private technologiesService: TechnologiesService,
     private pipeCommaNumber: NumberCommaPipe) {
-    const abc: any = {};
-    abc.abdgfedlkpfsrsdgfojisgrdauhiogrsdhuigsdrahuidrghui = 1;
-    abc.notdata = 'sdf';
-    console.warn(Object.keys(abc));
     this.technologiesService.getTechonlogies()
       .subscribe(tecno => {
         this.techonlogies = tecno;
@@ -53,8 +61,8 @@ export class TechnologiesComponent implements OnInit {
                 color: '#ffffff'
               },
               highlightStyle: {
-                fill: '#00a4ff',
-                stroke: '#0071ff'
+                fill: '#69869d',
+                stroke: '#69869d'
               },
             }
           ],
@@ -84,12 +92,76 @@ export class TechnologiesComponent implements OnInit {
             itemSpacing: 9
           },
         };
+      }
+      );
+      this.technologiesService.getContributors()
+      .subscribe(contributors =>{
+        this.barChartOptions = {
+          data: this.getDataContributors(contributors),
+          title: {
+            text: 'Curriculum Commits'
+          },
+          axes: [
+            {
+              type: 'category',
+              position: 'bottom'
+            },
+            {
+              type: 'number',
+              position: 'left',
+              title: {
+                text: 'Number of Commits'
+              },
+              line: {
+                width: 1
+              },
+              tick: {
+                width: 1,
+                size: 6,
+                count: 10
+              },
+              label: {
+                fontWeight: 'normal',
+                fontSize: 12
+              },
+              gridStyle: [
+                {
+                  stroke: 'rgba(195, 195, 195, 1)',
+                  lineDash: [3, 10]
+                }
+              ]
+            }
+          ],
+          series: [
+            {
+              type: 'column',
+              xKey: 'contributor',
+              yKeys: ['number_Commits'],
+              fills: ['#97bc86'],
+              strokes:['grey'],
+              highlightStyle: {
+                fill: '#488f31',
+                stroke: '#grey'
+              },
+              visible: true,
+              showInLegend: false,
+              tooltipEnabled: true,
+              grouped: true
+            }
+          ],
+          width: 400,
+          height: 338
+        };
       });
   }
   ngOnInit(): void {
     this.rowData = this.userService.getUserStatics();
     this.populateChart();
   }
+/* **************CREATE DATA TO PIE GRAPH**************** */
+/* ****************************************************** */
+/* ****************************************************** */
+
   createData(tecno: any): any{
     const result:any [] = [];
     Object.keys(tecno).forEach(tec =>{
@@ -97,6 +169,22 @@ export class TechnologiesComponent implements OnInit {
         technologies:tec,
         type:(this.pipeCommaNumber.transform(tecno[tec] as number))
       });
+    });
+    return result;
+  }
+/* **************CREATE DATA TO BARS GRAPH**************** */
+/* ****************************************************** */
+/* ***************************************************** */
+
+  getDataContributors(contributors: ContributorsGit []): any{
+    const result:any[]= [];
+    contributors.forEach(contri =>{
+      result.push(
+        {
+          contributor:contri.login,
+          number_Commits:contri.contributions
+        }
+      );
     });
     return result;
   }

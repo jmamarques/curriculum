@@ -22,7 +22,11 @@
     </div>
   </div>
   <div *ngIf="pieOptions">
-  <ag-charts-angular style="height: 100%" [options]="pieOptions">
-  </ag-charts-angular>
-</div>
+    <ag-charts-angular style="height: 100%" [options]="pieOptions">
+    </ag-charts-angular>
+  </div>
+  <div *ngIf="barChartOptions">
+    <ag-charts-angular [options]="barChartOptions">
+    </ag-charts-angular>
+  </div>
 </div>
