@@ -13,9 +13,8 @@ import { ContributorsGit } from '../Interfaces/contributors-git';
 })
 export class TechnologiesComponent implements OnInit {
   @ViewChild('agGrid') agGrid: AgGridAngular;
-  techonlogies: Tecnhologies;
-
   /* configurations to ag-grid */
+  result: any[] = [];
   columnDefs = [
     { headerName: 'Make', field: 'make', sortable: true, filter: true },
     { headerName: 'Model', field: 'model', sortable: true, filter: true },
@@ -28,25 +27,34 @@ export class TechnologiesComponent implements OnInit {
   options: any;
   dataChart: any;
 
-/* **************OPTIONS FOR BOTH CHARTS**************** */
-/* **************************************************** */
-/* *************************************************** */
+  /* **************OPTIONS FOR BOTH CHARTS**************** */
+  /* **************************************************** */
+  /* *************************************************** */
 
   //pie chart
   pieOptions: any;
   //bar chart
   barChartOptions: any;
 
-/* **************CHARTS INITIALIZATION**************** */
-/* ************************************************** */
-/* ************************************************* */
+  /* **************CHARTS INITIALIZATION**************** */
+  /* ************************************************** */
+  /* ************************************************* */
 
   constructor(private userService: UserService,
     private technologiesService: TechnologiesService,
     private pipeCommaNumber: NumberCommaPipe) {
+
+    this.technologiesService.getOpenIssues()
+      .subscribe(issuesOpen => {
+        this.result = this.result.concat(issuesOpen);
+      });
+    this.technologiesService.getClosedIssues()
+      .subscribe(issuesClosed => {
+        this.result = this.result.concat(issuesClosed);
+      });
+    console.warn(this.result);
     this.technologiesService.getTechonlogies()
       .subscribe(tecno => {
-        this.techonlogies = tecno;
         this.pieOptions = {
           data: this.createData(tecno),
           series: [
@@ -55,8 +63,8 @@ export class TechnologiesComponent implements OnInit {
               labelKey: 'technologies',
               angleKey: 'type',
               innerRadiusOffset: 50,
-              fills: ['#003f5c', '#58508d', '#bc5090','#ffa600','#ff6361'],
-              strokes:['grey'],
+              fills: ['#003f5c', '#58508d', '#bc5090', '#ffa600', '#ff6361'],
+              strokes: ['grey'],
               label: {
                 color: '#ffffff'
               },
@@ -94,8 +102,8 @@ export class TechnologiesComponent implements OnInit {
         };
       }
       );
-      this.technologiesService.getContributors()
-      .subscribe(contributors =>{
+    this.technologiesService.getContributors()
+      .subscribe(contributors => {
         this.barChartOptions = {
           data: this.getDataContributors(contributors),
           title: {
@@ -138,7 +146,7 @@ export class TechnologiesComponent implements OnInit {
               xKey: 'contributor',
               yKeys: ['number_Commits'],
               fills: ['#97bc86'],
-              strokes:['grey'],
+              strokes: ['grey'],
               highlightStyle: {
                 fill: '#488f31',
                 stroke: '#grey'
@@ -158,31 +166,31 @@ export class TechnologiesComponent implements OnInit {
     this.rowData = this.userService.getUserStatics();
     this.populateChart();
   }
-/* **************CREATE DATA TO PIE GRAPH**************** */
-/* ****************************************************** */
-/* ****************************************************** */
+  /* **************CREATE DATA TO PIE GRAPH**************** */
+  /* ****************************************************** */
+  /* ****************************************************** */
 
-  createData(tecno: any): any{
-    const result:any [] = [];
-    Object.keys(tecno).forEach(tec =>{
+  createData(tecno: any): any {
+    const result: any[] = [];
+    Object.keys(tecno).forEach(tec => {
       result.push({
-        technologies:tec,
-        type:(this.pipeCommaNumber.transform(tecno[tec] as number))
+        technologies: tec,
+        type: (this.pipeCommaNumber.transform(tecno[tec] as number))
       });
     });
     return result;
   }
-/* **************CREATE DATA TO BARS GRAPH**************** */
-/* ****************************************************** */
-/* ***************************************************** */
+  /* **************CREATE DATA TO BARS GRAPH**************** */
+  /* ****************************************************** */
+  /* ***************************************************** */
 
-  getDataContributors(contributors: ContributorsGit []): any{
-    const result:any[]= [];
-    contributors.forEach(contri =>{
+  getDataContributors(contributors: ContributorsGit[]): any {
+    const result: any[] = [];
+    contributors.forEach(contri => {
       result.push(
         {
-          contributor:contri.login,
-          number_Commits:contri.contributions
+          contributor: contri.login,
+          number_Commits: contri.contributions
         }
       );
     });

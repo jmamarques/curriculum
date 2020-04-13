@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Tecnhologies } from '../Interfaces/tecnhologies';
 import { ContributorsGit } from '../Interfaces/contributors-git';
+import { IssueData } from '../Interfaces/issues-data';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,9 @@ import { ContributorsGit } from '../Interfaces/contributors-git';
 export class TechnologiesService {
   private tecnhologiesURL='https://api.github.com/repos/joaoMAMarques/curriculum/languages';
   private contributors = 'https://api.github.com/repos/joaoMAMarques/curriculum/contributors';
+  private issuesOpen ='https://api.github.com/repos/joaoMAMarques/curriculum/issues';
+  private issuesClosed ='https://api.github.com/repos/joaoMAMarques/curriculum/issues?state=closed';
+
 
   constructor(private http: HttpClient) { }
 
@@ -19,5 +23,12 @@ export class TechnologiesService {
   getContributors(): Observable<ContributorsGit []>{
     return this.http.get<ContributorsGit []>(this.contributors);
   }
+  getOpenIssues(): Observable<IssueData []>{
+    return this.http.get<IssueData[]>(this.issuesOpen);
+  }
+  getClosedIssues(): Observable<IssueData []>{
+    return this.http.get<IssueData[]>(this.issuesClosed);
+  }
+
 
 }

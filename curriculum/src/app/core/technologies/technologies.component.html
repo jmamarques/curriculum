@@ -71,3 +71,6 @@
       </li>
   </ul>
 </div>
+<div *ngFor="let item of result |sortByField:'number'">
+  {{item.title}}
+</div>
