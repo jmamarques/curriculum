@@ -5,6 +5,7 @@ import { Tecnhologies } from '../Interfaces/tecnhologies';
 import { TechnologiesService } from '../services/technologies.service';
 import { NumberCommaPipe } from '../Pipes/number-comma.pipe';
 import { ContributorsGit } from '../Interfaces/contributors-git';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'cod-technologies',
@@ -165,6 +166,13 @@ export class TechnologiesComponent implements OnInit {
   ngOnInit(): void {
     this.rowData = this.userService.getUserStatics();
     this.populateChart();
+    AOS.init({
+      offset: 200,
+      duration: 600,
+      easing: 'ease-in-sine',
+      delay: 100,
+      once: false
+    });
   }
   /* **************CREATE DATA TO PIE GRAPH**************** */
   /* ****************************************************** */

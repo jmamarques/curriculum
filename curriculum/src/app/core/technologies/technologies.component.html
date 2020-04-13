@@ -30,12 +30,12 @@
     </ag-charts-angular>
   </div>
 </div>
-<div class="container">
+<div class="container cardsContainer">
   <div class="page-header">
     <h1 id="timeline">Timeline</h1>
   </div>
   <ul class="timeline">
-    <li *ngFor="let issue of issuesList |sortByField:'number'; let i = index"
+    <li *ngFor="let issue of issuesList |sortByField:'number'; let i = index" data-aos="fade-up"
       [ngClass]="(i+1) % 2 == 0? 'timeline-inverted':''">
       <div class="timeline-badge" [ngClass]="issue.pull_request?'merge': (issue.state ==='open'? 'open':'closed')">
         <i class="glyphicon glyphicon-check"></i>
