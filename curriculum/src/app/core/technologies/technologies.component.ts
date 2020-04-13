@@ -14,7 +14,7 @@ import { ContributorsGit } from '../Interfaces/contributors-git';
 export class TechnologiesComponent implements OnInit {
   @ViewChild('agGrid') agGrid: AgGridAngular;
   /* configurations to ag-grid */
-  result: any[] = [];
+  issuesList: any[] = [];
   columnDefs = [
     { headerName: 'Make', field: 'make', sortable: true, filter: true },
     { headerName: 'Model', field: 'model', sortable: true, filter: true },
@@ -46,13 +46,13 @@ export class TechnologiesComponent implements OnInit {
 
     this.technologiesService.getOpenIssues()
       .subscribe(issuesOpen => {
-        this.result = this.result.concat(issuesOpen);
+        this.issuesList = this.issuesList.concat(issuesOpen);
       });
     this.technologiesService.getClosedIssues()
       .subscribe(issuesClosed => {
-        this.result = this.result.concat(issuesClosed);
+        this.issuesList = this.issuesList.concat(issuesClosed);
       });
-    console.warn(this.result);
+    console.warn(this.issuesList);
     this.technologiesService.getTechonlogies()
       .subscribe(tecno => {
         this.pieOptions = {

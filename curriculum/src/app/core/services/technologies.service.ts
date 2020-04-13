@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Tecnhologies } from '../Interfaces/tecnhologies';
 import { ContributorsGit } from '../Interfaces/contributors-git';
@@ -18,16 +18,22 @@ export class TechnologiesService {
   constructor(private http: HttpClient) { }
 
   getTechonlogies(): Observable<Tecnhologies>{
-    return this.http.get<Tecnhologies>(this.tecnhologiesURL);
+    return this.http.get<Tecnhologies>(this.tecnhologiesURL,{headers: this.createHeader()});
   }
   getContributors(): Observable<ContributorsGit []>{
-    return this.http.get<ContributorsGit []>(this.contributors);
+    return this.http.get<ContributorsGit []>(this.contributors,{headers: this.createHeader()});
   }
   getOpenIssues(): Observable<IssueData []>{
-    return this.http.get<IssueData[]>(this.issuesOpen);
+    return this.http.get<IssueData[]>(this.issuesOpen,{headers: this.createHeader()});
   }
   getClosedIssues(): Observable<IssueData []>{
-    return this.http.get<IssueData[]>(this.issuesClosed);
+    return this.http.get<IssueData[]>(this.issuesClosed,{headers: this.createHeader()});
+  }
+
+  createHeader(): HttpHeaders{
+    let header  = new HttpHeaders();
+    header.append('Access-Control-Allow-Origin','*');
+    return header;
   }
 
 
