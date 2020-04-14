@@ -1,14 +1,22 @@
-<div *ngIf="pieOptions">
-  <ag-charts-angular [options]="pieOptions" style="height: 100%">
-  </ag-charts-angular>
-</div>
-<div *ngIf="barChartOptions">
-  <ag-charts-angular [options]="barChartOptions">
-  </ag-charts-angular>
+<div class="container-fluid row">
+  <div class="col-lg-6">
+    <h3 class="title" data-aos="fade-up">Usage of Technologies</h3>
+    <div *ngIf="pieOptions" class="d-flex justify-content-center">
+      <ag-charts-angular [options]="pieOptions" data-aos="fade-up" style="height: 100%">
+      </ag-charts-angular>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <h3 class="title" data-aos="fade-up">Commits</h3>
+    <div *ngIf="barChartOptions" class="d-flex justify-content-center" data-aos="fade-up">
+      <ag-charts-angular [options]="barChartOptions">
+      </ag-charts-angular>
+    </div>
+  </div>
 </div>
 <div class="container cardsContainer">
   <div class="page-header">
-    <h1 id="timeline">Timeline</h1>
+    <h3 class="title">Issues Timeline</h3>
   </div>
   <ul class="timeline">
     <li *ngFor="let issue of issuesList |sortByField:'number'; let i = index"

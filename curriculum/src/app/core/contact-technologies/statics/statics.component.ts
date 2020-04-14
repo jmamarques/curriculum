@@ -63,15 +63,15 @@ export class StaticsComponent implements OnInit {
               bottom: 70,
               left: 100
             },
-            width: 795,
-            height: 480,
+            width: 500,
+            height: 338,
             tooltipOffset: [20, 20],
             autoSize: false,
             title: {
-              enabled: true,
-              fontSize: 21,
+              enabled: false,
+              /*fontSize: 24,
               fontWeight: 'bold',
-              text: 'Curriculum Technologies'
+              text: 'Curriculum Technologies'*/
             },
             legend: {
               markerShape: 'circle',
@@ -90,7 +90,7 @@ export class StaticsComponent implements OnInit {
         this.barChartOptions = {
           data: this.getDataContributors(contributors),
           title: {
-            text: 'Curriculum Commits'
+            text: ''
           },
           axes: [
             {
@@ -101,7 +101,8 @@ export class StaticsComponent implements OnInit {
               type: 'number',
               position: 'left',
               title: {
-                text: 'Number of Commits'
+                text: 'Number of Commits',
+                color: 'orange'
               },
               line: {
                 width: 1
