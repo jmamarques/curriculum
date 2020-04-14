@@ -1,7 +1,6 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Branch as BranchGit, createGitgraph} from '@gitgraph/js';
 import {HeaderService} from '../services/header.service';
-import * as AOS from 'aos';
 import {GitHubService} from '../services/git-hub.service';
 import {BaseCommit, Branch} from '../interfaces/git-hub';
 
@@ -11,7 +10,6 @@ import {BaseCommit, Branch} from '../interfaces/git-hub';
   styleUrls: ['./contact-technologies.component.scss']
 })
 export class ContactTechnologiesComponent implements OnInit, AfterViewInit, OnDestroy {
-
   protected static map: Map<string, BaseCommit> = new Map();
 
   constructor(private headerService: HeaderService,
@@ -21,19 +19,12 @@ export class ContactTechnologiesComponent implements OnInit, AfterViewInit, OnDe
   @ViewChild('graphContainer') graphContainer: ElementRef;
 
   ngOnInit(): void {
-    this.headerService.setContent('Contacts');
-    AOS.init({
-      offset: 200,
-      duration: 600,
-      easing: 'ease-in-sine',
-      delay: 100,
-      once: true
-    });
+
   }
 
   ngAfterViewInit(): void {
     /*this.populateGraph();*/
-
+    this.headerService.setContent('Contacts');
   }
 
   ngOnDestroy(): void {
