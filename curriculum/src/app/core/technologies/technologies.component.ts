@@ -53,7 +53,6 @@ export class TechnologiesComponent implements OnInit {
       .subscribe(issuesClosed => {
         this.issuesList = this.issuesList.concat(issuesClosed);
       });
-    console.warn(this.issuesList);
     this.technologiesService.getTechonlogies()
       .subscribe(tecno => {
         this.pieOptions = {
