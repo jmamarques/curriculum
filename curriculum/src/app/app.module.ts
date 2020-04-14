@@ -29,6 +29,7 @@ import {FooterComponent} from './core/footer/footer.component';
 import {ContactTechnologiesComponent} from './core/contact-technologies/contact-technologies.component';
 import { FaqPageComponent } from './core/faq-page/faq-page.component';
 import { SortByFildPipe } from './core/Pipes/sort-by-field.pipe';
+import { HomepageComponent } from './core/homepage/homepage.component';
 
 const appRoutes: Routes = [
   {
@@ -56,7 +57,8 @@ const appRoutes: Routes = [
     NumberCommaPipe,
     ContactTechnologiesComponent,
     FaqPageComponent,
-    SortByFildPipe
+    SortByFildPipe,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,174 @@
+@import "src/fonts";
+.fontJosfin{
+  font-family: 'Josefin Sans', sans-serif;
+}
+.topTitle{
+  font-size: 50px;
+}
+#leftCol{
+  padding-left: 15%;
+  //padding-right: 20%;
+}
+#backGroundImg{
+  width: 50%;
+}
+#secondTitle{
+  text-align: center;
+  font-size: 35px;
+}
+#secondRow{
+  margin-top: 8%;
+}
+
+/* ---------------------------------------------------
+    Animated Button
+----------------------------------------------------- */
+
+.text-box {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+#joinButton:link,
+#joinButton:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+
+#joinButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: lighten(orange, 20%);
+}
+
+#joinButton:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#joinButton-white {
+  background-color: orange;
+  color: white;
+}
+
+#joinButton::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+#joinButton:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInBottom 5s ease-out;
+  animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.form-control {
+  width: 58%;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 2px solid orange;
+}
+
+
+.CustomCard {
+  padding-top: 20px;
+  margin: 10px 0 20px 0;
+  background-color: rgba(214, 224, 226, 0.445);
+  border-top-width: 0;
+  border-bottom-width: 2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 15px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.CustomCard.hoverCustomCard {
+  position: relative;
+  padding-top: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.CustomCard.hoverCustomCard .CustomCardheader {
+  background-size: cover;
+  height: 85px;
+}
+
+.CustomCard.hoverCustomCard .avatar {
+  position: relative;
+  top: -50px;
+  margin-bottom: -50px;
+}
+
+.CustomCard.hoverCustomCard .avatar img {
+  width: 75px;
+  background-color: white;
+  max-width: 100px;
+  max-height: 100px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 5px solid rgba(255,255,255,0.5);
+}
+
+.CustomCard.hoverCustomCard .info {
+  padding: 4px 8px 10px;
+  height: 126px;
+}
+
+.CustomCard.hoverCustomCard .info .desc {
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 20px;
+  color: #737373;
+  text-overflow: ellipsis;
+}
+
+.CustomCard.hoverCustomCard .bottom {
+  padding: 20px 5px;
+  margin-bottom: -6px;
+  text-align: center;
+}
+
+.header {
+  position: relative;
+  height: 300px;
+  background-image: linear-gradient(#ff9d2f, #ff6126);
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
