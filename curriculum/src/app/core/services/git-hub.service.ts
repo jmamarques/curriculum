@@ -13,6 +13,10 @@ export class GitHubService {
   constructor(private httpClient: HttpClient) {
   }
 
+  getCommitsBybranch(owner: string, repo: string, branch: string): Promise<BaseCommit[]> {
+    return this.httpClient.get<BaseCommit[]>(`${GitHubService.BASE_URL_GIT_HUB}/repos/${owner}/${repo}/commits?sha=${branch}`).toPromise();
+  }
+
   getTreeGitHub(owner: string, repo: string): Observable<Branch[]> {
     return this.httpClient.get<Branch[]>(`${GitHubService.BASE_URL_GIT_HUB}/repos/${owner}/${repo}/branches`);
     /*

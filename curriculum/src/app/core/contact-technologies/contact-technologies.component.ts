@@ -32,7 +32,14 @@ export class ContactTechnologiesComponent implements OnInit, AfterViewInit, OnDe
   }
 
   ngAfterViewInit(): void {
-    this.populateGraph();
+    /*this.populateGraph();*/
+
+  }
+
+  ngOnDestroy(): void {
+  }
+
+  populateGraph() {
     /*console.log(this.graphContainer.nativeElement);
     const gitgraph = createGitgraph(this.graphContainer.nativeElement);
     // Simulate git commands with Gitgraph API.
@@ -52,15 +59,7 @@ export class ContactTechnologiesComponent implements OnInit, AfterViewInit, OnDe
     develop.commit('Prepare v1');
 
     master.merge(develop).tag('v1.0.0');*/
-  }
-
-  ngOnDestroy(): void {
-  }
-
-  populateGraph() {
-    console.log('entrei');
-    this.gitHubService.getTreeGitHub('joaoMAMarques', 'curriculum').subscribe((branches: Branch[]) => {
-        console.log('entrei2');
+    this.gitHubService.getTreeGitHub('joaoMAMarques', 'curriculum').subscribe(async (branches: Branch[]) => {
         /*template?: TemplateName | Template;
         orientation?: Orientation;
         reverseArrow?: boolean;
@@ -73,76 +72,100 @@ export class ContactTechnologiesComponent implements OnInit, AfterViewInit, OnDe
         generateCommitHash?: () => Commit["hash"];
         compareBranchesOrder?: CompareBranchesOrder;*/
         const options = {
-          orientation: 'horizontal',
+          /*orientation: 'horizontal',
           author: '',
-          mode: 'compact'
+          mode: 'compact'*/
         };
+
         // @ts-ignore
         const gitgraph = createGitgraph(this.graphContainer.nativeElement, options);
-        const branchesGit: Map<string, BranchGit> = new Map();
 
-        // initialize all branches
-        for (const branch of branches) {
-          branchesGit.set(branch.name, gitgraph.branch(branch.name));
+        const mapCommits: Map<string, BaseCommit> = new Map();
+
+        const commits: BaseCommit[][] = await Promise.all(
+          branches.map(value => this.gitHubService.getCommitsBybranch('joaoMAMarques', 'curriculum', value.name).then(value1 => value1)));
+
+        let i = 0;
+        while (i < branches.length) {
+          commits[i].forEach(value => {
+            value.branch = branches[i].name;
+            if (/*branches[i].name === 'master' ||*/ !mapCommits.has(value.sha)) {
+              mapCommits.set(value.sha, value);
+            }
+
+          });
+          branches[i].baseCommits = commits[i];
+          i++;
         }
 
-        for (const branch of branches) {
-          const branchGit = branchesGit.get(branch.name);
-          if (branchGit) {
-            this.recursionBaseCommit(branch.commit.sha, branch.commit.url, branchGit, 0, branchesGit);
+        branches.filter(value => value.name === 'master').forEach(value => {
+          let firstCommit = mapCommits.get(value.commit.sha);
+          if (!firstCommit && value.baseCommits) {
+            firstCommit = value.baseCommits.sort((a, b) => {
+              if (a.commit.committer.date < b.commit.committer.date) {
+                return -1;
+              } else if (a.commit.committer.date > b.commit.committer.date) {
+                return 1;
+              } else {
+                return 0;
+              }
+            })[0];
           }
-        }
+
+          if (firstCommit) {
+            const masterBranch = gitgraph.branch(value.name);
+            this.recursionBaseCommit(firstCommit, masterBranch, gitgraph, mapCommits, masterBranch);
+          }
+        });
       },
       error => console.error('Error to get all tree git Hub' + error));
   }
 
-  private recursionBaseCommit(sha: string, url: string, branch: BranchGit, deep: number, allBranches: Map<string, BranchGit>) {
-    const childCommits = (commit: BaseCommit) => {
-      if (commit.parents) {
-        if (commit.parents.length === 1) {
-          branch.commit(commit.commit.message);
-          for (const parent of commit.parents) {
-            this.recursionBaseCommit(parent.sha, parent.url, branch, deep, allBranches);
-          }
-          // merge commit
-        } else if (commit.parents.length > 1) {
-          let branchGit = null;
-          allBranches.forEach((value, key) => {
-            if (commit.commit.message.includes(key) && key !== branch.name) {
-              branchGit = value;
-            }
-          });
-          if (branchGit) {
-            branch.merge(branchGit, commit.commit.message);
-          } else {
-            branch.commit(commit.commit.message);
-            for (const parent of commit.parents) {
-              this.recursionBaseCommit(parent.sha, parent.url, branch, deep, allBranches);
-            }
-          }
-        }
+  private recursionBaseCommit(currentCommit: BaseCommit,
+                              masterBranch: BranchGit,
+                              gitgraph: any,
+                              commits: Map<string, BaseCommit>,
+                              currentBranch: BranchGit) {
 
-      }
-    };
-
-    if (deep < 5) {
-      deep++;
-      const cachedCommit = ContactTechnologiesComponent.map.get(sha);
-      if (cachedCommit) {
-        childCommits.call(this, cachedCommit);
+    function extracted(this: any, child1: BaseCommit) {
+      if (child1.branch === currentCommit.branch) {
+        currentBranch.commit(currentCommit.commit.message);
+        this.recursionBaseCommit(child1, masterBranch, gitgraph, commits, currentBranch);
       } else {
-        this.gitHubService.getBaseCommit(url).subscribe((commit) => {
-          ContactTechnologiesComponent.map.set(sha, commit);
-          childCommits.call(this, commit);
-        });
+        const newBranchGit = gitgraph.branch(child1.branch);
+        currentBranch.commit(currentCommit.commit.message);
+        this.recursionBaseCommit(child1, masterBranch, gitgraph, commits, newBranchGit);
       }
     }
-    /*if (baseCommit.parents) {
-      for (const parent of baseCommit.parents) {
-        if (parent.parent) {
-          this.recursionBaseCommit(parent.parent, branch);
+
+    if (currentCommit.parents) {
+      if (currentCommit.parents.length === 1) {
+        currentBranch.commit(currentCommit.commit.message);
+        const commit = commits.get(currentCommit.parents[0].sha);
+        if (commit) {
+          this.recursionBaseCommit(commit, masterBranch, gitgraph, commits, currentBranch);
+        }
+      } else {
+        if (currentCommit.parents.length === 2) {
+          const child1 = commits.get(currentCommit.parents[0].sha);
+          const child2 = commits.get(currentCommit.parents[1].sha);
+
+          if (child1 && child2) {
+            if (child1.branch === child2.branch) {
+              currentBranch.commit(currentCommit.commit.message);
+              this.recursionBaseCommit(child1, masterBranch, gitgraph, commits, currentBranch);
+              this.recursionBaseCommit(child2, masterBranch, gitgraph, commits, currentBranch);
+            } else {
+              extracted.call(this, child1);
+              extracted.call(this, child2);
+            }
+          } else if (child2) {
+            extracted.call(this, child2);
+          } else if (child1) {
+            extracted.call(this, child1);
+          }
         }
       }
-    }*/
+    }
   }
 }
