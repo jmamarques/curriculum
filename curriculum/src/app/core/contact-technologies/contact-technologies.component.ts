@@ -67,7 +67,8 @@ export class ContactTechnologiesComponent implements OnInit, AfterViewInit, OnDe
           author: '',
           mode: 'compact'*/
         };
-
+    });}
+        /*
         // @ts-ignore
         const gitgraph = createGitgraph(this.graphContainer.nativeElement, options);
 
@@ -80,7 +81,7 @@ export class ContactTechnologiesComponent implements OnInit, AfterViewInit, OnDe
         while (i < branches.length) {
           commits[i].forEach(value => {
             value.branch = branches[i].name;
-            if (/*branches[i].name === 'master' ||*/ !mapCommits.has(value.sha)) {
+            if (/*branches[i].name === 'master' || !mapCommits.has(value.sha)) {
               mapCommits.set(value.sha, value);
             }
 
@@ -158,5 +159,6 @@ export class ContactTechnologiesComponent implements OnInit, AfterViewInit, OnDe
         }
       }
     }
-  }
+  }*/
+
 }
