@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactSupportService } from '../services/contact-support.service';
 
 @Component({
   selector: 'cod-contact-support',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-support.component.scss']
 })
 export class ContactSupportComponent implements OnInit {
-
-  constructor() { }
+  countryList : string [];
+  constructor(private contactSupportService : ContactSupportService) { }
 
   ngOnInit(): void {
+    this.countryList= this.contactSupportService.getCountryList();
   }
 
 }

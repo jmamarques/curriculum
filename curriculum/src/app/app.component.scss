@@ -68,12 +68,18 @@
 
 #content {
   width: 100%;
-  //padding: 20px;
+  height: 100%;
   min-height: 100vh;
-  transition: all 0.3s;
-  max-height: 100%;
-  overflow: auto;
+  //transition: all 0.3s;
+  overflow: hidden;
 }
+
+#pageContent {
+  height: 100%;
+  // header plus footer
+  min-height: calc(100vh - 385px);
+}
+
 /*
 #content:not(cod-header){
   background: green !important;

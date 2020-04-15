@@ -12,24 +12,22 @@
 <div class="row">
   <div class="col-3">
     <mat-list>
-      <mat-list-item *ngFor="let sub of mainSubjects" class="font-weight-bold ">
-        <div class="wrapper">
-          <a href="#" class="effect-underline">
+      <mat-list-item *ngFor="let sub of mainSubjects; let i = index" class="font-weight-bold ">
+          <a (click)="selectedMainSub(i)" [ngClass]="selectedSub[i] ? 'currentSelectedSub':'effect-underline'">
             {{sub}}
           </a>
-        </div>
       </mat-list-item>
     </mat-list>
   </div>
   <div class="col-7">
     <mat-accordion>
       <mat-expansion-panel hideToggle *ngFor="let question of subjectQuestionsAnswer">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
+        <mat-expansion-panel-header class="cod-cursor">
+          <mat-panel-title class="cod-cursor">
             {{question.title}}
           </mat-panel-title>
-          <mat-panel-description>
-            <img src='../../../assets/plus.png' alt="" class="iconPlus">
+          <mat-panel-description class="cod-cursor">
+            <img src='../../../assets/plus.png' alt="" class="iconPlus cod-cursor">
           </mat-panel-description>
         </mat-expansion-panel-header>
           <!--Content to display when I expand the previous one-->
