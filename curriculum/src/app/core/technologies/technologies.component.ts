@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../services/user.service';
 import {AgGridAngular} from 'ag-grid-angular';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'cod-technologies',
@@ -9,7 +10,6 @@ import {AgGridAngular} from 'ag-grid-angular';
 })
 export class TechnologiesComponent implements OnInit {
   @ViewChild('agGrid') agGrid: AgGridAngular;
-
   /* configurations to ag-grid */
   columnDefs = [
     {headerName: 'Make', field: 'make', sortable: true, filter: true},
@@ -29,6 +29,13 @@ export class TechnologiesComponent implements OnInit {
   ngOnInit(): void {
     this.rowData = this.userService.getUserStatics();
     this.populateChart();
+    AOS.init({
+      offset: 200,
+      duration: 600,
+      easing: 'ease-in-sine',
+      delay: 100,
+      once: false
+    });
   }
 
   populateChart(): void {
@@ -43,7 +50,7 @@ export class TechnologiesComponent implements OnInit {
           text: 'Our Users Technologies & Most Popular Technologies',
           fontSize: 18,
         },
-        subtitle: {text: 'Source: Our Statistics & StackOverflow Developer Survey, 2019'},
+        subtitle: { text: 'Source: Our Statistics & StackOverflow Developer Survey, 2019' },
         series: [
           {
             type: 'bar',
@@ -67,10 +74,10 @@ export class TechnologiesComponent implements OnInit {
           {
             type: 'number',
             position: 'bottom',
-            title: {text: '%'},
+            title: { text: '%' },
           },
         ],
-        legend: {position: 'bottom'},
+        legend: { position: 'bottom' },
       };
     });
   }

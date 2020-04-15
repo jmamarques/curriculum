@@ -36,4 +36,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 * ```npm install --save ag-grid-community ag-grid-angular```
 * ```npm install --save ag-grid-enterprise```
 * ```npm install --save ag-charts-community ag-charts-angular```
+* ```npm install aos --save```
 

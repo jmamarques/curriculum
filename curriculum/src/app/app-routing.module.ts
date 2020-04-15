@@ -10,11 +10,16 @@ import {ContactSupportComponent} from './core/contact-support/contact-support.co
 import {FaqPageComponent} from './core/faq-page/faq-page.component';
 import {TechnologiesComponent} from './core/technologies/technologies.component';
 import {ContactTechnologiesComponent} from './core/contact-technologies/contact-technologies.component';
+import { HomepageComponent } from './core/homepage/homepage.component';
+import { ProfileCreatorComponent } from './core/profile-creator/profile-creator.component';
 
 
 const routes: Routes = [
+  {path: '', component: HomepageComponent},
   {path: 'account/create', component: CreateAccountComponent},
   {path: 'account/log-in', component: LogInAccountComponent},
+  {path:'profilecreator', component:ProfileCreatorComponent},
+  {path:'homepage',component:HomepageComponent},
   {path: 'cod/contacts', component: ContactComponent},
   {path: 'cod/contacts/details', component: ContactDetailsComponent},
   {path: 'cod/contacts/support', component: ContactSupportComponent},
@@ -27,7 +32,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

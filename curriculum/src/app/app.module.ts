@@ -23,9 +23,15 @@ import {AgChartsAngularModule} from 'ag-charts-angular';
 import {TechnologiesComponent} from './core/technologies/technologies.component';
 import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
+import {HttpClientModule} from '@angular/common/http';
+import {NumberCommaPipe} from './core/Pipes/number-comma.pipe';
 import {FooterComponent} from './core/footer/footer.component';
-import {FaqPageComponent} from './core/faq-page/faq-page.component';
 import {ContactTechnologiesComponent} from './core/contact-technologies/contact-technologies.component';
+import {FaqPageComponent} from './core/faq-page/faq-page.component';
+import {SortByFildPipe} from './core/Pipes/sort-by-field.pipe';
+import {HomepageComponent} from './core/homepage/homepage.component';
+import {StaticsComponent} from './core/contact-technologies/statics/statics.component';
+import { ProfileCreatorComponent } from './core/profile-creator/profile-creator.component';
 
 const appRoutes: Routes = [
   {
@@ -50,8 +56,13 @@ const appRoutes: Routes = [
     ContactSupportComponent,
     FooterComponent,
     TechnologiesComponent,
+    NumberCommaPipe,
     ContactTechnologiesComponent,
-    FaqPageComponent
+    FaqPageComponent,
+    SortByFildPipe,
+    HomepageComponent,
+    StaticsComponent,
+    ProfileCreatorComponent
   ],
   imports: [
     BrowserModule,
@@ -66,9 +77,11 @@ const appRoutes: Routes = [
     AgGridModule.withComponents([]),
     AgChartsAngularModule,
     NgxPageScrollCoreModule,
-    NgxPageScrollModule
+    NgxPageScrollModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [NumberCommaPipe],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

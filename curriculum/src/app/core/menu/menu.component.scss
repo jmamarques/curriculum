@@ -44,10 +44,7 @@ span {
   background: linear-gradient(to right, #13161F, #13161fc4);
   color: #fff;
   //transition: all 0.45s;
-  transition-property: all;
-  transition-duration: 0.8s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 0s;
+  transition: 0.3s linear;
 }
 
 #sidebar.active {
