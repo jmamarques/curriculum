@@ -31,6 +31,7 @@ import {FaqPageComponent} from './core/faq-page/faq-page.component';
 import {SortByFildPipe} from './core/Pipes/sort-by-field.pipe';
 import {HomepageComponent} from './core/homepage/homepage.component';
 import {StaticsComponent} from './core/contact-technologies/statics/statics.component';
+import { ProfileCreatorComponent } from './core/profile-creator/profile-creator.component';
 
 const appRoutes: Routes = [
   {
@@ -60,7 +61,8 @@ const appRoutes: Routes = [
     FaqPageComponent,
     SortByFildPipe,
     HomepageComponent,
-    StaticsComponent
+    StaticsComponent,
+    ProfileCreatorComponent
   ],
   imports: [
     BrowserModule,
