@@ -1,18 +1,18 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Tecnhologies } from '../Interfaces/tecnhologies';
-import { ContributorsGit } from '../Interfaces/contributors-git';
-import { IssueData } from '../Interfaces/issues-data';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Tecnhologies} from '../../shared/interfaces/tecnhologies';
+import {ContributorsGit} from '../../shared/interfaces/contributors-git';
+import {IssueData} from '../../shared/interfaces/issues-data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TechnologiesService {
-  private tecnhologiesURL='https://api.github.com/repos/joaoMAMarques/curriculum/languages';
+  private tecnhologiesURL = 'https://api.github.com/repos/joaoMAMarques/curriculum/languages';
   private contributors = 'https://api.github.com/repos/joaoMAMarques/curriculum/contributors';
-  private issuesOpen ='https://api.github.com/repos/joaoMAMarques/curriculum/issues';
-  private issuesClosed ='https://api.github.com/repos/joaoMAMarques/curriculum/issues?state=closed';
+  private issuesOpen = 'https://api.github.com/repos/joaoMAMarques/curriculum/issues';
+  private issuesClosed = 'https://api.github.com/repos/joaoMAMarques/curriculum/issues?state=closed';
 
 
   constructor(private http: HttpClient) { }

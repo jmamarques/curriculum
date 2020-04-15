@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {UserService} from '../services/user.service';
+import {UserService} from '../../core/services/user.service';
 import {AgGridAngular} from 'ag-grid-angular';
 import * as AOS from 'aos';
 

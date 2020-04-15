@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {User} from '../Interfaces/user';
+import {User} from '../../shared/interfaces/user';
 import {Observable, of} from 'rxjs';
 
 @Injectable({

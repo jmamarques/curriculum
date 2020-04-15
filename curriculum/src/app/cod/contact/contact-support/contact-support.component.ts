@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ContactSupportService } from '../services/contact-support.service';
+import {Component, OnInit} from '@angular/core';
+import {ContactSupportService} from '../../../core/services/contact-support.service';
 
 @Component({
   selector: 'cod-contact-support',
@@ -7,8 +7,10 @@ import { ContactSupportService } from '../services/contact-support.service';
   styleUrls: ['./contact-support.component.scss']
 })
 export class ContactSupportComponent implements OnInit {
-  countryList : string [];
-  constructor(private contactSupportService : ContactSupportService) { }
+  countryList: string [];
+
+  constructor(private contactSupportService: ContactSupportService) {
+  }
 
   ngOnInit(): void {
     this.countryList= this.contactSupportService.getCountryList();

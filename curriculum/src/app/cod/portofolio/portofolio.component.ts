@@ -1,16 +1,17 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {User} from '../interfaces/user';
-import {UserService} from '../services/user.service';
-import { HeaderService } from '../services/header.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {User} from '../../shared/interfaces/user';
+import {UserService} from '../../core/services/user.service';
+import {HeaderService} from '../../core/services/header.service';
 
 @Component({
   selector: 'cod-homepage',
   templateUrl: './portofolio.component.html',
   styleUrls: ['./portofolio.component.scss']
 })
-export class PortofolioComponent implements OnInit,OnDestroy {
+export class PortofolioComponent implements OnInit, OnDestroy {
   users: User [];
   responsiveOptions: any;
+
   constructor(private serviceUsers: UserService,
               private headerService: HeaderService) {
                 this.headerService.setColor("#efefef");

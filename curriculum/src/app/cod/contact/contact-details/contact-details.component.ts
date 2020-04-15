@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HeaderService} from '../services/header.service';
+import {HeaderService} from '../../../core/services/header.service';
 
 @Component({
   selector: 'cod-contact-details',

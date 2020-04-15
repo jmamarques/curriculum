@@ -1,8 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {Branch as BranchGit, createGitgraph} from '@gitgraph/js';
-import {HeaderService} from '../services/header.service';
-import {GitHubService} from '../services/git-hub.service';
-import {BaseCommit, Branch} from '../interfaces/git-hub';
+import {HeaderService} from '../../../core/services/header.service';
+import {GitHubService} from '../../../core/services/git-hub.service';
+import {BaseCommit, Branch} from '../../../shared/interfaces/git-hub';
 
 @Component({
   selector: 'cod-contact-technologies',
