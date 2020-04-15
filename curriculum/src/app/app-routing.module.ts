@@ -15,7 +15,7 @@ import { ProfileCreatorComponent } from './core/profile-creator/profile-creator.
 
 
 const routes: Routes = [
-  {path:'',component:HomepageComponent},
+  {path: '', component: HomepageComponent},
   {path: 'account/create', component: CreateAccountComponent},
   {path: 'account/log-in', component: LogInAccountComponent},
   {path:'profilecreator', component:ProfileCreatorComponent},
@@ -32,7 +32,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
