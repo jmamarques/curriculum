@@ -81,4 +81,5 @@ const appRoutes: Routes = [
   providers: [NumberCommaPipe],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

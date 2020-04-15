@@ -82,4 +82,8 @@ export class AppComponent {
       this.isActiveSidebar = false;
     }
   }
+
+  onActivate() {
+    window.scroll(0, 0);
+  }
 }
