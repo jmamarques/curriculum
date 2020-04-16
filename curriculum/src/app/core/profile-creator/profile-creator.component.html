@@ -1,1 +1,59 @@
-<p>profile-creator works!</p>
+<div class="card">
+  <div class="titleContent">
+    <h1>
+      Create your own Curriculum
+    </h1>
+    <h4 class="text-muted">
+      This information will let us know more about you.
+    </h4>
+  </div>
+  <div class="containerHeader">
+    <div class="progress" id="progressBarId">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+        aria-valuemin="0" aria-valuemax="100" [style.width]="progressBarValue+'%'"></div>
+    </div>
+    <div class="row" id="iconList">
+      <div class="col">
+        <div class="avatar">
+          <img src='../../../assets/user.png' alt="shareProfile" [class.icon-fill]="progressBarValue>=stepValue">
+        </div>
+      </div>
+      <div class="col">
+        <div class="avatar">
+          <img src='../../../assets/softskills.png' alt="shareProfile" [class.icon-fill]="progressBarValue>=stepValue*2">
+        </div>
+      </div>
+      <div class="col">
+        <div class="avatar">
+          <img src='../../../assets/projects.png' alt="shareProfile" [class.icon-fill]="progressBarValue>=stepValue*3">
+        </div>
+      </div>
+      <div class="col">
+        <div class="avatar">
+          <img src='../../../assets/hobbies.png' alt="shareProfile" [class.icon-fill]="progressBarValue>=stepValue*4">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row titleRow">
+    <div class="col">
+      <h3 class="float-right text-muted" id="firstHeader">Profile Details</h3>
+    </div>
+    <div class="col">
+      <h3 class="float-right text-muted">Soft Skills</h3>
+    </div>
+    <div class="col">
+      <h3 class="float-right text-muted">Projects</h3>
+    </div>
+    <div class="col">
+      <h3 class="float-right text-muted">Hobbies</h3>
+    </div>
+  </div>
+  <div class="card-body">
+  </div>
+  <div class="card-footer">
+    <button type="button" class="btn btn-warning float-left" *ngIf="currentPage >0"
+      (click)="decreasePercentage()">Previous</button>
+    <button type="button" class="btn btn-warning float-right" (click)="increasePercentage()">Next</button>
+  </div>
+</div>
