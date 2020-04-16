@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
-import { FaqContent } from '../interfaces/faq-content';
+import {Injectable} from '@angular/core';
+import {FaqContent} from '../../shared/interfaces/faq-content';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FaqService {
   mainSubjects =
-  [
-    'DELIVERY',
-    'ORDERS',
-    'REFUNDS',
+    [
+      'DELIVERY',
+      'ORDERS',
+      'REFUNDS',
     'PRODUCT & STOCK',
     'ACCOUNT'
   ];

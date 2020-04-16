@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {RouteService} from '../services/route.service';
-import {HeaderService} from '../services/header.service';
+import {RouteService} from '../../core/services/route.service';
+import {HeaderService} from '../../core/services/header.service';
 
 @Component({
   selector: 'cod-contact',

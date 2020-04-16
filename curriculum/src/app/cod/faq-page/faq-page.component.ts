@@ -1,14 +1,14 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HeaderService } from '../services/header.service';
-import { FaqService } from '../services/faq.service';
-import { FaqContent } from '../interfaces/faq-content';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {HeaderService} from '../../core/services/header.service';
+import {FaqService} from '../../core/services/faq.service';
+import {FaqContent} from '../../shared/interfaces/faq-content';
 
 @Component({
   selector: 'cod-faq-page',
   templateUrl: './faq-page.component.html',
   styleUrls: ['./faq-page.component.scss']
 })
-export class FaqPageComponent implements OnInit,OnDestroy {
+export class FaqPageComponent implements OnInit, OnDestroy {
   mainSubjects: string[];
   selectedSub: boolean[] = [];
   subjectQuestionsAnswer: FaqContent[];

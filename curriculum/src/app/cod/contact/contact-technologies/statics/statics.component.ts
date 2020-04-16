@@ -1,9 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AgGridAngular} from 'ag-grid-angular';
-import {TechnologiesService} from '../../services/technologies.service';
-import {NumberCommaPipe} from '../../Pipes/number-comma.pipe';
+import {TechnologiesService} from '../../../../core/services/technologies.service';
+import {NumberCommaPipe} from '../../../../shared/pipes/number-comma.pipe';
 import * as AOS from 'aos';
-import {ContributorsGit} from '../../interfaces/contributors-git';
+import {ContributorsGit} from '../../../../shared/interfaces/contributors-git';
 
 @Component({
   selector: 'cod-statics',
