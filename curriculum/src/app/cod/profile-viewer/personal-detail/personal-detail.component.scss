@@ -1,0 +1,30 @@
+@import "src/fonts";
+
+/* **FONT TYPE** */
+.fontJosfin {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.card {
+  min-width: 100%;
+}
+
+.content-profile-image {
+  height: 75px;
+
+  .profile-image {
+    transition: all 1s ease-in-out;
+    height: 200px;
+    position: relative;
+    top: -10em;
+  }
+}
+
+@media (max-width: 880px) {
+  .content-profile-image {
+    .profile-image {
+      height: 150px;
+      top: -7em;
+    }
+  }
+}

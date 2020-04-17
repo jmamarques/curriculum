@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {RouteService} from '../services/route.service';
 
 @Component({
@@ -6,16 +6,20 @@ import {RouteService} from '../services/route.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-  @Input() content: string;
+export class HeaderComponent implements OnInit, OnChanges {
+  @Input() content = '';
   @Input() backgroundColor = 'white';
   @Input() isActiveSidebar: boolean;
   @Output() sideBar: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input() codVisible: boolean;
 
   constructor(private routeService: RouteService) {
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
   }
 
   click() {

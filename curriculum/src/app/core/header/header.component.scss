@@ -88,13 +88,13 @@ span:nth-child(3):after {
   }
 }
 @media (min-width: 992px) {
-  div:hover span:nth-child(1):after {
+  h2:hover span:nth-child(1):after {
     width: 90px;
   }
-  div:hover span:nth-child(2):after {
+  h2:hover span:nth-child(2):after {
     width: 70px;
   }
-  div:hover span:nth-child(3):after {
+  h2:hover span:nth-child(3):after {
     width: 130px;
   }
 }

@@ -24,12 +24,10 @@
     </div>
   </div>
   <h2>
-    <div>
-      {{content}}
-      <span>C</span>
-      <span>O</span>
-      <span>D</span>
-    </div>
+    {{content}}
+    <span *ngIf="codVisible">C</span>
+    <span *ngIf="codVisible">O</span>
+    <span *ngIf="codVisible">D</span>
   </h2>
   <svg preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <polygon

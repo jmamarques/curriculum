@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {ProfileService} from '../../../core/services/profile.service';
+import {Profile} from '../../../shared/interfaces/profile';
 
 @Component({
   selector: 'cod-personal-detail',
@@ -7,10 +9,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class PersonalDetailComponent implements OnInit {
 
-  constructor() {
+  private profile: Profile;
+
+  constructor(private profileService: ProfileService) {
   }
 
   ngOnInit(): void {
+
   }
 
 }
