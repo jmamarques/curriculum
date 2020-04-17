@@ -12,13 +12,14 @@ import {TechnologiesComponent} from './cod/technologies/technologies.component';
 import {ContactTechnologiesComponent} from './cod/contact/contact-technologies/contact-technologies.component';
 import {HomepageComponent} from './core/homepage/homepage.component';
 import {ProfileCreatorComponent} from './cod/profile-creator/profile-creator.component';
+import {ProfileViewerComponent} from './cod/profile-viewer/profile-viewer.component';
 
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'account/create', component: CreateAccountComponent},
   {path: 'account/log-in', component: LogInAccountComponent},
-  {path: 'profilecreator', component: ProfileCreatorComponent},
+  {path: 'profile/creator', component: ProfileCreatorComponent},
   {path: 'homepage', component: HomepageComponent},
   {path: 'cod/contacts', component: ContactComponent},
   {path: 'cod/contacts/details', component: ContactDetailsComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'technologies/users', component: TechnologiesComponent},
   {path: 'page-not-found', component: PageNotFoundComponent},
   {path: 'portofolio', component: PortofolioComponent},
+  {path: 'profile', component: ProfileViewerComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

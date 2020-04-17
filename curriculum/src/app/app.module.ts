@@ -38,6 +38,7 @@ import { TechnicalSkillsComponent } from './cod/profile-creator/technical-skills
 import { ProjectsComponent } from './cod/profile-creator/projects/projects.component';
 import { AdicionalInfoComponent } from './cod/profile-creator/adicional-info/adicional-info.component';
 import { ConclusionComponent } from './cod/profile-creator/conclusion/conclusion.component';
+import {ProfileViewerComponent} from './cod/profile-viewer/profile-viewer.component';
 
 const appRoutes: Routes = [
   {
@@ -74,7 +75,8 @@ const appRoutes: Routes = [
     TechnicalSkillsComponent,
     ProjectsComponent,
     AdicionalInfoComponent,
-    ConclusionComponent
+    ConclusionComponent,
+    ProfileViewerComponent
   ],
   imports: [
     BrowserModule,
