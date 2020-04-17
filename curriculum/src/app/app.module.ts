@@ -10,7 +10,7 @@ import {MaterialSharedModule} from './shared/modules/material-shared.module';
 import {NgxBootstrapSharedModule} from './shared/modules/ngx-bootstrap-shared.module';
 import {PrimeNgSharedModule} from './shared/modules/prime-ng-shared.module';
 import {MenuComponent} from './core/menu/menu.component';
-import {CollapseModule} from 'ngx-bootstrap';
+import {BsDatepickerModule, CollapseModule} from 'ngx-bootstrap';
 import {HeaderComponent} from './core/header/header.component';
 import {PageNotFoundComponent} from './shared/page-not-found/page-not-found.component';
 import {CreateAccountComponent} from './cod/create-account/create-account.component';
@@ -32,7 +32,14 @@ import {SortByFildPipe} from './shared/pipes/sort-by-field.pipe';
 import {HomepageComponent} from './core/homepage/homepage.component';
 import {StaticsComponent} from './cod/contact/contact-technologies/statics/statics.component';
 import {ProfileCreatorComponent} from './cod/profile-creator/profile-creator.component';
+import {ProfileDetailsComponent} from './cod/profile-creator/profile-details/profile-details.component';
+import {TechnicalSkillsComponent} from './cod/profile-creator/technical-skills/technical-skills.component';
+import {ProjectsComponent} from './cod/profile-creator/projects/projects.component';
+import {AdicionalInfoComponent} from './cod/profile-creator/adicional-info/adicional-info.component';
+import {ConclusionComponent} from './cod/profile-creator/conclusion/conclusion.component';
 import {ProfileViewerComponent} from './cod/profile-viewer/profile-viewer.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 import {PersonalDetailComponent} from './cod/profile-viewer/personal-detail/personal-detail.component';
 import {ExperienceComponent} from './cod/profile-viewer/experience/experience.component';
 import {SkillsComponent} from './cod/profile-viewer/skills/skills.component';
@@ -68,6 +75,12 @@ const appRoutes: Routes = [
     HomepageComponent,
     StaticsComponent,
     ProfileCreatorComponent,
+    ProfileDetailsComponent,
+    ExperienceComponent,
+    TechnicalSkillsComponent,
+    ProjectsComponent,
+    AdicionalInfoComponent,
+    ConclusionComponent,
     ProfileViewerComponent,
     PersonalDetailComponent,
     ExperienceComponent,
@@ -88,9 +101,16 @@ const appRoutes: Routes = [
     AgChartsAngularModule,
     NgxPageScrollCoreModule,
     NgxPageScrollModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    BsDatepickerModule.forRoot(),
+    BrowserAnimationsModule
   ],
-  providers: [NumberCommaPipe],
+  providers:
+  [NumberCommaPipe,
+    MatDatepickerModule,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

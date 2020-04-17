@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
 @Component({
   selector: 'cod-profile-creator',
@@ -6,9 +6,9 @@ import * as AOS from 'aos';
   styleUrls: ['./profile-creator.component.scss']
 })
 export class ProfileCreatorComponent implements OnInit {
-  progressBarValue :number = 0;
-  stepValue:number= 25;
-  currentPage:number = 0;
+  progressBarValue: number = 0;
+  stepValue: number = 25;
+  currentPage: number = 0;
   constructor() { }
 
   ngOnInit(): void {
@@ -21,14 +21,27 @@ export class ProfileCreatorComponent implements OnInit {
     });
     this.progressBarValue = 24;
   }
-  increasePercentage():void{
-    this.progressBarValue = this.progressBarValue +this.stepValue;
-    this.currentPage++;
-  }
+  increasePercentage(): void {
+    if(this.currentPage==2 ||this.currentPage==2.5){
+      this.progressBarValue += this.stepValue/2;
+      this.currentPage+=0.5;
+    }else{
 
-  decreasePercentage():void{
-    this.progressBarValue -=this.stepValue;
-    this.currentPage--;
-  }
+      if (this.currentPage <= 3) {
+        this.progressBarValue += this.stepValue;
+        this.currentPage++;
+      }
 
+    }
+
+  }
+  decreasePercentage(): void {
+    if(this.currentPage==2.5 || this.currentPage ==3){
+      this.progressBarValue -= this.stepValue/2;
+      this.currentPage-=0.5;
+    }else{
+      this.progressBarValue -= this.stepValue;
+      this.currentPage--;
+    }
+  }
 }

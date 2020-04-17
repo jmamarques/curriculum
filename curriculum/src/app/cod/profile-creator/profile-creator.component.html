@@ -93,26 +93,32 @@
       </div>
       <div class="col">
         <div class="avatar">
-          <img src='../../../assets/hobbies.png' alt="shareProfile" [class.icon-fill]="progressBarValue>=stepValue*4">
+          <img src='../../../assets/extraicon.png' alt="shareProfile" [class.icon-fill]="progressBarValue>=stepValue*4">
         </div>
       </div>
     </div>
   </div>
   <div class="row titleRow">
     <div class="col">
-      <h3 class="float-right text-muted" id="firstHeader">Profile Details</h3>
+      <h3 class="float-right text-muted longerAdd">Profile Details</h3>
     </div>
     <div class="col">
-      <h3 class="float-right text-muted">Soft Skills</h3>
+      <h3 class="float-right text-muted">Experience</h3>
     </div>
     <div class="col">
-      <h3 class="float-right text-muted">Projects</h3>
+      <h3 class="float-right text-muted" id="skillTitle"> Skills</h3>
     </div>
     <div class="col">
-      <h3 class="float-right text-muted">Hobbies</h3>
+      <h3 class="float-right text-muted longerAdd">Adicional Info</h3>
     </div>
   </div>
   <div class="card-body">
+    <cod-profile-details *ngIf="currentPage ===0"></cod-profile-details>
+    <cod-soft-skills *ngIf="currentPage ===1"></cod-soft-skills>
+    <cod-technical-skills *ngIf="currentPage ===2"></cod-technical-skills>
+    <cod-projects *ngIf="currentPage ==2.5"></cod-projects>
+    <cod-adicional-info *ngIf="currentPage ==3"></cod-adicional-info>
+    <cod-conclusion *ngIf="currentPage >3"></cod-conclusion>
   </div>
   <div class="card-footer">
     <button type="button" class="btn btn-warning float-left" *ngIf="currentPage >0"
