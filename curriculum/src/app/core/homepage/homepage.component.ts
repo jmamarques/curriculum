@@ -13,7 +13,7 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
     AOS.init({
       offset: 200,
-      duration: 2000,
+      duration: 1500,
       easing: 'ease-in-sine',
       delay: 100,
       once: true
