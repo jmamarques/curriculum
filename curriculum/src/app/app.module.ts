@@ -33,6 +33,10 @@ import {HomepageComponent} from './core/homepage/homepage.component';
 import {StaticsComponent} from './cod/contact/contact-technologies/statics/statics.component';
 import {ProfileCreatorComponent} from './cod/profile-creator/profile-creator.component';
 import {ProfileViewerComponent} from './cod/profile-viewer/profile-viewer.component';
+import {PersonalDetailComponent} from './cod/profile-viewer/personal-detail/personal-detail.component';
+import {ExperienceComponent} from './cod/profile-viewer/experience/experience.component';
+import {SkillsComponent} from './cod/profile-viewer/skills/skills.component';
+import {AdditionalInformationComponent} from './cod/profile-viewer/additional-information/additional-information.component';
 
 const appRoutes: Routes = [
   {
@@ -64,7 +68,11 @@ const appRoutes: Routes = [
     HomepageComponent,
     StaticsComponent,
     ProfileCreatorComponent,
-    ProfileViewerComponent
+    ProfileViewerComponent,
+    PersonalDetailComponent,
+    ExperienceComponent,
+    SkillsComponent,
+    AdditionalInformationComponent
   ],
   imports: [
     BrowserModule,
