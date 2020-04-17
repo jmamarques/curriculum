@@ -32,6 +32,7 @@ import {SortByFildPipe} from './shared/pipes/sort-by-field.pipe';
 import {HomepageComponent} from './core/homepage/homepage.component';
 import {StaticsComponent} from './cod/contact/contact-technologies/statics/statics.component';
 import {ProfileCreatorComponent} from './cod/profile-creator/profile-creator.component';
+import {ProfileViewerComponent} from './cod/profile-viewer/profile-viewer.component';
 
 const appRoutes: Routes = [
   {
@@ -62,7 +63,8 @@ const appRoutes: Routes = [
     SortByFildPipe,
     HomepageComponent,
     StaticsComponent,
-    ProfileCreatorComponent
+    ProfileCreatorComponent,
+    ProfileViewerComponent
   ],
   imports: [
     BrowserModule,
