@@ -8,12 +8,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
 
 
-
-
-
-const imports = [MatCardModule, MatRadioModule, MatListModule, MatExpansionModule, MatIconModule, MatTabsModule,MatGridListModule,MatInputModule,MatDatepickerModule];
+const imports = [MatCardModule, MatRadioModule, MatListModule, MatExpansionModule, MatIconModule,
+  MatTabsModule, MatGridListModule, MatInputModule, MatSelectModule, MatDatepickerModule];
 
 @NgModule({
   declarations: [],

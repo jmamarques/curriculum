@@ -34,6 +34,7 @@ import {StaticsComponent} from './cod/contact/contact-technologies/statics/stati
 import {ProfileCreatorComponent} from './cod/profile-creator/profile-creator.component';
 import {ProfileDetailsComponent} from './cod/profile-creator/profile-details/profile-details.component';
 import {TechnicalSkillsComponent} from './cod/profile-creator/technical-skills/technical-skills.component';
+import {ExperienceComponent as ExperienceCreateComponent} from './cod/profile-creator/experience/experience.component';
 import {ProjectsComponent} from './cod/profile-creator/projects/projects.component';
 import {AdicionalInfoComponent} from './cod/profile-creator/adicional-info/adicional-info.component';
 import {ConclusionComponent} from './cod/profile-creator/conclusion/conclusion.component';
@@ -44,6 +45,7 @@ import {PersonalDetailComponent} from './cod/profile-viewer/personal-detail/pers
 import {ExperienceComponent} from './cod/profile-viewer/experience/experience.component';
 import {SkillsComponent} from './cod/profile-viewer/skills/skills.component';
 import {AdditionalInformationComponent} from './cod/profile-viewer/additional-information/additional-information.component';
+import {FormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
   {
@@ -85,6 +87,7 @@ const appRoutes: Routes = [
     PersonalDetailComponent,
     ExperienceComponent,
     SkillsComponent,
+    ExperienceCreateComponent,
     AdditionalInformationComponent
   ],
   imports: [
@@ -105,7 +108,8 @@ const appRoutes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     BsDatepickerModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers:
   [NumberCommaPipe,
