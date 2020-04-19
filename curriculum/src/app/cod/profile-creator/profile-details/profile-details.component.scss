@@ -34,9 +34,37 @@ form h3{
 .ui-corner-all{
 border-radius: 0px;
 }
-.inputNGPrime{
+.inputfstRow{
   margin-bottom: 5%;
-  margin-left: auto;
-  margin-right: auto;
+  //margin-left: auto;
+  //margin-right: auto;
   width: 200px;
 }
+
+
+/* Change label color on focused */
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #333333 !important;
+}
+
+/* underline border color on focused */
+::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+  background-color: orange !important;
+}
+
+::ng-deep  .mat-form-field-underline {
+  background-color: orange!important;
+}
+textarea:focus {
+  outline: none !important;
+  border-color: orange;
+  box-shadow: 0 0 10px lighten(orange , 20%);
+}
+textarea{
+  border-color: lighten(orange , 20%);
+  resize: none;
+}
+button:not(:disabled){
+  cursor: none;
+}
+

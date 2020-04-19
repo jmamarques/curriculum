@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Social Networks</h1>
+<div mat-dialog-content>
+  <mat-form-field class="fontJosfin" id="formFieldPopUp">
+    <mat-label>Social Network</mat-label>
+    <mat-select [(value)]="dropdownValue.pic_url" class="fontJosfin">
+      <mat-option *ngFor="let item of socialNetworksList" [value]="item.urlString" class="fontJosfin">
+        <img src={{item.urlString}} alt="SocialNetorkImg"> {{item.name |titlecase}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <span class="ui-float-label">
+    <input id="linkInput" type="text" size="40" pInputText [(ngModel)]="dropdownValue.link">
+    <label for="linkInput">Link</label>
+  </span>
+  <div class="buttonDiv">
+    <button [mat-dialog-close]="dropdownValue" cdkFocusInitial type="button cod-cursor"
+      class="btn btn-warning">Add</button>
+  </div>
+</div>

@@ -26,14 +26,11 @@ export class ProfileCreatorComponent implements OnInit {
       this.progressBarValue += this.stepValue/2;
       this.currentPage+=0.5;
     }else{
-
       if (this.currentPage <= 3) {
         this.progressBarValue += this.stepValue;
         this.currentPage++;
       }
-
     }
-
   }
   decreasePercentage(): void {
     if(this.currentPage==2.5 || this.currentPage ==3){

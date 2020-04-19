@@ -46,6 +46,7 @@ import {ExperienceComponent} from './cod/profile-viewer/experience/experience.co
 import {SkillsComponent} from './cod/profile-viewer/skills/skills.component';
 import {AdditionalInformationComponent} from './cod/profile-viewer/additional-information/additional-information.component';
 import {FormsModule} from '@angular/forms';
+import { DialogSocialNetworksComponent } from './cod/profile-creator/dialog-social-networks/dialog-social-networks.component';
 
 const appRoutes: Routes = [
   {
@@ -88,7 +89,8 @@ const appRoutes: Routes = [
     ExperienceComponent,
     SkillsComponent,
     ExperienceCreateComponent,
-    AdditionalInformationComponent
+    AdditionalInformationComponent,
+    DialogSocialNetworksComponent
   ],
   imports: [
     BrowserModule,
