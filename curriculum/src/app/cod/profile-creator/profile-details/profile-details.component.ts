@@ -1,25 +1,42 @@
 import {Component, OnInit} from '@angular/core';
-
+import { MatDialog } from '@angular/material/dialog';
+import { DialogSocialNetworksComponent } from '../dialog-social-networks/dialog-social-networks.component';
+import { SocialNetwork } from 'src/app/shared/interfaces/social-network';
+import { SocialData } from 'src/app/shared/interfaces/social-data';
 @Component({
   selector: 'cod-profile-details',
   templateUrl: './profile-details.component.html',
   styleUrls: ['./profile-details.component.scss']
 })
 export class ProfileDetailsComponent implements OnInit {
-  public imagePath: any;
+  //Image Variables
+  imagePath: any;
   imgURL: any;
-  public message: string;
-  value: Date;
+  message: string;
   dropdown: any[] = [
-    {code: 'ola', label: 'o1'}, {code: 'adeus', label: 'a1'}, {code: 'bemvindo', label: 'b1'}
+    {code: 'pt', country: 'Portugal'}, {code: 'ang', country: 'Angola'}, {code: 'monc', country: 'Monçabique'},{code: 'it', country: 'Italy'}
   ];
-  dropdownValue = 'bemvindo';
+  //Value for Country DropDown
+  dropdownValue = 'countryList';
+  socialNetWork: SocialData;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
-    this.imgURL = '../../../assets/profilepic.png';
+    this.imagePath = '../../../assets/profilepic.png';
+  }
+  openDialog() {
+    const dialog = this.dialog.open(DialogSocialNetworksComponent, {
+    });
+
+    dialog.afterClosed().subscribe(result => {
+      console.log('Added new Social Network');
+      if(result){
+        this.socialNetWork = result;
+        console.warn(result);
+      }
+    });
   }
 
   preview(files: any) {

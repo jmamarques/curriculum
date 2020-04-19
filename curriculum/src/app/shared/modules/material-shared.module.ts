@@ -9,10 +9,12 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 const imports = [MatCardModule, MatRadioModule, MatListModule, MatExpansionModule, MatIconModule,
-  MatTabsModule, MatGridListModule, MatInputModule, MatSelectModule, MatDatepickerModule];
+  MatTabsModule, MatGridListModule, MatInputModule, MatSelectModule, MatDatepickerModule,MatDialogModule];
 
 @NgModule({
   declarations: [],

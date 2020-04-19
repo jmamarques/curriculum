@@ -6,12 +6,14 @@ import {CheckboxModule} from 'primeng/checkbox';
 import {CardModule} from 'primeng/card';
 import {InputTextModule} from 'primeng/inputtext';
 import {CalendarModule} from 'primeng/calendar';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 
 
 
 
-const imports = [DropdownModule, ButtonModule, RadioButtonModule, CheckboxModule, CardModule, CarouselModule,InputTextModule,CalendarModule];
+
+const imports = [DropdownModule, ButtonModule, RadioButtonModule, CheckboxModule, CardModule, CarouselModule,InputTextModule,CalendarModule,InputTextareaModule];
 
 @NgModule({
   declarations: [],
