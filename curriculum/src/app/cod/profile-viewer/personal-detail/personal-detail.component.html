@@ -1,26 +1,43 @@
 <div class="content-profile-image d-flex justify-content-center">
   <img alt="Profile Image Not Found"
        class="profile-image rounded-circle "
-       src="https://media-exp1.licdn.com/dms/image/C5603AQFTsMspZjkfhA/profile-displayphoto-shrink_800_800/0?e=1590624000&v=beta&t=AluRZ25lh-twHVLTzDbDL1kX_ihFs2iova9j-wF5ENs">
+       [src]="profile?.profilePic || 'src\\assets\\user.png'">
 </div>
 <div class="container fontJosfin">
   <dl class="row">
-    <dt class="col-sm-3">Description lists</dt>
-    <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+    <dt class="col-sm-3 profile-header">Role</dt>
+    <dd class="col-sm-9 profile-role">{{profile?.role}}</dd>
 
-    <dt class="col-sm-3">Euismod</dt>
+    <dt class="col-sm-3 profile-header">About</dt>
+    <dd class="col-sm-9 profile-description">{{profile?.description}}</dd>
+
+    <dt class="col-sm-3 profile-header">Personal Data</dt>
+    <dd class="col-sm-9 profile-personal-data">
+      <dl class="row">
+        <dt class="col-3 col-md-2 profile-sub-header">Age</dt>
+        <dd class="col-9 col-md-4 profile-sub-content">{{profile?.age}}</dd>
+        <dt class="col-3 col-md-2 profile-sub-header">Phone</dt>
+        <dd class="col-9 col-md-4 profile-sub-content">{{profile?.phone}}</dd>
+        <dt class="col-3 col-md-2 profile-sub-header">Address</dt>
+        <dd class="col-9 col-md-4 profile-sub-content">{{profile?.address}}</dd>
+        <dt class="col-3 col-md-2 profile-sub-header">Email</dt>
+        <dd class="col-9 col-md-4 profile-sub-content">{{profile?.email}}</dd>
+        <dt class="col-3 col-md-2 profile-sub-header">Nationality</dt>
+        <dd class="col-9 col-md-4 profile-sub-content">{{profile?.nationality}}</dd>
+      </dl>
+    </dd>
+    <dt class="col-sm-3 profile-header">Social Links & Website</dt>
     <dd class="col-sm-9">
-      <p>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</p>
-      <p>Donec id elit non mi porta gravida at eget metus.</p>
+      <span
+        *ngFor="let item of profile?.socialLinks"
+        class="profile-social-header"
+      >
+        <a [href]="item?.url">
+          <img #socialLink (error)="imageHide(socialLink, socialName)" [src]="item?.icon" alt="Not Loaded"
+               class="profile-social-link">
+          <span #socialName class="d-none">{{item?.name}}</span>
+        </a>
+      </span>
     </dd>
-
-    <dt class="col-sm-3">Malesuada porta</dt>
-    <dd class="col-sm-9">Etiam porta sem malesuada magna mollis euismod.</dd>
-
-    <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
-    <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
-      justo sit amet risus.
-    </dd>
-
   </dl>
 </div>

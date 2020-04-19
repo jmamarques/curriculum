@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {ProfileService} from '../../../core/services/profile.service';
+import {Component, Input, OnInit} from '@angular/core';
 import {Profile} from '../../../shared/interfaces/profile';
 
 @Component({
@@ -9,13 +8,21 @@ import {Profile} from '../../../shared/interfaces/profile';
 })
 export class PersonalDetailComponent implements OnInit {
 
-  private profile: Profile;
+  @Input() private profile: Profile;
 
-  constructor(private profileService: ProfileService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-
   }
 
+  /**
+   * Control visibility when the image is broken
+   * @param socialLink - url to image
+   * @param socialName - social Name to display when the link is broken
+   */
+  imageHide(socialLink: HTMLImageElement, socialName: HTMLSpanElement) {
+    socialLink.style.display = 'none';
+    socialName.className = '';
+  }
 }

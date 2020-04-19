@@ -17,6 +17,7 @@ export interface Profile {
 }
 
 export interface SocialLinks {
+  name: string;
   icon: string;
   url: string;
 }
