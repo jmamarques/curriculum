@@ -47,6 +47,11 @@ import {SkillsComponent} from './cod/profile-viewer/skills/skills.component';
 import {AdditionalInformationComponent} from './cod/profile-viewer/additional-information/additional-information.component';
 import {FormsModule} from '@angular/forms';
 import { DialogSocialNetworksComponent } from './cod/profile-creator/dialog-social-networks/dialog-social-networks.component';
+import {TimeLineComponent} from './shared/time-line/time-line.component';
+import {TimeLineBadgeComponent} from './shared/time-line/time-line-badge/time-line-badge.component';
+import {TimeLineHeaderComponent} from './shared/time-line/time-line-header/time-line-header.component';
+import {TimeLineBodyComponent} from './shared/time-line/time-line-body/time-line-body.component';
+import {TimeLineEntryComponent} from './shared/time-line/time-line-entry/time-line-entry.component';
 
 const appRoutes: Routes = [
   {
@@ -90,7 +95,12 @@ const appRoutes: Routes = [
     SkillsComponent,
     ExperienceCreateComponent,
     AdditionalInformationComponent,
-    DialogSocialNetworksComponent
+    DialogSocialNetworksComponent,
+    TimeLineComponent,
+    TimeLineBadgeComponent,
+    TimeLineHeaderComponent,
+    TimeLineBodyComponent,
+    TimeLineEntryComponent
   ],
   imports: [
     BrowserModule,

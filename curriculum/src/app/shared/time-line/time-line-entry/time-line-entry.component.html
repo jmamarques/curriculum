@@ -1,0 +1,20 @@
+<li
+  [class.inverted]="invert"
+  class="timeline-li"
+>
+  <ng-content class="timeline-badge" select="cod-time-line-badge"></ng-content>
+  <!--PANEL-->
+  <div class="timeline-panel">
+
+    <!--HEADER-->
+    <ng-content class="timeline-heading" select="cod-time-line-header"></ng-content>
+
+    <!--BODY-->
+    <ng-content class="timeline-body" select="cod-time-line-body"></ng-content>
+
+  </div>
+</li>
+
+<!--*ngFor="let issue of issuesList | sortByField:'number'; let i = index"
+    [ngClass]="(i+1) % 2 == 0? 'timeline-inverted':''"
+    data-aos="fade-up"-->

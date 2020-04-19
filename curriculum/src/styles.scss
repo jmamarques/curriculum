@@ -24,7 +24,7 @@ $cod-btn-hover-orange: lighten(orange, 20%);
 // Remove standard cursor
 html,
 * {
-  cursor: none;
+  cursor: none !important;
 }
 
 .btn, a {
