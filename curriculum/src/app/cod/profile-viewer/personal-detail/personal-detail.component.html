@@ -9,7 +9,7 @@
     <dd class="col-sm-9 profile-role">{{profile?.role}}</dd>
 
     <dt class="col-sm-3 profile-header">About</dt>
-    <dd class="col-sm-9 profile-description">{{profile?.description}}</dd>
+    <dd class="col-sm-9 profile-description text-justify">{{profile?.description}}</dd>
 
     <dt class="col-sm-3 profile-header">Personal Data</dt>
     <dd class="col-sm-9 profile-personal-data">
@@ -26,7 +26,7 @@
         <dd class="col-9 col-md-4 profile-sub-content">{{profile?.nationality}}</dd>
       </dl>
     </dd>
-    <dt class="col-sm-3 profile-header">Social Links & Website</dt>
+    <dt class="col-sm-3 profile-header">Social Links & Websites</dt>
     <dd class="col-sm-9">
       <span
         *ngFor="let item of profile?.socialLinks"
@@ -34,8 +34,8 @@
       >
         <a [href]="item?.url">
           <img #socialLink (error)="imageHide(socialLink, socialName)" [src]="item?.icon" alt="Not Loaded"
-               class="profile-social-link">
-          <span #socialName class="d-none">{{item?.name}}</span>
+               class="profile-social-link cod-cursor">
+          <span #socialName class="d-none cod-cursor">{{item?.name}}</span>
         </a>
       </span>
     </dd>
