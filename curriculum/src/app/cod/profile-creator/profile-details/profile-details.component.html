@@ -20,7 +20,7 @@
     </div>
     <div class="col">
       <div (click)="hiddenfileinput.click()">
-        <img [src]="imagePath" alt="missing" class="colButton cod-cursor">
+        <img [src]="imgURL" class="colButton cod-cursor">
         <input #file type="file" accept='image/*' (change)="preview(file.files)" #hiddenfileinput
           class="inputFile cod-cursor" />
         <h3 class="cod-cursor fontJosfin">

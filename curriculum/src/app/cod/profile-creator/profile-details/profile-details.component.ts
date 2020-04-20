@@ -10,9 +10,10 @@ import { SocialData } from 'src/app/shared/interfaces/social-data';
 })
 export class ProfileDetailsComponent implements OnInit {
   //Image Variables
-  imagePath: any;
+  public imagePath:any;
   imgURL: any;
-  message: string;
+  public message: string;
+  value: Date;
   dropdown: any[] = [
     {code: 'pt', country: 'Portugal'}, {code: 'ang', country: 'Angola'}, {code: 'monc', country: 'Monçabique'},{code: 'it', country: 'Italy'}
   ];
@@ -24,7 +25,7 @@ export class ProfileDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.imagePath = '../../../assets/profilepic.png';
+    this.imgURL = '../../../assets/profilepic.png';
   }
   openDialog() {
     const dialog = this.dialog.open(DialogSocialNetworksComponent, {
@@ -39,23 +40,22 @@ export class ProfileDetailsComponent implements OnInit {
     });
   }
 
-  preview(files: any) {
-    if (files.length === 0) {
+  preview(files:any) {
+    if (files.length === 0)
       return;
-    }
 
-    const mimeType = files[0].type;
+    let mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) {
-      this.message = 'Only images are supported.';
+      this.message = "Only images are supported.";
       return;
     }
 
-    const reader = new FileReader();
+    let reader = new FileReader();
     this.imagePath = files;
     reader.readAsDataURL(files[0]);
-    reader.onload = () => {
+    reader.onload = (_event) => {
       this.imgURL = reader.result;
-    };
+    }
   }
 
 }
