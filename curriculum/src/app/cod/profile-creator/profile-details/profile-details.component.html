@@ -70,10 +70,24 @@
         <i class="pi pi-plus"></i>
         Add Social Networks
       </button>
-   </div>
-   <div *ngIf="socialNetWork">
-      {{socialNetWork.pic_url}}
-      {{socialNetWork.link}}
-   </div>
+
+    <div *ngIf="socialList.length>0; else displayList">
+      <span class="badge badge-pill badge-secondary" *ngFor="let data of socialList">
+        <img src={{data.socialContent.urlString}} alt="socialImg">
+        <a target="_blank" href={{data.link}}>{{data.socialContent.name|titlecase}}</a>
+        <img (click)="removeBadge(data.socialContent.name)" src="../../../../assets/fechar.png" id="badgeImg" class="cod-cursor pull-right">
+      </span>
+    </div>
+    <ng-template #displayList>
+      <p class="contentSocialList">
+        You have None Social Network
+      </p>
+    </ng-template>
   </div>
+  </div>
+
+
+
+
+
 </form>

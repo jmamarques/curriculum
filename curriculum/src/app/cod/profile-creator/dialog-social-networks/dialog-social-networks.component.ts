@@ -11,7 +11,7 @@ import { SocialData } from 'src/app/shared/interfaces/social-data';
   styleUrls: ['./dialog-social-networks.component.scss']
 })
 export class DialogSocialNetworksComponent implements OnInit {
-  dropdownValue:SocialData = {link:'',pic_url:''};
+  dropdownValue:SocialData = {link:'',socialContent:{name:'',urlString:''}};
   socialNetworksList: SocialNetwork []=[];
   dataContent: string;
   constructor(private socialNetworksService: SocialNetworksService, @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
@@ -19,6 +19,5 @@ export class DialogSocialNetworksComponent implements OnInit {
   ngOnInit(): void {
     this.socialNetworksList = this.socialNetworksService.getSocialNetworks();
   }
-
 
 }

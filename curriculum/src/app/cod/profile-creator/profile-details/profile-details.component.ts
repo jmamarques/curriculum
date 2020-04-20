@@ -10,17 +10,16 @@ import { SocialData } from 'src/app/shared/interfaces/social-data';
 })
 export class ProfileDetailsComponent implements OnInit {
   //Image Variables
-  public imagePath:any;
+  imagePath:any;
   imgURL: any;
-  public message: string;
-  value: Date;
+  message: string;
+  //list of users social networks
+  socialList: SocialData []=[];
   dropdown: any[] = [
     {code: 'pt', country: 'Portugal'}, {code: 'ang', country: 'Angola'}, {code: 'monc', country: 'Monçabique'},{code: 'it', country: 'Italy'}
   ];
   //Value for Country DropDown
   dropdownValue = 'countryList';
-  socialNetWork: SocialData;
-
   constructor(public dialog: MatDialog) {
   }
 
@@ -32,10 +31,10 @@ export class ProfileDetailsComponent implements OnInit {
     });
 
     dialog.afterClosed().subscribe(result => {
-      console.log('Added new Social Network');
+      console.warn('Added new Social Network');
       if(result){
-        this.socialNetWork = result;
         console.warn(result);
+        this.socialList.push(result);
       }
     });
   }
@@ -56,6 +55,14 @@ export class ProfileDetailsComponent implements OnInit {
     reader.onload = (_event) => {
       this.imgURL = reader.result;
     }
+  }
+  removeBadge(socialName: string){
+    for (let index = 0; index < this.socialList.length; index++) {
+      if (this.socialList[index].socialContent.name === socialName) {
+        this.socialList.splice(index,1);
+      }
+    }
+
   }
 
 }
