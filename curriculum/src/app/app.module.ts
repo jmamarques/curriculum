@@ -45,7 +45,7 @@ import {PersonalDetailComponent} from './cod/profile-viewer/personal-detail/pers
 import {ExperienceComponent} from './cod/profile-viewer/experience/experience.component';
 import {SkillsComponent} from './cod/profile-viewer/skills/skills.component';
 import {AdditionalInformationComponent} from './cod/profile-viewer/additional-information/additional-information.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DialogSocialNetworksComponent } from './cod/profile-creator/dialog-social-networks/dialog-social-networks.component';
 import {TimeLineComponent} from './shared/time-line/time-line.component';
 import {TimeLineBadgeComponent} from './shared/time-line/time-line-badge/time-line-badge.component';
@@ -121,7 +121,8 @@ const appRoutes: Routes = [
     MatNativeDateModule,
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers:
   [NumberCommaPipe,
