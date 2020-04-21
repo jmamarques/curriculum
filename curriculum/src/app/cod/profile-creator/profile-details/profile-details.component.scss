@@ -68,3 +68,38 @@ button:not(:disabled){
   cursor: none;
 }
 
+span img{
+  width: 25px;
+  margin-right: 5%;
+}
+span a{
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  vertical-align: middle;
+}
+.contentSocialList{
+  margin-top: 2%;
+}
+.badge{
+  font-size: 100%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  width: 26%;
+}
+
+.badge-secondary {
+    background-color: #a8abad;
+}
+
+#badgeImg{
+  width: 15px;
+  vertical-align: middle;
+  margin-left: 30px;
+}
+
+
+
+
+
+

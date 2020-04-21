@@ -10,52 +10,59 @@ import { SocialData } from 'src/app/shared/interfaces/social-data';
 })
 export class ProfileDetailsComponent implements OnInit {
   //Image Variables
-  imagePath: any;
+  imagePath:any;
   imgURL: any;
   message: string;
+  //list of users social networks
+  socialList: SocialData []=[];
   dropdown: any[] = [
     {code: 'pt', country: 'Portugal'}, {code: 'ang', country: 'Angola'}, {code: 'monc', country: 'Monçabique'},{code: 'it', country: 'Italy'}
   ];
   //Value for Country DropDown
   dropdownValue = 'countryList';
-  socialNetWork: SocialData;
-
   constructor(public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
-    this.imagePath = '../../../assets/profilepic.png';
+    this.imgURL = '../../../assets/profilepic.png';
   }
   openDialog() {
     const dialog = this.dialog.open(DialogSocialNetworksComponent, {
     });
 
     dialog.afterClosed().subscribe(result => {
-      console.log('Added new Social Network');
+      console.warn('Added new Social Network');
       if(result){
-        this.socialNetWork = result;
         console.warn(result);
+        this.socialList.push(result);
       }
     });
   }
 
-  preview(files: any) {
-    if (files.length === 0) {
+  preview(files:any) {
+    if (files.length === 0)
       return;
-    }
 
-    const mimeType = files[0].type;
+    let mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) {
-      this.message = 'Only images are supported.';
+      this.message = "Only images are supported.";
       return;
     }
 
-    const reader = new FileReader();
+    let reader = new FileReader();
     this.imagePath = files;
     reader.readAsDataURL(files[0]);
-    reader.onload = () => {
+    reader.onload = (_event) => {
       this.imgURL = reader.result;
-    };
+    }
+  }
+  removeBadge(socialName: string){
+    for (let index = 0; index < this.socialList.length; index++) {
+      if (this.socialList[index].socialContent.name === socialName) {
+        this.socialList.splice(index,1);
+      }
+    }
+
   }
 
 }

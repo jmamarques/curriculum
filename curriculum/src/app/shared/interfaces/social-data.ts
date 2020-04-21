@@ -1,4 +1,5 @@
+import { SocialNetwork } from './social-network';
 export interface SocialData {
-  pic_url: string;
+  socialContent: SocialNetwork;
   link : string;
 }
