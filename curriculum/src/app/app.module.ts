@@ -46,12 +46,14 @@ import {ExperienceComponent} from './cod/profile-viewer/experience/experience.co
 import {SkillsComponent} from './cod/profile-viewer/skills/skills.component';
 import {AdditionalInformationComponent} from './cod/profile-viewer/additional-information/additional-information.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { DialogSocialNetworksComponent } from './cod/profile-creator/dialog-social-networks/dialog-social-networks.component';
+import {DialogSocialNetworksComponent} from './cod/profile-creator/dialog-social-networks/dialog-social-networks.component';
 import {TimeLineComponent} from './shared/time-line/time-line.component';
 import {TimeLineBadgeComponent} from './shared/time-line/time-line-badge/time-line-badge.component';
 import {TimeLineHeaderComponent} from './shared/time-line/time-line-header/time-line-header.component';
 import {TimeLineBodyComponent} from './shared/time-line/time-line-body/time-line-body.component';
 import {TimeLineEntryComponent} from './shared/time-line/time-line-entry/time-line-entry.component';
+import {DateDurationPipe} from './shared/pipes/date-duration.pipe';
+import {DatePipe} from '@angular/common';
 
 const appRoutes: Routes = [
   {
@@ -100,7 +102,8 @@ const appRoutes: Routes = [
     TimeLineBadgeComponent,
     TimeLineHeaderComponent,
     TimeLineBodyComponent,
-    TimeLineEntryComponent
+    TimeLineEntryComponent,
+    DateDurationPipe
   ],
   imports: [
     BrowserModule,
@@ -125,9 +128,10 @@ const appRoutes: Routes = [
     ReactiveFormsModule
   ],
   providers:
-  [NumberCommaPipe,
-    MatDatepickerModule,
-  ],
+    [NumberCommaPipe,
+      MatDatepickerModule,
+      DatePipe,
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

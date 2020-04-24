@@ -54,8 +54,8 @@ export class ProfileService {
         },
         {
           title: 'Licenciado in Informatics Engineering',
-          beginDate: new Date('01/09/2018'),
-          endDate: new Date('26/06/2019'),
+          beginDate: new Date('09/01/2018'),
+          endDate: new Date('06/26/2019'),
           description: 'It was a great experience in which I learned the bases for Informatics Engineering.' +
             'I finished the degree with the final mark of sixteen (16/20) and the qualification of Very Good.',
           organization: 'Faculdade de Ciências da Universidade de Lisboa',
