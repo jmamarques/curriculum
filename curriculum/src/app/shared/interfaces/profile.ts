@@ -16,7 +16,7 @@ export interface Profile {
   lastName: string;
   socialLinks: SocialLinks[];
   // end Personal Profile
-
+  experiences: Experience[];
 }
 
 export interface SocialLinks {
@@ -28,10 +28,12 @@ export interface SocialLinks {
 export interface Experience {
   title: string;
   beginDate: Date;
-  endDate: Date;
+  endDate: Date | null;
   description: string;
   organization: string;
-  location: string;
+  location: {
+    country: string; city: string;
+  };
   experience: ExperienceEnum;
   role: RoleEnum;
   data?: any;

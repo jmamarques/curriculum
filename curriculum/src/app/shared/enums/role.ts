@@ -5,5 +5,6 @@ export enum RoleEnum {
   CONTRACT,
   TRAINEE,
   VOLUNTARY,
-  OWNER
+  OWNER,
+  STUDENT
 }

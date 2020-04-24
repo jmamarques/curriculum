@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Profile} from '../../../shared/interfaces/profile';
 
 @Component({
   selector: 'cod-experience',
@@ -6,6 +7,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./experience.component.scss']
 })
 export class ExperienceComponent implements OnInit {
+
+  @Input() private profile: Profile;
 
   constructor() {
   }

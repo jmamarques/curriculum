@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Profile} from '../../../shared/interfaces/profile';
 
 @Component({
   selector: 'cod-skills',
@@ -6,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent implements OnInit {
+  @Input() private profile: Profile;
 
   constructor() {
   }

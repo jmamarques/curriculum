@@ -1,7 +1,24 @@
 <cod-time-line>
-  <cod-time-line-entry>
+  <cod-time-line-entry
+    *ngFor="let experience of profile?.experiences;let i = index"
+    [invert]="i % 2 !== 0"
+  >
     <cod-time-line-badge></cod-time-line-badge>
-    <cod-time-line-header></cod-time-line-header>
-    <cod-time-line-body></cod-time-line-body>
+
+
+    <cod-time-line-header>
+      <div [class.header-left]="i % 2 === 0"
+           [class.header-right]="i % 2 !== 0"
+      >
+        {{experience.title}}
+      </div>
+    </cod-time-line-header>
+
+
+    <cod-time-line-body>
+
+    </cod-time-line-body>
+
+
   </cod-time-line-entry>
 </cod-time-line>

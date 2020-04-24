@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Profile} from '../../../shared/interfaces/profile';
 
 @Component({
   selector: 'cod-additional-information',
@@ -6,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./additional-information.component.scss']
 })
 export class AdditionalInformationComponent implements OnInit {
+  @Input() private profile: Profile;
 
   constructor() {
   }

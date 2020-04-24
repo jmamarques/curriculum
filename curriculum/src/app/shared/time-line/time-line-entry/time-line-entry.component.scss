@@ -12,6 +12,7 @@
   }
 
   &.inverted > .timeline-panel {
+    text-align: right;
     float: right;
 
     &:before {
@@ -73,6 +74,7 @@
       width: -moz-calc(100% - 90px);
       width: -webkit-calc(100% - 90px);
       float: right;
+      text-align: right;
 
       &:before {
         border-left-width: 0;

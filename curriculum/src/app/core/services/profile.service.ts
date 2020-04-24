@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Profile} from '../../shared/interfaces/profile';
 import {Observable, of} from 'rxjs';
+import {ExperienceEnum} from '../../shared/enums/experience.enum';
+import {RoleEnum} from '../../shared/enums/role';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +39,29 @@ export class ProfileService {
           name: 'PluralSight',
           icon: '../../../assets/icon-pluralsight.jpg',
           url: 'https://app.pluralsight.com/profile/jmamarques'
+        }
+      ],
+      experiences: [
+        {
+          title: 'Junior Software Developer',
+          beginDate: new Date('01/08/2018'),
+          endDate: null,
+          description: 'I have been working in BNP Paribas since 2018 as Developer.',
+          organization: 'BNP Paribas Securities Services',
+          location: {country: 'PT', city: 'LIS'},
+          experience: ExperienceEnum.JOB,
+          role: RoleEnum.FULL
+        },
+        {
+          title: 'Licenciado in Informatics Engineering',
+          beginDate: new Date('01/09/2018'),
+          endDate: new Date('26/06/2019'),
+          description: 'It was a great experience in which I learned the bases for Informatics Engineering.' +
+            'I finished the degree with the final mark of sixteen (16/20) and the qualification of Very Good.',
+          organization: 'Faculdade de Ciências da Universidade de Lisboa',
+          location: {country: 'PT', city: 'LIS'},
+          experience: ExperienceEnum.EDUCATION,
+          role: RoleEnum.STUDENT
         }
       ]
     };
