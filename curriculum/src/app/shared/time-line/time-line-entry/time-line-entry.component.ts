@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'cod-time-line-entry',
@@ -12,6 +13,13 @@ export class TimeLineEntryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    AOS.init({
+      offset: 200,
+      duration: 600,
+      easing: 'ease-in-sine',
+      delay: 100,
+      once: true
+    });
   }
 
 }
