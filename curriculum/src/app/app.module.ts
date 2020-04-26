@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -9,9 +8,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MaterialSharedModule} from './shared/modules/material-shared.module';
 import {NgxBootstrapSharedModule} from './shared/modules/ngx-bootstrap-shared.module';
 import {PrimeNgSharedModule} from './shared/modules/prime-ng-shared.module';
-import {MenuComponent} from './core/menu/menu.component';
 import {BsDatepickerModule, CollapseModule} from 'ngx-bootstrap';
-import {HeaderComponent} from './core/header/header.component';
 import {PageNotFoundComponent} from './shared/page-not-found/page-not-found.component';
 import {CreateAccountComponent} from './cod/create-account/create-account.component';
 import {LogInAccountComponent} from './cod/log-in-account/log-in-account.component';
@@ -25,11 +22,9 @@ import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {HttpClientModule} from '@angular/common/http';
 import {NumberCommaPipe} from './shared/pipes/number-comma.pipe';
-import {FooterComponent} from './core/footer/footer.component';
 import {ContactTechnologiesComponent} from './cod/contact/contact-technologies/contact-technologies.component';
 import {FaqPageComponent} from './cod/faq-page/faq-page.component';
 import {SortByFildPipe} from './shared/pipes/sort-by-field.pipe';
-import {HomepageComponent} from './core/homepage/homepage.component';
 import {StaticsComponent} from './cod/contact/contact-technologies/statics/statics.component';
 import {ProfileCreatorComponent} from './cod/profile/profile-creator/profile-creator.component';
 import {ProfileDetailsComponent} from './cod/profile/profile-creator/profile-details/profile-details.component';
@@ -54,35 +49,23 @@ import {TimeLineBodyComponent} from './shared/time-line/time-line-body/time-line
 import {TimeLineEntryComponent} from './shared/time-line/time-line-entry/time-line-entry.component';
 import {DateDurationPipe} from './shared/pipes/date-duration.pipe';
 import {DatePipe} from '@angular/common';
-
-const appRoutes: Routes = [
-  {
-    path: '',
-    redirectTo: '/homepage',
-    pathMatch: 'full'
-  }
-
-];
+import {CoreModule} from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     PortofolioComponent,
-    MenuComponent,
-    HeaderComponent,
     PageNotFoundComponent,
     CreateAccountComponent,
     LogInAccountComponent,
     ContactComponent,
     ContactDetailsComponent,
     ContactSupportComponent,
-    FooterComponent,
     TechnologiesComponent,
     NumberCommaPipe,
     ContactTechnologiesComponent,
     FaqPageComponent,
     SortByFildPipe,
-    HomepageComponent,
     StaticsComponent,
     ProfileCreatorComponent,
     ProfileDetailsComponent,
@@ -103,7 +86,8 @@ const appRoutes: Routes = [
     TimeLineHeaderComponent,
     TimeLineBodyComponent,
     TimeLineEntryComponent,
-    DateDurationPipe
+    DateDurationPipe,
+
   ],
   imports: [
     BrowserModule,
@@ -111,7 +95,6 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatCardModule,
     MaterialSharedModule,
-    RouterModule.forRoot(appRoutes, {enableTracing: true}), // teoricamente isto eh para debbuggin but idk
     NgxBootstrapSharedModule,
     PrimeNgSharedModule,
     CollapseModule,
@@ -125,7 +108,8 @@ const appRoutes: Routes = [
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoreModule
   ],
   providers:
     [NumberCommaPipe,

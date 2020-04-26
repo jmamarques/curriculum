@@ -16,7 +16,10 @@ import {ProfileViewerComponent} from './cod/profile/profile-viewer/profile-viewe
 
 
 const routes: Routes = [
-  {path: '', component: HomepageComponent},
+  {
+    path: '',
+    loadChildren: () => import('./core/core.module').then(m => m.CoreModule)
+  },
   {path: 'account/create', component: CreateAccountComponent},
   {path: 'account/log-in', component: LogInAccountComponent},
   {path: 'profile/creator', component: ProfileCreatorComponent},
