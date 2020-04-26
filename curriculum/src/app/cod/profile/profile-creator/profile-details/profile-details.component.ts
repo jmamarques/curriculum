@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogSocialNetworksComponent } from '../dialog-social-networks/dialog-social-networks.component';
-import { SocialNetwork } from 'src/app/shared/interfaces/social-network';
-import { SocialData } from 'src/app/shared/interfaces/social-data';
+import {MatDialog} from '@angular/material/dialog';
+import {DialogSocialNetworksComponent} from '../dialog-social-networks/dialog-social-networks.component';
+import {SocialData} from 'src/app/shared/interfaces/social-data';
+
 @Component({
   selector: 'cod-profile-details',
   templateUrl: './profile-details.component.html',
@@ -10,7 +10,7 @@ import { SocialData } from 'src/app/shared/interfaces/social-data';
 })
 export class ProfileDetailsComponent implements OnInit {
   //Image Variables
-  imagePath:any;
+  imagePath: any;
   imgURL: any;
   message: string;
   //list of users social networks

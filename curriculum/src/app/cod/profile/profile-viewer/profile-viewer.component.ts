@@ -1,8 +1,8 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
-import {HeaderService} from '../../core/services/header.service';
-import {ProfileService} from '../../core/services/profile.service';
+import {HeaderService} from '../../../core/services/header.service';
+import {ProfileService} from '../../../core/services/profile.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Profile} from '../../shared/interfaces/profile';
+import {Profile} from '../../../shared/interfaces/profile';
 
 @Component({
   selector: 'cod-profile-viewer',

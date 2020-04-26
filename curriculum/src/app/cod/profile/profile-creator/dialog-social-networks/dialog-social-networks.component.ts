@@ -1,11 +1,11 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { DialogData } from 'src/app/shared/interfaces/dialog-data';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { SocialNetwork } from 'src/app/shared/interfaces/social-network';
-import { SocialNetworksService } from 'src/app/core/services/social-networks.service';
-import { SocialData } from 'src/app/shared/interfaces/social-data';
-import { FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {DialogData} from 'src/app/shared/interfaces/dialog-data';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {SocialNetwork} from 'src/app/shared/interfaces/social-network';
+import {SocialNetworksService} from 'src/app/core/services/social-networks.service';
+import {SocialData} from 'src/app/shared/interfaces/social-data';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
 
 @Component({
   selector: 'cod-dialog-social-networks',
@@ -13,7 +13,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
   styleUrls: ['./dialog-social-networks.component.scss']
 })
 export class DialogSocialNetworksComponent implements OnInit {
-  registerForm:FormGroup;
+  registerForm: FormGroup;
   matcher = new MyErrorStateMatcher();
   submitted: boolean = false;
   dropdownValue:SocialData = {link:'',socialContent:{name:'',urlString:''}};

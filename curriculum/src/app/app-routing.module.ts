@@ -11,8 +11,8 @@ import {FaqPageComponent} from './cod/faq-page/faq-page.component';
 import {TechnologiesComponent} from './cod/technologies/technologies.component';
 import {ContactTechnologiesComponent} from './cod/contact/contact-technologies/contact-technologies.component';
 import {HomepageComponent} from './core/homepage/homepage.component';
-import {ProfileCreatorComponent} from './cod/profile-creator/profile-creator.component';
-import {ProfileViewerComponent} from './cod/profile-viewer/profile-viewer.component';
+import {ProfileCreatorComponent} from './cod/profile/profile-creator/profile-creator.component';
+import {ProfileViewerComponent} from './cod/profile/profile-viewer/profile-viewer.component';
 
 
 const routes: Routes = [

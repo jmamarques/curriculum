@@ -75,7 +75,8 @@
       <span class="badge badge-pill badge-secondary" *ngFor="let data of socialList">
         <img src={{data.socialContent.urlString}} alt="socialImg">
         <a target="_blank" href={{data.link}}>{{data.socialContent.name|titlecase}}</a>
-        <img (click)="removeBadge(data.socialContent.name)" src="../../../../assets/fechar.png" id="badgeImg" class="cod-cursor pull-right">
+        <img (click)="removeBadge(data.socialContent.name)" class="cod-cursor pull-right" id="badgeImg"
+             src="../../../../../assets/fechar.png">
       </span>
     </div>
     <ng-template #displayList>

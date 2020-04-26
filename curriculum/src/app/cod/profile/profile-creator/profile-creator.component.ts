@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as AOS from 'aos';
+
 @Component({
   selector: 'cod-profile-creator',
   templateUrl: './profile-creator.component.html',
