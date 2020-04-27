@@ -45,7 +45,7 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div class="radioPrime">
-              <p-radioButton name="groupname" value="val2" (onClick)="redirect('/account/log-in')"></p-radioButton>
+              <p-radioButton (onClick)="redirect('/cod/account/log-in')" name="groupname" value="val2"></p-radioButton>
             </div>
               <label for="radio"> Log-In to your current Account</label>
             </li>
@@ -54,7 +54,7 @@
               <p>
                 Log In to your current Account
               </p>
-              <button class="btn btn-info " type="button" id="buttonCreate" (click)="redirect('/account/log-in')">
+              <button (click)="redirect('/cod/account/log-in')" class="btn btn-info " id="buttonCreate" type="button">
                 <i
                   class="pi pi-user"
                 ></i>

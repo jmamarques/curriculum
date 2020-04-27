@@ -11,19 +11,34 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
-
-
-const imports = [MatCardModule, MatRadioModule, MatListModule, MatExpansionModule, MatIconModule,
-  MatTabsModule, MatGridListModule, MatInputModule, MatSelectModule, MatDatepickerModule,MatDialogModule,MatBadgeModule];
+const imports = [
+  MatCardModule,
+  MatRadioModule,
+  MatListModule,
+  MatExpansionModule,
+  MatIconModule,
+  MatTabsModule,
+  MatGridListModule,
+  MatInputModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatBadgeModule,
+  MatNativeDateModule,
+];
 
 @NgModule({
   declarations: [],
   imports: [
     ...imports
   ],
-  exports: imports
+  exports: imports,
+  providers: [
+    MatDatepickerModule,
+  ]
 })
 export class MaterialSharedModule {
 }

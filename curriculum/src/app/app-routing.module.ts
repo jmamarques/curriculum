@@ -1,9 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {PortofolioComponent} from './cod/portofolio/portofolio.component';
-import {PageNotFoundComponent} from './shared/page-not-found/page-not-found.component';
-import {CreateAccountComponent} from './cod/create-account/create-account.component';
-import {LogInAccountComponent} from './cod/log-in-account/log-in-account.component';
+import {PageNotFoundComponent} from './core/page-not-found/page-not-found.component';
 import {ContactComponent} from './cod/contact/contact.component';
 import {ContactDetailsComponent} from './cod/contact/contact-details/contact-details.component';
 import {ContactSupportComponent} from './cod/contact/contact-support/contact-support.component';
@@ -16,23 +14,25 @@ import {ProfileViewerComponent} from './cod/profile/profile-viewer/profile-viewe
 
 
 const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./core/core.module').then(m => m.CoreModule)
-  },
-  {path: 'account/create', component: CreateAccountComponent},
-  {path: 'account/log-in', component: LogInAccountComponent},
-  {path: 'profile/creator', component: ProfileCreatorComponent},
-  {path: 'homepage', component: HomepageComponent},
-  {path: 'cod/contacts', component: ContactComponent},
+
+  {path: '', component: HomepageComponent},
+
+  {path: 'cod', loadChildren: () => import('./cod/cod.module').then(m => m.CodModule)},
+
   {path: 'cod/contacts/details', component: ContactDetailsComponent},
   {path: 'cod/contacts/support', component: ContactSupportComponent},
   {path: 'cod/contacts/technologies', component: ContactTechnologiesComponent},
+  {path: 'cod/contacts', component: ContactComponent},
+
   {path: 'cod/faq', component: FaqPageComponent},
+
   {path: 'technologies/users', component: TechnologiesComponent},
-  {path: 'page-not-found', component: PageNotFoundComponent},
+
   {path: 'portofolio', component: PortofolioComponent},
+
+  {path: 'profile/creator', component: ProfileCreatorComponent},
   {path: 'profile', component: ProfileViewerComponent},
+
   {path: '**', component: PageNotFoundComponent}
 ];
 

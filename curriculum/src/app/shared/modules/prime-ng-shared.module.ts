@@ -9,11 +9,17 @@ import {CalendarModule} from 'primeng/calendar';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 
 
-
-
-
-
-const imports = [DropdownModule, ButtonModule, RadioButtonModule, CheckboxModule, CardModule, CarouselModule,InputTextModule,CalendarModule,InputTextareaModule];
+const imports = [
+  DropdownModule,
+  ButtonModule,
+  RadioButtonModule,
+  CheckboxModule,
+  CardModule,
+  CarouselModule,
+  InputTextModule,
+  CalendarModule,
+  InputTextareaModule,
+];
 
 @NgModule({
   declarations: [],

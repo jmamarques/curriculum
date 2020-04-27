@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ThemePalette} from '@angular/material/core';
-import {RouteService} from '../../core/services/route.service';
-import {HeaderService} from '../../core/services/header.service';
+import {RouteService} from '../../../core/services/route.service';
+import {HeaderService} from '../../../core/services/header.service';
 
 @Component({
   selector: 'cod-log-in-account',

@@ -6,7 +6,8 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div class="radioPrime">
-                <p-radioButton name="groupname" value="val2" (onClick)="redirect('/account/create')"></p-radioButton>
+                <p-radioButton (onClick)="redirect('/cod/account/create')" name="groupname"
+                               value="val2"></p-radioButton>
               </div>
               <label> Create new Account</label>
             </li>
@@ -18,7 +19,7 @@
               <p>
                 Join Us in this adventure !
               </p>
-              <button (click)="redirect('/account/create')" class="btn" type="button">
+              <button (click)="redirect('/cod/account/create')" class="btn" type="button">
                 <i class="pi pi-pencil"></i>
                 Create
               </button>
