@@ -8,6 +8,7 @@ import {MenuComponent} from './menu/menu.component';
 import {CollapseModule} from 'ngx-bootstrap';
 import {RouterModule} from '@angular/router';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 const declare = [
   FooterComponent,
@@ -23,7 +24,8 @@ const declare = [
   imports: [
     CommonModule,
     CollapseModule,
-    RouterModule
+    RouterModule,
+    ScrollingModule
   ],
 })
 export class CoreModule {

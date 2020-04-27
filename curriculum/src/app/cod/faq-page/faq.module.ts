@@ -2,13 +2,15 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {FaqRoutingModule} from './faq-routing.module';
+import {MaterialSharedModule} from '../../shared/modules/material-shared.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [FaqRoutingModule.components],
   imports: [
     CommonModule,
-    FaqRoutingModule
+    FaqRoutingModule,
+    MaterialSharedModule,
   ]
 })
 export class FaqModule {

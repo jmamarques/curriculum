@@ -6,7 +6,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PortofolioComponent} from './cod/portofolio/portofolio.component';
 import {TechnologiesComponent} from './cod/technologies/technologies.component';
 import {HttpClientModule} from '@angular/common/http';
-import {FaqPageComponent} from './cod/faq-page/faq-page.component';
 import {ProfileCreatorComponent} from './cod/profile/profile-creator/profile-creator.component';
 import {ProfileDetailsComponent} from './cod/profile/profile-creator/profile-details/profile-details.component';
 import {TechnicalSkillsComponent} from './cod/profile/profile-creator/technical-skills/technical-skills.component';
@@ -29,7 +28,6 @@ import {CommonModule} from '@angular/common';
     AppComponent,
     PortofolioComponent,
     TechnologiesComponent,
-    FaqPageComponent,
     ProfileCreatorComponent,
     ProfileDetailsComponent,
     ExperienceComponent,
