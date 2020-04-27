@@ -4,18 +4,9 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PortofolioComponent} from './cod/portofolio/portofolio.component';
-import {ContactComponent} from './cod/contact/contact.component';
-import {ContactDetailsComponent} from './cod/contact/contact-details/contact-details.component';
-import {ContactSupportComponent} from './cod/contact/contact-support/contact-support.component';
-import {AgGridModule} from 'ag-grid-angular';
-import {AgChartsAngularModule} from 'ag-charts-angular';
 import {TechnologiesComponent} from './cod/technologies/technologies.component';
-import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
-import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {HttpClientModule} from '@angular/common/http';
-import {ContactTechnologiesComponent} from './cod/contact/contact-technologies/contact-technologies.component';
 import {FaqPageComponent} from './cod/faq-page/faq-page.component';
-import {StaticsComponent} from './cod/contact/contact-technologies/statics/statics.component';
 import {ProfileCreatorComponent} from './cod/profile/profile-creator/profile-creator.component';
 import {ProfileDetailsComponent} from './cod/profile/profile-creator/profile-details/profile-details.component';
 import {TechnicalSkillsComponent} from './cod/profile/profile-creator/technical-skills/technical-skills.component';
@@ -31,18 +22,14 @@ import {AdditionalInformationComponent} from './cod/profile/profile-viewer/addit
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DialogSocialNetworksComponent} from './cod/profile/profile-creator/dialog-social-networks/dialog-social-networks.component';
 import {CoreModule} from './core/core.module';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     PortofolioComponent,
-    ContactComponent,
-    ContactDetailsComponent,
-    ContactSupportComponent,
     TechnologiesComponent,
-    ContactTechnologiesComponent,
     FaqPageComponent,
-    StaticsComponent,
     ProfileCreatorComponent,
     ProfileDetailsComponent,
     ExperienceComponent,
@@ -59,16 +46,14 @@ import {CoreModule} from './core/core.module';
     DialogSocialNetworksComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    AgGridModule.withComponents([]),
-    AgChartsAngularModule,
-    NgxPageScrollCoreModule,
-    NgxPageScrollModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    // app
+    AppRoutingModule,
     // core
     CoreModule,
     // features modules

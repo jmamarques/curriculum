@@ -14,7 +14,7 @@ const imports = [
   declarations: [],
   imports: [
     ...imports,
-    BsDatepickerModule.forRoot(),
+    // BsDatepickerModule.forRoot(),
   ],
   exports: imports
 })
