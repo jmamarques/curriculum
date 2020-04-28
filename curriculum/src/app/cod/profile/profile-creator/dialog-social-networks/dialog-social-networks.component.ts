@@ -15,33 +15,39 @@ import {ErrorStateMatcher} from '@angular/material/core';
 export class DialogSocialNetworksComponent implements OnInit {
   registerForm: FormGroup;
   matcher = new MyErrorStateMatcher();
-  submitted: boolean = false;
-  dropdownValue:SocialData = {link:'',socialContent:{name:'',urlString:''}};
-  socialNetworksList: SocialNetwork []=[];
-  dataContent: string;
-  constructor(private formBuilder: FormBuilder,private dialogRef:MatDialogRef<DialogSocialNetworksComponent>,private socialNetworksService: SocialNetworksService, @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+  submitted = false;
+  dropdownValue: SocialData = {link: '', socialContent: {name: '', urlString: ''}};
+  socialNetworksList: SocialNetwork [] = [];
+
+  constructor(private formBuilder: FormBuilder,
+              private dialogRef: MatDialogRef<DialogSocialNetworksComponent>,
+              private socialNetworksService: SocialNetworksService,
+              @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+  }
 
   ngOnInit(): void {
     this.socialNetworksList = this.socialNetworksService.getSocialNetworks();
-    this.registerForm= this.formBuilder.group({
-      selectedSocialImage:['',Validators.required],
-      socialNetworkLink:['',Validators.required]
+    this.registerForm = this.formBuilder.group({
+      selectedSocialImage: ['', Validators.required],
+      socialNetworkLink: ['', Validators.required]
     });
 
   }
+
   onSubmit() {
     this.submitted = true;
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
-        return;
+      return;
     }
     this.dialogRef.close(this.dropdownValue);
+  }
 }
-}
+
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid &&  isSubmitted);
+    return !!(control && control.invalid && isSubmitted);
   }
 }
