@@ -20,6 +20,12 @@ const routes: Routes = [
     children: [
       {path: '', loadChildren: () => import('./faq-page/faq.module').then(m => m.FaqModule)},
     ]
+  },
+  {
+    path: 'portofolio',
+    children: [
+      {path: '', loadChildren: () => import('./portofolio/portofolio.module').then(m => m.PortofolioModule)},
+    ]
   }
 ];
 

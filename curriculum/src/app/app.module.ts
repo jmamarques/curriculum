@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {PortofolioComponent} from './cod/portofolio/portofolio.component';
 import {TechnologiesComponent} from './cod/technologies/technologies.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ProfileCreatorComponent} from './cod/profile/profile-creator/profile-creator.component';
@@ -26,7 +25,6 @@ import {CommonModule} from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
-    PortofolioComponent,
     TechnologiesComponent,
     ProfileCreatorComponent,
     ProfileDetailsComponent,
