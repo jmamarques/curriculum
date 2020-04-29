@@ -1,0 +1,42 @@
+<cod-time-line>
+  <cod-time-line-entry
+    *ngFor="let experience of profile?.experiences;let i = index"
+    [invert]="i % 2 !== 0"
+  >
+    <cod-time-line-badge>
+      <i [class.fa-award]="experience.experience === 2"
+         [class.fa-briefcase]="experience.experience === 0"
+         [class.fa-ellipsis-h]="experience.experience === 3"
+         [class.fa-university]="experience.experience === 1"
+         class="icon-badge fas"
+      ></i>
+    </cod-time-line-badge>
+
+
+    <cod-time-line-header class="text-nowrap">
+      <div [class.header-left]="i % 2 === 0"
+           [class.header-right]="i % 2 !== 0"
+      >
+        {{experience.title}}
+      </div>
+    </cod-time-line-header>
+
+
+    <cod-time-line-body>
+      <p class="text-secondary">
+        <i [class.fa-calendar-alt]="!experience.endDate"
+           [class.fa-calendar-check]="experience.endDate"
+           class="far"
+        ></i>
+        {{experience.beginDate | dateDuration: experience.endDate :'MMMM yyyy'}}
+      </p>
+      <p class="text-secondary">
+        <i class="far fa-building"></i>
+        {{experience.organization}}
+      </p>
+      <p class="text-justify">{{experience.description}}</p>
+    </cod-time-line-body>
+
+
+  </cod-time-line-entry>
+</cod-time-line>

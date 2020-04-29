@@ -1,16 +1,15 @@
-
-  <!-- Sidebar  -->
-  <nav
-    #navElement
-    [class.hide-sidebar] = "hideSideBar"
-    [class.active]="isActiveSidebar"
-    id="sidebar"
+<!-- Sidebar  -->
+<nav
+  #navElement
+  [class.hide-sidebar] = "hideSideBar"
+  [class.active]="isActiveSidebar"
+  id="sidebar"
+>
+  <div
+    cdkScrollable
+    class="element"
   >
-    <div
-      cdkScrollable
-      class="element"
-    >
-      <div class="sidebar-header">
+    <div class="sidebar-header">
         <div (click)="click()" id="sidebarCollapse">
           <h1 class="cod-cursor">Code Own Design</h1>
           <strong class="cod-cursor">COD</strong>
@@ -19,13 +18,13 @@
 
       <ul class="list-unstyled components">
         <li [class.active]="!menuItems.isCollapsed('home')">
-          <a routerLink="homepage">
+          <a routerLink="/">
             <i class="pi pi-home"></i>
             Home
           </a>
         </li>
         <li>
-          <a routerLink="portofolio">
+          <a routerLink="cod/portofolio">
             <i class="pi pi-briefcase"></i>
             About
           </a>
@@ -53,10 +52,10 @@
             id="pageSubmenu"
           >
             <li>
-              <a routerLink="technologies/users">Tech Users</a>
+              <a routerLink="cod/technologies/users">Tech Users</a>
             </li>
             <li>
-              <a routerLink="#">Page 2</a>
+              <a routerLink="cod/profile">Profile</a>
             </li>
             <li>
               <a routerLink="#">Page 3</a>
@@ -64,7 +63,7 @@
           </ul>
         </li>
         <li>
-          <a routerLink="portofolio">
+          <a routerLink="cod/portofolio">
             <i class="pi pi-image"></i>
             Portfolio
           </a>

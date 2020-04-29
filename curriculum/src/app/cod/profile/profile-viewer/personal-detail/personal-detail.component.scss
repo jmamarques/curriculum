@@ -1,0 +1,49 @@
+@import "src/fonts";
+
+/* **FONT TYPE** */
+.fontJosfin {
+  font-family: 'Josefin Sans', sans-serif;
+  // line-height: 35px;
+}
+
+.card {
+  min-width: 100%;
+}
+
+.content-profile-image {
+  height: 75px;
+
+  .profile-image {
+    box-shadow: 10px 10px 50px -25px rgba(0, 0, 0, 0.75);
+    background-color: white;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    transition: all 1s ease-in-out;
+    height: 200px;
+    position: relative;
+    top: -10em;
+  }
+}
+
+@media (max-width: 880px) {
+  .content-profile-image {
+    .profile-image {
+      height: 150px;
+      top: -7em;
+    }
+  }
+}
+
+/* BODY CONTENT */
+.profile-sub-header {
+  color: #9D9D9D;
+}
+
+.profile-social-header {
+  padding-right: 2.5px;
+
+  .profile-social-link {
+    height: 25px;
+    width: 25px;
+  }
+}
+

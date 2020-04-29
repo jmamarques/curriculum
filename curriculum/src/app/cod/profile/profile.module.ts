@@ -1,0 +1,37 @@
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+
+import {ProfileRoutingModule} from './profile-routing.module';
+import {TimeLineModule} from '../../shared/time-line/time-line.module';
+import {MaterialSharedModule} from '../../shared/modules/material-shared.module';
+import {PrimeNgSharedModule} from '../../shared/modules/prime-ng-shared.module';
+import {NgxBootstrapSharedModule} from '../../shared/modules/ngx-bootstrap-shared.module';
+import {PipeModule} from '../../shared/pipes/pipe.module';
+import {AgGridModule} from 'ag-grid-angular';
+import {AgChartsAngularModule} from 'ag-charts-angular';
+import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
+import {NgxPageScrollModule} from 'ngx-page-scroll';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
+
+@NgModule({
+  declarations: [ProfileRoutingModule.components],
+  imports: [
+    CommonModule,
+    AgGridModule.withComponents([]),
+    AgChartsAngularModule,
+    NgxPageScrollCoreModule,
+    NgxPageScrollModule,
+    TimeLineModule,
+    ProfileRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    PipeModule,
+    MaterialSharedModule,
+    PrimeNgSharedModule,
+    NgxBootstrapSharedModule,
+  ],
+  providers: []
+})
+export class ProfileModule {
+}

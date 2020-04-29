@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col addVerticalLine">
+    <!--Form with header-->
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <h1 class="rounded">
+            Write To Us:
+          </h1>
+          <h4 class="mb-2 text-muted">
+            We'll write rarely, but with only the best content.
+          </h4>
+        </li>
+        <li class="list-group-item">
+          <form>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="fristName">
+                  <img class="groupImage" src='../../../../assets/user.png'>
+                </span>
+              </div>
+              <input type="text" class="form-control" id="firstName" placeholder="Name" required>
+            </div>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="emailSpan">
+                  <img class="groupImage" src='../../../../assets/email_symbol.png'>
+                </span>
+              </div>
+              <input type="email" class="form-control" id="email" required placeholder="Email">
+            </div>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="subjectSpan">
+                  <img class="groupImage" src='../../../../assets/ticket.png'>
+                </span>
+              </div>
+              <input type="text" class="form-control" id="sub" required placeholder="Subject">
+            </div>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="subjectSpan">
+                  <img class="groupImage" src="../../../../assets/country.png">
+                </span>
+              </div>
+              <select id="inputState" class="form-control">
+                <option value="" selected disabled>Chose your Country...</option>
+                <option *ngFor="let country of countryList" >{{country}}</option>
+
+              </select>
+            </div>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="contentSpan">
+                  <img class="groupImage" src='../../../../assets/content.png'>
+                </span>
+              </div>
+              <textarea class="form-control" aria-label="With textarea" placeholder="Your Text Here..."></textarea>
+            </div>
+            <button class="btn btn-primary btn-lg" id="submitButton" type="submit" value="Submit">
+              <img class="groupImage" id="submitImage" src='../../../../assets/sendemail.png'>
+              Submit
+            </button>
+            <!--<input class="btn btn-primary" type="submit" value="Submit" id="submitButton">-->
+          </form>
+        </li>
+
+      </ul>
+
+
+
+    </div>
+  </div>
+  <div class="col">
+    <div class="container">
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <h2>
+            Other ways to connect
+          </h2>
+          <p>
+            Call us, send an email or even a postcard - whatever works for you.
+          </p>
+          <p>
+            We'll be here waiting for you, and attending all of your needs!
+          </p>
+        </li>
+        <li class="list-group-item ">
+          <div class="icon-container ">
+            <div class="icon icon-collapse ">
+              <i class="fas fa-phone"></i>
+            </div>
+            <a href='cod/contacts/details'>
+              Contacts
+            </a>
+          </div>
+        </li>
+        <li class="list-group-item ">
+          <div class="icon-container ">
+            <div class="icon icon-fill ">
+              <i class="fas fa-share-alt"></i>
+            </div>
+            <a href='cod/contacts/details'>
+              Social Networks
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

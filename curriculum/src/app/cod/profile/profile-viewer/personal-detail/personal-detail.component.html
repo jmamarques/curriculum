@@ -1,0 +1,43 @@
+<div class="content-profile-image d-flex justify-content-center">
+  <img alt="Profile Image Not Found"
+       class="profile-image rounded-circle "
+       [src]="profile?.profilePic || 'src\\assets\\user.png'">
+</div>
+<div class="container fontJosfin">
+  <dl class="row">
+    <dt class="col-sm-3 profile-header">Role</dt>
+    <dd class="col-sm-9 profile-role">{{profile?.role}}</dd>
+
+    <dt class="col-sm-3 profile-header">About</dt>
+    <dd class="col-sm-9 profile-description text-justify">{{profile?.description}}</dd>
+
+    <dt class="col-sm-3 profile-header">Personal Data</dt>
+    <dd class="col-sm-9 profile-personal-data">
+      <dl class="row">
+        <dt class="col-3 col-md-2 profile-sub-header">Age</dt>
+        <dd class="col-9 col-md-4 profile-sub-content">{{profile?.age}}</dd>
+        <dt class="col-3 col-md-2 profile-sub-header">Phone</dt>
+        <dd class="col-9 col-md-4 profile-sub-content">{{profile?.phone}}</dd>
+        <dt class="col-3 col-md-2 profile-sub-header">Address</dt>
+        <dd class="col-9 col-md-4 profile-sub-content">{{profile?.address}}</dd>
+        <dt class="col-3 col-md-2 profile-sub-header">Email</dt>
+        <dd class="col-9 col-md-4 profile-sub-content">{{profile?.email}}</dd>
+        <dt class="col-3 col-md-2 profile-sub-header">Nationality</dt>
+        <dd class="col-9 col-md-4 profile-sub-content">{{profile?.nationality}}</dd>
+      </dl>
+    </dd>
+    <dt class="col-sm-3 profile-header">Social Links & Websites</dt>
+    <dd class="col-sm-9">
+      <span
+        *ngFor="let item of profile?.socialLinks"
+        class="profile-social-header"
+      >
+        <a [href]="item?.url">
+          <img #socialLink (error)="imageHide(socialLink, socialName)" [src]="item?.icon" alt="Not Loaded"
+               class="profile-social-link cod-cursor">
+          <span #socialName class="d-none cod-cursor">{{item?.name}}</span>
+        </a>
+      </span>
+    </dd>
+  </dl>
+</div>

@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Social Networks</h1>
+<div mat-dialog-content>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="fontJosfin" class="formFieldPopUp">
+      <mat-label>Social Network</mat-label>
+      <mat-select [(value)]="dropdownValue.socialContent" class="fontJosfin" formControlName="selectedSocialImage"
+        [errorStateMatcher]="matcher">
+        <mat-option *ngFor="let item of socialNetworksList" [value]="item" class="fontJosfin">
+          <img src={{item.urlString}} alt="SocialNetorkImg"> {{item.name |titlecase}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="submitted && registerForm.controls.selectedSocialImage.errors">
+        <div *ngIf="registerForm.controls.selectedSocialImage.errors">Please Select a Social NetWork</div>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="formFieldPopUp">
+      <mat-label>Link</mat-label>
+      <input matInput id="linkInput" type="text" formControlName="socialNetworkLink" size="40"  [(ngModel)]="dropdownValue.link" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="submitted && registerForm.controls.socialNetworkLink.errors">
+        <div *ngIf="registerForm.controls.socialNetworkLink.errors">Please Select a Social NetWork</div>
+      </mat-error>
+    </mat-form-field>
+    <div class="buttonDiv">
+      <button class="btn btn-warning cod-cursor" type="button">Add</button>
+    </div>
+  </form>
+</div>

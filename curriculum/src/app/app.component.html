@@ -15,6 +15,7 @@
       [content]="headerService.getContent()"
       [backgroundColor]="headerService.getColor()"
       [isActiveSidebar]="isActiveSidebar"
+      [codVisible]="headerService.getCodVisible()"
     ></cod-header>
     <div id="pageContent">
       <router-outlet (activate)="onActivate()"></router-outlet>

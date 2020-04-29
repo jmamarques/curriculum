@@ -1,0 +1,131 @@
+<div class="header fontJosfin">
+  <h1 data-aos="fade-up">
+    JOIN OUR COMMUNITY
+  </h1>
+  <div class="container">
+    <div class="row">
+      <div class="col addVerticalLine" >
+        <img alt="communityImg" class="titleImg" data-aos="fade-right" src="../../../../assets/community.png">
+        <p data-aos="fade-right">
+          Small community but present, aware, compassionate, empathetic, inclusive and loving. Our community is working together for the benefit of all. We are all connected to each other and the earth. We hope to give you an advantage in order to follow your dreams and goals.
+        </p>
+        <button href="#section-1" pageScroll type="button" class="btn btn-warning" data-aos="fade-right">Create Profile</button>
+      </div>
+      <div class="col">
+        <h2 div data-aos="fade-left"
+        data-aos-offset="500"
+        data-aos-duration="1500">
+          5 Reasons To Join Cod:
+        </h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"
+          div data-aos="fade-left"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="500"
+          data-aos-duration="1600">
+            <img alt="checkMark" src="../../../../assets/checkmark.png">
+            Create your own curriculum, by simply uploading all your data.
+          </li>
+          <li class="list-group-item" div data-aos="fade-left"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="500"
+          data-aos-duration="1700">
+            <img alt="checkMark" src="../../../../assets/checkmark.png">
+            Share your curriculum with everyone you would like to see. Everybody can see your profile. So make sure you set everthing rigth and get ready to be famous!
+          </li>
+          <li class="list-group-item" div data-aos="fade-left"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="500"
+          data-aos-duration="1800">
+            <img alt="checkMark" src="../../../../assets/checkmark.png">
+            Edit it anytime, anywhere.
+          </li>
+          <li class="list-group-item" div data-aos="fade-left"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="500"
+          data-aos-duration="1900">
+            <img alt="checkMark" src="../../../../assets/checkmark.png">
+            It's all free. What are you waiting for?
+          </li>
+          <li class="list-group-item" div data-aos="fade-left"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="500"
+          data-aos-duration="2100">
+            <img alt="checkMark" src="../../../../assets/checkmark.png">
+            Share your profile in job interviews. We display all your data in a simply and clear format.
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="card container" id="section-1">
+  <div class="titleContent">
+    <h1>
+      Create your own Curriculum
+    </h1>
+    <h4 class="text-muted">
+      This information will let us know more about you.
+    </h4>
+  </div>
+  <div class="containerHeader">
+    <div class="progress" id="progressBarId">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+        aria-valuemin="0" aria-valuemax="100" [style.width]="progressBarValue+'%'"></div>
+    </div>
+    <div class="row" id="iconList">
+      <div class="col">
+        <div class="avatar">
+          <img [class.icon-fill]="progressBarValue>=stepValue" alt="shareProfile" src='../../../../assets/user.png'>
+        </div>
+      </div>
+      <div class="col">
+        <div class="avatar">
+          <img [class.icon-fill]="progressBarValue>=stepValue*2" alt="shareProfile"
+               src='../../../../assets/softskills.png'>
+        </div>
+      </div>
+      <div class="col">
+        <div class="avatar">
+          <img [class.icon-fill]="progressBarValue>=stepValue*3" alt="shareProfile"
+               src='../../../../assets/projects.png'>
+        </div>
+      </div>
+      <div class="col">
+        <div class="avatar">
+          <img [class.icon-fill]="progressBarValue>=stepValue*4" alt="shareProfile"
+               src='../../../../assets/extraicon.png'>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row titleRow">
+    <div class="col">
+      <h3 class="float-right text-muted longerAdd">Profile Details</h3>
+    </div>
+    <div class="col">
+      <h3 class="float-right text-muted">Experience</h3>
+    </div>
+    <div class="col">
+      <h3 class="float-right text-muted" id="skillTitle"> Skills</h3>
+    </div>
+    <div class="col">
+      <h3 class="float-right text-muted longerAdd">Adicional Info</h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <cod-profile-details *ngIf="currentPage ===0"></cod-profile-details>
+    <cod-soft-skills *ngIf="currentPage ===1"></cod-soft-skills>
+    <cod-technical-skills *ngIf="currentPage ===2"></cod-technical-skills>
+    <cod-projects *ngIf="currentPage ==2.5"></cod-projects>
+    <cod-adicional-info *ngIf="currentPage ==3"></cod-adicional-info>
+    <cod-conclusion *ngIf="currentPage >3"></cod-conclusion>
+  </div>
+  <div class="card-footer">
+    <button type="button" class="btn btn-warning float-left" *ngIf="currentPage >0"
+      (click)="decreasePercentage()">Previous</button>
+    <button type="button" class="btn btn-warning float-right" (click)="increasePercentage()">Next</button>
+  </div>
+</div>

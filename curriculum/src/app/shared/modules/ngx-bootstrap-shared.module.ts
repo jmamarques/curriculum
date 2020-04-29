@@ -1,12 +1,18 @@
 import {NgModule} from '@angular/core';
-import {PopoverModule} from 'ngx-bootstrap';
+import {CollapseModule, PopoverModule} from 'ngx-bootstrap';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 
-const imports = [PopoverModule];
+const imports = [
+  PopoverModule,
+  BsDatepickerModule,
+  CollapseModule,
+];
 
 @NgModule({
   declarations: [],
   imports: [
-    ...imports
+    ...imports,
+    BsDatepickerModule.forRoot(),
   ],
   exports: imports
 })

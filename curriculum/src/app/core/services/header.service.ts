@@ -4,9 +4,12 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class HeaderService {
-  content = 'Welcome to';
-  private default_color = 'white';
-  private color = this.default_color;
+  private static DEFAULT_CONTENT = 'Welcome to';
+  private static DEFAULT_COLOR = 'white';
+  private static DEFAULT_STATE_COD = true;
+  private content = HeaderService.DEFAULT_CONTENT;
+  private color = HeaderService.DEFAULT_COLOR;
+  private codVisible = HeaderService.DEFAULT_STATE_COD;
 
   getContent(): string {
     return this.content;
@@ -27,7 +30,30 @@ export class HeaderService {
     this.color = value;
   }
 
-  setDefaultColor(): void{
-    this.color = this.default_color;
+  getCodVisible(): boolean {
+    return this.codVisible;
+  }
+
+  setCodVisible(value: boolean) {
+    this.codVisible = value;
+  }
+
+
+  setDefaultColor(): void {
+    this.color = HeaderService.DEFAULT_COLOR;
+  }
+
+  setDefaultContent() {
+    this.content = HeaderService.DEFAULT_CONTENT;
+  }
+
+  setDefaultCodVisible() {
+    this.codVisible = HeaderService.DEFAULT_STATE_COD;
+  }
+
+  restoreAll() {
+    this.setDefaultColor();
+    this.setDefaultContent();
+    this.setDefaultCodVisible();
   }
 }
