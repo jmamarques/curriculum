@@ -1,6 +1,7 @@
 import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
 import {HeaderService} from './core/services/header.service';
 import {slideInAnimation} from './app.animation';
+import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
 
 @Component({
   selector: 'cod-root',
@@ -14,8 +15,13 @@ export class AppComponent {
   left: any;
   expand = false;
   isActiveSidebar = true;
+  loading = true;
 
-  constructor(public headerService: HeaderService) {
+  constructor(public headerService: HeaderService,
+              private router: Router) {
+    router.events.subscribe((routerEvent: any) => {
+      this.checkRouterEvent(routerEvent);
+    });
   }
 
   changeValue(value: boolean) {
@@ -86,4 +92,20 @@ export class AppComponent {
   /*onActivate() {
     // window.scroll(0, 0);
   }*/
+
+  /* ************************************************************************* */
+
+  /*                                 SPINNER                                   */
+
+  checkRouterEvent(routerEvent: any): void {
+    if (routerEvent instanceof NavigationStart) {
+      this.loading = true;
+    }
+
+    if (routerEvent instanceof NavigationEnd ||
+      routerEvent instanceof NavigationCancel ||
+      routerEvent instanceof NavigationError) {
+      this.loading = false;
+    }
+  }
 }

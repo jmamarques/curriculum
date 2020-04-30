@@ -85,3 +85,43 @@
 #content:not(cod-header){
   background: green !important;
 }*/
+
+/* ---------------------------------------------------
+    SPINNER
+----------------------------------------------------- */
+
+.spinner {
+  font-size: 300%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 10
+}
+
+.fa-spinner {
+  -webkit-animation: spin 1000ms infinite linear;
+  animation: spin 1000ms infinite linear;
+  color: orange;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
