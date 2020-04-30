@@ -5,14 +5,14 @@
 
 h1 {
   padding: 0 0;
-  font: 40px "Arial";
+  font-size: 40px;
   text-align: center;
   color: orange;
 }
 
 h3 {
   padding: 0 0;
-  font: 25px "Arial";
+  font-size: 25px;
   text-align: center;
   margin-bottom: 5%;
 }
@@ -34,7 +34,7 @@ h3 {
 //HEADER OF EACH ROW OF THE TABLE
 h4 {
   padding: 0 0;
-  font: 20px "Arial";
+  font-size: 20px;
   text-align: center;
   margin: 5%;
   color: orange;
@@ -42,7 +42,7 @@ h4 {
 //DESCRIPTION ON THE TABLE
 p {
   text-align: center;
-  font: 17px "Arial";
+  font-size: 17px;
   margin-bottom: 5%;
 }
 .buttonsCol {
@@ -86,7 +86,7 @@ p {
   -webkit-box-shadow: 28px 22px 35px -6px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 28px 22px 35px -6px rgba(0, 0, 0, 0.75);
   box-shadow: 28px 22px 35px -6px rgba(0, 0, 0, 0.75);
-  font: 20px "Arial";
+  font-size: 20px;
   text-align: center;
   color: white;
 }

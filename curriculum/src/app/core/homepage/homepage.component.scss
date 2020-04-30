@@ -1,7 +1,3 @@
-@import "src/fonts";
-.fontJosfin{
-  font-family: 'Josefin Sans', sans-serif;
-}
 .topTitle{
   font-size: 50px;
 }
@@ -117,9 +113,9 @@
 }
 .form-control {
   width: 58%;
-  border-top: 0px;
-  border-left: 0px;
-  border-right: 0px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
   border-bottom: 2px solid orange;
 }
 

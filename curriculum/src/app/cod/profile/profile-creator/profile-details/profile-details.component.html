@@ -1,6 +1,6 @@
 <form class="fontJosfin">
   <div class="row">
-    <div class="col-7" align="center">
+    <div class="col-7 text-center">
       <span class="ui-float-label inputfstRow">
         <input id="firstName" type="text" size="45" pInputText>
         <label for="firstName">First Name</label>
@@ -32,7 +32,7 @@
 
   </div>
   <div class="row">
-    <div class="col-7" align="center">
+    <div class="col-7 text-center">
       <span class="ui-float-label inputfstRow">
         <input id="address" type="text" size="45" pInputText>
         <label for="address">Address</label>
@@ -45,10 +45,10 @@
       </span>
     </div>
     <div class="col">
-      <mat-form-field class="fontJosfin">
+      <mat-form-field>
         <mat-label>Country</mat-label>
-        <mat-select [(value)]="dropdownValue" class="fontJosfin">
-          <mat-option *ngFor="let item of dropdown" [value]="item.code" class="fontJosfin">
+        <mat-select [(value)]="dropdownValue">
+          <mat-option *ngFor="let item of dropdown" [value]="item.code">
             {{item.country}}
           </mat-option>
         </mat-select>
@@ -56,7 +56,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-7" align="center">
+    <div class="col-7 text-center">
       <span class="ui-float-label inputfstRow">
         <textarea rows="5" cols="60" class="rounded"></textarea>
         <label for="birth">Write Something about you</label>
@@ -65,16 +65,16 @@
 
   </div>
   <div class="row">
-    <div class="col-7" align="center">
+    <div class="col-7 text-center">
       <button (click)="openDialog()" class="btn ui-float-label">
         <i class="pi pi-plus"></i>
         Add Social Networks
       </button>
 
-    <div *ngIf="socialList.length>0; else displayList">
+      <div *ngIf="socialList.length>0; else displayList">
       <span class="badge badge-pill badge-secondary" *ngFor="let data of socialList">
-        <img src={{data.socialContent.urlString}} alt="socialImg">
-        <a target="_blank" href={{data.link}}>{{data.socialContent.name|titlecase}}</a>
+        <img [src]="data.socialContent.urlString" alt="socialImg">
+        <a [href]="data.link" target="_blank">{{data.socialContent.name|titlecase}}</a>
         <img (click)="removeBadge(data.socialContent.name)" class="cod-cursor pull-right" id="badgeImg"
              src="../../../../../assets/fechar.png">
       </span>

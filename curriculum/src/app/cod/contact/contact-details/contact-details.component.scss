@@ -1,6 +1,6 @@
 //Header of the page
 h3 {
-  font: 30px "Arial";
+  font-size: 30px;
   text-align: center;
   color: orange;
   margin-bottom: 30px;
@@ -25,7 +25,7 @@ h3 {
   margin-bottom: 0;
 }
 .card-body {
-  padding-bottom: 0px;
+  padding-bottom: 0;
 }
 .cardsCol {
   margin-left: auto;
@@ -46,7 +46,7 @@ img.profileFotoCard {
 }
 //Size of the content in the cards
 span {
-  font: 17px "Arial";
+  font-size: 17px;
 }
 
 //Social Network images
@@ -125,10 +125,10 @@ $border-radius: 0.5;//15% = 0.15, 50% = 0.50 etc.
 }
 
 .icon-fill{
-	&::before{
-		transition-duration: 0.5s;
-		box-shadow: inset 0 0 0 0px rgb(209, 206, 4);
-	}
+	&::before {
+    transition-duration: 0.5s;
+    box-shadow: inset 0 0 0 0 rgb(209, 206, 4);
+  }
 	&:hover::before{
 		box-shadow: inset 0 0 0 $icon-size rgb(209, 206, 4);
 	}
