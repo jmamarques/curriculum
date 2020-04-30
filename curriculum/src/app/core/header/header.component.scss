@@ -101,3 +101,7 @@ span:nth-child(3):after {
     width: 85px;
   }
 }
+
+.animation {
+  transition: fill 0.70s ease-out;
+}

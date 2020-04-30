@@ -7,7 +7,10 @@
 >
 </div>
 <div class="wrapper">
-  <cod-menu [isActiveSidebar]="isActiveSidebar"></cod-menu>
+  <cod-menu
+    [isActiveSidebar]="isActiveSidebar"
+    style="z-index: 3"
+  ></cod-menu>
   <!-- Page Content  -->
   <div id="content">
     <cod-header
@@ -17,9 +20,15 @@
       [isActiveSidebar]="isActiveSidebar"
       [codVisible]="headerService.getCodVisible()"
     ></cod-header>
-    <div id="pageContent">
-      <router-outlet (activate)="onActivate()"></router-outlet>
+    <div
+      [@slideInAnimation]="o.isActivated ? o.activatedRoute : ''"
+      id="pageContent"
+    >
+      <!--(activate)="onActivate()"-->
+      <router-outlet
+        #o="outlet"
+      ></router-outlet>
     </div>
-      <cod-footer></cod-footer>
+    <cod-footer class="footer"></cod-footer>
   </div>
 </div>

@@ -1,10 +1,12 @@
 import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
 import {HeaderService} from './core/services/header.service';
+import {slideInAnimation} from './app.animation';
 
 @Component({
   selector: 'cod-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [slideInAnimation]
 })
 export class AppComponent {
   @ViewChild('masterCursor') masterCursor: ElementRef;
@@ -78,10 +80,10 @@ export class AppComponent {
 
   @HostListener('window:resize', ['$event'])
   handleResize(): void {
-      this.isActiveSidebar = !(outerWidth < 600);
+    this.isActiveSidebar = !(outerWidth < 600);
   }
 
-  onActivate() {
-    window.scroll(0, 0);
-  }
+  /*onActivate() {
+    // window.scroll(0, 0);
+  }*/
 }

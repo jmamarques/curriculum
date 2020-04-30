@@ -77,7 +77,8 @@
 #pageContent {
   height: 100%;
   // header plus footer
-  min-height: calc(100vh - 385px);
+  //min-height: calc(100vh - 385px);
+  min-height: 100vh;
 }
 
 /*
