@@ -9,6 +9,8 @@ import {CollapseModule} from 'ngx-bootstrap';
 import {RouterModule} from '@angular/router';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from './services/interceptors/auth.interceptor';
 
 export function throwIfAlreadyLoaded(parentModule: any, moduleName: string) {
   if (parentModule) {
@@ -34,6 +36,9 @@ const declare = [
     RouterModule,
     ScrollingModule
   ],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
