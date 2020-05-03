@@ -12,6 +12,7 @@ import {TechnicalSkillsComponent} from './profile-creator/technical-skills/techn
 import {PersonalDetailComponent} from './profile-viewer/personal-detail/personal-detail.component';
 import {SkillsComponent} from './profile-viewer/skills/skills.component';
 import {ProjectsComponent} from './profile-creator/projects/projects.component';
+import {AdditionalInformationComponent} from './profile-viewer/additional-information/additional-information.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,7 @@ export class ProfileRoutingModule {
     ProjectsComponent,
     TechnicalSkillsComponent,
     AdicionalInfoComponent,
+    AdditionalInformationComponent,
     ExperienceViewerComponent,
     PersonalDetailComponent,
     SkillsComponent

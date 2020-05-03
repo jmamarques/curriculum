@@ -1,5 +1,4 @@
 import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
-import {HeaderService} from './core/services/header.service';
 import {slideInAnimation} from './app.animation';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
 
@@ -17,8 +16,7 @@ export class AppComponent {
   isActiveSidebar = true;
   loading = true;
 
-  constructor(public headerService: HeaderService,
-              private router: Router) {
+  constructor(private router: Router) {
     router.events.subscribe((routerEvent: any) => {
       this.checkRouterEvent(routerEvent);
     });

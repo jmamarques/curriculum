@@ -24,20 +24,20 @@
     </div>
   </div>
   <h2>
-    {{content}}
-    <span *ngIf="codVisible">C</span>
-    <span *ngIf="codVisible">O</span>
-    <span *ngIf="codVisible">D</span>
+    {{ header?.title ? header?.title : content }}
+    <span *ngIf="header?.codVisible === undefined ? codVisible : header?.codVisible">C</span>
+    <span *ngIf="header?.codVisible === undefined ? codVisible : header?.codVisible">O</span>
+    <span *ngIf="header?.codVisible === undefined ? codVisible : header?.codVisible">D</span>
   </h2>
   <svg preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <polygon
-      [style.fill]="backgroundColor"
+      [style.fill]="header?.fillColor ? header.fillColor : backgroundColor"
       class="svg--sm"
       fill="yellow"
       points="0,0 30,100 65,21 90,100 100,75 100,100 0,100"
     />
     <polygon
-      [style.fill]="backgroundColor"
+      [style.fill]="header?.fillColor ? header.fillColor : backgroundColor"
       class="svg--lg animation"
       points="0,30 5,55 10,45 25,70 35,50 45,55 50,20 55,35 65,29 70,75 75,70 90,100 100,75 100,100 0,100"/>
   </svg>

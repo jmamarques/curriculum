@@ -17,10 +17,7 @@
   <div id="content">
     <cod-header
       (sideBar)="changeValue($event)"
-      [content]="headerService.getContent()"
-      [backgroundColor]="headerService.getColor()"
       [isActiveSidebar]="isActiveSidebar"
-      [codVisible]="headerService.getCodVisible()"
     ></cod-header>
     <div
       [@slideInAnimation]="o.isActivated ? o.activatedRoute : ''"

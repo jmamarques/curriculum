@@ -9,6 +9,9 @@ export class EventBusService {
 
   private subject$ = new Subject();
 
+  /*
+    this.eventbusSub = this.eventbus.on(Events.xxxx, value => (this.bbbb = value));
+  */
   on(event: Events, action: any): Subscription {
     return this.subject$
       .pipe(
@@ -18,6 +21,7 @@ export class EventBusService {
       .subscribe(action);
   }
 
+  // this.eventBus.emit(new EmitEvent(Events.xxxx, <value>));
   emit(event: EmitEvent) {
     this.subject$.next(event);
   }
@@ -31,5 +35,5 @@ export class EmitEvent {
 }
 
 export enum Events {
-  CustomerSelected
+  Header
 }
