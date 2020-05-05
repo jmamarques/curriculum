@@ -1,20 +1,20 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ThemePalette} from '@angular/material/core';
 import {RouteService} from '../../../core/services/route.service';
-import {HeaderService} from '../../../core/services/header.service';
+import {EmitEvent, EventBusService, Events} from '../../../core/services/util/event-bus.service';
 
 @Component({
   selector: 'cod-log-in-account',
   templateUrl: './log-in-account.component.html',
   styleUrls: ['./log-in-account.component.scss']
 })
-export class LogInAccountComponent implements OnInit {
+export class LogInAccountComponent implements OnInit, OnDestroy {
 
   checkboxColor: ThemePalette = 'warn';
 
   constructor(private routeService: RouteService,
-              private headerService: HeaderService) {
-    this.headerService.setContent('Log-In to');
+              private eventBus: EventBusService) {
+    this.eventBus.emit(new EmitEvent(Events.Header, {title: 'Log-In to'}));
   }
 
   ngOnInit(): void {
@@ -22,5 +22,9 @@ export class LogInAccountComponent implements OnInit {
 
   redirect(goal: string): void {
     this.routeService.redirect(goal);
+  }
+
+  ngOnDestroy(): void {
+    this.eventBus.emit(new EmitEvent(Events.Header, {}));
   }
 }

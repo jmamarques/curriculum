@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {HeaderService} from '../../core/services/header.service';
 import {FaqService} from '../../core/services/faq.service';
 import {FaqContent} from '../../shared/interfaces/faq-content';
+import {EmitEvent, EventBusService, Events} from '../../core/services/util/event-bus.service';
 
 @Component({
   selector: 'cod-faq-page',
@@ -12,12 +12,15 @@ export class FaqPageComponent implements OnInit, OnDestroy {
   mainSubjects: string[];
   selectedSub: boolean[] = [];
   subjectQuestionsAnswer: FaqContent[];
-  constructor(private headerService: HeaderService,
+
+  constructor(
+    private eventBus: EventBusService,
     private faqService: FaqService) {
-    this.headerService.setColor('#e0e0e0');
+    this.eventBus.emit(new EmitEvent(Events.Header, {fillColor: '#e0e0e0'}));
   }
+
   ngOnDestroy(): void {
-    this.headerService.setDefaultColor();
+    this.eventBus.emit(new EmitEvent(Events.Header, {}));
   }
 
   ngOnInit(): void {

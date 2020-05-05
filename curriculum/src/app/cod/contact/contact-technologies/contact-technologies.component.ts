@@ -1,18 +1,19 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {HeaderService} from '../../../core/services/header.service';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {GitHubService} from '../../../core/services/git-hub.service';
 import {BaseCommit, Branch} from '../../../shared/interfaces/git-hub';
+import {EmitEvent, EventBusService, Events} from '../../../core/services/util/event-bus.service';
 
 @Component({
   selector: 'cod-contact-technologies',
   templateUrl: './contact-technologies.component.html',
   styleUrls: ['./contact-technologies.component.scss']
 })
-export class ContactTechnologiesComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ContactTechnologiesComponent implements OnInit, OnDestroy {
   protected static map: Map<string, BaseCommit> = new Map();
 
-  constructor(private headerService: HeaderService,
+  constructor(private eventBus: EventBusService,
               private gitHubService: GitHubService) {
+    this.eventBus.emit(new EmitEvent(Events.Header, {title: 'Contacts'}));
   }
 
   @ViewChild('graphContainer') graphContainer: ElementRef;
@@ -21,13 +22,8 @@ export class ContactTechnologiesComponent implements OnInit, AfterViewInit, OnDe
 
   }
 
-  ngAfterViewInit(): void {
-    /*this.populateGraph();*/
-    this.headerService.setContent('Contacts');
-  }
-
   ngOnDestroy(): void {
-    this.headerService.setDefaultContent();
+    this.eventBus.emit(new EmitEvent(Events.Header, {}));
   }
 
   populateGraph() {
