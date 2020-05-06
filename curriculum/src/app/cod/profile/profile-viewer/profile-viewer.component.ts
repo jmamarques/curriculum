@@ -1,8 +1,8 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
-import {HeaderService} from '../../../core/services/header.service';
 import {ProfileService} from '../../../core/services/profile.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Profile} from '../../../shared/interfaces/profile';
+import {EmitEvent, EventBusService, Events} from '../../../core/services/util/event-bus.service';
 
 @Component({
   selector: 'cod-profile-viewer',
@@ -11,9 +11,9 @@ import {Profile} from '../../../shared/interfaces/profile';
 })
 export class ProfileViewerComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  private profile: Profile;
+  profile: Profile;
 
-  constructor(private headerService: HeaderService,
+  constructor(private eventBusService: EventBusService,
               private profileService: ProfileService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {
@@ -25,12 +25,14 @@ export class ProfileViewerComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   ngAfterViewInit(): void {
-    this.headerService.setContent(`${this.profile.firstName} ${this.profile.lastName} Curriculum`);
-    this.headerService.setCodVisible(false);
+    this.eventBusService.emit(new EmitEvent(Events.Header, {
+      title: `${this.profile.firstName} ${this.profile.lastName} Curriculum`,
+      codVisible: false
+    }));
   }
 
   ngOnDestroy(): void {
-    this.headerService.restoreAll();
+    this.eventBusService.emit(new EmitEvent(Events.Header, {}));
   }
 
 }

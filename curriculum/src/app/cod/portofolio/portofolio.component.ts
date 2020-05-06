@@ -1,7 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {User} from '../../shared/interfaces/user';
 import {UserService} from '../../core/services/user.service';
-import {HeaderService} from '../../core/services/header.service';
+import {Subscription} from 'rxjs';
+import {EmitEvent, EventBusService, Events} from '../../core/services/util/event-bus.service';
 
 @Component({
   selector: 'cod-homepage',
@@ -11,10 +12,12 @@ import {HeaderService} from '../../core/services/header.service';
 export class PortofolioComponent implements OnInit, OnDestroy {
   users: User [];
   responsiveOptions: any;
+  header: Subscription;
 
   constructor(private serviceUsers: UserService,
-              private headerService: HeaderService) {
-    this.headerService.setColor('#efefef');
+              private eventBus: EventBusService
+  ) {
+    this.eventBus.emit(new EmitEvent(Events.Header, {fillColor: '#efefef'}));
     this.responsiveOptions = [
       {
         breakpoint: '1024px',
@@ -35,7 +38,7 @@ export class PortofolioComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.headerService.setDefaultColor();
+    this.eventBus.emit(new EmitEvent(Events.Header, {}));
   }
 
   ngOnInit(): void {
