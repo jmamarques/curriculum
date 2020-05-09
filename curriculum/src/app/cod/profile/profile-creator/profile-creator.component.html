@@ -16,46 +16,33 @@
         </button>
       </div>
       <div class="col">
-        <h2 data-aos="fade-left"
-            data-aos-offset="500"
-            data-aos-duration="1500">
+        <h2 data-aos="fade-left" data-aos-offset="500" data-aos-duration="1500">
           5 Reasons To Join Cod:
         </h2>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"
-              data-aos="fade-left"
-              data-aos-anchor="#example-anchor"
-              data-aos-duration="1600"
-              data-aos-offset="500">
+          <li class="list-group-item" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-duration="1600"
+            data-aos-offset="500">
             <img alt="checkMark" src="../../../../assets/checkmark.png">
             Create your own curriculum, by simply uploading all your data.
           </li>
-          <li class="list-group-item" data-aos="fade-left"
-              data-aos-anchor="#example-anchor"
-              data-aos-offset="500"
-              data-aos-duration="1700">
+          <li class="list-group-item" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+            data-aos-duration="1700">
             <img alt="checkMark" src="../../../../assets/checkmark.png">
             Share your curriculum with everyone you would like to see. Everybody can see your profile. So make sure you
             set everthing rigth and get ready to be famous!
           </li>
-          <li class="list-group-item" data-aos="fade-left"
-              data-aos-anchor="#example-anchor"
-              data-aos-offset="500"
-              data-aos-duration="1800">
+          <li class="list-group-item" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+            data-aos-duration="1800">
             <img alt="checkMark" src="../../../../assets/checkmark.png">
             Edit it anytime, anywhere.
           </li>
-          <li class="list-group-item" data-aos="fade-left"
-              data-aos-anchor="#example-anchor"
-              data-aos-offset="500"
-              data-aos-duration="1900">
+          <li class="list-group-item" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+            data-aos-duration="1900">
             <img alt="checkMark" src="../../../../assets/checkmark.png">
             It's all free. What are you waiting for?
           </li>
-          <li class="list-group-item" data-aos="fade-left"
-              data-aos-anchor="#example-anchor"
-              data-aos-offset="500"
-              data-aos-duration="2100">
+          <li class="list-group-item" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+            data-aos-duration="2100">
             <img alt="checkMark" src="../../../../assets/checkmark.png">
             Share your profile in job interviews. We display all your data in a simply and clear format.
           </li>
@@ -65,72 +52,130 @@
     </div>
   </div>
 </div>
+<div class="backGroundGrey">
+  <h1 class="text-center">
+    Create your own Curriculum
+  </h1>
+  <h4 class="text-muted text-center">
+    This information will let us know more about you.
+  </h4>
+</div>
+<div>
+  <div class="container" id="section-1">
+    <mat-horizontal-stepper>
+      <mat-step label="Profile Details" state="user">
+        <form [formGroup]="profileDetailsForm">
+          <br>
+          <div class="row">
+            <div class="col">
+              <mat-form-field>
+                <mat-label>First Name</mat-label>
+                <input id="firstName" matInput formControlName="firstName" required>
+              </mat-form-field>
+              <br>
+              <mat-form-field>
+                <mat-label>Last Name</mat-label>
+                <input matInput id="lastName" formControlName="lastName" required>
+              </mat-form-field>
+              <br>
+              <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput id="email" type="email" formControlName="email" required>
+              </mat-form-field>
+              <br>
+              <mat-form-field>
+                <mat-label>Phone Number</mat-label>
+                <input matInput id="phone" type="tel" formControlName="phone" pattern="[1-9][0-9]{8}">
+              </mat-form-field>
+              <br>
+              <mat-form-field>
+                <mat-label>Address</mat-label>
+                <input matInput id="adress" type="text" formControlName="adress" required>
+              </mat-form-field>
+              <br>
+              <mat-form-field>
+                <mat-label>Birth Date</mat-label>
+                <input bsDatepicker id="birthDate" matInput type="text" formControlName="birthDate" required>
+              </mat-form-field>
+              <br>
+              <mat-form-field>
+                <mat-label>Country</mat-label>
+                <mat-select [(value)]="dropdownValue" required>
+                  <mat-option *ngFor="let item of dropdown" [value]="item.code">
+                    {{item.country}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Write Something about you:</mat-label>
+                <textarea  matInput></textarea>
+              </mat-form-field>
+              <div>
+                <button (click)="openDialog()" class="btn roundedButton">Add Social Networks</button>
+                <br>
+                <div *ngIf="socialList.length>0">
+                  <span class="badge badge-pill badge-secondary" *ngFor="let data of socialList">
+                    <img [src]="data.socialContent.urlString" alt="socialImg">
+                    <a [href]="data.link" target="_blank">{{data.socialContent.name|titlecase}}</a>
+                    <img (click)="removeBadge(data.socialContent.name)" class="cod-cursor" id="deleteSpan"
+                         src="../../../../../assets/fechar.png">
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div (click)="hiddenfileinput.click()">
+                <img [src]="imgURL" id="imageOfUser" class="cod-cursor">
+                <input #file type="file" accept='image/*' (change)="preview(file.files)" #hiddenfileinput
+                  class="inputFile cod-cursor" />
+                <h3 class="cod-cursor text-center">
+                  CHOOSE A PICTURE
+                </h3>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div>
+          <button matStepperNext class="btn roundedButton float-right">Next</button>
+        </div>
+      </mat-step>
+      <mat-step label="Experience" state="experience">
+        <div>
+          <button matStepperPrevious class="btn roundedButton">Back</button>
+          <button matStepperNext class="btn roundedButton">Next</button>
+        </div>
+      </mat-step>
+      <mat-step label="Skills" state="skills">
+        <div>
+          <button matStepperPrevious class="btn roundedButton">Back</button>
+          <button matStepperNext class="btn roundedButton">Next</button>
+        </div>
+      </mat-step>
+      <mat-step label="Adicional Info" state="adicionalInfo">
+        <div>
+          <button matStepperPrevious class="btn roundedButton">Back</button>
+          <button matStepperNext class="btn roundedButton">Next</button>
+        </div>
+      </mat-step>
 
-<div class="card container" id="section-1">
-  <div class="titleContent">
-    <h1>
-      Create your own Curriculum
-    </h1>
-    <h4 class="text-muted">
-      This information will let us know more about you.
-    </h4>
-  </div>
-  <div class="containerHeader">
-    <div class="progress" id="progressBarId">
-      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
-        aria-valuemin="0" aria-valuemax="100" [style.width]="progressBarValue+'%'"></div>
-    </div>
-    <div class="row" id="iconList">
-      <div class="col">
-        <div class="avatar">
-          <img [class.icon-fill]="progressBarValue>=stepValue" alt="shareProfile" src='../../../../assets/user.png'>
-        </div>
-      </div>
-      <div class="col">
-        <div class="avatar">
-          <img [class.icon-fill]="progressBarValue>=stepValue*2" alt="shareProfile"
-               src='../../../../assets/softskills.png'>
-        </div>
-      </div>
-      <div class="col">
-        <div class="avatar">
-          <img [class.icon-fill]="progressBarValue>=stepValue*3" alt="shareProfile"
-               src='../../../../assets/projects.png'>
-        </div>
-      </div>
-      <div class="col">
-        <div class="avatar">
-          <img [class.icon-fill]="progressBarValue>=stepValue*4" alt="shareProfile"
-               src='../../../../assets/extraicon.png'>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row titleRow">
-    <div class="col">
-      <h3 class="float-right text-muted longerAdd">Profile Details</h3>
-    </div>
-    <div class="col">
-      <h3 class="float-right text-muted">Experience</h3>
-    </div>
-    <div class="col">
-      <h3 class="float-right text-muted" id="skillTitle"> Skills</h3>
-    </div>
-    <div class="col">
-      <h3 class="float-right text-muted longerAdd">Adicional Info</h3>
-    </div>
-  </div>
-  <div class="card-body">
-    <cod-profile-details *ngIf="currentPage ===0"></cod-profile-details>
-    <cod-soft-skills *ngIf="currentPage ===1"></cod-soft-skills>
-    <cod-technical-skills *ngIf="currentPage ===2"></cod-technical-skills>
-    <cod-projects *ngIf="currentPage ==2.5"></cod-projects>
-    <cod-adicional-info *ngIf="currentPage ==3"></cod-adicional-info>
-    <cod-conclusion *ngIf="currentPage >3"></cod-conclusion>
-  </div>
-  <div class="card-footer">
-    <button type="button" class="btn roundedButton float-left" *ngIf="currentPage >0"
-      (click)="decreasePercentage()">Previous</button>
-    <button type="button" class="btn roundedButton float-right" (click)="increasePercentage()">Next</button>
+
+      <!-- Icon overrides. -->
+      <ng-template matStepperIcon="user">
+        <mat-icon>account_circle</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="experience">
+        <mat-icon>assignment</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="experience">
+        <mat-icon>assignment</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="skills">
+        <mat-icon>poll</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="adicionalInfo">
+        <mat-icon> add_comment</mat-icon>
+      </ng-template>
+
+    </mat-horizontal-stepper>
   </div>
 </div>

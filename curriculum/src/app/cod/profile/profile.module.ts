@@ -12,6 +12,7 @@ import {AgChartsAngularModule} from 'ag-charts-angular';
 import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 
 @NgModule({
@@ -31,7 +32,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     PrimeNgSharedModule,
     NgxBootstrapSharedModule,
   ],
-  providers: []
+  providers: [{
+    provide: STEPPER_GLOBAL_OPTIONS,
+    useValue: { displayDefaultIndicatorType: false, showError: true }
+  }
+  ]
 })
 export class ProfileModule {
 }

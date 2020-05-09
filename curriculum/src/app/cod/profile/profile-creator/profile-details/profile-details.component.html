@@ -70,13 +70,11 @@
         <i class="pi pi-plus"></i>
         Add Social Networks
       </button>
-
       <div *ngIf="socialList.length>0; else displayList">
       <span class="badge badge-pill badge-secondary" *ngFor="let data of socialList">
         <img [src]="data.socialContent.urlString" alt="socialImg">
         <a [href]="data.link" target="_blank">{{data.socialContent.name|titlecase}}</a>
-        <img (click)="removeBadge(data.socialContent.name)" class="cod-cursor pull-right" id="badgeImg"
-             src="../../../../../assets/fechar.png">
+        <img (click)="removeBadge(data.socialContent.name)" class="cod-cursor pull-right" class="deleteSpan" src="../../../../../assets/fechar.png">
       </span>
     </div>
     <ng-template #displayList>

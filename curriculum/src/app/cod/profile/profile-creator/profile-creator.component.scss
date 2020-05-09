@@ -1,7 +1,7 @@
 /* **************PAGE HEADER**************** */
 /* **************************************** */
 /* *************************************** */
-.header{
+.header {
   margin-top: 1%;
   margin-bottom: 10%;
 }
@@ -10,35 +10,32 @@
   font-size: 40px;
   text-align: center;
   color: orange;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   margin-bottom: 5%;
 }
-.header h2{
+.header h2 {
   text-align: center;
   font-size: 25px;
-  font-family: 'Josefin Sans', sans-serif;
-  color: lighten(orange,20%);
+  font-family: "Josefin Sans", sans-serif;
+  color: lighten(orange, 20%);
 }
-ul li{
+ul li {
   font-size: 20px;
-
 }
-ul li img{
+ul li img {
   width: 30px;
   line-height: 40px;
 }
 
-.col .titleImg{
+.col .titleImg {
   width: 220px;
   margin-left: auto;
   margin-right: auto;
   display: block;
   margin-bottom: 5%;
 }
-.col .btn{
+.col .btn {
   width: 300px;
-  margin-left: auto;
-  margin-right: auto;
   display: block;
 }
 .col p {
@@ -48,85 +45,73 @@ ul li img{
 .addVerticalLine {
   border-right: 2px solid rgb(172, 169, 169);
 }
-/* **************PAGE FORM**************** */
-/* ************************************** */
-/* ************************************* */
 
+/* **************FORM STYLES**************** */
+/* **************************************** */
+/* *************************************** */
 
-.progress{
-  height: 5px;
-}
-.progress-bar{
+//CSS for MAt Stepper Icons BackGround Color
+::ng-deep .mat-step-header .mat-step-icon-selected {
   background-color: orange;
 }
-.card{
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.card .avatar {
-  //position: relative;
-  //top: -25px;
-  //margin-bottom: -50px;
-  float:right;
-}
-.card .avatar img {
-  width: 75px;
-  background-color: rgb(243, 242, 242);
-  max-width: 100px;
-  max-height: 100px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 80%;
-  border: 5px solid orange;
-}
-.containerHeader{
-  position: relative;
-  width: 900px;
-  height: 70px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.card .col{
-  padding-right: 0;
-  margin-right: -25px;
+::ng-deep .mat-step-header .mat-step-icon-state-done {
+  background-color: orange;
 }
 
-#progressBarId{
-  margin-top: 30px;
+//CSS for input mat focused text color
+::ng-deep .mat-focused .mat-form-field-label {
+  color: orange !important;
+}
+//Mat Field Size
+::ng-deep .mat-form-field-wrapper {
+  width: 400px !important;
 }
 
-#progressBarId,
-#iconList {
-  width: 100%;
-  position: absolute;
+//CSS For Image of Our user
+.inputFile {
+  display: none;
 }
-#iconList {
-  z-index: 10;
-  margin-top: -0.5px;
+#imageOfUser {
+  width: 300px;
+  margin: auto;
+  display: block;
 }
 
-.icon-fill{
-		transition-duration: 0.5s;
-		box-shadow: inset 0 0 0 40px lighten(orange,20%);
+.col h3 {
+  padding-top: 5%;
 }
-.titleContent{
+
+.backGroundGrey {
+  background-color: #f7f6f9;
+}
+
+span img:nth-child(1) {
+  width: 25px;
+  margin-right: 5%;
+}
+#deleteSpan {
+  width: 16px;
+  vertical-align: middle;
+  margin-left: 10px;
+  padding-right: 5%;
+}
+span a {
+  color: white;
   text-align: center;
-}
-.card-footer{
-  background-color: white;
-  border-top: none;
+  font-size: 15px;
+  vertical-align: middle;
 }
 
-.titleRow{
-  max-width: 900px;
-  margin-left: 130px;
-}
-.longerAdd{
-  margin-right: -15px;
-}
-#skillTitle{
-  margin-right: 15px;
+span{
+  margin-right: 2%;
 }
 
+.badge-secondary {
+  background-color: #c0c0c0;
+}
 
+@media screen and (max-width: 1000px) {
+  #imageOfUser{
+    margin-top: 5%;
+  }
+}
