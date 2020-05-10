@@ -25,9 +25,9 @@
   </div>
   <h2>
     {{ header?.title ? header?.title : content }}
-    <span *ngIf="header?.codVisible === undefined ? codVisible : header?.codVisible">C</span>
-    <span *ngIf="header?.codVisible === undefined ? codVisible : header?.codVisible">O</span>
-    <span *ngIf="header?.codVisible === undefined ? codVisible : header?.codVisible">D</span>
+    <span *ngIf="header?(header?.codVisible === undefined ? codVisible : header?.codVisible) : codVisible">C</span>
+    <span *ngIf="header?(header?.codVisible === undefined ? codVisible : header?.codVisible) : codVisible">O</span>
+    <span *ngIf="header?(header?.codVisible === undefined ? codVisible : header?.codVisible) : codVisible">D</span>
   </h2>
   <svg preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <polygon
