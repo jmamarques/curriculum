@@ -22,3 +22,17 @@ mat-option img {
   width: 395px;
   margin-bottom: 2%;
 }
+.alert-danger{
+   width: 395px;
+}
+
+
+@media screen and (max-width: 600px) {
+
+  .alert-danger{
+    width: 300px;
+ }
+ ::ng-deep .mat-form-field-wrapper{
+  width:300px !important;
+}
+}

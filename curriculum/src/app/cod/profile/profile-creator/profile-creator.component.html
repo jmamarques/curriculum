@@ -70,37 +70,37 @@
             <div class="col">
               <mat-form-field>
                 <mat-label>First Name</mat-label>
-                <input id="firstName" matInput formControlName="firstName" required>
+                <input id="firstName" matInput formControlName="firstName" required [errorStateMatcher]="matcher">
               </mat-form-field>
               <br>
               <mat-form-field>
                 <mat-label>Last Name</mat-label>
-                <input matInput id="lastName" formControlName="lastName" required>
+                <input matInput id="lastName" formControlName="lastName" required [errorStateMatcher]="matcher">
               </mat-form-field>
               <br>
               <mat-form-field>
                 <mat-label>Email</mat-label>
-                <input matInput id="email" type="email" formControlName="email" required>
+                <input matInput id="email" type="email" formControlName="email" required [errorStateMatcher]="matcher">
               </mat-form-field>
               <br>
               <mat-form-field>
                 <mat-label>Phone Number</mat-label>
-                <input matInput id="phone" type="tel" formControlName="phone" pattern="[1-9][0-9]{8}">
+                <input matInput id="phone" type="tel" formControlName="phone" pattern="[1-9][0-9]{8}" [errorStateMatcher]="matcher">
               </mat-form-field>
               <br>
               <mat-form-field>
                 <mat-label>Address</mat-label>
-                <input matInput id="adress" type="text" formControlName="adress" required>
+                <input matInput id="adress" type="text" formControlName="adress" required [errorStateMatcher]="matcher">
               </mat-form-field>
               <br>
               <mat-form-field>
                 <mat-label>Birth Date</mat-label>
-                <input bsDatepicker id="birthDate" matInput type="text" formControlName="birthDate" required>
+                <input bsDatepicker id="birthDate" matInput type="text" formControlName="birthDate" required [errorStateMatcher]="matcher">
               </mat-form-field>
               <br>
               <mat-form-field>
                 <mat-label>Country</mat-label>
-                <mat-select [(value)]="dropdownValue" required>
+                <mat-select [(value)]="dropdownValue" required formControlName="country" [errorStateMatcher]="matcher">
                   <mat-option *ngFor="let item of dropdown" [value]="item.code">
                     {{item.country}}
                   </mat-option>
@@ -108,7 +108,7 @@
               </mat-form-field>
               <mat-form-field>
                 <mat-label>Write Something about you:</mat-label>
-                <textarea  matInput></textarea>
+                <textarea  matInput formControlName="description" required [errorStateMatcher]="matcher"></textarea>
               </mat-form-field>
               <div>
                 <button (click)="openDialog()" class="btn roundedButton">Add Social Networks</button>

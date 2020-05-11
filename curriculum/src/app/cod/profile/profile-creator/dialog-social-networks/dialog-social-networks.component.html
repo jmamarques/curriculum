@@ -1,26 +1,30 @@
 <h1 mat-dialog-title>Social Networks</h1>
 <div mat-dialog-content>
   <form [formGroup]="registerForm">
-    <mat-form-field class="formFieldPopUp">
+    <mat-form-field>
       <mat-label>Social Network</mat-label>
-      <mat-select [(value)]="dropdownValue.socialContent" [errorStateMatcher]="matcher"
+      <mat-select [(value)]="dropdownValue.socialContent" (selectionChange)="socialNetWorkSelected($event.value)" [errorStateMatcher]="matcher"
                   formControlName="selectedSocialImage">
         <mat-option *ngFor="let item of socialNetworksList" [value]="item">
           <img [src]="item.urlString" alt="SocialNetorkImg"> {{item.name |titlecase}}
         </mat-option>
       </mat-select>
       <mat-error *ngIf="submitted && registerForm.controls.selectedSocialImage.errors">
-        <div *ngIf="registerForm.controls.selectedSocialImage.errors">Please Select a Social NetWork</div>
+        <div *ngIf="registerForm.controls.selectedSocialImage.errors">
+          Please Select a Social NetWork</div>
       </mat-error>
     </mat-form-field>
     <br>
-    <mat-form-field class="formFieldPopUp">
+    <mat-form-field >
       <mat-label>Link</mat-label>
-      <input matInput id="linkInput" type="text" formControlName="socialNetworkLink" size="40"  [(ngModel)]="dropdownValue.link" [errorStateMatcher]="matcher">
+      <input matInput id="linkInput" type="text" formControlName="socialNetworkLink" size="40" class="matFormClass"  [(ngModel)]="dropdownValue.link" [errorStateMatcher]="matcher">
       <mat-error *ngIf="submitted && registerForm.controls.socialNetworkLink.errors">
         <div *ngIf="registerForm.controls.socialNetworkLink.errors">Please Select a Social NetWork</div>
       </mat-error>
     </mat-form-field>
+    <div *ngIf="alreadyAddedBefore">
+      <p class="alert alert-danger">The Current Social Network already exists. Choose another one</p>
+    </div>
     <div class="buttonDiv">
       <button class="btn btn-warning roundedButton cod-cursor" (click)="onSubmit()">Add</button>
     </div>

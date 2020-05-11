@@ -1,11 +1,11 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {DialogData} from 'src/app/shared/interfaces/dialog-data';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {SocialNetwork} from 'src/app/shared/interfaces/social-network';
-import {SocialNetworksService} from 'src/app/core/services/social-networks.service';
-import {SocialData} from 'src/app/shared/interfaces/social-data';
-import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { DialogData } from 'src/app/shared/interfaces/dialog-data';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { SocialNetwork } from 'src/app/shared/interfaces/social-network';
+import { SocialNetworksService } from 'src/app/core/services/social-networks.service';
+import { SocialData } from 'src/app/shared/interfaces/social-data';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   selector: 'cod-dialog-social-networks',
@@ -16,13 +16,15 @@ export class DialogSocialNetworksComponent implements OnInit {
   registerForm: FormGroup;
   matcher = new MyErrorStateMatcher();
   submitted = false;
-  dropdownValue: SocialData = {link: '', socialContent: {name: '', urlString: ''}};
-  socialNetworksList: SocialNetwork [] = [];
+  dropdownValue: SocialData = { link: '', socialContent: { name: '', urlString: '' } };
+  socialNetworksList: SocialNetwork[] = [];
+  alreadyAddedBefore: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
-              private dialogRef: MatDialogRef<DialogSocialNetworksComponent>,
-              private socialNetworksService: SocialNetworksService,
-              @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    private dialogRef: MatDialogRef<DialogSocialNetworksComponent>,
+    private socialNetworksService: SocialNetworksService,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+  ) {
   }
 
   ngOnInit(): void {
@@ -31,16 +33,26 @@ export class DialogSocialNetworksComponent implements OnInit {
       selectedSocialImage: ['', Validators.required],
       socialNetworkLink: ['', Validators.required]
     });
-
   }
 
   onSubmit() {
     this.submitted = true;
     // stop here if form is invalid
-    if (this.registerForm.invalid) {
+    if (this.registerForm.invalid || this.alreadyAddedBefore) {
       return;
     }
     this.dialogRef.close(this.dropdownValue);
+
+
+  }
+  socialNetWorkSelected(value: any): void {
+    let booleanResult = false;
+    this.data.listNames.forEach(elem => {
+      if (elem === this.dropdownValue.socialContent.name) {
+        booleanResult = true;
+      }
+    });
+    this.alreadyAddedBefore = booleanResult;
   }
 }
 
@@ -50,3 +62,4 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     return !!(control && control.invalid && isSubmitted);
   }
 }
+

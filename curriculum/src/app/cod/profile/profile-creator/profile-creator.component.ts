@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import * as AOS from 'aos';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { SocialData } from 'src/app/shared/interfaces/social-data';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogSocialNetworksComponent } from './dialog-social-networks/dialog-social-networks.component';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   selector: 'cod-profile-creator',
@@ -11,6 +12,7 @@ import { DialogSocialNetworksComponent } from './dialog-social-networks/dialog-s
   styleUrls: ['./profile-creator.component.scss']
 })
 export class ProfileCreatorComponent implements OnInit {
+  matcher = new MyErrorStateMatcher();
   profileDetailsForm : FormGroup;
   //Countries List Variables
   dropdown: any[] = [
@@ -44,6 +46,8 @@ export class ProfileCreatorComponent implements OnInit {
       phone:['',Validators.required],
       adress:['',Validators.required],
       birthDate:['',Validators.required],
+      country:['',Validators.required],
+      description:['',Validators.required],
     });
     this.imgURL = '../../../assets/profilepic.png';
   }
@@ -68,7 +72,10 @@ export class ProfileCreatorComponent implements OnInit {
   }
 
   openDialog() {
-    const dialog = this.dialog.open(DialogSocialNetworksComponent, {});
+    let nameSocial: string[] = [];
+    this.socialList.forEach(x =>{nameSocial.push(x.socialContent.name)});
+    console.warn(nameSocial);
+    const dialog = this.dialog.open(DialogSocialNetworksComponent, {data:{listNames:nameSocial}});
 
     dialog.afterClosed().subscribe(result => {
       console.warn('Added new Social Network');
@@ -87,5 +94,11 @@ export class ProfileCreatorComponent implements OnInit {
     }
 
   }
+}
 
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && isSubmitted);
+  }
 }
