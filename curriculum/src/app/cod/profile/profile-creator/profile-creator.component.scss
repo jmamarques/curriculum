@@ -85,6 +85,10 @@ ul li img {
   background-color: #f7f6f9;
 }
 
+/* **************CSS for Span Social Networks**************** */
+/* ********************************************************* */
+/* ******************************************************** */
+
 span img:nth-child(1) {
   width: 25px;
   margin-right: 5%;
@@ -110,8 +114,13 @@ span{
   background-color: #c0c0c0;
 }
 
+//Queries for responsive View
 @media screen and (max-width: 1000px) {
   #imageOfUser{
     margin-top: 5%;
   }
+}
+
+.mat-icon {
+  color: white;
 }

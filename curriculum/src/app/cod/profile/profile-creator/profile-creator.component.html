@@ -63,8 +63,8 @@
 <div>
   <div class="container" id="section-1">
     <mat-horizontal-stepper>
-      <mat-step label="Profile Details" state="user">
-        <form [formGroup]="profileDetailsForm">
+      <mat-step label="Profile Details" #step [hasError]="formProfileDetailsValid" state="user">
+        <form [formGroup]="profileDetailsForm" (submit)="submitProfileDetails()">
           <br>
           <div class="row">
             <div class="col">
@@ -111,7 +111,7 @@
                 <textarea  matInput formControlName="description" required [errorStateMatcher]="matcher"></textarea>
               </mat-form-field>
               <div>
-                <button (click)="openDialog()" class="btn roundedButton">Add Social Networks</button>
+                <button (click)="openDialog();$event.preventDefault()"  class="btn roundedButton">Add Social Networks</button>
                 <br>
                 <div *ngIf="socialList.length>0">
                   <span class="badge badge-pill badge-secondary" *ngFor="let data of socialList">
@@ -134,10 +134,11 @@
               </div>
             </div>
           </div>
-        </form>
+
         <div>
-          <button matStepperNext class="btn roundedButton float-right">Next</button>
+          <button matStepperNext type="submit" class="btn roundedButton float-right" (click)="submitProfileDetails()">Next</button>
         </div>
+      </form>
       </mat-step>
       <mat-step label="Experience" state="experience">
         <div>

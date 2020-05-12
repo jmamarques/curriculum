@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
 import { FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { SocialData } from 'src/app/shared/interfaces/social-data';
@@ -13,10 +13,10 @@ import { ErrorStateMatcher } from '@angular/material/core';
 })
 export class ProfileCreatorComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
-  profileDetailsForm : FormGroup;
+  profileDetailsForm: FormGroup;
   //Countries List Variables
   dropdown: any[] = [
-    {code: 'pt', country: 'Portugal'}, {code: 'ang', country: 'Angola'}, {code: 'monc', country: 'Monçabique'}, {
+    { code: 'pt', country: 'Portugal' }, { code: 'ang', country: 'Angola' }, { code: 'monc', country: 'Monçabique' }, {
       code: 'it',
       country: 'Italy'
     }
@@ -27,9 +27,12 @@ export class ProfileCreatorComponent implements OnInit {
   imagePath: any;
   imgURL: any;
   message: string;
-    // list of users social networks
-    socialList: SocialData [] = [];
-  constructor(private formBuilder: FormBuilder,public dialog: MatDialog) { }
+  // list of users social networks
+  socialList: SocialData[] = [];
+  //List Of Boolean VAriables for stepper Error Controller
+  formProfileDetailsValid = true;
+  b = true;
+  constructor(private formBuilder: FormBuilder, public dialog: MatDialog) { }
   ngOnInit(): void {
     AOS.init({
       offset: 200,
@@ -40,14 +43,14 @@ export class ProfileCreatorComponent implements OnInit {
     });
     //Profile Details FormGroup Creation
     this.profileDetailsForm = this.formBuilder.group({
-      firstName:['',Validators.required],
-      lastName:['',Validators.required],
-      email:['',Validators.required],
-      phone:['',Validators.required],
-      adress:['',Validators.required],
-      birthDate:['',Validators.required],
-      country:['',Validators.required],
-      description:['',Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', Validators.required],
+      phone: ['', Validators.required],
+      adress: ['', Validators.required],
+      birthDate: ['', Validators.required],
+      country: ['', Validators.required],
+      description: ['', Validators.required],
     });
     this.imgURL = '../../../assets/profilepic.png';
   }
@@ -73,9 +76,9 @@ export class ProfileCreatorComponent implements OnInit {
 
   openDialog() {
     let nameSocial: string[] = [];
-    this.socialList.forEach(x =>{nameSocial.push(x.socialContent.name)});
+    this.socialList.forEach(x => { nameSocial.push(x.socialContent.name) });
     console.warn(nameSocial);
-    const dialog = this.dialog.open(DialogSocialNetworksComponent, {data:{listNames:nameSocial}});
+    const dialog = this.dialog.open(DialogSocialNetworksComponent, { data: { listNames: nameSocial } });
 
     dialog.afterClosed().subscribe(result => {
       console.warn('Added new Social Network');
@@ -92,7 +95,19 @@ export class ProfileCreatorComponent implements OnInit {
         this.socialList.splice(index, 1);
       }
     }
+  }
 
+  submitProfileDetails(): void {
+    console.warn('Submited');
+    this.checkAllUserDetails();
+  }
+
+  checkAllUserDetails(): void {
+    let result : boolean = true;
+    for (const elem in this.profileDetailsForm.controls) {
+      result = result && this.profileDetailsForm.controls[elem].valid;
+    }
+    this.formProfileDetailsValid = !result;
   }
 }
 
