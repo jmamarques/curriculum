@@ -1,0 +1,62 @@
+<h1 mat-dialog-title>Experience</h1>
+<div mat-dialog-content>
+  <form [formGroup]="experienceForm" (submit)="submitExperienceForm()">
+    <mat-form-field>
+      <mat-label>Type</mat-label>
+      <mat-select [(value)]="typeExperience" required formControlName="typeExperience" [errorStateMatcher]="matcher">
+        <mat-option value="Education"> Education </mat-option>
+        <mat-option value="Job"> Job </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div *ngIf="typeExperience==='Education'">
+      <mat-form-field>
+        <mat-label>School</mat-label>
+        <input id="school" matInput formControlName="schoolName" required [errorStateMatcher]="matcher">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Degree</mat-label>
+        <input id="degreeType" matInput formControlName="degree" required [errorStateMatcher]="matcher">
+      </mat-form-field>
+      <br>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="datesSmaller">
+            <mat-label>Start Date</mat-label>
+            <input type="text" formControlName="startDate" id="startDate" required matInput
+              [errorStateMatcher]="matcher" class="form-control" [bsConfig]="bsConfig" #dp="bsDatepicker" bsDatepicker
+             >
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="datesSmaller">
+            <mat-label>End Date</mat-label>
+            <input type="text" formControlName="endDate" id="startDate2" required matInput [errorStateMatcher]="matcher"
+              class="form-control" [bsConfig]="bsConfig2" #dp="bsDatepicker" bsDatepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-checkbox formControlName="isActive">Current Situation </mat-checkbox>
+      <br>
+      <mat-form-field>
+        <mat-label>Grade</mat-label>
+        <input id="grade" matInput formControlName="grade" required [errorStateMatcher]="matcher">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Description:</mat-label>
+        <textarea matInput formControlName="description" required [errorStateMatcher]="matcher"></textarea>
+      </mat-form-field>
+      <br>
+      <div class="buttonDiv">
+        <button class="btn btn-warning roundedButton cod-cursor">Add</button>
+      </div>
+    </div>
+    <div *ngIf="typeExperience==='Job'">
+      <mat-form-field>
+        <mat-label>Job Type</mat-label>
+        <input id="titleJob" matInput formControlName="titleJob" required [errorStateMatcher]="matcher">
+      </mat-form-field>
+    </div>
+  </form>
+</div>

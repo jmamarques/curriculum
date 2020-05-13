@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, Ng
 import { SocialData } from 'src/app/shared/interfaces/social-data';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogSocialNetworksComponent } from './dialog-social-networks/dialog-social-networks.component';
+import { DialogExperienceComponent } from './dialog-experience/dialog-experience.component';
 import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
@@ -31,7 +32,6 @@ export class ProfileCreatorComponent implements OnInit {
   socialList: SocialData[] = [];
   //List Of Boolean VAriables for stepper Error Controller
   formProfileDetailsValid = true;
-  b = true;
   constructor(private formBuilder: FormBuilder, public dialog: MatDialog) { }
   ngOnInit(): void {
     AOS.init({
@@ -77,9 +77,7 @@ export class ProfileCreatorComponent implements OnInit {
   openDialog() {
     let nameSocial: string[] = [];
     this.socialList.forEach(x => { nameSocial.push(x.socialContent.name) });
-    console.warn(nameSocial);
     const dialog = this.dialog.open(DialogSocialNetworksComponent, { data: { listNames: nameSocial } });
-
     dialog.afterClosed().subscribe(result => {
       console.warn('Added new Social Network');
       if (result) {
@@ -87,6 +85,17 @@ export class ProfileCreatorComponent implements OnInit {
         this.socialList.push(result);
       }
     });
+  }
+
+  openExperienceDialog() {
+    const dialog = this.dialog.open(DialogExperienceComponent, { data: {} });
+/*     dialog.afterClosed().subscribe(result => {
+      console.warn('Added new Social Network');
+      if (result) {
+        console.warn(result);
+        this.socialList.push(result);
+      }
+    }); */
   }
 
   removeBadge(socialName: string) {
@@ -98,7 +107,7 @@ export class ProfileCreatorComponent implements OnInit {
   }
 
   submitProfileDetails(): void {
-    console.warn('Submited');
+    console.warn('Submited Profile Details');
     this.checkAllUserDetails();
   }
 

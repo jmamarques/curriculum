@@ -106,7 +106,7 @@ span a {
   vertical-align: middle;
 }
 
-span{
+span {
   margin-right: 2%;
 }
 
@@ -116,11 +116,29 @@ span{
 
 //Queries for responsive View
 @media screen and (max-width: 1000px) {
-  #imageOfUser{
+  #imageOfUser {
     margin-top: 5%;
   }
 }
-
 .mat-icon {
   color: white;
+}
+//Center Buttons
+.centerButtons {
+  display: block;
+  margin: auto;
+}
+
+.icon {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 2px;
+  left: 5px;
+}
+.allignTextWithIcon{
+  position: relative;
+  top: -5px;
+}
+.card-body .btn{
+  width: 230px;;
 }

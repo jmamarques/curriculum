@@ -11,7 +11,8 @@
           together for the benefit of all. We are all connected to each other and the earth. We hope to give you an
           advantage in order to follow your dreams and goals.
         </p>
-        <button href="#section-1" pageScroll type="button" class="btn roundedButton" data-aos="fade-right">Create
+        <button href="#section-1" pageScroll type="button" class="btn roundedButton centerButtons"
+          data-aos="fade-right">Create
           Profile
         </button>
       </div>
@@ -63,7 +64,7 @@
 <div>
   <div class="container" id="section-1">
     <mat-horizontal-stepper>
-      <mat-step label="Profile Details" #step [hasError]="formProfileDetailsValid" state="user">
+      <mat-step label="Profile Details" [hasError]="formProfileDetailsValid" state="user">
         <form [formGroup]="profileDetailsForm" (submit)="submitProfileDetails()">
           <br>
           <div class="row">
@@ -85,7 +86,8 @@
               <br>
               <mat-form-field>
                 <mat-label>Phone Number</mat-label>
-                <input matInput id="phone" type="tel" formControlName="phone" pattern="[1-9][0-9]{8}" [errorStateMatcher]="matcher">
+                <input matInput id="phone" type="tel" formControlName="phone" pattern="[1-9][0-9]{8}"
+                  [errorStateMatcher]="matcher">
               </mat-form-field>
               <br>
               <mat-form-field>
@@ -95,7 +97,8 @@
               <br>
               <mat-form-field>
                 <mat-label>Birth Date</mat-label>
-                <input bsDatepicker id="birthDate" matInput type="text" formControlName="birthDate" required [errorStateMatcher]="matcher">
+                <input bsDatepicker id="birthDate" matInput type="text" formControlName="birthDate" required
+                  [errorStateMatcher]="matcher">
               </mat-form-field>
               <br>
               <mat-form-field>
@@ -108,17 +111,18 @@
               </mat-form-field>
               <mat-form-field>
                 <mat-label>Write Something about you:</mat-label>
-                <textarea  matInput formControlName="description" required [errorStateMatcher]="matcher"></textarea>
+                <textarea matInput formControlName="description" required [errorStateMatcher]="matcher"></textarea>
               </mat-form-field>
               <div>
-                <button (click)="openDialog();$event.preventDefault()"  class="btn roundedButton">Add Social Networks</button>
+                <button (click)="openDialog();$event.preventDefault()" class="btn roundedButton">Add Social
+                  Networks</button>
                 <br>
                 <div *ngIf="socialList.length>0">
                   <span class="badge badge-pill badge-secondary" *ngFor="let data of socialList">
                     <img [src]="data.socialContent.urlString" alt="socialImg">
                     <a [href]="data.link" target="_blank">{{data.socialContent.name|titlecase}}</a>
                     <img (click)="removeBadge(data.socialContent.name)" class="cod-cursor" id="deleteSpan"
-                         src="../../../../../assets/fechar.png">
+                      src="../../../../../assets/fechar.png">
                   </span>
                 </div>
               </div>
@@ -135,16 +139,31 @@
             </div>
           </div>
 
-        <div>
-          <button matStepperNext type="submit" class="btn roundedButton float-right" (click)="submitProfileDetails()">Next</button>
-        </div>
-      </form>
+          <div>
+            <button matStepperNext type="submit" class="btn roundedButton float-right"
+              (click)="submitProfileDetails()">Next</button>
+          </div>
+        </form>
       </mat-step>
       <mat-step label="Experience" state="experience">
-        <div>
-          <button matStepperPrevious class="btn roundedButton">Back</button>
-          <button matStepperNext class="btn roundedButton">Next</button>
-        </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Insert Here your Educational our Work Experience</h2>
+                  <p class="card-text mb-2 text-muted">Follow our Quickly Form and Show your Carrear to the world!</p>
+                  <button class="btn roundedButton centerButtons" (click)="openExperienceDialog()">
+                    <mat-icon>add</mat-icon>
+                    <span class="allignTextWithIcon"> Add new Experience</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <button matStepperPrevious class="btn roundedButton float-left">Back</button>
+          <button matStepperNext class="btn roundedButton float-right">Next</button>
       </mat-step>
       <mat-step label="Skills" state="skills">
         <div>
@@ -158,8 +177,6 @@
           <button matStepperNext class="btn roundedButton">Next</button>
         </div>
       </mat-step>
-
-
       <!-- Icon overrides. -->
       <ng-template matStepperIcon="user">
         <mat-icon>account_circle</mat-icon>

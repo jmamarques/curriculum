@@ -1,0 +1,18 @@
+.example-month-picker .mat-calendar-period-button {
+  pointer-events: none;
+}
+
+.example-month-picker .mat-calendar-arrow {
+  display: none;
+}
+
+ ::ng-deep .datesSmaller .mat-form-field-wrapper{
+  width:150px !important;
+}
+.buttonDiv {
+  text-align: center;
+  margin: auto;
+}
+.buttonDiv button{
+  width: 150px;
+}
