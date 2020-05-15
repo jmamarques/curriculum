@@ -53,7 +53,7 @@ export class AppComponent {
         this.masterCursor.nativeElement.style.opacity = 0;
       } else {
         if ($event.target.matches('button')
-          || $event.target.matches('i')
+          // || $event.target.matches('i')
           || $event.target.matches('.cod-cursor')
           || $event.target.matches('a')) {
           this.masterCursor.nativeElement.style.width = '30px';
@@ -72,7 +72,7 @@ export class AppComponent {
       this.masterCursor.nativeElement.style.opacity = 1;
     }
     if ($event.target.matches('button')
-      || $event.target.matches('i')
+      // || $event.target.matches('i')
       || $event.target.matches('.cod-cursor')
       || $event.target.matches('a')) {
       if (this.masterCursor) {
