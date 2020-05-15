@@ -8,13 +8,7 @@ import {CoreModule} from './core/core.module';
 import {CommonModule} from '@angular/common';
 import {CodModule} from './cod/cod.module';
 import {DialogExperienceComponent} from './cod/profile/profile-creator/dialog-experience/dialog-experience.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { BsDatepickerModule } from 'ngx-bootstrap';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatIconModule } from '@angular/material/icon';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, DialogExperienceComponent],
@@ -22,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     // app
     AppRoutingModule,
@@ -29,13 +24,6 @@ import { MatIconModule } from '@angular/material/icon';
     CoreModule,
     // features modules
     CodModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatSelectModule,
-    BsDatepickerModule.forRoot(),
-    MatFormFieldModule,
-    MatCheckboxModule,
-    MatIconModule
 
   ],
   providers: [

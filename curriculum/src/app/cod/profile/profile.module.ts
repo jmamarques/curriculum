@@ -12,8 +12,7 @@ import {AgChartsAngularModule} from 'ag-charts-angular';
 import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 
 
 @NgModule({
@@ -32,7 +31,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MaterialSharedModule,
     PrimeNgSharedModule,
     NgxBootstrapSharedModule,
-    MatCheckboxModule
   ],
   providers: [{
     provide: STEPPER_GLOBAL_OPTIONS,

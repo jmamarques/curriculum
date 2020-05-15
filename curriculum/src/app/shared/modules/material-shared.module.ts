@@ -13,7 +13,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatStepperModule} from '@angular/material/stepper';
-
+import {BsDatepickerModule} from 'ngx-bootstrap';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 const imports = [
@@ -30,13 +32,17 @@ const imports = [
   MatDialogModule,
   MatBadgeModule,
   MatNativeDateModule,
-  MatStepperModule
+  MatStepperModule,
+  MatInputModule,
+  MatSelectModule,
+  MatFormFieldModule,
+  MatCheckboxModule,
 ];
 
 @NgModule({
   declarations: [],
   imports: [
-    ...imports
+    ...imports, BsDatepickerModule.forRoot()
   ],
   exports: imports,
   providers: [
