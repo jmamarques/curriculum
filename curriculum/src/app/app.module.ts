@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AppComponent, DialogExperienceComponent],
@@ -34,6 +35,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     BsDatepickerModule.forRoot(),
     MatFormFieldModule,
     MatCheckboxModule,
+    MatIconModule
 
   ],
   providers: [

@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogSocialNetworksComponent } from './dialog-social-networks/dialog-social-networks.component';
 import { DialogExperienceComponent } from './dialog-experience/dialog-experience.component';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { UserProfileExperienceData } from 'src/app/shared/interfaces/user-profile-experience-data';
 
 @Component({
   selector: 'cod-profile-creator',
@@ -13,6 +14,11 @@ import { ErrorStateMatcher } from '@angular/material/core';
   styleUrls: ['./profile-creator.component.scss']
 })
 export class ProfileCreatorComponent implements OnInit {
+
+/* **************Profile Details Variables**************** */
+/* ****************************************************** */
+/* ***************************************************** */
+
   matcher = new MyErrorStateMatcher();
   profileDetailsForm: FormGroup;
   //Countries List Variables
@@ -32,6 +38,12 @@ export class ProfileCreatorComponent implements OnInit {
   socialList: SocialData[] = [];
   //List Of Boolean VAriables for stepper Error Controller
   formProfileDetailsValid = true;
+
+/* **************Experience User Variables**************** */
+/* ****************************************************** */
+/* ***************************************************** */
+  userExperienceArray: UserProfileExperienceData [] = [];
+
   constructor(private formBuilder: FormBuilder, public dialog: MatDialog) { }
   ngOnInit(): void {
     AOS.init({
@@ -88,14 +100,28 @@ export class ProfileCreatorComponent implements OnInit {
   }
 
   openExperienceDialog() {
-    const dialog = this.dialog.open(DialogExperienceComponent, { data: {} });
-/*     dialog.afterClosed().subscribe(result => {
-      console.warn('Added new Social Network');
-      if (result) {
-        console.warn(result);
-        this.socialList.push(result);
+    const dialog = this.dialog.open(DialogExperienceComponent);
+     dialog.afterClosed().subscribe(result => {
+      console.warn('Added new Experience of User');
+      if (result ) {
+        if (result.indexOnListSource) {
+           this.userExperienceArray[result.indexOnListSource]= result;
+        }else{
+          this.userExperienceArray.push(result);
+        }
       }
-    }); */
+    });
+    console.warn(this.userExperienceArray);
+  }
+
+  editExperienceDialog(index:number){
+    const experienceUserToSend = this.userExperienceArray[index];
+    experienceUserToSend.indexOnListSource = index;
+    const dialog = this.dialog.open(DialogExperienceComponent, { data: experienceUserToSend});
+    dialog.afterClosed().subscribe(result => {
+         this.userExperienceArray[result.indexOnListSource] = result
+   });
+
   }
 
   removeBadge(socialName: string) {

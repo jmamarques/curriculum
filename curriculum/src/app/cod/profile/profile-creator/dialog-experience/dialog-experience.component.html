@@ -4,8 +4,15 @@
     <mat-form-field>
       <mat-label>Type</mat-label>
       <mat-select [(value)]="typeExperience" required formControlName="typeExperience" [errorStateMatcher]="matcher">
-        <mat-option value="Education"> Education </mat-option>
-        <mat-option value="Job"> Job </mat-option>
+        <mat-select-trigger>{{typeExperience}}</mat-select-trigger>
+        <mat-option value="Education">
+          <mat-icon>school</mat-icon>
+          Education
+        </mat-option>
+        <mat-option value="Job">
+          <mat-icon>work</mat-icon>
+          Job
+        </mat-option>
       </mat-select>
     </mat-form-field>
     <div *ngIf="typeExperience==='Education'">
@@ -24,8 +31,7 @@
           <mat-form-field class="datesSmaller">
             <mat-label>Start Date</mat-label>
             <input type="text" formControlName="startDate" id="startDate" required matInput
-              [errorStateMatcher]="matcher" class="form-control" [bsConfig]="bsConfig" #dp="bsDatepicker" bsDatepicker
-             >
+              [errorStateMatcher]="matcher" class="form-control" [bsConfig]="bsConfig" #dp="bsDatepicker" bsDatepicker>
           </mat-form-field>
         </div>
         <div class="col">
@@ -48,6 +54,10 @@
         <textarea matInput formControlName="description" required [errorStateMatcher]="matcher"></textarea>
       </mat-form-field>
       <br>
+
+      <div *ngIf="currentAndEndDateChecked">
+        <p class="alert alert-danger">If you have Current Situation checked you must remove End Date.</p>
+      </div>
       <div class="buttonDiv">
         <button class="btn btn-warning roundedButton cod-cursor">Add</button>
       </div>

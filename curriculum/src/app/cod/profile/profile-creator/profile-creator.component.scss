@@ -139,6 +139,18 @@ span {
   position: relative;
   top: -5px;
 }
-.card-body .btn{
+.card-body .centerButtons{
   width: 230px;;
 }
+
+.editButton{
+  width: 90px;
+  font-size: 15px;
+  background-color: lighten(orange,15%);
+}
+.editIcon{
+  transform: scale(0.7);
+}
+
+
+
