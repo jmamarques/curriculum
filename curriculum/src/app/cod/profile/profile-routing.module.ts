@@ -8,6 +8,7 @@ import {ProfileDetailsComponent} from './profile-creator/profile-details/profile
 import {PersonalDetailComponent} from './profile-viewer/personal-detail/personal-detail.component';
 import {SkillsComponent} from './profile-viewer/skills/skills.component';
 import {AdditionalInformationComponent} from './profile-viewer/additional-information/additional-information.component';
+import {DialogExperienceComponent} from './profile-creator/dialog-experience/dialog-experience.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ export class ProfileRoutingModule {
     AdditionalInformationComponent,
     ExperienceViewerComponent,
     PersonalDetailComponent,
-    SkillsComponent
+    SkillsComponent,
+    DialogExperienceComponent
   ];
 }

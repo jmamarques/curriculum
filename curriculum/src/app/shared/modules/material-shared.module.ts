@@ -11,11 +11,12 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatBadgeModule} from '@angular/material/badge';
-import {MatNativeDateModule} from '@angular/material/core';
+import {MatNativeDateModule, MatOptionModule, MatRippleModule} from '@angular/material/core';
 import {MatStepperModule} from '@angular/material/stepper';
 import {BsDatepickerModule} from 'ngx-bootstrap';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
 
 
 const imports = [
@@ -23,7 +24,6 @@ const imports = [
   MatRadioModule,
   MatListModule,
   MatExpansionModule,
-  MatIconModule,
   MatTabsModule,
   MatGridListModule,
   MatInputModule,
@@ -33,10 +33,12 @@ const imports = [
   MatBadgeModule,
   MatNativeDateModule,
   MatStepperModule,
-  MatInputModule,
-  MatSelectModule,
   MatFormFieldModule,
   MatCheckboxModule,
+  MatIconModule,
+  MatOptionModule,
+  MatButtonModule,
+  MatRippleModule
 ];
 
 @NgModule({
