@@ -1,6 +1,6 @@
 import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
-import {slideInAnimation} from './app.animation';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
+import {slideInAnimation} from './shared/animations/slide-in-animation';
 
 @Component({
   selector: 'cod-root',
