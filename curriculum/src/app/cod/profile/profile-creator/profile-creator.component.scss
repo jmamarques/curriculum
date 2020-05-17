@@ -149,7 +149,9 @@ span {
   background-color: lighten(orange,15%);
   height: 30px;
   padding: 0;
+  margin-left: 5px;
 }
+
 .editIcon{
   transform: scale(0.7);
 }
@@ -191,6 +193,9 @@ span {
     margin-bottom: 3%;;
   }
 }
-
+#removeButton{
+  background-color: lighten(red,20%);
+  border-color: lighten(red,20%);
+}
 
 

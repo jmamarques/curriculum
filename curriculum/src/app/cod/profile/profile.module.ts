@@ -13,6 +13,7 @@ import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
     MaterialSharedModule,
     PrimeNgSharedModule,
     NgxBootstrapSharedModule,
+    MatTooltipModule
   ],
   providers: [{
     provide: STEPPER_GLOBAL_OPTIONS,
