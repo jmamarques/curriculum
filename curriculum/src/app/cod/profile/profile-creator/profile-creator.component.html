@@ -63,6 +63,7 @@
 </div>
 <div>
   <div class="container" id="section-1">
+
     <mat-horizontal-stepper>
       <mat-step label="Profile Details" [hasError]="formProfileDetailsValid" state="user">
         <form [formGroup]="profileDetailsForm" (submit)="submitProfileDetails()">
@@ -146,44 +147,54 @@
         </form>
       </mat-step>
       <mat-step label="Experience" state="experience">
-        <br>
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h2 class="card-title">Insert Here your Educational our Work Experience</h2>
-                <p class="card-text mb-2 text-muted">Follow our Quickly Form and Show your Carrear to the world!</p>
-                <button class="btn roundedButton centerButtons" (click)="openExperienceDialog()">
-                  <mat-icon>add</mat-icon>
-                  <span class="allignTextWithIcon"> Add new Experience</span>
-                </button>
+          <br>
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title text-center">Insert Here your Educational our Work Experience</h2>
+                  <p class="card-text mb-2 text-muted text-center">Follow our Quickly Form and Show your Carrear to
+                    the
+                    world!</p>
+                  <button class="btn roundedButton centerButtons" (click)="openExperienceDialog()">
+                    <mat-icon>add</mat-icon>
+                    <span class="allignTextWithIcon"> Add new Experience</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-sm-6" *ngFor="let userExperience of userExperienceArray; index as i">
-            <div class="card">
-              <div class="card-body">
-                <button class="btn roundedButton float-right editButton" (click)="editExperienceDialog(i)">
-                  <mat-icon class="editIcon">edit</mat-icon>
-                  <span class="allignTextWithIcon"> Edit</span>
-                </button>
-                <h2 class="card-title">{{userExperience.type}}: {{userExperience.degree}} </h2>
-                <p class="card-text mb-2 text-muted">{{userExperience.grade}}</p>
-                <p>{{userExperience.school}}</p>
-                <p>From:
-                  <span class="text-muted">{{userExperience.startDate|date}}</span>
-                  Until:
-                  <span class="text-muted">{{userExperience.endDate|date}}</span>
-                </p>
-                <p>{{userExperience.description}}</p>
-                <p></p>
+          <div class="row">
+            <div class="col-sm-6" *ngFor="let userExperience of userExperienceArray; index as i">
+              <div class="card">
+                <div class="card-body">
+                  <div class="text-nowrap header-left">
+                    {{userExperience.title}}: {{userExperience.typeExperience}}
+                  </div>
+                  <div>
+                    <button class="btn roundedButton float-right editButton" (click)="deleteExperience(i)">
+                      <mat-icon class="editIcon">delete</mat-icon>
+                    </button>
+                    <p class="text-secondary">
+                      <i class="fas fa-calendar-alt"></i>
+                      {{userExperience.startDate| dateDuration: userExperience.endDate :'MMMM yyyy'}}
+                    </p>
+                    <button class="btn roundedButton float-right editButton" (click)="editExperienceDialog(i)">
+                      <mat-icon class="editIcon">edit</mat-icon>
+                    </button>
+                    <p class="text-secondary">
+                      <i class="far fa-building"></i>
+                      {{userExperience.oranization}}
+                    </p>
+                    <p class="text-justify">{{userExperience.description}}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <br>
-        <button matStepperPrevious class="btn roundedButton float-left">Back</button>
-        <button matStepperNext class="btn roundedButton float-right">Next</button>
+          <br>
+          <button matStepperPrevious class="btn roundedButton float-left">Back</button>
+          <button matStepperNext class="btn roundedButton float-right">Next</button>
       </mat-step>
       <mat-step label="Skills" state="skills">
         <div>
@@ -213,7 +224,7 @@
       <ng-template matStepperIcon="adicionalInfo">
         <mat-icon> add_comment</mat-icon>
       </ng-template>
-
     </mat-horizontal-stepper>
+
   </div>
 </div>

@@ -7,11 +7,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {CoreModule} from './core/core.module';
 import {CommonModule} from '@angular/common';
 import {CodModule} from './cod/cod.module';
-import {DialogExperienceComponent} from './cod/profile/profile-creator/dialog-experience/dialog-experience.component';
 import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, DialogExperienceComponent],
+  declarations: [AppComponent],
   imports: [
     CommonModule,
     BrowserModule,

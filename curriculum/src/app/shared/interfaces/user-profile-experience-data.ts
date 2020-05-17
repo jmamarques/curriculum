@@ -1,11 +1,12 @@
 export interface UserProfileExperienceData {
   type:string;
-  school: string;
-  degree:string;
+  oranization: string;
+  title:string;
   startDate:string;
   endDate:string;
   currenSituation:boolean;
-  grade:string;
+  typeExperience:string;
   description:string;
   indexOnListSource?:number|null;
+  location?:string|null;
 }

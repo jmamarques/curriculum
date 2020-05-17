@@ -121,7 +121,9 @@ export class ProfileCreatorComponent implements OnInit {
     dialog.afterClosed().subscribe(result => {
          this.userExperienceArray[result.indexOnListSource] = result
    });
-
+  }
+  deleteExperience(index:number){
+    this.userExperienceArray.splice(index,1);
   }
 
   removeBadge(socialName: string) {
