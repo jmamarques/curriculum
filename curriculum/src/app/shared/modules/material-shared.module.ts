@@ -17,6 +17,7 @@ import {BsDatepickerModule} from 'ngx-bootstrap';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 const imports = [
@@ -38,7 +39,8 @@ const imports = [
   MatIconModule,
   MatOptionModule,
   MatButtonModule,
-  MatRippleModule
+  MatRippleModule,
+  MatTooltipModule
 ];
 
 @NgModule({

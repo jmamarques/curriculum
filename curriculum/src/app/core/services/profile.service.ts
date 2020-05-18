@@ -3,6 +3,7 @@ import {Profile} from '../../shared/interfaces/profile';
 import {Observable, of} from 'rxjs';
 import {ExperienceEnum} from '../../shared/enums/experience.enum';
 import {RoleEnum} from '../../shared/enums/role';
+import {SkillEnum} from '../../shared/enums/skill.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -62,6 +63,48 @@ export class ProfileService {
           location: {country: 'PT', city: 'LIS'},
           experience: ExperienceEnum.EDUCATION,
           role: RoleEnum.STUDENT
+        }
+      ],
+      skills: [
+        {
+          rating: 65,
+          name: 'HTML & CSS',
+          type: SkillEnum.TECHNICAL
+        },
+        {
+          rating: 80,
+          name: 'Java',
+          type: SkillEnum.TECHNICAL
+        },
+        {
+          rating: 60,
+          name: 'TypeScript',
+          type: SkillEnum.TECHNICAL
+        },
+        {
+          rating: 60,
+          name: 'JavaScript',
+          type: SkillEnum.TECHNICAL
+        },
+        {
+          rating: 40,
+          name: 'English',
+          type: SkillEnum.LANGUAGE
+        },
+        {
+          rating: 70,
+          name: 'Portuguese',
+          type: SkillEnum.LANGUAGE
+        },
+        {
+          rating: 80,
+          name: 'Teamwork',
+          type: SkillEnum.SOFT
+        },
+        {
+          rating: 65,
+          name: 'Methodical',
+          type: SkillEnum.SOFT
         }
       ]
     };

@@ -13,7 +13,7 @@ import {NgxPageScrollCoreModule} from 'ngx-page-scroll-core';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import {NgCircleProgressModule} from 'ng-circle-progress';
 
 
 @NgModule({
@@ -32,7 +32,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MaterialSharedModule,
     PrimeNgSharedModule,
     NgxBootstrapSharedModule,
-    MatTooltipModule
+    NgCircleProgressModule.forRoot()
   ],
   providers: [{
     provide: STEPPER_GLOBAL_OPTIONS,

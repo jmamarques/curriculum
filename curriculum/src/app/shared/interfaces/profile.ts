@@ -1,5 +1,6 @@
 import {ExperienceEnum} from '../enums/experience.enum';
 import {RoleEnum} from '../enums/role';
+import {SkillEnum} from '../enums/skill.enum';
 
 export interface Profile {
   // Personal Profile
@@ -17,6 +18,7 @@ export interface Profile {
   socialLinks: SocialLinks[];
   // end Personal Profile
   experiences: Experience[];
+  skills: Skill[];
 }
 
 export interface SocialLinks {
@@ -37,5 +39,11 @@ export interface Experience {
   experience: ExperienceEnum;
   role: RoleEnum;
   data?: any;
+}
+
+export interface Skill {
+  rating: number;
+  name: string;
+  type: SkillEnum;
 }
 

@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CollapseModule, PopoverModule} from 'ngx-bootstrap';
+import {CollapseModule, PopoverModule, RatingModule} from 'ngx-bootstrap';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 
 const imports = [
@@ -13,6 +13,7 @@ const imports = [
   imports: [
     ...imports,
     BsDatepickerModule.forRoot(),
+    RatingModule.forRoot(),
   ],
   exports: imports
 })

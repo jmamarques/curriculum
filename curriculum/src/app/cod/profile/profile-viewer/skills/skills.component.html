@@ -1,1 +1,32 @@
-<p>skills works!</p>
+<mat-card class="example-card">
+  <mat-card-header>
+
+    <mat-card-title>
+      <i class="fas fa-cogs" style="color: orange"></i>
+      <span class="pl-2">Technical Skills</span>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="container">
+      <div class="row">
+        <div (mouseenter)="animate(circleProgress, item.rating)" *ngFor="let item of profile?.skills"
+             class="col-lg-2 col-md-3 col-4">
+          <circle-progress
+            #circleProgress
+            [animationDuration]="600"
+            [animation]="true"
+            [innerStrokeColor]="'#C7E596'"
+            [innerStrokeWidth]="4"
+            [outerStrokeColor]="'#78C000'"
+            [outerStrokeWidth]="8"
+            [percent]="item.rating"
+            [radius]="50"
+            [renderOnClick]="false"
+            [subtitle]="item.name"
+          ></circle-progress>
+        </div>
+
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
