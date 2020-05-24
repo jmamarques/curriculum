@@ -3,11 +3,13 @@ import {CommonModule, DatePipe} from '@angular/common';
 import {DateDurationPipe} from './date-duration.pipe';
 import {NumberCommaPipe} from './number-comma.pipe';
 import {SortByFildPipe} from './sort-by-field.pipe';
+import {FilterSkillsPipe} from './filter-skills.pipe';
 
 const declarable = [
   DateDurationPipe,
   NumberCommaPipe,
-  SortByFildPipe
+  SortByFildPipe,
+  FilterSkillsPipe
 ];
 
 @NgModule({
