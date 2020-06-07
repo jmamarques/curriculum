@@ -7,8 +7,8 @@ import {SkillEnum} from '../enums/skill.enum';
 })
 export class FilterSkillsPipe implements PipeTransform {
 
-  transform(value: Skill[], skill: SkillEnum): Skill[] {
-    return value ? value.filter(v => v && v.type === skill) : [];
+  transform(value: Skill[], ...skill: SkillEnum[]): Skill[] {
+    return value ? value.filter(v => v && skill && skill.includes(v.type)) : [];
 
   }
 

@@ -9,6 +9,7 @@ import * as AOS from 'aos';
 export class RatingComponent implements OnInit, OnChanges {
   @Input() rating = 0;
   @Input() maxRate = 10;
+  @Input() label: string;
   rateFilled: number[];
   rateNotFilled: number[];
   maxWidth: string;
@@ -19,7 +20,7 @@ export class RatingComponent implements OnInit, OnChanges {
     // calculate maxWidth
     this.maxWidth = `${this.maxRate * 16}px`;
     // control to not allow rate > maxRate
-    this.rating = this.rating % this.maxRate;
+    this.rating = Math.ceil(this.rating * this.maxRate / 100);
     // prepare to create all rate stuff in html
     this.rateFilled = Array(this.rating).fill([]).map((x, i) => i);
     this.rateNotFilled = Array(this.maxRate - this.rating).fill([]).map((x, i) => i);
