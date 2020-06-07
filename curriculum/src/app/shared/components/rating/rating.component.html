@@ -1,0 +1,9 @@
+<!--[title]="rating"-->
+<div #tooltip="matTooltip"
+     [style.max-width]="maxWidth"
+     matTooltip="{{rating}} out of {{maxRate}}"
+     matTooltipPosition="below"
+>
+  <span *ngFor="let i of rateFilled" class="fas fa-circle" data-aos="slide-right"></span>
+  <span *ngFor="let i of rateNotFilled" class="far fa-circle" data-aos="slide-left"></span>
+</div>

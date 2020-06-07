@@ -14,6 +14,7 @@ import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {NgCircleProgressModule} from 'ng-circle-progress';
+import {ComponentsModule} from '../../shared/components/components.module';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {NgCircleProgressModule} from 'ng-circle-progress';
     MaterialSharedModule,
     PrimeNgSharedModule,
     NgxBootstrapSharedModule,
-    NgCircleProgressModule.forRoot()
+    NgCircleProgressModule.forRoot(),
+    ComponentsModule
   ],
   providers: [{
     provide: STEPPER_GLOBAL_OPTIONS,
