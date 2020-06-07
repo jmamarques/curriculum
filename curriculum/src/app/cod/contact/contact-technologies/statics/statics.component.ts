@@ -180,6 +180,7 @@ export class StaticsComponent implements OnInit {
 
   getDataContributors(contributors: ContributorsGit[]): any {
     const result: any[] = [];
+    console.log(contributors);
     contributors.forEach(contri => {
       result.push(
         {

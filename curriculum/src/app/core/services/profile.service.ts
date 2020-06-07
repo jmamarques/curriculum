@@ -15,7 +15,7 @@ export class ProfileService {
 
   getProfile(id: string | null): Observable<Profile> {
     const profile = {
-      profilePic: 'https://media-exp1.licdn.com/dms/image/C5603AQFTsMspZjkfhA/profile-displayphoto-shrink_800_800/0?e=1590624000&v=beta&t=AluRZ25lh-twHVLTzDbDL1kX_ihFs2iova9j-wF5ENs',
+      profilePic: 'https://media-exp1.licdn.com/dms/image/C5603AQFTsMspZjkfhA/profile-displayphoto-shrink_200_200/0?e=1597276800&v=beta&t=BE4bN50cHmEaOo1s6FECdV0rwmFcGlIp63PcmYE6SCU',
       curriculum: 'base64forfileNotYetImplemented',
       description: 'After my first degree, I discovered this industry and quickly I realized\n' +
         'how fascinating and challenging it can be. Writing code, building\n' +

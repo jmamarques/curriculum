@@ -46,18 +46,18 @@ export class ContactTechnologiesComponent implements OnInit, OnDestroy {
     develop.commit('Prepare v1');
 
     master.merge(develop).tag('v1.0.0');*/
-    this.gitHubService.getTreeGitHub('joaoMAMarques', 'curriculum').subscribe(async (branches: Branch[]) => {
-        /*template?: TemplateName | Template;
-        orientation?: Orientation;
-        reverseArrow?: boolean;
-        initCommitOffsetX?: number;
-        initCommitOffsetY?: number;
-        mode?: Mode;
-        author?: string;
-        branchLabelOnEveryCommit?: boolean;
-        commitMessage?: string;
-        generateCommitHash?: () => Commit["hash"];
-        compareBranchesOrder?: CompareBranchesOrder;*/
+    this.gitHubService.getTreeGitHub('jmamarques', 'curriculum').subscribe(async (branches: Branch[]) => {
+      /*template?: TemplateName | Template;
+      orientation?: Orientation;
+      reverseArrow?: boolean;
+      initCommitOffsetX?: number;
+      initCommitOffsetY?: number;
+      mode?: Mode;
+      author?: string;
+      branchLabelOnEveryCommit?: boolean;
+      commitMessage?: string;
+      generateCommitHash?: () => Commit["hash"];
+      compareBranchesOrder?: CompareBranchesOrder;*/
       const options = {
         /*orientation: 'horizontal',
         author: '',

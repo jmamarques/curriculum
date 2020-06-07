@@ -9,19 +9,21 @@ import {IssueData} from '../../shared/interfaces/issues-data';
   providedIn: 'root'
 })
 export class TechnologiesService {
-  private tecnhologiesURL = 'https://api.github.com/repos/joaoMAMarques/curriculum/languages';
-  private contributors = 'https://api.github.com/repos/joaoMAMarques/curriculum/contributors';
-  private issuesOpen = 'https://api.github.com/repos/joaoMAMarques/curriculum/issues';
-  private issuesClosed = 'https://api.github.com/repos/joaoMAMarques/curriculum/issues?state=closed';
+  private tecnhologiesURL = 'https://api.github.com/repos/jmamarques/curriculum/languages';
+  private contributors = 'https://api.github.com/repos/jmamarques/curriculum/contributors';
+  private issuesOpen = 'https://api.github.com/repos/jmamarques/curriculum/issues';
+  private issuesClosed = 'https://api.github.com/repos/jmamarques/curriculum/issues?state=closed';
 
 
-  constructor(private http: HttpClient) { }
-
-  getTechonlogies(): Observable<Tecnhologies>{
-    return this.http.get<Tecnhologies>(this.tecnhologiesURL,{headers: this.createHeader()});
+  constructor(private http: HttpClient) {
   }
-  getContributors(): Observable<ContributorsGit []>{
-    return this.http.get<ContributorsGit []>(this.contributors,{headers: this.createHeader()});
+
+  getTechonlogies(): Observable<Tecnhologies> {
+    return this.http.get<Tecnhologies>(this.tecnhologiesURL, {headers: this.createHeader()});
+  }
+
+  getContributors(): Observable<ContributorsGit []> {
+    return this.http.get<ContributorsGit []>(this.contributors, {headers: this.createHeader()});
   }
   getOpenIssues(): Observable<IssueData []>{
     return this.http.get<IssueData[]>(this.issuesOpen,{headers: this.createHeader()});

@@ -29,7 +29,7 @@ export class UserService {
         description: 'After my first degree, I discovered this industry and quickly I realized how fascinating and challenging it can be. Writing code, building applications, solving problems/challenges. I\'m always learning and I really like doing that. Even at home I still enthusiastically learn new frameworks and other programming languages.',
         current_Function: 'Developer',
         icon_profile: 'http://getdrawings.com/free-icon/icone-people-66.png',
-        profile_pic: 'https://media-exp1.licdn.com/dms/image/C5603AQFTsMspZjkfhA/profile-displayphoto-shrink_800_800/0?e=1590624000&v=beta&t=AluRZ25lh-twHVLTzDbDL1kX_ihFs2iova9j-wF5ENs',
+        profile_pic: 'https://media-exp1.licdn.com/dms/image/C5603AQFTsMspZjkfhA/profile-displayphoto-shrink_200_200/0?e=1597276800&v=beta&t=BE4bN50cHmEaOo1s6FECdV0rwmFcGlIp63PcmYE6SCU',
         catchPhrase: 'Hello, I\'m João. Learn More about me'
       },
 
