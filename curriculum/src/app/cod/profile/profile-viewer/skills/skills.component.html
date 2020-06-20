@@ -15,12 +15,15 @@
             #circleProgress
             [animationDuration]="600"
             [animation]="true"
-            [innerStrokeColor]="'#e67f83'"
+            [innerStrokeColor]="'grey'"
             [innerStrokeWidth]="4"
             [outerStrokeColor]="'#de425b'"
             [outerStrokeWidth]="8"
             [percent]="item.rating"
+            [subtitleColor]="'#e67f83'"
+            [subtitleFontSize]="'10px'"
             [radius]="50"
+            [titleFontSize]="'16px'"
             [renderOnClick]="false"
             [subtitle]="item.name"
           ></circle-progress>
@@ -42,7 +45,7 @@
     <div class="container">
       <div class="row">
         <div *ngFor="let item of profile?.skills | filterSkills: 2" class="col-12 col-md-6 pb-2">
-          <span class="d-flex justify-content-center">{{item.name}}</span>
+          <span class="d-flex justify-content-center">{{item.name + ' - ' + item.rating + '%'}}</span>
           <div class="progress">
             <div [style.width]="item.rating + '%'"
                  aria-valuemax="100"
@@ -52,6 +55,7 @@
                  role="progressbar"
             >
             </div>
+
           </div>
         </div>
       </div>
