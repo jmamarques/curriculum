@@ -105,6 +105,16 @@ export class ProfileService {
           rating: 65,
           name: 'Methodical',
           type: SkillEnum.SOFT
+        },
+        {
+          rating: 0,
+          name: 'IntelliJ IDEA',
+          type: SkillEnum.OTHERS
+        },
+        {
+          rating: 0,
+          name: 'Git',
+          type: SkillEnum.OTHERS
         }
       ]
     };

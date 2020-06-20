@@ -2,6 +2,7 @@
 <span *ngIf="label">{{label}}</span>
 <div #tooltip="matTooltip"
      [style.max-width]="maxWidth"
+     [style.min-width]="maxWidth"
      matTooltip="{{rating}} out of {{maxRate}}"
      matTooltipPosition="below"
 >
