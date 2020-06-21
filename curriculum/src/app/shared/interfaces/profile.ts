@@ -1,6 +1,7 @@
 import {ExperienceEnum} from '../enums/experience.enum';
 import {RoleEnum} from '../enums/role';
 import {SkillEnum} from '../enums/skill.enum';
+import {InterestEnum} from '../enums/interest.enum';
 
 export interface Profile {
   // Personal Profile
@@ -46,5 +47,10 @@ export interface Skill {
   rating: number;
   name: string;
   type: SkillEnum;
+}
+
+export interface Interest {
+  name: string;
+  type: InterestEnum;
 }
 
