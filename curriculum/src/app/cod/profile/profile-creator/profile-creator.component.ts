@@ -7,6 +7,8 @@ import { DialogSocialNetworksComponent } from './dialog-social-networks/dialog-s
 import { DialogExperienceComponent } from './dialog-experience/dialog-experience.component';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { UserProfileExperienceData } from 'src/app/shared/interfaces/user-profile-experience-data';
+import { DialogSkillsComponent } from './dialog-skills/dialog-skills.component';
+import { SkillsData } from 'src/app/shared/interfaces/skills-data';
 
 @Component({
   selector: 'cod-profile-creator',
@@ -43,6 +45,11 @@ export class ProfileCreatorComponent implements OnInit {
 /* ****************************************************** */
 /* ***************************************************** */
   userExperienceArray: UserProfileExperienceData [] = [];
+
+  /* **************Skill User Variables**************** */
+/* *************************************************** */
+/* ************************************************** */
+skillListUser: SkillsData [] = [];
 
   constructor(private formBuilder: FormBuilder, public dialog: MatDialog) { }
   ngOnInit(): void {
@@ -121,6 +128,14 @@ export class ProfileCreatorComponent implements OnInit {
     dialog.afterClosed().subscribe(result => {
          this.userExperienceArray[result.indexOnListSource] = result
    });
+  }
+
+  openSkillDialog(){
+    const dialog = this.dialog.open(DialogSkillsComponent);
+    dialog.afterClosed().subscribe(result =>{
+      this.skillListUser.push(result);
+      console.warn(this.skillListUser);
+    });
   }
   deleteExperience(index:number){
     this.userExperienceArray.splice(index,1);

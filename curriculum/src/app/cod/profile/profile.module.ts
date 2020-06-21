@@ -15,7 +15,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {NgCircleProgressModule} from 'ng-circle-progress';
 import {ComponentsModule} from '../../shared/components/components.module';
-
+import { RatingModule } from 'ngx-bootstrap/rating';
 
 @NgModule({
   declarations: [ProfileRoutingModule.components],
@@ -34,7 +34,9 @@ import {ComponentsModule} from '../../shared/components/components.module';
     PrimeNgSharedModule,
     NgxBootstrapSharedModule,
     NgCircleProgressModule.forRoot(),
-    ComponentsModule
+    ComponentsModule,
+    RatingModule,
+    RatingModule.forRoot()
   ],
   providers: [{
     provide: STEPPER_GLOBAL_OPTIONS,

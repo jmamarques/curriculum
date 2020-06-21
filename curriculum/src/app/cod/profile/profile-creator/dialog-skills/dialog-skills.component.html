@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>Skills</h1>
+<div mat-dialog-content>
+  <form [formGroup]="skillForm">
+    <mat-form-field>
+      <mat-label>Skill Type</mat-label>
+      <mat-select [(value)]="skillSelected" [errorStateMatcher]="matcher" formControlName="skillType">
+        <mat-option *ngFor="let skill of skillList" [value]="skill">
+          {{skill}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Skill Name</mat-label>
+      <input matInput id="linkInput" type="text" formControlName="skillName" size="40" class="matFormClass"
+        [(ngModel)]="contentSkillSelected" [errorStateMatcher]="matcher">
+    </mat-form-field>
+    <br>
+    <mat-label>
+      Skill Level:
+      <span *ngIf="selectedValue"><b> {{selectedValue*10}}% </b></span>
+    </mat-label>
+    <div class="row">
+      <div class="col-sm-12 d-flex align-items-center justify-content-center">
+          <ul class="list-inline rating-list" *ngFor="let bullet of bullets">
+            <li (click)="saveCurrentBullet(bullet)" [ngClass]="{'selected': (bullet <= selectedValue)}">
+              <i class="fas fa-circle cod-cursor" matTooltip="{{bullet*10}}%"></i>
+            </li>
+          </ul>
+      </div>
+    </div>
+    <div *ngIf="noSkillSelectedError">
+      <p class="alert alert-danger">You must select a level for the current skill.</p>
+    </div>
+    <div class="buttonDiv">
+      <button class="btn btn-warning roundedButton cod-cursor" (click)="onSubmit()">Add</button>
+    </div>
+  </form>
+</div>

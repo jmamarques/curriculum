@@ -2,8 +2,6 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogSocialNetworksComponent } from '../dialog-social-networks/dialog-social-networks.component';
-import { SocialNetworksService } from 'src/app/core/services/social-networks.service';
-import { DialogData } from 'src/app/shared/interfaces/dialog-data';
 import { ErrorStateMatcher, DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/core';
 import { BsDatepickerConfig, BsDatepickerViewMode } from 'ngx-bootstrap/datepicker';
 import { UserProfileExperienceData } from 'src/app/shared/interfaces/user-profile-experience-data';

@@ -9,6 +9,7 @@ import {CommonModule} from '@angular/common';
 import {CodModule} from './cod/cod.module';
 import {ReactiveFormsModule} from '@angular/forms';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -22,9 +23,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     // core
     CoreModule,
     // features modules
-    CodModule,
-
-  ],
+    CodModule
+    ],
   providers: [
   ],
   bootstrap: [AppComponent]
