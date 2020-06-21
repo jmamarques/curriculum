@@ -19,6 +19,7 @@ export interface Profile {
   // end Personal Profile
   experiences: Experience[];
   skills: Skill[];
+  interests: any[];
 }
 
 export interface SocialLinks {

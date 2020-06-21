@@ -116,7 +116,8 @@ export class ProfileService {
           name: 'Git',
           type: SkillEnum.OTHERS
         }
-      ]
+      ],
+      interests: []
     };
     return of(profile);
   }

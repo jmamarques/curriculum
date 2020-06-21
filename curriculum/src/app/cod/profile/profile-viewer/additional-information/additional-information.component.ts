@@ -8,6 +8,7 @@ import {Profile} from '../../../../shared/interfaces/profile';
 })
 export class AdditionalInformationComponent implements OnInit {
   @Input() private profile: Profile;
+  isCollapsed = false;
 
   constructor() {
   }
@@ -15,4 +16,19 @@ export class AdditionalInformationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  collapses() {
+
+  }
+
+  expands() {
+
+  }
+
+  collapsed() {
+
+  }
+
+  expanded() {
+
+  }
 }

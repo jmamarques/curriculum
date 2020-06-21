@@ -9,7 +9,8 @@ import {PersonalDetailComponent} from './profile-viewer/personal-detail/personal
 import {SkillsComponent} from './profile-viewer/skills/skills.component';
 import {AdditionalInformationComponent} from './profile-viewer/additional-information/additional-information.component';
 import {DialogExperienceComponent} from './profile-creator/dialog-experience/dialog-experience.component';
-import { DialogSkillsComponent } from './profile-creator/dialog-skills/dialog-skills.component';
+import {DialogSkillsComponent} from './profile-creator/dialog-skills/dialog-skills.component';
+import {InterestsComponent} from './profile-viewer/interests/interests.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,7 @@ export class ProfileRoutingModule {
     PersonalDetailComponent,
     SkillsComponent,
     DialogExperienceComponent,
-    DialogSkillsComponent
+    DialogSkillsComponent,
+    InterestsComponent
   ];
 }

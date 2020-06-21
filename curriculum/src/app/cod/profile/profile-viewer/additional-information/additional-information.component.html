@@ -1,1 +1,15 @@
-<p>additional-information works!</p>
+<button (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic"
+        class="btn btn-primary" type="button">Toggle collapse
+</button>
+<div (collapsed)="collapsed()"
+     (collapses)="collapses()"
+     (expanded)="expanded()"
+     (expands)="expands()"
+     [collapse]="isCollapsed"
+     [isAnimated]="true"
+     id="collapseEvent">
+
+  <div class="well well-lg card card-block card-header">
+    Portofolio
+  </div>
+</div>

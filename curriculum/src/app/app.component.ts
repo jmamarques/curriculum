@@ -49,7 +49,6 @@ export class AppComponent {
   mouseover($event: any) {
     if (this.masterCursor) {
       if ($event.target.matches('iframe')) {
-        console.log('i m above map');
         this.masterCursor.nativeElement.style.opacity = 0;
       } else {
         if ($event.target.matches('button')
