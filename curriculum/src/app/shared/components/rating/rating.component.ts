@@ -18,7 +18,7 @@ export class RatingComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     // calculate maxWidth
-    this.maxWidth = `${this.maxRate * 16}px`;
+    this.maxWidth = `${this.maxRate * 18}px`;
     // control to not allow rate > maxRate
     this.rating = Math.ceil(this.rating * this.maxRate / 100);
     // prepare to create all rate stuff in html
@@ -30,7 +30,7 @@ export class RatingComponent implements OnInit, OnChanges {
       duration: 600,
       easing: 'ease-in-sine',
       delay: 100,
-      once: false
+      once: true
     });
   }
 
