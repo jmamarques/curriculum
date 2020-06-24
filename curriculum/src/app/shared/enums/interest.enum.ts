@@ -4,5 +4,6 @@ export enum InterestEnum {
   TRAVEL = 'fas fa-plane',
   COOKING = 'fas fa-cookie-bite',
   CHAT = 'fas fa-comments',
-  OTHER = 'fas fa-ellipsis-h'
+  OTHER = 'fas fa-ellipsis-h',
+  SWIMMER = 'fas fa-swimmer'
 }

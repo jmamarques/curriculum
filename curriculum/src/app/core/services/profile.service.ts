@@ -4,6 +4,7 @@ import {Observable, of} from 'rxjs';
 import {ExperienceEnum} from '../../shared/enums/experience.enum';
 import {RoleEnum} from '../../shared/enums/role';
 import {SkillEnum} from '../../shared/enums/skill.enum';
+import {InterestEnum} from '../../shared/enums/interest.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -117,7 +118,32 @@ export class ProfileService {
           type: SkillEnum.OTHERS
         }
       ],
-      interests: []
+      interests: [
+        {
+          name: 'Swimming',
+          type: InterestEnum.SWIMMER
+        },
+        {
+          name: 'Music',
+          type: InterestEnum.MUSIC
+        },
+        {
+          name: 'Chatting Up',
+          type: InterestEnum.CHAT
+        },
+        {
+          name: 'Travel',
+          type: InterestEnum.TRAVEL
+        },
+        {
+          name: 'Read',
+          type: InterestEnum.OTHER
+        },
+        {
+          name: 'Cooking',
+          type: InterestEnum.COOKING
+        }
+      ]
     };
     return of(profile);
   }
