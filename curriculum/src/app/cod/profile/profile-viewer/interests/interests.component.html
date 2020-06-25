@@ -7,13 +7,11 @@
   </mat-card-header>
   <mat-card-content>
     <div class="container row">
-
       <div *ngFor="let item of profile?.interests" class="col-3 col-md-2 mb-3">
         <div class="row">
-          <i [ngClass]="item.type" class="d-flex justify-content-center  col-12 fa-2x"></i>
-          <span class="d-flex justify-content-center  col-12">{{item.name}}</span>
+          <i [ngClass]="item.type" class="d-flex justify-content-center col-12 fa-2x"></i>
+          <span class="d-flex justify-content-center col-12">{{item.name}}</span>
         </div>
-
       </div>
     </div>
   </mat-card-content>
