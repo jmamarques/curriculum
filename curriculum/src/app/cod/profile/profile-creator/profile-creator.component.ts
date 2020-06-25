@@ -133,10 +133,27 @@ skillListUser: SkillsData [] = [];
   openSkillDialog(){
     const dialog = this.dialog.open(DialogSkillsComponent);
     dialog.afterClosed().subscribe(result =>{
-      this.skillListUser.push(result);
-      console.warn(this.skillListUser);
+      if (result) {
+        this.skillListUser.push(result);
+      }
+
     });
   }
+
+  editSkillDialog(index:number){
+    const skillToEdit = this.skillListUser[index];
+    const dialog = this.dialog.open(DialogSkillsComponent,{data:skillToEdit});
+    dialog.afterClosed().subscribe(result =>{
+      if (result) {
+        this.skillListUser[index] = result;
+      }
+    });
+  }
+
+  deleteSkill(index:number){
+    this.skillListUser.splice(index,1);
+  }
+
   deleteExperience(index:number){
     this.userExperienceArray.splice(index,1);
   }

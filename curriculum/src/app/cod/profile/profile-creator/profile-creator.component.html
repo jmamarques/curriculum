@@ -153,7 +153,8 @@
             <div class="card">
               <div class="card-body">
                 <h2 class="card-title text-center">Insert Here your Educational our Work Experience</h2>
-                <p class="card-text mb-2 text-muted text-center">Follow our Quickly Form and Show your Carrear to the world!</p>
+                <p class="card-text mb-2 text-muted text-center">Follow our Quickly Form and Show your Carrear to the
+                  world!</p>
                 <button class="btn roundedButton centerButtons" (click)="openExperienceDialog()">
                   <mat-icon>add</mat-icon>
                   <span class="allignTextWithIcon"> Add new Experience</span>
@@ -179,10 +180,12 @@
                     {{userExperience.oranization}}
                   </p>
                   <p class="text-justify">{{userExperience.description}}</p>
-                  <button class="btn roundedButton float-right editButton" id="removeButton" matTooltip="Delete" (click)="deleteExperience(i)">
+                  <button class="btn roundedButton float-right editButton" id="removeButton" matTooltip="Delete"
+                    (click)="deleteExperience(i)">
                     <mat-icon class="editIcon">delete</mat-icon>
                   </button>
-                  <button class="btn roundedButton float-right editButton" matTooltip="Edit" (click)="editExperienceDialog(i)">
+                  <button class="btn roundedButton float-right editButton" matTooltip="Edit"
+                    (click)="editExperienceDialog(i)">
                     <mat-icon class="editIcon">edit</mat-icon>
                   </button>
                 </div>
@@ -195,24 +198,51 @@
         <button matStepperNext class="btn roundedButton float-right">Next</button>
       </mat-step>
       <mat-step label="Skills" state="skills">
-        <div>
-          <button matStepperPrevious class="btn roundedButton">Back</button>
-          <button matStepperNext class="btn roundedButton">Next</button>
-          <div class="row">
-            <div class="col">
-              <div class="card">
-                <div class="card-body">
-                  <h2 class="card-title text-center">skills boy</h2>
-                  <p class="card-text mb-2 text-muted text-center">skills</p>
-                  <button class="btn roundedButton centerButtons" (click)="openSkillDialog()">
-                    <mat-icon>add</mat-icon>
-                    <span class="allignTextWithIcon"> Add new Skill</span>
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h2 class="card-title text-center">Insert your Skills</h2>
+                <p class="card-text mb-2 text-muted text-center">From Language Skills, to Technical Skills or Soft
+                  Skills.</p>
+                <button class="btn roundedButton centerButtons" (click)="openSkillDialog()">
+                  <mat-icon>add</mat-icon>
+                  <span class="allignTextWithIcon"> Add new Skill</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6" *ngFor="let skillUser of skillListUser; index as i">
+            <div class="card">
+              <div class="card-body">
+                <div>
+                  <p>
+                    <i class="fas fa-pencil-alt"></i>
+                    <b>Skill Type: </b>{{skillUser.skillType}}
+                  </p>
+                  <p>
+                    <i class="fas fa-percentage"></i>
+                    <b>Percentage: </b>{{skillUser.skillpercentage*10}}%
+                  </p>
+                  <p>
+                    <i class="fas fa-spell-check"></i>
+                    <b>Name: </b>{{skillUser.skillContent}}
+                  </p>
+                  <button class="btn roundedButton float-right editButton" id="removeButton" matTooltip="Delete" (click)="deleteSkill(i)">
+                    <mat-icon class="editIcon">delete</mat-icon>
+                  </button>
+                  <button class="btn roundedButton float-right editButton" matTooltip="Edit" (click)="editSkillDialog(i)">
+                    <mat-icon class="editIcon">edit</mat-icon>
                   </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <button matStepperPrevious class="btn roundedButton float-left">Back</button>
+        <button matStepperNext class="btn roundedButton float-right">Next</button>
       </mat-step>
       <mat-step label="Adicional Info" state="adicionalInfo">
         <div>

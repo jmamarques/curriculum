@@ -79,7 +79,7 @@ export class DialogExperienceComponent implements OnInit {
   submitExperienceForm(): void {
     let result: boolean = true;
     for (const elem in this.experienceForm.controls) {
-      if (elem != 'isActive' && elem != 'endDate'&&elem != 'typeExperience') {
+      if (elem != 'isActive' && elem != 'endDate'&& elem != 'typeExperience') {
         result = result && this.experienceForm.controls[elem].valid;
       }
     }

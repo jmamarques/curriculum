@@ -25,15 +25,20 @@ export class DialogSkillsComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<DialogSocialNetworksComponent>,
     private skillsService: SkillsService,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA) public data: SkillsData,
   ) { }
 
   ngOnInit(): void {
     this.skillList = this.skillsService.getSkillTypeList();
     this.skillForm = this.formBuilder.group({
-      skillType: ['', Validators.required],
-      skillName: ['', Validators.required]
+      skillType: [this.data? this.data.skillType:'', Validators.required],
+      skillName: [this.data? this.data.skillContent:'', Validators.required]
     });
+    if (this.data) {
+      this.selectedValue = this.data.skillpercentage;
+      this.contentSkillSelected = this.data.skillContent;
+      this.skillSelected =  this.data.skillType;
+    }
   }
 
   saveCurrentBullet(bulletNumber: any) {
@@ -49,13 +54,14 @@ export class DialogSkillsComponent implements OnInit {
     if (!this.selectedValue) {
       this.noSkillSelectedError = true;
       return;
+    }else{
+      let dialogDataSkill: SkillsData = {
+        skillType:this.skillSelected,
+        skillContent : this.contentSkillSelected,
+        skillpercentage: this.selectedValue
+      };
+      this.dialogRef.close(dialogDataSkill);
     }
-    let dialogDataSkill: SkillsData = {
-      skillType:this.skillSelected,
-      skillContent : this.contentSkillSelected,
-      skillpercentage: this.selectedValue
-    };
-    this.dialogRef.close(dialogDataSkill);
   }
 
 }
