@@ -11,6 +11,8 @@ import {AdditionalInformationComponent} from './profile-viewer/additional-inform
 import {DialogExperienceComponent} from './profile-creator/dialog-experience/dialog-experience.component';
 import {DialogSkillsComponent} from './profile-creator/dialog-skills/dialog-skills.component';
 import {InterestsComponent} from './profile-viewer/interests/interests.component';
+import { DialogAdicionalInfoComponent } from './profile-creator/dialog-adicional-info/dialog-adicional-info.component';
+
 
 
 const routes: Routes = [
@@ -34,6 +36,7 @@ export class ProfileRoutingModule {
     SkillsComponent,
     DialogExperienceComponent,
     DialogSkillsComponent,
-    InterestsComponent
+    InterestsComponent,
+    DialogAdicionalInfoComponent
   ];
 }

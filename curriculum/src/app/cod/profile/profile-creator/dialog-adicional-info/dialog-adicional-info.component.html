@@ -1,0 +1,144 @@
+<h1 mat-dialog-title>Adicional Info</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Type</mat-label>
+    <mat-select [(value)]="typeAdicionalInfo" required [errorStateMatcher]="matcher">
+      <mat-select-trigger>{{typeAdicionalInfo}}</mat-select-trigger>
+      <mat-option value="Hobbies">
+        <i class="fas fa-running"></i>
+        Hobbies
+      </mat-option>
+      <mat-option value="Projects">
+        <i class="far fa-newspaper"></i>
+        Projects
+      </mat-option>
+      <mat-option value="Certificates">
+        <i class="fas fa-certificate"></i>
+        Certificates
+      </mat-option>
+      <mat-option value="Interests">
+        <i class="fas fa-suitcase-rolling"></i>
+        Interests
+      </mat-option>
+      <mat-option value="Others">
+        <i class="fas fa-ellipsis-h"></i>
+        Others
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div *ngIf="typeAdicionalInfo ==='Hobbies'">
+    <form [formGroup]="hobbyForm" (submit)="submitAdicionalInfo()">
+      <mat-form-field>
+        <mat-label>Hobby Name</mat-label>
+        <input id="hobbyName" matInput formControlName="hobby" required [errorStateMatcher]="matcher">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input id="description" matInput formControlName="description" [errorStateMatcher]="matcher"
+          matTooltip="Write some details about your hobby.">
+      </mat-form-field>
+      <div class="buttonDiv">
+        <button class="btn btn-warning roundedButton cod-cursor">Add</button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="typeAdicionalInfo ==='Projects'">
+    <form [formGroup]="projectForm" (submit)="submitAdicionalInfo()">
+      <mat-form-field>
+        <mat-label>Type</mat-label>
+        <mat-select [(value)]="projectType" required formControlName="projectType" [errorStateMatcher]="matcher">
+          <mat-option *ngFor="let type of projectTypeList" value={{type}}>
+            {{type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Scope</mat-label>
+        <input id="projectScope" matInput formControlName="projectScope" required [errorStateMatcher]="matcher">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Project Name</mat-label>
+        <input id="projectName" matInput formControlName="projectName" required [errorStateMatcher]="matcher">
+      </mat-form-field>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="datesSmaller">
+            <mat-label>Start Date</mat-label>
+            <input type="text" formControlName="startDate" id="startDate" required matInput
+              [errorStateMatcher]="matcher" class="form-control" [bsConfig]="bsConfig" #dp="bsDatepicker" bsDatepicker>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="datesSmaller">
+            <mat-label>End Date</mat-label>
+            <input type="text" formControlName="endDate" id="endData" required matInput [errorStateMatcher]="matcher"
+              class="form-control" [bsConfig]="bsConfig2" #dp="bsDatepicker" bsDatepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-form-field>
+        <mat-label>Detailed Description</mat-label>
+        <textarea matInput formControlName="projectDescription" required [errorStateMatcher]="matcher"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input type="text" placeholder="Technologies" matInput [formControl]="autoCompleteControl"
+          [matAutocomplete]="auto" (keyup.enter)="addTechnology()">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let technology of filteredOptions | async" [value]="technology"
+            (click)="addTechnology(technology)">
+            {{technology}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <br>
+      <div *ngIf="technologiesUsed.length>0">
+        <span class="badge badge-pill badge-secondary" *ngFor="let tecnhonolyName of technologiesUsed">
+          {{tecnhonolyName|titlecase}}
+          <img (click)="removeBadge(tecnhonolyName)" class="cod-cursor" id="deleteSpan"
+            src="../../../../../assets/fechar.png">
+        </span>
+      </div>
+      <div class="buttonDiv">
+        <div class="datesSmaller">
+          <button class="btn btn-warning roundedButton cod-cursor">Add</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="typeAdicionalInfo ==='Certificates'">
+    <form [formGroup]="certificateForm" (submit)="submitAdicionalInfo()">
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input id="titleCertification" matInput formControlName="title" required [errorStateMatcher]="matcher">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Issuing Entity</mat-label>
+        <input id="issuingEntity" matInput formControlName="entity" required [errorStateMatcher]="matcher">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Grade</mat-label>
+        <input id="grade" matInput formControlName="grade">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Issue Date</mat-label>
+        <input type="issueDate" formControlName="issueDate" id="endData" required matInput [errorStateMatcher]="matcher"
+          class="form-control" [bsConfig]="bsConfig3" #dp="bsDatepicker" bsDatepicker>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input id="description" matInput formControlName="description" [errorStateMatcher]="matcher">
+      </mat-form-field>
+      <div class="buttonDiv">
+        <button class="btn btn-warning roundedButton cod-cursor">Add</button>
+      </div>
+    </form>
+  </div>
+</div>

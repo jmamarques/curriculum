@@ -16,6 +16,8 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {NgCircleProgressModule} from 'ng-circle-progress';
 import {ComponentsModule} from '../../shared/components/components.module';
 import {RatingModule} from 'ngx-bootstrap/rating';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 
 @NgModule({
   declarations: [ProfileRoutingModule.components],
@@ -36,7 +38,8 @@ import {RatingModule} from 'ngx-bootstrap/rating';
     NgCircleProgressModule.forRoot(),
     ComponentsModule,
     RatingModule,
-    RatingModule.forRoot()
+    RatingModule.forRoot(),
+    MatAutocompleteModule
   ],
   providers: [{
     provide: STEPPER_GLOBAL_OPTIONS,

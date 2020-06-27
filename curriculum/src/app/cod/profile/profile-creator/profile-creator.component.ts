@@ -9,6 +9,8 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { UserProfileExperienceData } from 'src/app/shared/interfaces/user-profile-experience-data';
 import { DialogSkillsComponent } from './dialog-skills/dialog-skills.component';
 import { SkillsData } from 'src/app/shared/interfaces/skills-data';
+import { DialogAdicionalInfoComponent } from './dialog-adicional-info/dialog-adicional-info.component';
+import { AdicionalInfoData } from 'src/app/shared/interfaces/adicional-info-data';
 
 @Component({
   selector: 'cod-profile-creator',
@@ -16,10 +18,11 @@ import { SkillsData } from 'src/app/shared/interfaces/skills-data';
   styleUrls: ['./profile-creator.component.scss']
 })
 export class ProfileCreatorComponent implements OnInit {
+  DIALOG_WIDTH: string = '450';
 
-/* **************Profile Details Variables**************** */
-/* ****************************************************** */
-/* ***************************************************** */
+  /* **************Profile Details Variables**************** */
+  /* ****************************************************** */
+  /* ***************************************************** */
 
   matcher = new MyErrorStateMatcher();
   profileDetailsForm: FormGroup;
@@ -41,15 +44,20 @@ export class ProfileCreatorComponent implements OnInit {
   //List Of Boolean VAriables for stepper Error Controller
   formProfileDetailsValid = true;
 
-/* **************Experience User Variables**************** */
-/* ****************************************************** */
-/* ***************************************************** */
-  userExperienceArray: UserProfileExperienceData [] = [];
+  /* **************Experience User Variables**************** */
+  /* ****************************************************** */
+  /* ***************************************************** */
+  userExperienceArray: UserProfileExperienceData[] = [];
 
   /* **************Skill User Variables**************** */
-/* *************************************************** */
-/* ************************************************** */
-skillListUser: SkillsData [] = [];
+  /* *************************************************** */
+  /* ************************************************** */
+  skillListUser: SkillsData[] = [];
+
+  /* **************Adicional Info User Variables**************** */
+  /* ************************************************************ */
+  /* *********************************************************** */
+  adicionalInfoList: AdicionalInfoData[] = [];
 
   constructor(private formBuilder: FormBuilder, public dialog: MatDialog) { }
   ngOnInit(): void {
@@ -108,12 +116,12 @@ skillListUser: SkillsData [] = [];
 
   openExperienceDialog() {
     const dialog = this.dialog.open(DialogExperienceComponent);
-     dialog.afterClosed().subscribe(result => {
+    dialog.afterClosed().subscribe(result => {
       console.warn('Added new Experience of User');
-      if (result ) {
+      if (result) {
         if (result.indexOnListSource) {
-           this.userExperienceArray[result.indexOnListSource]= result;
-        }else{
+          this.userExperienceArray[result.indexOnListSource] = result;
+        } else {
           this.userExperienceArray.push(result);
         }
       }
@@ -121,18 +129,18 @@ skillListUser: SkillsData [] = [];
     console.warn(this.userExperienceArray);
   }
 
-  editExperienceDialog(index:number){
+  editExperienceDialog(index: number) {
     const experienceUserToSend = this.userExperienceArray[index];
     experienceUserToSend.indexOnListSource = index;
-    const dialog = this.dialog.open(DialogExperienceComponent, { data: experienceUserToSend});
+    const dialog = this.dialog.open(DialogExperienceComponent, { data: experienceUserToSend });
     dialog.afterClosed().subscribe(result => {
-         this.userExperienceArray[result.indexOnListSource] = result
-   });
+      this.userExperienceArray[result.indexOnListSource] = result
+    });
   }
 
-  openSkillDialog(){
+  openSkillDialog() {
     const dialog = this.dialog.open(DialogSkillsComponent);
-    dialog.afterClosed().subscribe(result =>{
+    dialog.afterClosed().subscribe(result => {
       if (result) {
         this.skillListUser.push(result);
       }
@@ -140,22 +148,33 @@ skillListUser: SkillsData [] = [];
     });
   }
 
-  editSkillDialog(index:number){
+  openAdicionalInfoDialog() {
+    const dialog = this.dialog.open(DialogAdicionalInfoComponent, {
+      width: this.DIALOG_WIDTH +'px',
+    });
+    dialog.afterClosed().subscribe(result => {
+      if (result) {
+        this.adicionalInfoList.push(result);
+      }
+    });
+  }
+
+  editSkillDialog(index: number) {
     const skillToEdit = this.skillListUser[index];
-    const dialog = this.dialog.open(DialogSkillsComponent,{data:skillToEdit});
-    dialog.afterClosed().subscribe(result =>{
+    const dialog = this.dialog.open(DialogSkillsComponent, { data: skillToEdit });
+    dialog.afterClosed().subscribe(result => {
       if (result) {
         this.skillListUser[index] = result;
       }
     });
   }
 
-  deleteSkill(index:number){
-    this.skillListUser.splice(index,1);
+  deleteSkill(index: number) {
+    this.skillListUser.splice(index, 1);
   }
 
-  deleteExperience(index:number){
-    this.userExperienceArray.splice(index,1);
+  deleteExperience(index: number) {
+    this.userExperienceArray.splice(index, 1);
   }
 
   removeBadge(socialName: string) {
@@ -172,7 +191,7 @@ skillListUser: SkillsData [] = [];
   }
 
   checkAllUserDetails(): void {
-    let result : boolean = true;
+    let result: boolean = true;
     for (const elem in this.profileDetailsForm.controls) {
       result = result && this.profileDetailsForm.controls[elem].valid;
     }

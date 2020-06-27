@@ -245,10 +245,24 @@
         <button matStepperNext class="btn roundedButton float-right">Next</button>
       </mat-step>
       <mat-step label="Adicional Info" state="adicionalInfo">
-        <div>
-          <button matStepperPrevious class="btn roundedButton">Back</button>
-          <button matStepperNext class="btn roundedButton">Next</button>
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h2 class="card-title text-center">Adicional Info</h2>
+                <p class="card-text mb-2 text-muted text-center">
+                  Let us Know more about you. Share with us, your <b>Hobbies</b>,<b>Projects</b>,<b>Interests</b>,<b>Certificates</b> or other information
+                </p>
+                <button class="btn roundedButton centerButtons" (click)="openAdicionalInfoDialog()">
+                  <mat-icon>add</mat-icon>
+                  <span class="allignTextWithIcon"> Add Adicional Info</span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+          <button matStepperPrevious class="btn roundedButton float-left">Back</button>
+          <button matStepperNext class="btn roundedButton float-right">Next</button>
       </mat-step>
       <!-- Icon overrides. -->
       <ng-template matStepperIcon="user">

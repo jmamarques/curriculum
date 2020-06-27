@@ -1,0 +1,45 @@
+i {
+  width: 30px;
+}
+.buttonDiv {
+  text-align: center;
+  margin: auto;
+  margin-top: 7%;
+}
+.buttonDiv button {
+  width: 150px;
+}
+::ng-deep .datesSmaller .mat-form-field-wrapper {
+  width: 150px !important;
+}
+.col .btn {
+  margin-bottom: 0px;
+}
+
+/* **************CSS for Technologies Spans**************** */
+/* ********************************************************* */
+/* ******************************************************** */
+
+span img:nth-child(1) {
+  width: 25px;
+  margin-right: 5%;
+}
+#deleteSpan {
+  width: 16px;
+  vertical-align: middle;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 2.5px;
+}
+span {
+  margin-right: 2%;
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+.badge-secondary {
+  background-color: #c0c0c0;
+}
+
