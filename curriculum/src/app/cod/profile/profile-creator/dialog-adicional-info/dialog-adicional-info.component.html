@@ -136,6 +136,22 @@
         <mat-label>Description</mat-label>
         <input id="description" matInput formControlName="description" [errorStateMatcher]="matcher">
       </mat-form-field>
+      <div (click)="hiddenfileinput.click()">
+        <button type="button" class="roundedButton btn btn-warning cod-cursor">
+          <i class="fas fa-upload"></i>
+          Attach Document
+        </button>
+        <input type="file" #file class="inputFile" #hiddenfileinput (change)="preview(file.files)">
+      </div>
+      <br>
+      <p *ngIf="filePath; else showNoneFile">
+        You have attached the file <b>{{filePath[0].name}}</b>
+      </p>
+      <ng-template #showNoneFile>
+        <p>
+          You have none Attached file.
+        </p>
+      </ng-template>
       <div class="buttonDiv">
         <button class="btn btn-warning roundedButton cod-cursor">Add</button>
       </div>

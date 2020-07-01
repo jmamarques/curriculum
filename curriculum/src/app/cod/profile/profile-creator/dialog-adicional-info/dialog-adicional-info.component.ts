@@ -30,6 +30,8 @@ export class DialogAdicionalInfoComponent implements OnInit {
   technologiesUsed : string[] = [];
   autoCompleteControl = new FormControl();
   filteredOptions: Observable<string[]>;
+  fileToUpload: any;
+  filePath : any;
 
   constructor(private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<DialogAdicionalInfoComponent>,
@@ -93,6 +95,20 @@ export class DialogAdicionalInfoComponent implements OnInit {
 
   submitAdicionalInfo(){
     this.dialogRef.close();
+  }
+  preview(files: any) {
+    if (files.length === 0) {
+      return;
+    }
+
+    const reader = new FileReader();
+    this.filePath= files;
+    reader.readAsDataURL(files[0]);
+    reader.onload = () => {
+      this.fileToUpload = reader.result;
+    };
+    console.warn(files);
+    console.warn(this.fileToUpload);
   }
 
 }
