@@ -1,0 +1,116 @@
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.group-card {
+  display: flex;
+}
+
+mat-card {
+  background: white;
+  //min-width: 400px;
+  border-radius: 1rem;
+  //padding: 1.5rem;
+  box-shadow: 3px 3px 12px 2px rgba(black, 0.6);
+  transition: 0.2s;
+  padding: 0 !important;
+
+  mat-card-header {
+    border-radius: 1rem;
+    padding: 1.6rem 1rem;
+    color: #fff;
+    text-align: center;
+    //background: linear-gradient(40deg, #ffa29c, #ff4352) !important;
+    background: linear-gradient(40deg, #f8cca8, #ff8a47) !important;
+    //background: linear-gradient(40deg, #45cafc, #303f9f) !important;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  mat-card-content {
+    text-align: justify;
+    padding: 1.5rem;
+  }
+}
+
+mat-card:not(:first-child) {
+  //margin-left: -2rem;
+}
+
+//mat-card:not(:last-child):hover,
+//mat-card:not(:last-child):focus-within {
+mat-card:hover,
+mat-card:focus-within {
+  transform: translateY(-1rem);
+
+  ~ mat-card {
+    //transform: translateX(2rem);
+  }
+}
+
+/** BUTTON SWIPE **/
+
+.btn-swipe {
+  background-color: initial;
+  color: lightslategrey;
+  border: none;
+  text-decoration: none;
+
+  i {
+    opacity: 0;
+  }
+
+  &:hover {
+    i {
+      opacity: 1;
+    }
+
+    color: lightslategrey;
+    //border: 1px solid lightslategrey;
+    transition: all ease-in 0.3s;
+  }
+}
+
+/** **/
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.30);
+  //overflow-x: hidden;
+  transition: 0.5s;
+
+  .overlay-content {
+    position: relative;
+    top: 8%;
+
+    .page {
+      overflow: auto;
+    }
+  }
+}
+
+.closebtn {
+  color: whitesmoke;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+

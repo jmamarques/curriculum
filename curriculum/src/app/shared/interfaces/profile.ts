@@ -21,6 +21,7 @@ export interface Profile {
   experiences: Experience[];
   skills: Skill[];
   interests: Interest[];
+  projects: Project[];
 }
 
 export interface SocialLinks {
@@ -54,3 +55,11 @@ export interface Interest {
   type: InterestEnum;
 }
 
+export interface Project {
+  date: Date;
+  description: string;
+  title: string;
+  file?: { mime: string; data: string; };
+  fileName?: string;
+  url?: string;
+}

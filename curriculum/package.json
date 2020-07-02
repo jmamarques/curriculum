@@ -37,6 +37,7 @@
     "immutable": "^4.0.0-rc.12",
     "moment": "^2.25.3",
     "ng-circle-progress": "^1.5.1",
+    "ng2-pdf-viewer": "^6.3.2",
     "ngx-auto-unsubscribe": "^3.0.1",
     "ngx-bootstrap": "^5.5.0",
     "ngx-page-scroll": "^7.0.1",

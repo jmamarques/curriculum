@@ -17,6 +17,7 @@ import {NgCircleProgressModule} from 'ng-circle-progress';
 import {ComponentsModule} from '../../shared/components/components.module';
 import {RatingModule} from 'ngx-bootstrap/rating';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {PdfViewerModule} from 'ng2-pdf-viewer';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     ComponentsModule,
     RatingModule,
     RatingModule.forRoot(),
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    PdfViewerModule
   ],
   providers: [{
     provide: STEPPER_GLOBAL_OPTIONS,

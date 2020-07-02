@@ -1,15 +1,41 @@
-<button (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic"
-        class="btn btn-primary" type="button">Toggle collapse
-</button>
-<div (collapsed)="collapsed()"
-     (collapses)="collapses()"
-     (expanded)="expanded()"
-     (expands)="expands()"
-     [collapse]="isCollapsed"
-     [isAnimated]="true"
-     id="collapseEvent">
+<div class="container row group-card">
+  <div *ngFor="let project of profile?.projects" class="col-lg-4 col-md-6 mt-1 mb-1">
+    <mat-card>
 
-  <div class="well well-lg card card-block card-header">
-    Portofolio
+      <mat-card-header>
+        <mat-card-title>{{project?.title}}</mat-card-title>
+        <mat-card-subtitle>
+          <i class="fas fa-calendar-day"></i>
+          {{project?.date | date: 'short'}}
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>{{project?.description}}</mat-card-content>
+      <hr class="w-75">
+      <div class="d-flex justify-content-center mb-2">
+        <a
+          *ngIf="project?.url"
+          [href]="project.url"
+          class="btn-swipe cod-cursor"
+          target="_blank">
+          Link
+          <i class="fas fa-forward cod-cursor"></i>
+        </a>
+        <a
+          (click)="preview(project.file)"
+          *ngIf="project?.file"
+          class="btn-swipe cod-cursor"
+        >
+          Preview
+          <i class="fas fa-search-plus cod-cursor"></i>
+        </a>
+      </div>
+    </mat-card>
   </div>
 </div>
+<!--<div #preview class="overlay" (click)="preview.style.width = '0%'">
+  <div class="closebtn" (click)="preview.style.width = '0%'">&times;</div>
+  <div class="overlay-content container">
+    <pdf-viewer [src]="previewSrc"></pdf-viewer>
+  </div>
+</div>-->
