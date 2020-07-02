@@ -1,3 +1,22 @@
 hr {
   border-bottom: 1px solid #e6e9ec;
 }
+
+.headings {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 2em 0;
+}
+
+.title {
+  margin: 0;
+}
+
+.hr {
+  display: block;
+  flex: 1;
+  margin: 0 30px;
+  height: 3px;
+  background: #D4D4D4;
+}
