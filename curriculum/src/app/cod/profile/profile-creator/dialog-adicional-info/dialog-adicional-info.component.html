@@ -85,6 +85,11 @@
       </mat-form-field>
       <br>
       <mat-form-field>
+        <mat-label>URL</mat-label>
+        <input id="urlProject" matInput formControlName="urlLink"  [errorStateMatcher]="matcher">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
         <input type="text" placeholder="Technologies" matInput [formControl]="autoCompleteControl"
           [matAutocomplete]="auto" (keyup.enter)="addTechnology()">
         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
@@ -152,6 +157,45 @@
           You have none Attached file.
         </p>
       </ng-template>
+      <div class="buttonDiv">
+        <button type="submit" class="btn btn-warning roundedButton cod-cursor">Add</button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="typeAdicionalInfo ==='Interests'">
+    <form [formGroup]="interestForm" (submit)="submitAdicionalInfo()">
+      <mat-form-field>
+        <mat-label>Interest Name</mat-label>
+        <input id="interestName" matInput formControlName="interestName" required [errorStateMatcher]="matcher">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input id="description" matInput formControlName="description" [errorStateMatcher]="matcher"
+          matTooltip="Write some details about your interest.">
+      </mat-form-field>
+      <div class="buttonDiv">
+        <button class="btn btn-warning roundedButton cod-cursor">Add</button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="typeAdicionalInfo ==='Others'">
+    <form [formGroup]="othersForm" (submit)="submitAdicionalInfo()">
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input id="title" matInput formControlName="title" required [errorStateMatcher]="matcher">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input id="description" matInput formControlName="description" [errorStateMatcher]="matcher"
+          matTooltip="Write a brief description about it.">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>URL</mat-label>
+        <input id="urlOthers" matInput formControlName="urlLink" [errorStateMatcher]="matcher">
+      </mat-form-field>
       <div class="buttonDiv">
         <button class="btn btn-warning roundedButton cod-cursor">Add</button>
       </div>

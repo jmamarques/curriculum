@@ -261,6 +261,181 @@
             </div>
           </div>
         </div>
+        <div class="headings" *ngIf="hobbiesList.length>0">
+          <span class="hr"></span>
+          <h2 class="title">Hobbies:</h2>
+          <span class="hr"></span>
+        </div>
+         <div class="row">
+          <div class="col-sm-4" *ngFor="let hobbyElement of hobbiesList; index as i">
+            <div class="card">
+              <div class="card-body">
+                <div>
+                  <p>
+                    <i class="fas fa-running"></i>
+                    <b>Hobby: </b>{{hobbyElement.hobby}}
+                  </p>
+                  <p>
+                    <i class="fas fa-align-left"></i>
+                    <b>Description: </b>{{hobbyElement.description}}
+                  </p>
+                  <button class="btn roundedButton float-right editButton" id="removeButton" matTooltip="Delete" (click)="deleteSkill(i)">
+                    <mat-icon class="editIcon">delete</mat-icon>
+                  </button>
+                  <button class="btn roundedButton float-right editButton" matTooltip="Edit" (click)="editSkillDialog(i)">
+                    <mat-icon class="editIcon">edit</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="headings" *ngIf="projectsList.length>0">
+          <span class="hr"></span>
+          <h2 class="title">Projects:</h2>
+          <span class="hr"></span>
+        </div>
+         <div class="row">
+          <div class="col-sm-6" *ngFor="let project of projectsList; index as i">
+            <div class="card">
+              <div class="card-body">
+                <div>
+                  <p>
+                    <b>Name: </b>{{project.projectName}}
+                  </p>
+                  <p>
+                    <b>Type: </b>{{project.projectType}}
+                  </p>
+                  <p>
+                    <b>Scope: </b>{{project.projectScope}}
+                  </p>
+                  <p>
+                    <b>Description: </b>{{project.projectDescription}}
+                  </p>
+                  <p>
+                    <b>Period: </b>From: {{project.startDate|date}} To: {{project.endDate|date}}
+                  </p>
+                  <p>
+                    <b>Tecnhologies: </b>
+                    <span *ngFor="let tecnhology of project.tecnhologies">
+                      {{tecnhology}}
+                    </span>
+                  </p>
+                  <p *ngIf="project.urlLink">
+                    <a href="{{project.urlLink}}">Link</a>
+                  </p>
+                  <button class="btn roundedButton float-right editButton" id="removeButton" matTooltip="Delete" (click)="deleteSkill(i)">
+                    <mat-icon class="editIcon">delete</mat-icon>
+                  </button>
+                  <button class="btn roundedButton float-right editButton" matTooltip="Edit" (click)="editSkillDialog(i)">
+                    <mat-icon class="editIcon">edit</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="headings" *ngIf="certificatesList.length>0">
+          <span class="hr"></span>
+          <h2 class="title">Certificates:</h2>
+          <span class="hr"></span>
+        </div>
+         <div class="row">
+          <div class="col-sm-6" *ngFor="let certificate of certificatesList; index as i">
+            <div class="card">
+              <div class="card-body">
+                <div>
+                  <p>
+                    <b>Title: </b>{{certificate.title}}
+                  </p>
+                  <p>
+                    <b>Entity: </b>{{certificate.entity}}
+                  </p>
+                  <p>
+                    <b>Issue Date: </b>{{certificate.issueDate |date}}
+                  </p>
+                  <p>
+                    <b>Grade: </b>{{certificate.grade}}
+                  </p>
+                  <p>
+                    <b>Description: </b>{{certificate.description}}
+                  </p>
+                  <p>
+                    <b>Attachment: </b>{{certificate.file[0].name}}
+                  </p>
+                  <button class="btn roundedButton float-right editButton" id="removeButton" matTooltip="Delete" (click)="deleteSkill(i)">
+                    <mat-icon class="editIcon">delete</mat-icon>
+                  </button>
+                  <button class="btn roundedButton float-right editButton" matTooltip="Edit" (click)="editSkillDialog(i)">
+                    <mat-icon class="editIcon">edit</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="headings" *ngIf="interestsList.length>0">
+          <span class="hr"></span>
+          <h2 class="title">Interests:</h2>
+          <span class="hr"></span>
+        </div>
+         <div class="row">
+          <div class="col-sm-6" *ngFor="let interest of interestsList; index as i">
+            <div class="card">
+              <div class="card-body">
+                <div>
+                  <p>
+                    <i class="fas fa-clipboard-list"></i>
+                    <b>Interest: </b>{{interest.interestName}}
+                  </p>
+                  <p>
+                    <i class="fas fa-align-left"></i>
+                    <b>Description: </b>{{interest.description}}
+                  </p>
+                  <button class="btn roundedButton float-right editButton" id="removeButton" matTooltip="Delete" (click)="deleteSkill(i)">
+                    <mat-icon class="editIcon">delete</mat-icon>
+                  </button>
+                  <button class="btn roundedButton float-right editButton" matTooltip="Edit" (click)="editSkillDialog(i)">
+                    <mat-icon class="editIcon">edit</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="headings" *ngIf="othersList.length>0">
+          <span class="hr"></span>
+          <h2 class="title">Others:</h2>
+          <span class="hr"></span>
+        </div>
+         <div class="row">
+          <div class="col-sm-4" *ngFor="let otherElement of othersList; index as i">
+            <div class="card">
+              <div class="card-body">
+                <div>
+                  <p>
+                    <i class="fas fa-ellipsis-h"></i>
+                    <b>Title: </b>{{otherElement.title}}
+                  </p>
+                  <p>
+                    <i class="fas fa-align-left"></i>
+                    <b>Description: </b>{{otherElement.description}}
+                  </p>
+                  <p>
+                    <i class="fas fa-link"></i>
+                   <a href="{{otherElement.urlLink}}" class="cod-cursor"> <b>Link</b></a>
+                  </p>
+                  <button class="btn roundedButton float-right editButton" id="removeButton" matTooltip="Delete" (click)="deleteSkill(i)">
+                    <mat-icon class="editIcon">delete</mat-icon>
+                  </button>
+                  <button class="btn roundedButton float-right editButton" matTooltip="Edit" (click)="editSkillDialog(i)">
+                    <mat-icon class="editIcon">edit</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
           <button matStepperPrevious class="btn roundedButton float-left">Back</button>
           <button matStepperNext class="btn roundedButton float-right">Next</button>
       </mat-step>
@@ -281,6 +456,5 @@
         <mat-icon> add_comment</mat-icon>
       </ng-template>
     </mat-horizontal-stepper>
-
   </div>
 </div>

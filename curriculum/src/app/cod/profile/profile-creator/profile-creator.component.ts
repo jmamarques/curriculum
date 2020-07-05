@@ -10,7 +10,7 @@ import { UserProfileExperienceData } from 'src/app/shared/interfaces/user-profil
 import { DialogSkillsComponent } from './dialog-skills/dialog-skills.component';
 import { SkillsData } from 'src/app/shared/interfaces/skills-data';
 import { DialogAdicionalInfoComponent } from './dialog-adicional-info/dialog-adicional-info.component';
-import { AdicionalInfoData } from 'src/app/shared/interfaces/adicional-info-data';
+import { AdicionalInfoHobby, AdicionalInfoProject, AdicionalInfoCertificate, AdicionalInfoInterests, AdicionalInfoOthers } from 'src/app/shared/interfaces/adicional-info-data';
 
 @Component({
   selector: 'cod-profile-creator',
@@ -57,7 +57,12 @@ export class ProfileCreatorComponent implements OnInit {
   /* **************Adicional Info User Variables**************** */
   /* ************************************************************ */
   /* *********************************************************** */
-  adicionalInfoList: AdicionalInfoData[] = [];
+  adicionalInfoList:  any [] = [];
+  hobbiesList: AdicionalInfoHobby []  = [];
+  projectsList: AdicionalInfoProject [] = [];
+  certificatesList: AdicionalInfoCertificate [] = [];
+  interestsList : AdicionalInfoInterests [] =[];
+  othersList :AdicionalInfoOthers [] = [];
 
   constructor(private formBuilder: FormBuilder, public dialog: MatDialog) { }
   ngOnInit(): void {
@@ -154,10 +159,28 @@ export class ProfileCreatorComponent implements OnInit {
     });
     dialog.afterClosed().subscribe(result => {
       if (result) {
+        console.warn(result);
         this.adicionalInfoList.push(result);
+        if (result.type === "Hobbies") {
+          this.hobbiesList.push(result);
+        }
+        if (result.type === "Projects") {
+          this.projectsList.push(result);
+        }
+        if (result.type ==="Certificates") {
+          this.certificatesList.push(result);
+        }
+        if (result.type==="Interests") {
+          this.interestsList.push(result);
+        }
+        if (result.type ==="Others") {
+          this.othersList.push(result);
+        }
       }
     });
   }
+
+
 
   editSkillDialog(index: number) {
     const skillToEdit = this.skillListUser[index];
