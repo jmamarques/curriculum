@@ -2,26 +2,44 @@ import {ExperienceEnum} from '../enums/experience.enum';
 import {RoleEnum} from '../enums/role';
 import {SkillEnum} from '../enums/skill.enum';
 import {InterestEnum} from '../enums/interest.enum';
+import { SocialData } from './social-data';
 
 export interface Profile {
-  // Personal Profile
-  profilePic: string;
-  curriculum: string;
-  description: string;
-  role: string;
-  age: number;
-  phone: string;
-  nationality: string;
-  address: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  socialLinks: SocialLinks[];
+  firstName: string; //remove
+  lastName : string; //remove
+  userDetails: UserDetails;
   // end Personal Profile
-  experiences: Experience[];
+  experienceList: Experience[];
   skills: Skill[];
   interests: Interest[];
   projects: Project[];
+  hobbies : Hobby [];
+  certificates: Certificate [];
+  others: Other [];
+}
+
+export interface commonValue{
+  typeAdicional: string;
+}
+
+export interface Other extends commonValue{
+  title : string,
+  description : string,
+  urlLink : string
+}
+
+export interface Hobby extends commonValue{
+  hobby: string;
+  description: string;
+}
+
+export interface Certificate extends commonValue{
+  title: string;
+  entity: string;
+  grade: string,
+  issueDate: string,
+  description: string
+  file: File
 }
 
 export interface SocialLinks {
@@ -31,8 +49,9 @@ export interface SocialLinks {
 }
 
 export interface Experience {
+  type:string;
   title: string;
-  beginDate: Date;
+  startDate: Date;
   endDate: Date | null;
   description: string;
   organization: string;
@@ -40,26 +59,43 @@ export interface Experience {
     country: string; city: string;
   };
   experience: ExperienceEnum;
-  role: RoleEnum;
   data?: any;
+  currentSituation : boolean;
+  customRole?: string;
 }
 
 export interface Skill {
-  rating: number;
+  percentage: number;
   name: string;
   type: SkillEnum;
 }
 
-export interface Interest {
+export interface Interest extends commonValue{
   name: string;
   type: InterestEnum;
+  description: string;
 }
 
-export interface Project {
-  date: Date;
+export interface Project extends commonValue{
+  name: string;
+  type: string;
   description: string;
-  title: string;
-  file?: { mime: string; data: string; };
-  fileName?: string;
-  url?: string;
+  scope : string;
+  startDate: string;
+  endDate: string;
+  urlLink: string;
+  tecnhologies: string[]
+}
+
+export interface UserDetails{
+  firstName: string,
+  lastName:string,
+  email:string,
+  phone:string,
+  adress:string,
+  birthDate:string,
+  country:string,
+  description:string,
+  socialList :SocialData [],
+  profileImage: File
 }

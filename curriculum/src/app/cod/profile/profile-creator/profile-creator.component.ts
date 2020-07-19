@@ -4,13 +4,9 @@ import { FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, Ng
 import { SocialData } from 'src/app/shared/interfaces/social-data';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogSocialNetworksComponent } from './dialog-social-networks/dialog-social-networks.component';
-import { DialogExperienceComponent } from './dialog-experience/dialog-experience.component';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { UserProfileExperienceData } from 'src/app/shared/interfaces/user-profile-experience-data';
-import { DialogSkillsComponent } from './dialog-skills/dialog-skills.component';
-import { SkillsData } from 'src/app/shared/interfaces/skills-data';
-import { DialogAdicionalInfoComponent } from './dialog-adicional-info/dialog-adicional-info.component';
-import { AdicionalInfoHobby, AdicionalInfoProject, AdicionalInfoCertificate, AdicionalInfoInterests, AdicionalInfoOthers } from 'src/app/shared/interfaces/adicional-info-data';
+import { Profile, UserDetails } from 'src/app/shared/interfaces/profile';
+import { CountriesService } from 'src/app/core/services/countries.service';
 
 @Component({
   selector: 'cod-profile-creator',
@@ -18,23 +14,14 @@ import { AdicionalInfoHobby, AdicionalInfoProject, AdicionalInfoCertificate, Adi
   styleUrls: ['./profile-creator.component.scss']
 })
 export class ProfileCreatorComponent implements OnInit {
-  DIALOG_WIDTH: string = '450';
-
+  profile = {} as Profile;
   /* **************Profile Details Variables**************** */
   /* ****************************************************** */
   /* ***************************************************** */
-
+  countryList:any = [];
   matcher = new MyErrorStateMatcher();
   profileDetailsForm: FormGroup;
-  //Countries List Variables
-  dropdown: any[] = [
-    { code: 'pt', country: 'Portugal' }, { code: 'ang', country: 'Angola' }, { code: 'monc', country: 'Monçabique' }, {
-      code: 'it',
-      country: 'Italy'
-    }
-  ];
-  // Value for Country DropDown
-  dropdownValue = 'countryList';
+
   //Image Variables
   imagePath: any;
   imgURL: any;
@@ -44,27 +31,7 @@ export class ProfileCreatorComponent implements OnInit {
   //List Of Boolean VAriables for stepper Error Controller
   formProfileDetailsValid = true;
 
-  /* **************Experience User Variables**************** */
-  /* ****************************************************** */
-  /* ***************************************************** */
-  userExperienceArray: UserProfileExperienceData[] = [];
-
-  /* **************Skill User Variables**************** */
-  /* *************************************************** */
-  /* ************************************************** */
-  skillListUser: SkillsData[] = [];
-
-  /* **************Adicional Info User Variables**************** */
-  /* ************************************************************ */
-  /* *********************************************************** */
-  adicionalInfoList:  any [] = [];
-  hobbiesList: AdicionalInfoHobby []  = [];
-  projectsList: AdicionalInfoProject [] = [];
-  certificatesList: AdicionalInfoCertificate [] = [];
-  interestsList : AdicionalInfoInterests [] =[];
-  othersList :AdicionalInfoOthers [] = [];
-
-  constructor(private formBuilder: FormBuilder, public dialog: MatDialog) { }
+  constructor(private formBuilder: FormBuilder, public dialog: MatDialog, public countryService : CountriesService) { }
   ngOnInit(): void {
     AOS.init({
       offset: 200,
@@ -85,6 +52,7 @@ export class ProfileCreatorComponent implements OnInit {
       description: ['', Validators.required],
     });
     this.imgURL = '../../../assets/profilepic.png';
+    this.countryList = this.countryService.getCountriesList();
   }
 
   preview(files: any) {
@@ -119,86 +87,7 @@ export class ProfileCreatorComponent implements OnInit {
     });
   }
 
-  openExperienceDialog() {
-    const dialog = this.dialog.open(DialogExperienceComponent);
-    dialog.afterClosed().subscribe(result => {
-      console.warn('Added new Experience of User');
-      if (result) {
-        if (result.indexOnListSource) {
-          this.userExperienceArray[result.indexOnListSource] = result;
-        } else {
-          this.userExperienceArray.push(result);
-        }
-      }
-    });
-    console.warn(this.userExperienceArray);
-  }
 
-  editExperienceDialog(index: number) {
-    const experienceUserToSend = this.userExperienceArray[index];
-    experienceUserToSend.indexOnListSource = index;
-    const dialog = this.dialog.open(DialogExperienceComponent, { data: experienceUserToSend });
-    dialog.afterClosed().subscribe(result => {
-      this.userExperienceArray[result.indexOnListSource] = result
-    });
-  }
-
-  openSkillDialog() {
-    const dialog = this.dialog.open(DialogSkillsComponent);
-    dialog.afterClosed().subscribe(result => {
-      if (result) {
-        this.skillListUser.push(result);
-      }
-
-    });
-  }
-
-  openAdicionalInfoDialog() {
-    const dialog = this.dialog.open(DialogAdicionalInfoComponent, {
-      width: this.DIALOG_WIDTH +'px',
-    });
-    dialog.afterClosed().subscribe(result => {
-      if (result) {
-        console.warn(result);
-        this.adicionalInfoList.push(result);
-        if (result.type === "Hobbies") {
-          this.hobbiesList.push(result);
-        }
-        if (result.type === "Projects") {
-          this.projectsList.push(result);
-        }
-        if (result.type ==="Certificates") {
-          this.certificatesList.push(result);
-        }
-        if (result.type==="Interests") {
-          this.interestsList.push(result);
-        }
-        if (result.type ==="Others") {
-          this.othersList.push(result);
-        }
-      }
-    });
-  }
-
-
-
-  editSkillDialog(index: number) {
-    const skillToEdit = this.skillListUser[index];
-    const dialog = this.dialog.open(DialogSkillsComponent, { data: skillToEdit });
-    dialog.afterClosed().subscribe(result => {
-      if (result) {
-        this.skillListUser[index] = result;
-      }
-    });
-  }
-
-  deleteSkill(index: number) {
-    this.skillListUser.splice(index, 1);
-  }
-
-  deleteExperience(index: number) {
-    this.userExperienceArray.splice(index, 1);
-  }
 
   removeBadge(socialName: string) {
     for (let index = 0; index < this.socialList.length; index++) {
@@ -209,8 +98,8 @@ export class ProfileCreatorComponent implements OnInit {
   }
 
   submitProfileDetails(): void {
-    console.warn('Submited Profile Details');
     this.checkAllUserDetails();
+    this.saveProfileDetails();
   }
 
   checkAllUserDetails(): void {
@@ -219,6 +108,19 @@ export class ProfileCreatorComponent implements OnInit {
       result = result && this.profileDetailsForm.controls[elem].valid;
     }
     this.formProfileDetailsValid = !result;
+  }
+
+  saveProfileDetails():void{
+    let userDetailsTemp : UserDetails;
+    userDetailsTemp = this.profileDetailsForm.value;
+    this.profile.userDetails = userDetailsTemp;
+    this.profile.userDetails.socialList = this.socialList;
+    this.profile.userDetails.profileImage = this.imagePath;
+  }
+
+  printCurrentProfile():void{
+    console.warn(this.profile);
+
   }
 }
 

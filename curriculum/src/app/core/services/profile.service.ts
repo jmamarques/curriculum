@@ -14,7 +14,7 @@ export class ProfileService {
   constructor() {
   }
 
-  getProfile(id: string | null): Observable<Profile> {
+  getProfile(id: string | null): Observable<any>| null {
     const profile = {
       profilePic: 'https://media-exp1.licdn.com/dms/image/C5603AQFTsMspZjkfhA/profile-displayphoto-shrink_200_200/0?e=1597276800&v=beta&t=BE4bN50cHmEaOo1s6FECdV0rwmFcGlIp63PcmYE6SCU',
       curriculum: 'base64forfileNotYetImplemented',
@@ -204,6 +204,6 @@ export class ProfileService {
         }
       ]
     };
-    return of(profile);
+    return null;
   }
 }

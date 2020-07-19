@@ -1,0 +1,46 @@
+.headings {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 2em 0;
+}
+
+.title {
+  margin: 0;
+}
+
+.hr {
+  display: block;
+  flex: 1;
+  margin: 0 30px;
+  height: 3px;
+  background: #D4D4D4;
+}
+
+//Center Buttons
+.centerButtons {
+  display: block;
+  margin: auto;
+}
+
+.allignTextWithIcon{
+  position: relative;
+  top: -5px;
+}
+b{
+  padding-left: 10px;
+  }
+
+  //Edit Button CSS
+.editButton{
+  width: 40px;
+  font-size: 15px;
+  background-color: lighten(orange,15%);
+  height: 30px;
+  padding: 0;
+  margin-left: 5px;
+}
+
+.editIcon{
+  transform: scale(0.7);
+}

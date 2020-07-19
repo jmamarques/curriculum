@@ -14,16 +14,16 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <form [formGroup]="experienceForm" (submit)="submitExperienceForm()">
+  <form [formGroup]="experienceForm" (submit)="submitEducationExperience()">
     <div *ngIf="typeExperience==='Education'">
       <mat-form-field>
         <mat-label>School</mat-label>
-        <input id="school" matInput formControlName="schoolName" required [errorStateMatcher]="matcher">
+        <input id="school" matInput formControlName="organization" required [errorStateMatcher]="matcher">
       </mat-form-field>
       <br>
       <mat-form-field>
         <mat-label>Degree</mat-label>
-        <input id="degreeType" matInput formControlName="degree" required [errorStateMatcher]="matcher">
+        <input id="degreeType" matInput formControlName="title" required [errorStateMatcher]="matcher">
       </mat-form-field>
       <br>
       <div class="row">
@@ -37,16 +37,16 @@
         <div class="col">
           <mat-form-field class="datesSmaller">
             <mat-label>End Date</mat-label>
-            <input type="text" formControlName="endDate" id="startDate2" required matInput [errorStateMatcher]="matcher"
-              class="form-control" [bsConfig]="bsConfig2" #dp="bsDatepicker" bsDatepicker>
+            <input type="text" formControlName="endDate" id="endDate" required matInput [errorStateMatcher]="matcher"
+              class="form-control" [bsConfig]="bsConfig" #dp="bsDatepicker" bsDatepicker>
           </mat-form-field>
         </div>
       </div>
-      <mat-checkbox formControlName="isActive">Current Situation </mat-checkbox>
+      <mat-checkbox formControlName="currentSituation">Current Situation </mat-checkbox>
       <br>
       <mat-form-field>
         <mat-label>Grade</mat-label>
-        <input id="grade" matInput formControlName="grade" required [errorStateMatcher]="matcher">
+        <input id="grade" matInput formControlName="customRole" required [errorStateMatcher]="matcher">
       </mat-form-field>
       <br>
       <mat-form-field>
@@ -67,12 +67,12 @@
     <form [formGroup]="experienceFormJob" (submit)="submitJobExperience()">
       <mat-form-field>
         <mat-label>Title</mat-label>
-        <input id="titleJob" matInput formControlName="titleJob" required [errorStateMatcher]="matcher">
+        <input id="titleJob" matInput formControlName="title" required [errorStateMatcher]="matcher">
       </mat-form-field>
       <br>
       <mat-form-field>
         <mat-label>Job Type</mat-label>
-        <mat-select [(value)]="jobType" required formControlName="jobType" [errorStateMatcher]="matcher">
+        <mat-select required formControlName="customRole" [errorStateMatcher]="matcher">
           <mat-option *ngFor="let typeEmployment of employmentTypeList" [value]="typeEmployment">
             {{typeEmployment}}
           </mat-option>
@@ -81,7 +81,7 @@
       <br>
       <mat-form-field>
         <mat-label>Company</mat-label>
-        <input id="companyName" matInput formControlName="companyName" required [errorStateMatcher]="matcher">
+        <input id="companyName" matInput formControlName="organization" required [errorStateMatcher]="matcher">
       </mat-form-field>
       <br>
       <mat-form-field>
@@ -93,23 +93,23 @@
         <div class="col">
           <mat-form-field class="datesSmaller">
             <mat-label>Start Date</mat-label>
-            <input type="text" formControlName="startDateJob" id="startDate3" required matInput
-              [errorStateMatcher]="matcher" class="form-control" [bsConfig]="bsConfig3" #dp="bsDatepicker" bsDatepicker>
+            <input type="text" formControlName="startDate" id="startDate3" required matInput
+              [errorStateMatcher]="matcher" class="form-control" [bsConfig]="bsConfig" #dp="bsDatepicker" bsDatepicker>
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field class="datesSmaller">
             <mat-label>End Date</mat-label>
-            <input type="text" formControlName="endDateJob" id="startDate4" required matInput [errorStateMatcher]="matcher"
-              class="form-control" [bsConfig]="bsConfig4" #dp="bsDatepicker" bsDatepicker>
+            <input type="text" formControlName="endDate" id="startDate4" required matInput [errorStateMatcher]="matcher"
+              class="form-control" [bsConfig]="bsConfig" #dp="bsDatepicker" bsDatepicker>
           </mat-form-field>
         </div>
       </div>
-      <mat-checkbox formControlName="isActiveJob">Current Situation </mat-checkbox>
+      <mat-checkbox formControlName="currentSituation">Current Situation </mat-checkbox>
       <br>
       <mat-form-field>
         <mat-label>Description:</mat-label>
-        <textarea matInput formControlName="descriptionJob" required [errorStateMatcher]="matcher"></textarea>
+        <textarea matInput formControlName="description" required [errorStateMatcher]="matcher"></textarea>
       </mat-form-field>
       <div class="buttonDiv">
         <button class="btn btn-warning roundedButton cod-cursor">Add</button>

@@ -2,10 +2,9 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroupDirective, NgForm, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogSocialNetworksComponent } from '../dialog-social-networks/dialog-social-networks.component';
-import { DialogData } from 'src/app/shared/interfaces/dialog-data';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { SkillsService } from 'src/app/core/services/skills.service';
-import { SkillsData } from 'src/app/shared/interfaces/skills-data';
+import { Skill } from 'src/app/shared/interfaces/profile';
 
 @Component({
   selector: 'cod-dialog-skills',
@@ -15,29 +14,29 @@ import { SkillsData } from 'src/app/shared/interfaces/skills-data';
 export class DialogSkillsComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   skillList: string[];
-  skillSelected: string;
   noSkillSelectedError: boolean = false;
-  contentSkillSelected: string;
-  bullets: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  bullets: number[] =[];
   selectedValue: number;
   skillForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<DialogSocialNetworksComponent>,
     private skillsService: SkillsService,
-    @Inject(MAT_DIALOG_DATA) public data: SkillsData,
+    @Inject(MAT_DIALOG_DATA) public data: Skill,
   ) { }
 
   ngOnInit(): void {
     this.skillList = this.skillsService.getSkillTypeList();
     this.skillForm = this.formBuilder.group({
-      skillType: [this.data? this.data.skillType:'', Validators.required],
-      skillName: [this.data? this.data.skillContent:'', Validators.required]
+      type: [this.data? this.data.type:'', Validators.required],
+      name: [this.data? this.data.name:'', Validators.required]
     });
     if (this.data) {
-      this.selectedValue = this.data.skillpercentage;
-      this.contentSkillSelected = this.data.skillContent;
-      this.skillSelected =  this.data.skillType;
+      this.selectedValue = this.data.percentage;
+    }
+    for (let index = 1; index <= 10; index++) {
+      this.bullets.push(index);
+
     }
   }
 
@@ -55,11 +54,9 @@ export class DialogSkillsComponent implements OnInit {
       this.noSkillSelectedError = true;
       return;
     }else{
-      let dialogDataSkill: SkillsData = {
-        skillType:this.skillSelected,
-        skillContent : this.contentSkillSelected,
-        skillpercentage: this.selectedValue
-      };
+      let dialogDataSkill : Skill= this.skillForm.value ;
+      dialogDataSkill.percentage = this.selectedValue;
+
       this.dialogRef.close(dialogDataSkill);
     }
   }

@@ -14,6 +14,7 @@ export class TechnologiesService {
   private issuesOpen = 'https://api.github.com/repos/jmamarques/curriculum/issues';
   private issuesClosed = 'https://api.github.com/repos/jmamarques/curriculum/issues?state=closed';
 
+  technologies: string[] = ['Java', 'Git', 'C#', 'Python'];
 
   constructor(private http: HttpClient) {
   }
@@ -36,6 +37,10 @@ export class TechnologiesService {
     let header  = new HttpHeaders();
     header.append('Access-Control-Allow-Origin','*');
     return header;
+  }
+
+  getTechnologiesList(): string[]{
+    return this.technologies;
   }
 
 

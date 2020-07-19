@@ -63,7 +63,6 @@
 </div>
 <div>
   <div class="container" id="section-1">
-
     <mat-horizontal-stepper>
       <mat-step label="Profile Details" [hasError]="formProfileDetailsValid" state="user">
         <form [formGroup]="profileDetailsForm" (submit)="submitProfileDetails()">
@@ -104,8 +103,8 @@
               <br>
               <mat-form-field>
                 <mat-label>Country</mat-label>
-                <mat-select [(value)]="dropdownValue" required formControlName="country" [errorStateMatcher]="matcher">
-                  <mat-option *ngFor="let item of dropdown" [value]="item.code">
+                <mat-select required formControlName="country" [errorStateMatcher]="matcher">
+                  <mat-option *ngFor="let item of countryList" [value]="item.code">
                     {{item.country}}
                   </mat-option>
                 </mat-select>
@@ -147,297 +146,19 @@
         </form>
       </mat-step>
       <mat-step label="Experience" state="experience">
-        <br>
-        <div class="row">
-          <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <h2 class="card-title text-center">Insert Here your Educational our Work Experience</h2>
-                <p class="card-text mb-2 text-muted text-center">Follow our Quickly Form and Show your Carrear to the
-                  world!</p>
-                <button class="btn roundedButton centerButtons" (click)="openExperienceDialog()">
-                  <mat-icon>add</mat-icon>
-                  <span class="allignTextWithIcon"> Add new Experience</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6" *ngFor="let userExperience of userExperienceArray; index as i">
-            <div class="card">
-              <div class="card-body">
-                <div class="text-nowrap header-left">
-                  {{userExperience.title}}: {{userExperience.typeExperience}}
-                </div>
-                <div>
-                  <p class="text-secondary">
-                    <i class="fas fa-calendar-alt"></i>
-                    {{userExperience.startDate| dateDuration: userExperience.endDate :'MMMM yyyy'}}
-                  </p>
-                  <p class="text-secondary">
-                    <i class="far fa-building"></i>
-                    {{userExperience.oranization}}
-                  </p>
-                  <p class="text-justify">{{userExperience.description}}</p>
-                  <button class="btn roundedButton float-right editButton" id="removeButton" matTooltip="Delete"
-                    (click)="deleteExperience(i)">
-                    <mat-icon class="editIcon">delete</mat-icon>
-                  </button>
-                  <button class="btn roundedButton float-right editButton" matTooltip="Edit"
-                    (click)="editExperienceDialog(i)">
-                    <mat-icon class="editIcon">edit</mat-icon>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br>
+        <cod-experience-stepper [profile]="profile"></cod-experience-stepper>
         <button matStepperPrevious class="btn roundedButton float-left">Back</button>
         <button matStepperNext class="btn roundedButton float-right">Next</button>
       </mat-step>
       <mat-step label="Skills" state="skills">
-        <div class="row">
-          <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <h2 class="card-title text-center">Insert your Skills</h2>
-                <p class="card-text mb-2 text-muted text-center">From Language Skills, to Technical Skills or Soft
-                  Skills.</p>
-                <button class="btn roundedButton centerButtons" (click)="openSkillDialog()">
-                  <mat-icon>add</mat-icon>
-                  <span class="allignTextWithIcon"> Add new Skill</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6" *ngFor="let skillUser of skillListUser; index as i">
-            <div class="card">
-              <div class="card-body">
-                <div>
-                  <p>
-                    <i class="fas fa-pencil-alt"></i>
-                    <b>Skill Type: </b>{{skillUser.skillType}}
-                  </p>
-                  <p>
-                    <i class="fas fa-percentage"></i>
-                    <b>Percentage: </b>{{skillUser.skillpercentage*10}}%
-                  </p>
-                  <p>
-                    <i class="fas fa-spell-check"></i>
-                    <b>Name: </b>{{skillUser.skillContent}}
-                  </p>
-                  <button class="btn roundedButton float-right editButton" id="removeButton" matTooltip="Delete" (click)="deleteSkill(i)">
-                    <mat-icon class="editIcon">delete</mat-icon>
-                  </button>
-                  <button class="btn roundedButton float-right editButton" matTooltip="Edit" (click)="editSkillDialog(i)">
-                    <mat-icon class="editIcon">edit</mat-icon>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <cod-skill-stepper [profile]="profile"></cod-skill-stepper>
         <button matStepperPrevious class="btn roundedButton float-left">Back</button>
         <button matStepperNext class="btn roundedButton float-right">Next</button>
       </mat-step>
       <mat-step label="Adicional Info" state="adicionalInfo">
-        <div class="row">
-          <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <h2 class="card-title text-center">Adicional Info</h2>
-                <p class="card-text mb-2 text-muted text-center">
-                  Let us Know more about you. Share with us, your <b>Hobbies</b>,<b>Projects</b>,<b>Interests</b>,<b>Certificates</b> or other information
-                </p>
-                <button class="btn roundedButton centerButtons" (click)="openAdicionalInfoDialog()">
-                  <mat-icon>add</mat-icon>
-                  <span class="allignTextWithIcon"> Add Adicional Info</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="headings" *ngIf="hobbiesList.length>0">
-          <span class="hr"></span>
-          <h2 class="title">Hobbies:</h2>
-          <span class="hr"></span>
-        </div>
-         <div class="row">
-          <div class="col-sm-4" *ngFor="let hobbyElement of hobbiesList; index as i">
-            <div class="card">
-              <div class="card-body">
-                <div>
-                  <p>
-                    <i class="fas fa-running"></i>
-                    <b>Hobby: </b>{{hobbyElement.hobby}}
-                  </p>
-                  <p>
-                    <i class="fas fa-align-left"></i>
-                    <b>Description: </b>{{hobbyElement.description}}
-                  </p>
-                  <button class="btn roundedButton float-right editButton" id="removeButton" matTooltip="Delete" (click)="deleteSkill(i)">
-                    <mat-icon class="editIcon">delete</mat-icon>
-                  </button>
-                  <button class="btn roundedButton float-right editButton" matTooltip="Edit" (click)="editSkillDialog(i)">
-                    <mat-icon class="editIcon">edit</mat-icon>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="headings" *ngIf="projectsList.length>0">
-          <span class="hr"></span>
-          <h2 class="title">Projects:</h2>
-          <span class="hr"></span>
-        </div>
-         <div class="row">
-          <div class="col-sm-6" *ngFor="let project of projectsList; index as i">
-            <div class="card">
-              <div class="card-body">
-                <div>
-                  <p>
-                    <b>Name: </b>{{project.projectName}}
-                  </p>
-                  <p>
-                    <b>Type: </b>{{project.projectType}}
-                  </p>
-                  <p>
-                    <b>Scope: </b>{{project.projectScope}}
-                  </p>
-                  <p>
-                    <b>Description: </b>{{project.projectDescription}}
-                  </p>
-                  <p>
-                    <b>Period: </b>From: {{project.startDate|date}} To: {{project.endDate|date}}
-                  </p>
-                  <p>
-                    <b>Tecnhologies: </b>
-                    <span *ngFor="let tecnhology of project.tecnhologies">
-                      {{tecnhology}}
-                    </span>
-                  </p>
-                  <p *ngIf="project.urlLink">
-                    <a href="{{project.urlLink}}">Link</a>
-                  </p>
-                  <button class="btn roundedButton float-right editButton" id="removeButton" matTooltip="Delete" (click)="deleteSkill(i)">
-                    <mat-icon class="editIcon">delete</mat-icon>
-                  </button>
-                  <button class="btn roundedButton float-right editButton" matTooltip="Edit" (click)="editSkillDialog(i)">
-                    <mat-icon class="editIcon">edit</mat-icon>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="headings" *ngIf="certificatesList.length>0">
-          <span class="hr"></span>
-          <h2 class="title">Certificates:</h2>
-          <span class="hr"></span>
-        </div>
-         <div class="row">
-          <div class="col-sm-6" *ngFor="let certificate of certificatesList; index as i">
-            <div class="card">
-              <div class="card-body">
-                <div>
-                  <p>
-                    <b>Title: </b>{{certificate.title}}
-                  </p>
-                  <p>
-                    <b>Entity: </b>{{certificate.entity}}
-                  </p>
-                  <p>
-                    <b>Issue Date: </b>{{certificate.issueDate |date}}
-                  </p>
-                  <p>
-                    <b>Grade: </b>{{certificate.grade}}
-                  </p>
-                  <p>
-                    <b>Description: </b>{{certificate.description}}
-                  </p>
-                  <p>
-                    <b>Attachment: </b>{{certificate.file[0].name}}
-                  </p>
-                  <button class="btn roundedButton float-right editButton" id="removeButton" matTooltip="Delete" (click)="deleteSkill(i)">
-                    <mat-icon class="editIcon">delete</mat-icon>
-                  </button>
-                  <button class="btn roundedButton float-right editButton" matTooltip="Edit" (click)="editSkillDialog(i)">
-                    <mat-icon class="editIcon">edit</mat-icon>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="headings" *ngIf="interestsList.length>0">
-          <span class="hr"></span>
-          <h2 class="title">Interests:</h2>
-          <span class="hr"></span>
-        </div>
-         <div class="row">
-          <div class="col-sm-6" *ngFor="let interest of interestsList; index as i">
-            <div class="card">
-              <div class="card-body">
-                <div>
-                  <p>
-                    <i class="fas fa-clipboard-list"></i>
-                    <b>Interest: </b>{{interest.interestName}}
-                  </p>
-                  <p>
-                    <i class="fas fa-align-left"></i>
-                    <b>Description: </b>{{interest.description}}
-                  </p>
-                  <button class="btn roundedButton float-right editButton" id="removeButton" matTooltip="Delete" (click)="deleteSkill(i)">
-                    <mat-icon class="editIcon">delete</mat-icon>
-                  </button>
-                  <button class="btn roundedButton float-right editButton" matTooltip="Edit" (click)="editSkillDialog(i)">
-                    <mat-icon class="editIcon">edit</mat-icon>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="headings" *ngIf="othersList.length>0">
-          <span class="hr"></span>
-          <h2 class="title">Others:</h2>
-          <span class="hr"></span>
-        </div>
-         <div class="row">
-          <div class="col-sm-4" *ngFor="let otherElement of othersList; index as i">
-            <div class="card">
-              <div class="card-body">
-                <div>
-                  <p>
-                    <i class="fas fa-ellipsis-h"></i>
-                    <b>Title: </b>{{otherElement.title}}
-                  </p>
-                  <p>
-                    <i class="fas fa-align-left"></i>
-                    <b>Description: </b>{{otherElement.description}}
-                  </p>
-                  <p>
-                    <i class="fas fa-link"></i>
-                   <a href="{{otherElement.urlLink}}" class="cod-cursor"> <b>Link</b></a>
-                  </p>
-                  <button class="btn roundedButton float-right editButton" id="removeButton" matTooltip="Delete" (click)="deleteSkill(i)">
-                    <mat-icon class="editIcon">delete</mat-icon>
-                  </button>
-                  <button class="btn roundedButton float-right editButton" matTooltip="Edit" (click)="editSkillDialog(i)">
-                    <mat-icon class="editIcon">edit</mat-icon>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-          <button matStepperPrevious class="btn roundedButton float-left">Back</button>
-          <button matStepperNext class="btn roundedButton float-right">Next</button>
+        <cod-adicional-info-stepper [profile]="profile"></cod-adicional-info-stepper>
+        <button matStepperPrevious class="btn roundedButton float-left">Back</button>
+        <button matStepperNext class="btn roundedButton float-right" (click)="printCurrentProfile()">Finish</button>
       </mat-step>
       <!-- Icon overrides. -->
       <ng-template matStepperIcon="user">

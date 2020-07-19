@@ -6,7 +6,8 @@ import { BsDatepickerConfig } from 'ngx-bootstrap';
 import { BsDatepickerViewMode } from 'ngx-bootstrap/datepicker';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
-import { AdicionalInfoHobby, AdicionalInfoProject, AdicionalInfoCertificate, AdicionalInfoInterests, AdicionalInfoOthers } from 'src/app/shared/interfaces/adicional-info-data';
+import { TechnologiesService } from 'src/app/core/services/technologies.service';
+import { ProjectService } from 'src/app/core/services/project.service';
 @Component({
   selector: 'cod-dialog-adicional-info',
   templateUrl: './dialog-adicional-info.component.html',
@@ -20,14 +21,12 @@ export class DialogAdicionalInfoComponent implements OnInit {
   certificateForm: FormGroup;
   interestForm: FormGroup;
   othersForm: FormGroup;
-  projectTypeList = ['Academic', 'Professional', 'Personal'];
+  projectTypeList: string [];
   projectType: string;
   bsConfig: Partial<BsDatepickerConfig>;
-  bsConfig2: Partial<BsDatepickerConfig>;
-  bsConfig3: Partial<BsDatepickerConfig>;
   minMode: BsDatepickerViewMode = 'month';
   toolsList: string[] = [];
-  technologies: string[] = ['Java', 'Git', 'C#', 'Python'];
+  technologies: string[];
   technologiesUsed: string[] = [];
   autoCompleteControl = new FormControl();
   filteredOptions: Observable<string[]>;
@@ -36,7 +35,9 @@ export class DialogAdicionalInfoComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<DialogAdicionalInfoComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public technologiesService : TechnologiesService,
+    public projectService: ProjectService
   ) {
   }
 
@@ -64,7 +65,7 @@ export class DialogAdicionalInfoComponent implements OnInit {
     });
 
     this.interestForm = this.formBuilder.group({
-      interestName: ['', Validators.required],
+      name: ['', Validators.required],
       description: ['']
     });
 
@@ -77,13 +78,13 @@ export class DialogAdicionalInfoComponent implements OnInit {
     this.bsConfig = Object.assign({}, {
       minMode: this.minMode
     });
-    this.bsConfig2 = Object.assign({}, {
-      minMode: this.minMode
-    });
     this.filteredOptions = this.autoCompleteControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))
     );
+
+    this.technologies = this.technologiesService.getTechnologiesList();
+    this.projectTypeList = this.projectService.getProjetType();
   }
 
   addTechnology(technology: string) {

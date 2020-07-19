@@ -75,7 +75,7 @@
           <mat-form-field class="datesSmaller">
             <mat-label>End Date</mat-label>
             <input type="text" formControlName="endDate" id="endData" required matInput [errorStateMatcher]="matcher"
-              class="form-control" [bsConfig]="bsConfig2" #dp="bsDatepicker" bsDatepicker>
+              class="form-control" [bsConfig]="bsConfig" #dp="bsDatepicker" bsDatepicker>
           </mat-form-field>
         </div>
       </div>
@@ -134,7 +134,7 @@
       <mat-form-field>
         <mat-label>Issue Date</mat-label>
         <input type="issueDate" formControlName="issueDate" id="endData" required matInput [errorStateMatcher]="matcher"
-          class="form-control" [bsConfig]="bsConfig3" #dp="bsDatepicker" bsDatepicker>
+          class="form-control" [bsConfig]="bsConfig" #dp="bsDatepicker" bsDatepicker>
       </mat-form-field>
       <br>
       <mat-form-field>
@@ -166,7 +166,7 @@
     <form [formGroup]="interestForm" (submit)="submitAdicionalInfo()">
       <mat-form-field>
         <mat-label>Interest Name</mat-label>
-        <input id="interestName" matInput formControlName="interestName" required [errorStateMatcher]="matcher">
+        <input id="interestName" matInput formControlName="name" required [errorStateMatcher]="matcher">
       </mat-form-field>
       <br>
       <mat-form-field>

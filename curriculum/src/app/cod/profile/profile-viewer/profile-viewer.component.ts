@@ -20,8 +20,8 @@ export class ProfileViewerComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.profileService.getProfile(id).subscribe(value => this.profile = value);
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    //this.profileService.getProfile(id).subscribe(value => this.profile = value);
   }
 
   ngAfterViewInit(): void {
