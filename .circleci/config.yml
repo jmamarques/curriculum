@@ -60,8 +60,8 @@ jobs:
 
       - run: pwd
       - run: ls -laF
-      - run: cd curriculum && yarn install
-      - run: cd curriculum && yarn run build
+      - run: cd curriculum && npm install
+      - run: cd curriculum && npm run build
 
       - save_cache:
           paths:
