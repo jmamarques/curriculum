@@ -46,7 +46,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
 
-    working_directory: ~/project/curriculum/curriculum
+    working_directory: ~/curriculum
 
     steps:
       - checkout
@@ -60,8 +60,8 @@ jobs:
 
       - run: pwd
       - run: ls -laF
-      - run: yarn install
-      - run: yarn run build
+      - run: cd curriculum && yarn install
+      - run: cd curriculum && yarn run build
 
       - save_cache:
           paths:
@@ -73,28 +73,28 @@ jobs:
           key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }} 
 
       # run tests!
-      - run: yarn run test:unit 
+      - run: cd curriculum && yarn run test:unit 
 
   deploy-job:
        docker:
          - image: circleci/node:14.3.0
-       working_directory: ~/project/curriculum/curriculum
+       working_directory: ~/curriculum
        steps:
          - restore_cache:
              keys:
               - v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }} 
          - run:
              name: show directory 
-             command: pwd
+             command: cd curriculum && pwd
          - run:
              name: Install Firebase
-             command: npm install --save-dev firebase-tools
+             command: cd curriculum && npm install --save-dev firebase-tools
          - run:
              name: look in directory
-             command: ls -ltr
+             command: cd curriculum && ls -ltr
          - run:
              name: Deploy Master to Firebase
-             command: npm run firebase-deploy -- --token=$FIREBASE_DEPLOY_TOKEN    
+             command: cd curriculum && npm run firebase-deploy -- --token=$FIREBASE_DEPLOY_TOKEN    
 
 workflows:
   version: 2
