@@ -46,7 +46,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
 
-    working_directory: ~/project/curriculum
+    #working_directory: ~/project/curriculum
 
     steps:
       - checkout
@@ -58,7 +58,9 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: yarn install
+      - run: pwd
+      - run: ls -laF
+      - run: cd curricullum && yarn install
       - run: yarn run build
 
       - save_cache:
