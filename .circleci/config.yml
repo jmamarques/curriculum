@@ -46,7 +46,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
 
-    #working_directory: ~/project/curriculum
+    working_directory: /curriculum
 
     steps:
       - checkout
@@ -60,7 +60,7 @@ jobs:
 
       - run: pwd
       - run: ls -laF
-      - run: cd curricullum && yarn install
+      - run: yarn install
       - run: yarn run build
 
       - save_cache:
@@ -78,7 +78,7 @@ jobs:
   deploy-job:
        docker:
          - image: circleci/node:14.3.0
-       working_directory: ~/project/curriculum
+       working_directory: curriculum
        steps:
          - restore_cache:
              keys:
