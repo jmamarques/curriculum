@@ -46,7 +46,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
 
-    working_directory: /curriculum
+    working_directory: ~/project/curriculum/curriculum
 
     steps:
       - checkout
@@ -78,7 +78,7 @@ jobs:
   deploy-job:
        docker:
          - image: circleci/node:14.3.0
-       working_directory: curriculum
+       working_directory: ~/project/curriculum/curriculum
        steps:
          - restore_cache:
              keys:
