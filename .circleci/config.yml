@@ -30,122 +30,79 @@
 #       - run: cd curriculum && npm test
       
       
-      
-# This code is licensed from CircleCI to the user under the MIT license. See
-# https://circleci.com/orbs/registry/licensing for details.
-version: 2.1
-
-description: |
-  Build and publish Ionic/Angular libraries.
-  Repository: https://github.com/okode/orbs
-
-orbs:
-  common: okode/common@volatile
-
-executors:
-  node:
-    docker:
-      - image: circleci/node
-  browsers:
-    docker:
-      - image: circleci/node:browsers
-
+    # Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
 jobs:
-  test:
-    parameters:
-      project:
-        type: string
-      skip-tests:
-        type: boolean
-        default: false
-      skip-e2e:
-        type: boolean
-        default: false
+  build-job:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:14.3.0
 
-    executor: browsers
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/repo/curriculum
+
     steps:
       - checkout
-      - common/npm-install
-      - run:
-          name: Building
-          command: npm run build -- << parameters.project >>
-      - unless:
-          condition: << parameters.skip-tests >>
-          steps:
-            - common/chrome-upgrade
-            - run:
-                name: Running unit tests
-                command: npm run test -- << parameters.project >> --watch false --progress false
-            - unless:
-                condition: << parameters.skip-e2e >>
-                steps:
-                  - run:
-                      name: Running e2e tests
-                      command: npm run e2e
-            - store_test_results:
-                path: test-results
-  build:
-    parameters:
-      project:
-        type: string
-    executor: node
-    steps:
-      - checkout
-      - common/npm-install
-      - run:
-          name: Building
-          command: npm run build -- << parameters.project >>
-      - persist_to_workspace:
-          root: .
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run: yarn install
+      - run: yarn run build
+
+      - save_cache:
           paths:
+            - node_modules
             - dist
-  publish-npm:
-    parameters:
-      path:
-        type: string
-      access:
-        type: string
-        default: public
-    executor: node
-    steps:
-      - attach_workspace:
-          at: .
-      - run:
-          name: Installing NPM CLI Login
-          command: sudo npm install -g npm-cli-adduser
-      - run:
-          name: Authenticating NPM
-          command: npm-cli-adduser
-      - run:
-          name: Publishing NPM package
-          command: cd << parameters.path >> && npm publish --access=<< parameters.access >>
-  publish-bitbucket:
-    parameters:
-      path:
-        type: string
-      repo:
-        type: string
-      ssh-permission-fingerprint:
-        type: string
-        default: ''
-    executor: node
-    steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "<< parameters.ssh-permission-fingerprint >>"
-      - attach_workspace:
-          at: .
-      - run:
-          name: Publish NPM package at Bitbcuket
-          command: |
-            mkdir -p ~/.ssh/ && echo -e "Host bitbucket.org\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-            git config --global user.email "dummy@mail.com"
-            git config --global user.name "$CIRCLE_USERNAME"
-            git clone --quiet git@bitbucket.org:<< parameters.repo >>-dist.git npmdist
-            cd npmdist
-            rm -rf *
-            cp -R ../<< parameters.path >>/* .
-            git add --all
-            git commit -m "Bumped version $CIRCLE_TAG"
-            git tag $CIRCLE_TAG
-            git push && git push --tags
+            - package.json
+            - firebase.json
+            - .firebaserc
+          key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }} 
+
+      # run tests!
+      - run: yarn run test:unit 
+
+  deploy-job:
+       docker:
+         - image: circleci/node:14.3.0
+       working_directory: ~/repo/curriculum 
+       steps:
+         - restore_cache:
+             keys:
+              - v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }} 
+         - run:
+             name: show directory 
+             command: pwd
+         - run:
+             name: Install Firebase
+             command: npm install --save-dev firebase-tools
+         - run:
+             name: look in directory
+             command: ls -ltr
+         - run:
+             name: Deploy Master to Firebase
+             command: npm run firebase-deploy -- --token=$FIREBASE_DEPLOY_TOKEN    
+
+workflows:
+  version: 2
+
+  -deploy:
+    jobs:
+      - build-job
+      - deploy-job:
+          requires:
+            - build-job
+          filters:
+            branches:
+              only: master
