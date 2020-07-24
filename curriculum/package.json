@@ -48,7 +48,8 @@
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "websocket-extensions": ">=0.1.4",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "lodash": ">=4.17.19"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.901.9",
