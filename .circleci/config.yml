@@ -27,7 +27,3 @@ jobs:
           steps:
             - run: cd curriculum && npm install
             - run: cd curriculum && npm test
-workflows:
-    build-and-test:
-      jobs:
-        - build-and-test
