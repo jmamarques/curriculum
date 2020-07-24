@@ -16,12 +16,136 @@
 #     build-and-test:
 #       jobs:
 #         - build-and-test
+
+
+
+# version: 2.1
+# jobs:
+#   build:
+#     docker: 
+#       - image: circleci/node:14.3.0 # the primary container, where your job's commands are run
+#     steps:
+#       - checkout # check out the code in the project directory
+#       - run: cd curriculum && npm install
+#       - run: cd curriculum && npm test
+      
+      
+      
+# This code is licensed from CircleCI to the user under the MIT license. See
+# https://circleci.com/orbs/registry/licensing for details.
 version: 2.1
+
+description: |
+  Build and publish Ionic/Angular libraries.
+  Repository: https://github.com/okode/orbs
+
+orbs:
+  common: okode/common@volatile
+
+executors:
+  node:
+    docker:
+      - image: circleci/node
+  browsers:
+    docker:
+      - image: circleci/node:browsers
+
 jobs:
-  build:
-    docker: 
-      - image: circleci/node:14.3.0 # the primary container, where your job's commands are run
+  test:
+    parameters:
+      project:
+        type: string
+      skip-tests:
+        type: boolean
+        default: false
+      skip-e2e:
+        type: boolean
+        default: false
+
+    executor: browsers
     steps:
-      - checkout # check out the code in the project directory
-      - run: cd curriculum && npm install
-      - run: cd curriculum && npm test
+      - checkout
+      - common/npm-install
+      - run:
+          name: Building
+          command: npm run build -- << parameters.project >>
+      - unless:
+          condition: << parameters.skip-tests >>
+          steps:
+            - common/chrome-upgrade
+            - run:
+                name: Running unit tests
+                command: npm run test -- << parameters.project >> --watch false --progress false
+            - unless:
+                condition: << parameters.skip-e2e >>
+                steps:
+                  - run:
+                      name: Running e2e tests
+                      command: npm run e2e
+            - store_test_results:
+                path: test-results
+  build:
+    parameters:
+      project:
+        type: string
+    executor: node
+    steps:
+      - checkout
+      - common/npm-install
+      - run:
+          name: Building
+          command: npm run build -- << parameters.project >>
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist
+  publish-npm:
+    parameters:
+      path:
+        type: string
+      access:
+        type: string
+        default: public
+    executor: node
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Installing NPM CLI Login
+          command: sudo npm install -g npm-cli-adduser
+      - run:
+          name: Authenticating NPM
+          command: npm-cli-adduser
+      - run:
+          name: Publishing NPM package
+          command: cd << parameters.path >> && npm publish --access=<< parameters.access >>
+  publish-bitbucket:
+    parameters:
+      path:
+        type: string
+      repo:
+        type: string
+      ssh-permission-fingerprint:
+        type: string
+        default: ''
+    executor: node
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "<< parameters.ssh-permission-fingerprint >>"
+      - attach_workspace:
+          at: .
+      - run:
+          name: Publish NPM package at Bitbcuket
+          command: |
+            mkdir -p ~/.ssh/ && echo -e "Host bitbucket.org\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+            git config --global user.email "dummy@mail.com"
+            git config --global user.name "$CIRCLE_USERNAME"
+            git clone --quiet git@bitbucket.org:<< parameters.repo >>-dist.git npmdist
+            cd npmdist
+            rm -rf *
+            cp -R ../<< parameters.path >>/* .
+            git add --all
+            git commit -m "Bumped version $CIRCLE_TAG"
+            git tag $CIRCLE_TAG
+            git push && git push --tags
