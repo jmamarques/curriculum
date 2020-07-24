@@ -1,11 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { DialogData } from 'src/app/shared/interfaces/dialog-data';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { SocialNetwork } from 'src/app/shared/interfaces/social-network';
-import { SocialNetworksService } from 'src/app/core/services/social-networks.service';
-import { SocialData } from 'src/app/shared/interfaces/social-data';
-import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {DialogData} from 'src/app/shared/interfaces/dialog-data';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {SocialNetworksService} from 'src/app/core/services/social-networks.service';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
+import {SocialData, SocialNetwork} from '../../../../shared/interfaces/profile';
 
 @Component({
   selector: 'cod-dialog-social-networks',
@@ -16,14 +15,14 @@ export class DialogSocialNetworksComponent implements OnInit {
   registerForm: FormGroup;
   matcher = new MyErrorStateMatcher();
   submitted = false;
-  dropdownValue: SocialData = { link: '', socialContent: { name: '', urlString: '' } };
+  dropdownValue: SocialData = {link: '', socialContent: {name: '', urlString: ''}};
   socialNetworksList: SocialNetwork[] = [];
-  alreadyAddedBefore: boolean = false;
+  alreadyAddedBefore = false;
 
   constructor(private formBuilder: FormBuilder,
-    private dialogRef: MatDialogRef<DialogSocialNetworksComponent>,
-    private socialNetworksService: SocialNetworksService,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+              private dialogRef: MatDialogRef<DialogSocialNetworksComponent>,
+              private socialNetworksService: SocialNetworksService,
+              @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) {
   }
 
@@ -45,6 +44,7 @@ export class DialogSocialNetworksComponent implements OnInit {
 
 
   }
+
   socialNetWorkSelected(value: any): void {
     let booleanResult = false;
     this.data.listNames.forEach(elem => {

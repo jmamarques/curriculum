@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as AOS from 'aos';
-import { FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
-import { SocialData } from 'src/app/shared/interfaces/social-data';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogSocialNetworksComponent } from './dialog-social-networks/dialog-social-networks.component';
-import { ErrorStateMatcher } from '@angular/material/core';
-import { Profile, UserDetails } from 'src/app/shared/interfaces/profile';
-import { CountriesService } from 'src/app/core/services/countries.service';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+import {DialogSocialNetworksComponent} from './dialog-social-networks/dialog-social-networks.component';
+import {ErrorStateMatcher} from '@angular/material/core';
+import {Profile, SocialData, UserDetails} from 'src/app/shared/interfaces/profile';
+import {CountriesService} from 'src/app/core/services/countries.service';
 
 @Component({
   selector: 'cod-profile-creator',
@@ -18,20 +17,22 @@ export class ProfileCreatorComponent implements OnInit {
   /* **************Profile Details Variables**************** */
   /* ****************************************************** */
   /* ***************************************************** */
-  countryList:any = [];
+  countryList: any = [];
   matcher = new MyErrorStateMatcher();
   profileDetailsForm: FormGroup;
 
-  //Image Variables
+  // Image Variables
   imagePath: any;
   imgURL: any;
   message: string;
   // list of users social networks
   socialList: SocialData[] = [];
-  //List Of Boolean VAriables for stepper Error Controller
+  // List Of Boolean VAriables for stepper Error Controller
   formProfileDetailsValid = true;
 
-  constructor(private formBuilder: FormBuilder, public dialog: MatDialog, public countryService : CountriesService) { }
+  constructor(private formBuilder: FormBuilder, public dialog: MatDialog, public countryService: CountriesService) {
+  }
+
   ngOnInit(): void {
     AOS.init({
       offset: 200,
@@ -40,7 +41,7 @@ export class ProfileCreatorComponent implements OnInit {
       delay: 100,
       once: true
     });
-    //Profile Details FormGroup Creation
+    // Profile Details FormGroup Creation
     this.profileDetailsForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -75,9 +76,11 @@ export class ProfileCreatorComponent implements OnInit {
   }
 
   openDialog() {
-    let nameSocial: string[] = [];
-    this.socialList.forEach(x => { nameSocial.push(x.socialContent.name) });
-    const dialog = this.dialog.open(DialogSocialNetworksComponent, { data: { listNames: nameSocial } });
+    const nameSocial: string[] = [];
+    this.socialList.forEach(x => {
+      nameSocial.push(x.socialContent.name);
+    });
+    const dialog = this.dialog.open(DialogSocialNetworksComponent, {data: {listNames: nameSocial}});
     dialog.afterClosed().subscribe(result => {
       console.warn('Added new Social Network');
       if (result) {
@@ -86,7 +89,6 @@ export class ProfileCreatorComponent implements OnInit {
       }
     });
   }
-
 
 
   removeBadge(socialName: string) {
@@ -103,22 +105,22 @@ export class ProfileCreatorComponent implements OnInit {
   }
 
   checkAllUserDetails(): void {
-    let result: boolean = true;
-    for (const elem in this.profileDetailsForm.controls) {
+    let result = true;
+    for (const elem of Object.keys(this.profileDetailsForm.controls)) {
       result = result && this.profileDetailsForm.controls[elem].valid;
     }
     this.formProfileDetailsValid = !result;
   }
 
-  saveProfileDetails():void{
-    let userDetailsTemp : UserDetails;
+  saveProfileDetails(): void {
+    let userDetailsTemp: UserDetails;
     userDetailsTemp = this.profileDetailsForm.value;
     this.profile.userDetails = userDetailsTemp;
     this.profile.userDetails.socialList = this.socialList;
     this.profile.userDetails.profileImage = this.imagePath;
   }
 
-  printCurrentProfile():void{
+  printCurrentProfile(): void {
     console.warn(this.profile);
 
   }
